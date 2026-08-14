@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Tools</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Student Tools 🚀</h1>
+        <p>Free and useful tools for students</p>
+    </header>
+
+    <main class="container">
+
+        <h2>Our Tools</h2>
+
+        <div class="tools">
+
+            <div class="tool-card">
+
+    <h3>📊 Percentage Calculator</h3>
+
+    <input
+        type="number"
+        id="marks"
+        placeholder="Your marks"
+    >
+
+    <input
+        type="number"
+        id="total"
+        placeholder="Total marks"
+    >
+
+    <button onclick="calculatePercentage()">
+        Calculate
+    </button>
+
+    <p id="result"></p>
+
+</div>
+            <div class="tool-card">
+
+    <h3>🎂 Age Calculator</h3>
+
+    <p>Enter your date of birth:</p>
+
+    <input
+        type="date"
+        id="birthDate"
+    >
+
+    <button onclick="calculateAge()">
+        Calculate Age
+    </button>
+
+    <p id="ageResult"></p>
+
+</div>
+            <div class="tool-card">
+
+    <h3>📚 CGPA Calculator</h3>
+
+    <p>Enter your marks:</p>
+
+    <input
+        type="number"
+        id="subject1"
+        placeholder="Subject 1"
+    >
+
+    <input
+        type="number"
+        id="subject2"
+        placeholder="Subject 2"
+    >
+
+    <input
+        type="number"
+        id="subject3"
+        placeholder="Subject 3"
+    >
+
+    <input
+        type="number"
+        id="subject4"
+        placeholder="Subject 4"
+    >
+
+    <input
+        type="number"
+        id="subject5"
+        placeholder="Subject 5"
+    >
+
+    <button onclick="calculateCGPA()">
+        Calculate CGPA
+    </button>
+
+    <p id="cgpaResult"></p>
+
+</div>
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
