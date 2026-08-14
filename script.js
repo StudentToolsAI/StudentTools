@@ -54,22 +54,22 @@ function calculateCGPA() {
     let s5 = Number(document.getElementById("subject5").value);
 
     if (
-        s1 === 0 ||
-        s2 === 0 ||
-        s3 === 0 ||
-        s4 === 0 ||
-        s5 === 0
+        s1 < 0 || s1 > 100 ||
+        s2 < 0 || s2 > 100 ||
+        s3 < 0 || s3 > 100 ||
+        s4 < 0 || s4 > 100 ||
+        s5 < 0 || s5 > 100
     ) {
         document.getElementById("cgpaResult").innerText =
-            "Please enter all subject marks.";
+            "Please enter marks between 0 and 100.";
         return;
     }
 
     let percentage =
         (s1 + s2 + s3 + s4 + s5) / 5;
 
-    let cgpa = percentage / 9.5;
+    let cgpa = percentage / 10;
 
     document.getElementById("cgpaResult").innerText =
-        "Your CGPA is " + cgpa.toFixed(2);
+        "Your approximate CGPA is " + cgpa.toFixed(2);
 }
