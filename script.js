@@ -102,9 +102,7 @@ function calculateAttendance() {
     let attendance =
         (attendedClasses / totalClasses) * 100;
 
-    let result =
-        "Your Attendance is " + attendance.toFixed(2) + "%.";
-
+    let result = "Your Attendance: " + attendance.toFixed(2) + "%.";
     if (attendance < 75) {
 
         let requiredClasses =
