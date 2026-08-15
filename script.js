@@ -74,7 +74,7 @@ function calculateCGPA() {
         "Your approximate CGPA is " + cgpa.toFixed(2);
 }
 unction calculateAttendance() {
-f
+
     let totalClasses = Number(document.getElementById("totalClasses").value);
     let attendedClasses = Number(document.getElementById("attendedClasses").value);
 
