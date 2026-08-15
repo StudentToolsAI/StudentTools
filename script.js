@@ -112,3 +112,36 @@ function calculateAttendance() {
 
     document.getElementById("attendanceResult").innerText = result;
 }
+function calculateGrade() {
+
+    let marks = Number(document.getElementById("gradeMarks").value);
+    let total = Number(document.getElementById("gradeTotal").value);
+
+    if (marks < 0 || total <= 0 || marks > total) {
+        document.getElementById("gradeResult").innerText =
+            "Please enter valid marks.";
+        return;
+    }
+
+    let percentage = (marks / total) * 100;
+    let grade;
+
+    if (percentage >= 90) {
+        grade = "A+";
+    } else if (percentage >= 80) {
+        grade = "A";
+    } else if (percentage >= 70) {
+        grade = "B+";
+    } else if (percentage >= 60) {
+        grade = "B";
+    } else if (percentage >= 50) {
+        grade = "C";
+    } else if (percentage >= 40) {
+        grade = "D";
+    } else {
+        grade = "F";
+    }
+
+    document.getElementById("gradeResult").innerText =
+        "Percentage: " + percentage.toFixed(2) + "% | Grade: " + grade;
+}
