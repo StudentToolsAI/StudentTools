@@ -1,26 +1,37 @@
 # Student Tools 🚀
 
-Free and useful tools for students.
+Free and useful online tools made especially for students.
 
-## Available Tools
+## 🛠️ Available Tools
 
 - 📊 Percentage Calculator
 - 🎂 Age Calculator
 - 📚 CGPA Calculator
 
-## Features
+## ✨ Features
 
 - Simple and easy to use
-- Works on mobile and desktop
-- Free to use
 - Fast calculations
+- Mobile-friendly design
+- Free to use
+- No sign-up required
 
-## Technologies Used
+## 💻 Technologies Used
 
 - HTML
 - CSS
 - JavaScript
 
-## Project Status
+## 🌐 Live Website
 
-The project is live and working.
+Visit the live Student Tools website:
+
+https://studenttoolsai.github.io/StudentTools/
+
+## 📌 Project Status
+
+The project is live and working. More useful student tools will be added in the future.
+
+## 👨‍💻 About
+
+Student Tools is a simple web project created to provide useful calculators and tools for students in one place.
