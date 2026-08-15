@@ -5,141 +5,292 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Tools</title>
+    <title>Student Tools - Free Online Calculators for Students</title>
+
+    <meta name="description"
+        content="Free online student tools including percentage, age and CGPA calculators. Fast, simple and easy to use.">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Student Tools 🚀</h1>
-        <p>Free and useful tools for students</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            Student Tools 🚀
+        </div>
+
+        <div class="nav-links">
+            <a href="#tools">Tools</a>
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">🎓 Made for Students</span>
+
+            <h1>Student Tools 🚀</h1>
+
+            <p>
+                Simple, fast and free online tools to make student life easier.
+            </p>
+
+            <a href="#tools" class="hero-button">
+                Explore Tools ↓
+            </a>
+
+        </div>
+
     </header>
 
-    <main class="container">
 
-        <h2>Our Tools</h2>
+    <!-- Tools Section -->
+    <main class="container" id="tools">
+
+        <div class="section-heading">
+            <span>🛠️</span>
+            <h2>Useful Student Tools</h2>
+            <p>Quick calculators for your everyday student needs.</p>
+        </div>
+
 
         <div class="tools">
 
+            <!-- Percentage Calculator -->
             <div class="tool-card">
 
-    <h3>📊 Percentage Calculator</h3>
+                <div class="tool-icon">📊</div>
 
-    <input
-        type="number"
-        id="marks"
-        placeholder="Your marks"
-    >
+                <h3>Percentage Calculator</h3>
 
-    <input
-        type="number"
-        id="total"
-        placeholder="Total marks"
-    >
+                <p class="tool-description">
+                    Calculate your percentage quickly using your marks.
+                </p>
 
-    <button onclick="calculatePercentage()">
-        Calculate
-    </button>
+                <input
+                    type="number"
+                    id="marks"
+                    placeholder="Your marks"
+                >
 
-    <p id="result"></p>
+                <input
+                    type="number"
+                    id="total"
+                    placeholder="Total marks"
+                >
 
-</div>
+                <button onclick="calculatePercentage()">
+                    Calculate Percentage
+                </button>
+
+                <p id="result" class="result"></p>
+
+            </div>
+
+
+            <!-- Age Calculator -->
             <div class="tool-card">
 
-    <h3>🎂 Age Calculator</h3>
+                <div class="tool-icon">🎂</div>
 
-    <p>Enter your date of birth:</p>
+                <h3>Age Calculator</h3>
 
-    <input
-        type="date"
-        id="birthDate"
-    >
+                <p class="tool-description">
+                    Find your current age from your date of birth.
+                </p>
 
-    <button onclick="calculateAge()">
-        Calculate Age
-    </button>
+                <label for="birthDate">Date of Birth</label>
 
-    <p id="ageResult"></p>
+                <input
+                    type="date"
+                    id="birthDate"
+                >
 
-</div>
+                <button onclick="calculateAge()">
+                    Calculate Age
+                </button>
+
+                <p id="ageResult" class="result"></p>
+
+            </div>
+
+
+            <!-- CGPA Calculator -->
             <div class="tool-card">
 
-    <h3>📚 CGPA Calculator</h3>
+                <div class="tool-icon">📚</div>
 
-    <p>Enter your marks:</p>
+                <h3>CGPA Calculator</h3>
 
-    <input
-        type="number"
-        id="subject1"
-        placeholder="Subject 1"
-    >
+                <p class="tool-description">
+                    Calculate your approximate CGPA from five subjects.
+                </p>
 
-    <input
-        type="number"
-        id="subject2"
-        placeholder="Subject 2"
-    >
+                <input
+                    type="number"
+                    id="subject1"
+                    placeholder="Subject 1 marks"
+                >
 
-    <input
-        type="number"
-        id="subject3"
-        placeholder="Subject 3"
-    >
+                <input
+                    type="number"
+                    id="subject2"
+                    placeholder="Subject 2 marks"
+                >
 
-    <input
-        type="number"
-        id="subject4"
-        placeholder="Subject 4"
-    >
+                <input
+                    type="number"
+                    id="subject3"
+                    placeholder="Subject 3 marks"
+                >
 
-    <input
-        type="number"
-        id="subject5"
-        placeholder="Subject 5"
-    >
+                <input
+                    type="number"
+                    id="subject4"
+                    placeholder="Subject 4 marks"
+                >
 
-    <button onclick="calculateCGPA()">
-        Calculate CGPA
-    </button>
+                <input
+                    type="number"
+                    id="subject5"
+                    placeholder="Subject 5 marks"
+                >
 
-    <p id="cgpaResult"></p>
+                <button onclick="calculateCGPA()">
+                    Calculate CGPA
+                </button>
 
-</div>
+                <p id="cgpaResult" class="result"></p>
+
+            </div>
+
         </div>
 
     </main>
-   <section class="about">
-    <h2>About Student Tools</h2>
-    <p>
-        Student Tools is a simple and free website that provides useful
-        calculators for students in one place.
-    </p>
 
-    <div class="features">
-        <div>
-            <h3>⚡ Fast</h3>
-            <p>Get results quickly and easily.</p>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+
+        <div class="section-heading">
+            <span>✨</span>
+            <h2>Why Student Tools?</h2>
+            <p>
+                Everything is designed to be simple, fast and useful for students.
+            </p>
         </div>
 
-        <div>
-            <h3>📱 Mobile Friendly</h3>
-            <p>Works on phones, tablets and computers.</p>
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div>⚡</div>
+                <h3>Fast</h3>
+                <p>
+                    Get your results instantly without complicated steps.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div>📱</div>
+                <h3>Mobile Friendly</h3>
+                <p>
+                    Works smoothly on phones, tablets and computers.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div>🆓</div>
+                <h3>Free to Use</h3>
+                <p>
+                    Our basic student tools are completely free to use.
+                </p>
+            </div>
+
         </div>
 
-        <div>
-            <h3>🆓 Free</h3>
-            <p>All student tools are free to use.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<footer>
-    <p>© 2026 Student Tools. Made for students.</p>
-</footer> 
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+
+        <div class="section-heading">
+            <span>❓</span>
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+
+        <div class="faq-list">
+
+            <details>
+                <summary>Is Student Tools free?</summary>
+                <p>
+                    Yes. The student calculators available on this website are
+                    free to use.
+                </p>
+            </details>
+
+
+            <details>
+                <summary>Can I use Student Tools on my phone?</summary>
+                <p>
+                    Yes. The website is designed to work on phones, tablets and
+                    desktop computers.
+                </p>
+            </details>
+
+
+            <details>
+                <summary>What calculators are available?</summary>
+                <p>
+                    Currently, Student Tools includes Percentage, Age and CGPA
+                    calculators. More useful student tools will be added over time.
+                </p>
+            </details>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>Student Tools 🚀</h3>
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+            <div class="footer-links">
+                <a href="#tools">Tools</a>
+                <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
+            </div>
+
+            <p class="copyright">
+                © 2026 Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
     <script src="script.js"></script>
+
 </body>
- 
 
 </html>
