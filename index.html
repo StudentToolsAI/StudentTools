@@ -172,7 +172,38 @@
             </div>
 
         </div>
+            <!-- Attendance Calculator -->
+            <div class="tool-card">
 
+                <div class="tool-icon">🏫</div>
+
+                <h3>Attendance Calculator</h3>
+
+                <p class="tool-description">
+                    Calculate your attendance and check how many classes you need to attend.
+                </p>
+
+                <input
+                    type="number"
+                    id="totalClasses"
+                    placeholder="Total classes"
+                    min="1"
+                >
+
+                <input
+                    type="number"
+                    id="attendedClasses"
+                    placeholder="Classes attended"
+                    min="0"
+                >
+
+                <button onclick="calculateAttendance()">
+                    Calculate Attendance
+                </button>
+
+                <p id="attendanceResult" class="result"></p>
+
+            </div>
     </main>
 
 
