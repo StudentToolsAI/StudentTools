@@ -73,3 +73,42 @@ function calculateCGPA() {
     document.getElementById("cgpaResult").innerText =
         "Your approximate CGPA is " + cgpa.toFixed(2);
 }
+function calculateAttendance() {
+
+    let totalClasses = Number(document.getElementById("totalClasses").value);
+    let attendedClasses = Number(document.getElementById("attendedClasses").value);
+
+    if (totalClasses <= 0 || attendedClasses < 0) {
+        document.getElementById("attendanceResult").innerText =
+            "Please enter valid class numbers.";
+        return;
+    }
+
+    if (attendedClasses > totalClasses) {
+        document.getElementById("attendanceResult").innerText =
+            "Attended classes cannot be greater than total classes.";
+        return;
+    }
+
+    let attendance = (attendedClasses / totalClasses) * 100;
+
+    let result = "Your Attendance is " + attendance.toFixed(2) + "%.";
+
+    if (attendance < 75) {
+
+        let requiredClasses =
+            Math.ceil((0.75 * totalClasses - attendedClasses) / 0.25);
+
+        result +=
+            " You need to attend " +
+            requiredClasses +
+            " more classes continuously to reach 75%.";
+
+    } else {
+
+        result +=
+            " Great! You are maintaining 75% attendance.";
+    }
+
+    document.getElementById("attendanceResult").innerText = result;
+}
