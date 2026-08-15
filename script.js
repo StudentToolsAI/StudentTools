@@ -14,6 +14,8 @@ function calculatePercentage() {
     document.getElementById("result").innerText =
         "Your Percentage is " + percentage.toFixed(2) + "%";
 }
+
+
 function calculateAge() {
 
     let birthDate = document.getElementById("birthDate").value;
@@ -45,6 +47,8 @@ function calculateAge() {
     document.getElementById("ageResult").innerText =
         "Your age is " + age + " years.";
 }
+
+
 function calculateCGPA() {
 
     let s1 = Number(document.getElementById("subject1").value);
@@ -73,10 +77,15 @@ function calculateCGPA() {
     document.getElementById("cgpaResult").innerText =
         "Your approximate CGPA is " + cgpa.toFixed(2);
 }
-unction calculateAttendance() {
 
-    let totalClasses = Number(document.getElementById("totalClasses").value);
-    let attendedClasses = Number(document.getElementById("attendedClasses").value);
+
+function calculateAttendance() {
+
+    let totalClasses =
+        Number(document.getElementById("totalClasses").value);
+
+    let attendedClasses =
+        Number(document.getElementById("attendedClasses").value);
 
     if (totalClasses <= 0 || attendedClasses < 0) {
         document.getElementById("attendanceResult").innerText =
@@ -90,14 +99,18 @@ unction calculateAttendance() {
         return;
     }
 
-    let attendance = (attendedClasses / totalClasses) * 100;
+    let attendance =
+        (attendedClasses / totalClasses) * 100;
 
-    let result = "Your Attendance is " + attendance.toFixed(2) + "%.";
+    let result =
+        "Your Attendance is " + attendance.toFixed(2) + "%.";
 
     if (attendance < 75) {
 
         let requiredClasses =
-            Math.ceil((0.75 * totalClasses - attendedClasses) / 0.25);
+            Math.ceil(
+                (0.75 * totalClasses - attendedClasses) / 0.25
+            );
 
         result +=
             " You need to attend " +
@@ -110,12 +123,18 @@ unction calculateAttendance() {
             " Great! You are maintaining 75% attendance.";
     }
 
-    document.getElementById("attendanceResult").innerText = result;
+    document.getElementById("attendanceResult").innerText =
+        result;
 }
+
+
 function calculateGrade() {
 
-    let marks = Number(document.getElementById("gradeMarks").value);
-    let total = Number(document.getElementById("gradeTotal").value);
+    let marks =
+        Number(document.getElementById("gradeMarks").value);
+
+    let total =
+        Number(document.getElementById("gradeTotal").value);
 
     if (marks < 0 || total <= 0 || marks > total) {
         document.getElementById("gradeResult").innerText =
@@ -123,7 +142,9 @@ function calculateGrade() {
         return;
     }
 
-    let percentage = (marks / total) * 100;
+    let percentage =
+        (marks / total) * 100;
+
     let grade;
 
     if (percentage >= 90) {
@@ -143,5 +164,8 @@ function calculateGrade() {
     }
 
     document.getElementById("gradeResult").innerText =
-        "Percentage: " + percentage.toFixed(2) + "% | Grade: " + grade;
+        "Percentage: " +
+        percentage.toFixed(2) +
+        "% | Grade: " +
+        grade;
 }
