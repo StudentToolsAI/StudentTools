@@ -110,11 +110,10 @@ function calculateAttendance() {
                 (0.75 * totalClasses - attendedClasses) / 0.25
             );
 
-        result +=
-            " You need to attend " +
-            requiredClasses +
-            " more classes continuously to reach 75%.";
-
+       result +=
+    " You need to attend " +
+    requiredClasses +
+    " more classes continuously to reach 75% attendance.";
     } else {
 
         result +=
