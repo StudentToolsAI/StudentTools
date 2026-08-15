@@ -204,6 +204,38 @@
 
             </div>
             </div>
+        <!-- Grade Calculator -->
+<div class="tool-card">
+
+    <div class="tool-icon">🎓</div>
+
+    <h3>Grade Calculator</h3>
+
+    <p class="tool-description">
+        Calculate your percentage and find your grade from your marks.
+    </p>
+
+    <input
+        type="number"
+        id="gradeMarks"
+        placeholder="Your marks"
+        min="0"
+    >
+
+    <input
+        type="number"
+        id="gradeTotal"
+        placeholder="Total marks"
+        min="1"
+    >
+
+    <button onclick="calculateGrade()">
+        Calculate Grade
+    </button>
+
+    <p id="gradeResult" class="result"></p>
+
+</div>
     </main>
 
 
