@@ -73,8 +73,8 @@ function calculateCGPA() {
     document.getElementById("cgpaResult").innerText =
         "Your approximate CGPA is " + cgpa.toFixed(2);
 }
-function calculateAttendance() {
-
+unction calculateAttendance() {
+f
     let totalClasses = Number(document.getElementById("totalClasses").value);
     let attendedClasses = Number(document.getElementById("attendedClasses").value);
 
