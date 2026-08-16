@@ -462,6 +462,53 @@
     <p id="weightResult" class="result"></p>
 
 </div>
+            <!-- Temperature Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">🌡️</div>
+
+    <h2>Temperature Converter</h2>
+
+    <p>
+        Convert temperature between Celsius, Fahrenheit,
+        Kelvin and Rankine.
+    </p>
+
+    <input
+        type="number"
+        id="temperatureValue"
+        placeholder="Enter temperature"
+    >
+
+    <label>From</label>
+
+    <select id="temperatureFrom">
+        <option value="celsius">Celsius (°C)</option>
+        <option value="fahrenheit">Fahrenheit (°F)</option>
+        <option value="kelvin">Kelvin (K)</option>
+        <option value="rankine">Rankine (°R)</option>
+    </select>
+
+    <button onclick="swapTemperatureUnits()">
+        🔄 Swap Units
+    </button>
+
+    <label>To</label>
+
+    <select id="temperatureTo">
+        <option value="celsius">Celsius (°C)</option>
+        <option value="fahrenheit">Fahrenheit (°F)</option>
+        <option value="kelvin">Kelvin (K)</option>
+        <option value="rankine">Rankine (°R)</option>
+    </select>
+
+    <button onclick="convertTemperature()">
+        Convert Temperature
+    </button>
+
+    <p id="temperatureResult"></p>
+
+</div>
     </main>
 
 
