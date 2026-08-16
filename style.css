@@ -513,3 +513,13 @@ button[onclick="swapLengthUnits()"] {
     font-size: 12px !important;
     line-height: 20px !important;
 }
+.tool-card button[onclick="swapVolumeUnits()"] {
+    width: 105px !important;
+    min-width: 105px !important;
+    height: 28px !important;
+    padding: 4px 8px !important;
+    margin: 8px auto !important;
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
+}
