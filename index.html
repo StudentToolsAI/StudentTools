@@ -558,6 +558,85 @@
     <p id="timeResult"></p>
 
 </div>
+            <!-- Area Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">📐</div>
+
+    <h2>Area Converter</h2>
+
+    <p>
+        Convert area between metric, imperial and common land measurement units.
+    </p>
+
+    <input
+        type="number"
+        id="areaValue"
+        placeholder="Enter area"
+        step="any"
+    >
+
+    <label>From</label>
+
+    <select id="areaFrom">
+
+        <optgroup label="Metric">
+            <option value="mm2">Square Millimeter (mm²)</option>
+            <option value="cm2">Square Centimeter (cm²)</option>
+            <option value="m2" selected>Square Meter (m²)</option>
+            <option value="km2">Square Kilometer (km²)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="in2">Square Inch (in²)</option>
+            <option value="ft2">Square Foot (ft²)</option>
+            <option value="yd2">Square Yard (yd²)</option>
+            <option value="mi2">Square Mile (mi²)</option>
+        </optgroup>
+
+        <optgroup label="Land">
+            <option value="acre">Acre</option>
+            <option value="hectare">Hectare</option>
+        </optgroup>
+
+    </select>
+
+    <button onclick="swapAreaUnits()">
+        🔄 Swap Units
+    </button>
+
+    <label>To</label>
+
+    <select id="areaTo">
+
+        <optgroup label="Metric">
+            <option value="mm2">Square Millimeter (mm²)</option>
+            <option value="cm2">Square Centimeter (cm²)</option>
+            <option value="m2">Square Meter (m²)</option>
+            <option value="km2" selected>Square Kilometer (km²)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="in2">Square Inch (in²)</option>
+            <option value="ft2">Square Foot (ft²)</option>
+            <option value="yd2">Square Yard (yd²)</option>
+            <option value="mi2">Square Mile (mi²)</option>
+        </optgroup>
+
+        <optgroup label="Land">
+            <option value="acre">Acre</option>
+            <option value="hectare">Hectare</option>
+        </optgroup>
+
+    </select>
+
+    <button onclick="convertArea()">
+        Convert Area
+    </button>
+
+    <p id="areaResult"></p>
+
+</div>
     </main>
 
 
