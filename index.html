@@ -712,6 +712,59 @@
     <p id="volumeResult"></p>
 
 </div>
+            <!-- Speed Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">🚗</div>
+
+    <h2>Speed Converter</h2>
+
+    <p>
+        Convert speed between metric, imperial and nautical units.
+    </p>
+
+    <input
+        type="number"
+        id="speedValue"
+        placeholder="Enter speed"
+        step="any"
+    >
+
+    <label>From</label>
+
+    <select id="speedFrom">
+
+        <option value="mps">Meter per Second (m/s)</option>
+        <option value="kmh" selected>Kilometer per Hour (km/h)</option>
+        <option value="mph">Mile per Hour (mph)</option>
+        <option value="fps">Foot per Second (ft/s)</option>
+        <option value="knot">Knot (kn)</option>
+
+    </select>
+
+    <button onclick="swapSpeedUnits()">
+        🔄 Swap Units
+    </button>
+
+    <label>To</label>
+
+    <select id="speedTo">
+
+        <option value="mps">Meter per Second (m/s)</option>
+        <option value="kmh">Kilometer per Hour (km/h)</option>
+        <option value="mph" selected>Mile per Hour (mph)</option>
+        <option value="fps">Foot per Second (ft/s)</option>
+        <option value="knot">Knot (kn)</option>
+
+    </select>
+
+    <button onclick="convertSpeed()">
+        Convert Speed
+    </button>
+
+    <p id="speedResult"></p>
+
+</div>
     </main>
 
 
@@ -829,7 +882,7 @@
     </footer>
 
 
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=8"></script>
 
 </body>
 
