@@ -637,6 +637,81 @@
     <p id="areaResult"></p>
 
 </div>
+            <!-- Volume Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">🧊</div>
+
+    <h2>Volume Converter</h2>
+
+    <p>
+        Convert volume between metric, imperial and common units.
+    </p>
+
+    <input
+        type="number"
+        id="volumeValue"
+        placeholder="Enter volume"
+        step="any"
+    >
+
+    <label>From</label>
+
+    <select id="volumeFrom">
+
+        <optgroup label="Metric">
+            <option value="ml">Milliliter (mL)</option>
+            <option value="l" selected>Liter (L)</option>
+            <option value="cm3">Cubic Centimeter (cm³)</option>
+            <option value="m3">Cubic Meter (m³)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="in3">Cubic Inch (in³)</option>
+            <option value="ft3">Cubic Foot (ft³)</option>
+            <option value="yd3">Cubic Yard (yd³)</option>
+            <option value="gallon">Gallon (US)</option>
+            <option value="quart">Quart (US)</option>
+            <option value="pint">Pint (US)</option>
+            <option value="cup">Cup (US)</option>
+        </optgroup>
+
+    </select>
+
+    <button onclick="swapVolumeUnits()">
+        🔄 Swap Units
+    </button>
+
+    <label>To</label>
+
+    <select id="volumeTo">
+
+        <optgroup label="Metric">
+            <option value="ml">Milliliter (mL)</option>
+            <option value="l">Liter (L)</option>
+            <option value="cm3">Cubic Centimeter (cm³)</option>
+            <option value="m3" selected>Cubic Meter (m³)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="in3">Cubic Inch (in³)</option>
+            <option value="ft3">Cubic Foot (ft³)</option>
+            <option value="yd3">Cubic Yard (yd³)</option>
+            <option value="gallon">Gallon (US)</option>
+            <option value="quart">Quart (US)</option>
+            <option value="pint">Pint (US)</option>
+            <option value="cup">Cup (US)</option>
+        </optgroup>
+
+    </select>
+
+    <button onclick="convertVolume()">
+        Convert Volume
+    </button>
+
+    <p id="volumeResult"></p>
+
+</div>
     </main>
 
 
