@@ -700,3 +700,96 @@ function swapAreaUnits() {
         convertArea();
     }
 }
+// Volume Converter
+
+const volumeUnits = {
+    ml: 0.001,
+    l: 1,
+    cm3: 0.001,
+    m3: 1000,
+
+    in3: 0.016387064,
+    ft3: 28.316846592,
+    yd3: 764.554857984,
+
+    gallon: 3.785411784,
+    quart: 0.946352946,
+    pint: 0.473176473,
+    cup: 0.2365882365
+};
+
+
+function convertVolume() {
+
+    const valueInput =
+        document.getElementById("volumeValue");
+
+    const fromUnit =
+        document.getElementById("volumeFrom").value;
+
+    const toUnit =
+        document.getElementById("volumeTo").value;
+
+    const result =
+        document.getElementById("volumeResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter a volume value.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value) || value < 0) {
+        result.innerText =
+            "Please enter a valid volume value.";
+        return;
+    }
+
+    const valueInLiters =
+        value * volumeUnits[fromUnit];
+
+    const convertedValue =
+        valueInLiters / volumeUnits[toUnit];
+
+    result.innerText =
+        "Result: " + formatVolumeResult(convertedValue);
+}
+
+
+function formatVolumeResult(value) {
+
+    if (value === 0) {
+        return "0";
+    }
+
+    return value.toLocaleString(
+        undefined,
+        {
+            maximumFractionDigits: 10
+        }
+    );
+}
+
+
+function swapVolumeUnits() {
+
+    const fromSelect =
+        document.getElementById("volumeFrom");
+
+    const toSelect =
+        document.getElementById("volumeTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("volumeValue");
+
+    if (valueInput.value !== "") {
+        convertVolume();
+    }
+}
