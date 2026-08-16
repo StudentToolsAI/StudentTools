@@ -378,6 +378,89 @@
     <p id="lengthResult" class="result"></p>
 
 </div>
+            <!-- Weight / Mass Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">⚖️</div>
+
+    <h3>Weight / Mass Converter</h3>
+
+    <p class="tool-description">
+        Convert weight and mass between metric, imperial and other common units.
+    </p>
+
+    <input
+        type="number"
+        id="weightValue"
+        placeholder="Enter value"
+        step="any"
+    >
+
+    <label for="weightFrom">From</label>
+
+    <select id="weightFrom">
+
+        <optgroup label="Metric">
+            <option value="ug">Microgram (µg)</option>
+            <option value="mg">Milligram (mg)</option>
+            <option value="g" selected>Gram (g)</option>
+            <option value="kg">Kilogram (kg)</option>
+            <option value="tonne">Metric Ton (t)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="oz">Ounce (oz)</option>
+            <option value="lb">Pound (lb)</option>
+            <option value="st">Stone (st)</option>
+            <option value="uston">US Ton</option>
+        </optgroup>
+
+        <optgroup label="Other">
+            <option value="quintal">Quintal</option>
+        </optgroup>
+
+    </select>
+
+    <button
+        type="button"
+        onclick="swapWeightUnits()">
+        ↔️ Swap Units
+    </button>
+
+    <label for="weightTo">To</label>
+
+    <select id="weightTo">
+
+        <optgroup label="Metric">
+            <option value="ug">Microgram (µg)</option>
+            <option value="mg">Milligram (mg)</option>
+            <option value="g">Gram (g)</option>
+            <option value="kg" selected>Kilogram (kg)</option>
+            <option value="tonne">Metric Ton (t)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="oz">Ounce (oz)</option>
+            <option value="lb">Pound (lb)</option>
+            <option value="st">Stone (st)</option>
+            <option value="uston">US Ton</option>
+        </optgroup>
+
+        <optgroup label="Other">
+            <option value="quintal">Quintal</option>
+        </optgroup>
+
+    </select>
+
+    <button
+        type="button"
+        onclick="convertWeight()">
+        Convert Weight
+    </button>
+
+    <p id="weightResult" class="result"></p>
+
+</div>
     </main>
 
 
