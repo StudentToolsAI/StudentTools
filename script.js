@@ -434,3 +434,92 @@ function swapWeightUnits() {
         convertWeight();
     }
 }
+// Temperature Converter
+
+function convertTemperature() {
+
+    const valueInput =
+        document.getElementById("temperatureValue");
+
+    const fromUnit =
+        document.getElementById("temperatureFrom").value;
+
+    const toUnit =
+        document.getElementById("temperatureTo").value;
+
+    const result =
+        document.getElementById("temperatureResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter a temperature.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value)) {
+        result.innerText =
+            "Please enter a valid temperature.";
+        return;
+    }
+
+    let celsius;
+
+    // Convert FROM selected unit to Celsius
+    if (fromUnit === "celsius") {
+        celsius = value;
+
+    } else if (fromUnit === "fahrenheit") {
+        celsius = (value - 32) * 5 / 9;
+
+    } else if (fromUnit === "kelvin") {
+        celsius = value - 273.15;
+
+    } else if (fromUnit === "rankine") {
+        celsius = (value - 491.67) * 5 / 9;
+    }
+
+
+    // Convert Celsius TO selected unit
+    let convertedValue;
+
+    if (toUnit === "celsius") {
+        convertedValue = celsius;
+
+    } else if (toUnit === "fahrenheit") {
+        convertedValue = (celsius * 9 / 5) + 32;
+
+    } else if (toUnit === "kelvin") {
+        convertedValue = celsius + 273.15;
+
+    } else if (toUnit === "rankine") {
+        convertedValue = (celsius + 273.15) * 9 / 5;
+    }
+
+
+    result.innerText =
+        "Result: " + convertedValue.toFixed(2);
+}
+
+
+function swapTemperatureUnits() {
+
+    const fromSelect =
+        document.getElementById("temperatureFrom");
+
+    const toSelect =
+        document.getElementById("temperatureTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("temperatureValue");
+
+    if (valueInput.value !== "") {
+        convertTemperature();
+    }
+}
