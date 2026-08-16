@@ -509,6 +509,55 @@
     <p id="temperatureResult"></p>
 
 </div>
+            <!-- Time Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">⏱️</div>
+
+    <h2>Time Converter</h2>
+
+    <p>
+        Convert time between seconds, minutes, hours,
+        days and weeks.
+    </p>
+
+    <input
+        type="number"
+        id="timeValue"
+        placeholder="Enter time"
+    >
+
+    <label>From</label>
+
+    <select id="timeFrom">
+        <option value="second">Second (s)</option>
+        <option value="minute">Minute (min)</option>
+        <option value="hour">Hour (h)</option>
+        <option value="day">Day (d)</option>
+        <option value="week">Week (wk)</option>
+    </select>
+
+    <button onclick="swapTimeUnits()">
+        🔄 Swap Units
+    </button>
+
+    <label>To</label>
+
+    <select id="timeTo">
+        <option value="second">Second (s)</option>
+        <option value="minute">Minute (min)</option>
+        <option value="hour">Hour (h)</option>
+        <option value="day">Day (d)</option>
+        <option value="week">Week (wk)</option>
+    </select>
+
+    <button onclick="convertTime()">
+        Convert Time
+    </button>
+
+    <p id="timeResult"></p>
+
+</div>
     </main>
 
 
