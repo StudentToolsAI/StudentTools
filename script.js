@@ -608,3 +608,95 @@ function swapTimeUnits() {
         convertTime();
     }
 }
+// Area Converter
+
+const areaUnits = {
+    mm2: 0.000001,
+    cm2: 0.0001,
+    m2: 1,
+    km2: 1000000,
+
+    in2: 0.00064516,
+    ft2: 0.09290304,
+    yd2: 0.83612736,
+    mi2: 2589988.110336,
+
+    acre: 4046.8564224,
+    hectare: 10000
+};
+
+
+function convertArea() {
+
+    const valueInput =
+        document.getElementById("areaValue");
+
+    const fromUnit =
+        document.getElementById("areaFrom").value;
+
+    const toUnit =
+        document.getElementById("areaTo").value;
+
+    const result =
+        document.getElementById("areaResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter an area value.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value) || value < 0) {
+        result.innerText =
+            "Please enter a valid area value.";
+        return;
+    }
+
+    const valueInSquareMeters =
+        value * areaUnits[fromUnit];
+
+    const convertedValue =
+        valueInSquareMeters / areaUnits[toUnit];
+
+    result.innerText =
+        "Result: " + formatAreaResult(convertedValue);
+}
+
+
+function formatAreaResult(value) {
+
+    if (value === 0) {
+        return "0";
+    }
+
+    return value.toLocaleString(
+        undefined,
+        {
+            maximumFractionDigits: 10
+        }
+    );
+}
+
+
+function swapAreaUnits() {
+
+    const fromSelect =
+        document.getElementById("areaFrom");
+
+    const toSelect =
+        document.getElementById("areaTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("areaValue");
+
+    if (valueInput.value !== "") {
+        convertArea();
+    }
+}
