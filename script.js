@@ -1,146 +1,203 @@
 function calculatePercentage() {
 
-    let marks = document.getElementById("marks").value;
-    let total = document.getElementById("total").value;
+    const marksInput = document.getElementById("marks");
+    const totalInput = document.getElementById("total");
+    const result = document.getElementById("result");
 
-    if (marks === "" || total === "") {
-        document.getElementById("result").innerText =
-            "Please enter both values.";
+    const marks = Number(marksInput.value);
+    const total = Number(totalInput.value);
+
+    if (marksInput.value === "" || totalInput.value === "") {
+        result.innerText = "Please enter both marks and total marks.";
         return;
     }
 
-    let percentage = (marks / total) * 100;
+    if (marks < 0 || total <= 0 || marks > total) {
+        result.innerText = "Please enter valid marks.";
+        return;
+    }
 
-    document.getElementById("result").innerText =
+    const percentage = (marks / total) * 100;
+
+    result.innerText =
         "Your Percentage is " + percentage.toFixed(2) + "%";
 }
 
 
 function calculateAge() {
 
-    let birthDate = document.getElementById("birthDate").value;
+    const birthDateInput = document.getElementById("birthDate");
+    const result = document.getElementById("ageResult");
 
-    if (birthDate === "") {
-        document.getElementById("ageResult").innerText =
-            "Please enter your date of birth.";
+    if (birthDateInput.value === "") {
+        result.innerText = "Please enter your date of birth.";
         return;
     }
 
-    let birth = new Date(birthDate);
-    let today = new Date();
+    const birthDate = new Date(birthDateInput.value);
+    const today = new Date();
 
-    let age = today.getFullYear() - birth.getFullYear();
-
-    let monthDifference =
-        today.getMonth() - birth.getMonth();
-
-    if (
-        monthDifference < 0 ||
-        (
-            monthDifference === 0 &&
-            today.getDate() < birth.getDate()
-        )
-    ) {
-        age--;
+    if (birthDate > today) {
+        result.innerText = "Date of birth cannot be in the future.";
+        return;
     }
 
-    document.getElementById("ageResult").innerText =
-        "Your age is " + age + " years.";
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
+
+    if (days < 0) {
+        months--;
+        days += new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            0
+        ).getDate();
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    result.innerText =
+        `Your age is ${years} years, ${months} months and ${days} days.`;
 }
 
 
 function calculateCGPA() {
 
-    let s1 = Number(document.getElementById("subject1").value);
-    let s2 = Number(document.getElementById("subject2").value);
-    let s3 = Number(document.getElementById("subject3").value);
-    let s4 = Number(document.getElementById("subject4").value);
-    let s5 = Number(document.getElementById("subject5").value);
+    const inputs = [
+        document.getElementById("subject1"),
+        document.getElementById("subject2"),
+        document.getElementById("subject3"),
+        document.getElementById("subject4"),
+        document.getElementById("subject5")
+    ];
 
-    if (
-        s1 < 0 || s1 > 100 ||
-        s2 < 0 || s2 > 100 ||
-        s3 < 0 || s3 > 100 ||
-        s4 < 0 || s4 > 100 ||
-        s5 < 0 || s5 > 100
-    ) {
-        document.getElementById("cgpaResult").innerText =
-            "Please enter marks between 0 and 100.";
-        return;
+    const result = document.getElementById("cgpaResult");
+
+    for (const input of inputs) {
+        if (input.value === "") {
+            result.innerText = "Please enter marks for all 5 subjects.";
+            return;
+        }
+
+        const marks = Number(input.value);
+
+        if (marks < 0 || marks > 100) {
+            result.innerText =
+                "Please enter marks between 0 and 100.";
+            return;
+        }
     }
 
-    let percentage =
-        (s1 + s2 + s3 + s4 + s5) / 5;
+    const total =
+        inputs.reduce((sum, input) => sum + Number(input.value), 0);
 
-    let cgpa = percentage / 10;
+    const percentage = total / 5;
+    const cgpa = percentage / 10;
 
-    document.getElementById("cgpaResult").innerText =
+    result.innerText =
         "Your approximate CGPA is " + cgpa.toFixed(2);
 }
 
 
 function calculateAttendance() {
 
-    let totalClasses =
-        Number(document.getElementById("totalClasses").value);
+    const totalInput =
+        document.getElementById("totalClasses");
 
-    let attendedClasses =
-        Number(document.getElementById("attendedClasses").value);
+    const attendedInput =
+        document.getElementById("attendedClasses");
 
-    if (totalClasses <= 0 || attendedClasses < 0) {
-        document.getElementById("attendanceResult").innerText =
+    const result =
+        document.getElementById("attendanceResult");
+
+    if (
+        totalInput.value === "" ||
+        attendedInput.value === ""
+    ) {
+        result.innerText =
+            "Please enter both class values.";
+        return;
+    }
+
+    const totalClasses = Number(totalInput.value);
+    const attendedClasses = Number(attendedInput.value);
+
+    if (
+        totalClasses <= 0 ||
+        attendedClasses < 0 ||
+        attendedClasses > totalClasses
+    ) {
+        result.innerText =
             "Please enter valid class numbers.";
         return;
     }
 
-    if (attendedClasses > totalClasses) {
-        document.getElementById("attendanceResult").innerText =
-            "Attended classes cannot be greater than total classes.";
-        return;
-    }
-
-    let attendance =
+    const attendance =
         (attendedClasses / totalClasses) * 100;
 
-    let result = "Your Attendance: " + attendance.toFixed(2) + "%.";
+    let message =
+        "Your Attendance: " +
+        attendance.toFixed(2) +
+        "%.";
+
     if (attendance < 75) {
 
-        let requiredClasses =
-            Math.ceil(
-                (0.75 * totalClasses - attendedClasses) / 0.25
-            );
+        const requiredClasses = Math.ceil(
+            (0.75 * totalClasses - attendedClasses) / 0.25
+        );
 
-       result +=
-    " You need to attend " +
-    requiredClasses +
-    " more classes continuously to reach 75% attendance.";
+        message +=
+            " You need to attend " +
+            requiredClasses +
+            " more classes continuously to reach 75%.";
     } else {
 
-        result +=
+        message +=
             " Great! You are maintaining 75% attendance.";
     }
 
-    document.getElementById("attendanceResult").innerText =
-        result;
+    result.innerText = message;
 }
 
 
 function calculateGrade() {
 
-    let marks =
-        Number(document.getElementById("gradeMarks").value);
+    const marksInput =
+        document.getElementById("gradeMarks");
 
-    let total =
-        Number(document.getElementById("gradeTotal").value);
+    const totalInput =
+        document.getElementById("gradeTotal");
 
-    if (marks < 0 || total <= 0 || marks > total) {
-        document.getElementById("gradeResult").innerText =
+    const result =
+        document.getElementById("gradeResult");
+
+    if (
+        marksInput.value === "" ||
+        totalInput.value === ""
+    ) {
+        result.innerText =
+            "Please enter both marks and total marks.";
+        return;
+    }
+
+    const marks = Number(marksInput.value);
+    const total = Number(totalInput.value);
+
+    if (
+        marks < 0 ||
+        total <= 0 ||
+        marks > total
+    ) {
+        result.innerText =
             "Please enter valid marks.";
         return;
     }
 
-    let percentage =
-        (marks / total) * 100;
+    const percentage = (marks / total) * 100;
 
     let grade;
 
@@ -160,7 +217,7 @@ function calculateGrade() {
         grade = "F";
     }
 
-    document.getElementById("gradeResult").innerText =
+    result.innerText =
         "Percentage: " +
         percentage.toFixed(2) +
         "% | Grade: " +
