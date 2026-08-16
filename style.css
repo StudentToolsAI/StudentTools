@@ -474,7 +474,7 @@ button[onclick="swapLengthUnits()"] {
 }
 .tool-card button[onclick="swapWeightUnits()"] {
     width: auto !important;
-    min-width: 100px !important;
+    min-width: 90px !important;
     padding: 8px 12px !important;
     margin: 8px auto !important;
     display: block !important;
