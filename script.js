@@ -878,3 +878,91 @@ function swapSpeedUnits() {
         convertSpeed();
     }
 }
+// Pressure Converter
+
+const pressureUnits = {
+    pa: 1,
+    kpa: 1000,
+    mpa: 1000000,
+    bar: 100000,
+    psi: 6894.757293168,
+    atm: 101325,
+    torr: 133.32236842105263,
+    mmhg: 133.322387415
+};
+
+
+function convertPressure() {
+
+    const valueInput =
+        document.getElementById("pressureValue");
+
+    const fromUnit =
+        document.getElementById("pressureFrom").value;
+
+    const toUnit =
+        document.getElementById("pressureTo").value;
+
+    const result =
+        document.getElementById("pressureResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter a pressure value.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value) || value < 0) {
+        result.innerText =
+            "Please enter a valid pressure value.";
+        return;
+    }
+
+    const valueInPascals =
+        value * pressureUnits[fromUnit];
+
+    const convertedValue =
+        valueInPascals / pressureUnits[toUnit];
+
+    result.innerText =
+        "Result: " + formatPressureResult(convertedValue);
+}
+
+
+function formatPressureResult(value) {
+
+    if (value === 0) {
+        return "0";
+    }
+
+    return value.toLocaleString(
+        undefined,
+        {
+            maximumFractionDigits: 10
+        }
+    );
+}
+
+
+function swapPressureUnits() {
+
+    const fromSelect =
+        document.getElementById("pressureFrom");
+
+    const toSelect =
+        document.getElementById("pressureTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("pressureValue");
+
+    if (valueInput.value !== "") {
+        convertPressure();
+    }
+}
