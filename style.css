@@ -473,11 +473,14 @@ button[onclick="swapLengthUnits()"] {
     font-size: 14px;
 }
 .swap-button {
-    width: 120px !important;
-    max-width: 120px !important;
-    min-width: 120px !important;
-    padding: 8px 12px !important;
+    width: 145px !important;
+    max-width: 145px !important;
+    min-width: 145px !important;
+    height: 40px !important;
+    padding: 8px 14px !important;
     margin: 10px auto !important;
     display: block !important;
     font-size: 14px !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
 }
