@@ -523,3 +523,88 @@ function swapTemperatureUnits() {
         convertTemperature();
     }
 }
+// Time Converter
+
+const timeUnits = {
+    second: 1,
+    minute: 60,
+    hour: 3600,
+    day: 86400,
+    week: 604800
+};
+
+
+function convertTime() {
+
+    const valueInput =
+        document.getElementById("timeValue");
+
+    const fromUnit =
+        document.getElementById("timeFrom").value;
+
+    const toUnit =
+        document.getElementById("timeTo").value;
+
+    const result =
+        document.getElementById("timeResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter a time value.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value) || value < 0) {
+        result.innerText =
+            "Please enter a valid time value.";
+        return;
+    }
+
+    const valueInSeconds =
+        value * timeUnits[fromUnit];
+
+    const convertedValue =
+        valueInSeconds / timeUnits[toUnit];
+
+    result.innerText =
+        "Result: " + formatTimeResult(convertedValue);
+}
+
+
+function formatTimeResult(value) {
+
+    if (value === 0) {
+        return "0";
+    }
+
+    return value.toLocaleString(
+        undefined,
+        {
+            maximumFractionDigits: 10
+        }
+    );
+}
+
+
+function swapTimeUnits() {
+
+    const fromSelect =
+        document.getElementById("timeFrom");
+
+    const toSelect =
+        document.getElementById("timeTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("timeValue");
+
+    if (valueInput.value !== "") {
+        convertTime();
+    }
+}
