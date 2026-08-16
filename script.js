@@ -223,3 +223,115 @@ function calculateGrade() {
         "% | Grade: " +
         grade;
 }
+// Length Converter
+
+const lengthUnits = {
+    nm: 1e-9,
+    um: 1e-6,
+    mm: 1e-3,
+    cm: 1e-2,
+    dm: 1e-1,
+    m: 1,
+    dam: 10,
+    hm: 100,
+    km: 1000,
+
+    mil: 0.0000254,
+    in: 0.0254,
+    ft: 0.3048,
+    yd: 0.9144,
+    rod: 5.0292,
+    chain: 20.1168,
+    furlong: 201.168,
+    mi: 1609.344,
+
+    fathom: 1.8288,
+    nmi: 1852,
+
+    au: 149597870700,
+    ly: 9460730472580800,
+    pc: 30856775814913670
+};
+
+
+function convertLength() {
+
+    const valueInput =
+        document.getElementById("lengthValue");
+
+    const fromUnit =
+        document.getElementById("lengthFrom").value;
+
+    const toUnit =
+        document.getElementById("lengthTo").value;
+
+    const result =
+        document.getElementById("lengthResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter a value.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value)) {
+        result.innerText =
+            "Please enter a valid number.";
+        return;
+    }
+
+    const valueInMeters =
+        value * lengthUnits[fromUnit];
+
+    const convertedValue =
+        valueInMeters / lengthUnits[toUnit];
+
+    result.innerText =
+        "Result: " + formatLengthResult(convertedValue);
+}
+
+
+function formatLengthResult(value) {
+
+    if (value === 0) {
+        return "0";
+    }
+
+    if (
+        Math.abs(value) >= 0.000001 &&
+        Math.abs(value) < 1000000000
+    ) {
+        return value.toLocaleString(
+            undefined,
+            {
+                maximumFractionDigits: 10
+            }
+        );
+    }
+
+    return value.toExponential(6);
+}
+
+
+function swapLengthUnits() {
+
+    const fromSelect =
+        document.getElementById("lengthFrom");
+
+    const toSelect =
+        document.getElementById("lengthTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("lengthValue");
+
+    if (valueInput.value !== "") {
+        convertLength();
+    }
+}
