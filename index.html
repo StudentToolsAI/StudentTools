@@ -269,6 +269,115 @@
     <p id="gradeResult" class="result"></p>
 
 </div>
+            <!-- Length Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">📏</div>
+
+    <h3>Length Converter</h3>
+
+    <p class="tool-description">
+        Convert length and distance between metric, imperial and other units.
+    </p>
+
+    <input
+        type="number"
+        id="lengthValue"
+        placeholder="Enter value"
+        step="any"
+    >
+
+    <label for="lengthFrom">From</label>
+
+    <select id="lengthFrom">
+        <optgroup label="Metric">
+            <option value="nm">Nanometer (nm)</option>
+            <option value="um">Micrometer (µm)</option>
+            <option value="mm">Millimeter (mm)</option>
+            <option value="cm">Centimeter (cm)</option>
+            <option value="dm">Decimeter (dm)</option>
+            <option value="m" selected>Meter (m)</option>
+            <option value="dam">Dekameter (dam)</option>
+            <option value="hm">Hectometer (hm)</option>
+            <option value="km">Kilometer (km)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="mil">Thou / Mil</option>
+            <option value="in">Inch (in)</option>
+            <option value="ft">Foot (ft)</option>
+            <option value="yd">Yard (yd)</option>
+            <option value="rod">Rod</option>
+            <option value="chain">Chain</option>
+            <option value="furlong">Furlong</option>
+            <option value="mi">Mile (mi)</option>
+        </optgroup>
+
+        <optgroup label="Nautical">
+            <option value="fathom">Fathom</option>
+            <option value="nmi">Nautical Mile (nmi)</option>
+        </optgroup>
+
+        <optgroup label="Astronomical">
+            <option value="au">Astronomical Unit (AU)</option>
+            <option value="ly">Light-year (ly)</option>
+            <option value="pc">Parsec (pc)</option>
+        </optgroup>
+    </select>
+
+    <button
+        type="button"
+        onclick="swapLengthUnits()">
+        ↔️ Swap Units
+    </button>
+
+    <label for="lengthTo">To</label>
+
+    <select id="lengthTo">
+        <optgroup label="Metric">
+            <option value="nm">Nanometer (nm)</option>
+            <option value="um">Micrometer (µm)</option>
+            <option value="mm">Millimeter (mm)</option>
+            <option value="cm">Centimeter (cm)</option>
+            <option value="dm">Decimeter (dm)</option>
+            <option value="m">Meter (m)</option>
+            <option value="dam">Dekameter (dam)</option>
+            <option value="hm">Hectometer (hm)</option>
+            <option value="km" selected>Kilometer (km)</option>
+        </optgroup>
+
+        <optgroup label="Imperial / US">
+            <option value="mil">Thou / Mil</option>
+            <option value="in">Inch (in)</option>
+            <option value="ft">Foot (ft)</option>
+            <option value="yd">Yard (yd)</option>
+            <option value="rod">Rod</option>
+            <option value="chain">Chain</option>
+            <option value="furlong">Furlong</option>
+            <option value="mi">Mile (mi)</option>
+        </optgroup>
+
+        <optgroup label="Nautical">
+            <option value="fathom">Fathom</option>
+            <option value="nmi">Nautical Mile (nmi)</option>
+        </optgroup>
+
+        <optgroup label="Astronomical">
+            <option value="au">Astronomical Unit (AU)</option>
+            <option value="ly">Light-year (ly)</option>
+            <option value="pc">Parsec (pc)</option>
+        </optgroup>
+    </select>
+
+    <button
+        type="button"
+        onclick="convertLength()">
+        Convert Length
+    </button>
+
+    <p id="lengthResult" class="result"></p>
+
+</div>
     </main>
 
 
