@@ -765,6 +765,65 @@
     <p id="speedResult"></p>
 
 </div>
+            <!-- Pressure Converter -->
+<div class="tool-card">
+
+    <div class="tool-icon">🧭</div>
+
+    <h2>Pressure Converter</h2>
+
+    <p>
+        Convert pressure between metric, imperial and standard pressure units.
+    </p>
+
+    <input
+        type="number"
+        id="pressureValue"
+        placeholder="Enter pressure"
+        step="any"
+    >
+
+    <label>From</label>
+
+    <select id="pressureFrom">
+
+        <option value="pa">Pascal (Pa)</option>
+        <option value="kpa" selected>Kilopascal (kPa)</option>
+        <option value="mpa">Megapascal (MPa)</option>
+        <option value="bar">Bar</option>
+        <option value="psi">Pound per Square Inch (psi)</option>
+        <option value="atm">Atmosphere (atm)</option>
+        <option value="torr">Torr</option>
+        <option value="mmhg">Millimeter of Mercury (mmHg)</option>
+
+    </select>
+
+    <button onclick="swapPressureUnits()">
+        🔄 Swap Units
+    </button>
+
+    <label>To</label>
+
+    <select id="pressureTo">
+
+        <option value="pa">Pascal (Pa)</option>
+        <option value="kpa">Kilopascal (kPa)</option>
+        <option value="mpa">Megapascal (MPa)</option>
+        <option value="bar" selected>Bar</option>
+        <option value="psi">Pound per Square Inch (psi)</option>
+        <option value="atm">Atmosphere (atm)</option>
+        <option value="torr">Torr</option>
+        <option value="mmhg">Millimeter of Mercury (mmHg)</option>
+
+    </select>
+
+    <button onclick="convertPressure()">
+        Convert Pressure
+    </button>
+
+    <p id="pressureResult"></p>
+
+</div>
     </main>
 
 
