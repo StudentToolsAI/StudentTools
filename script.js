@@ -335,3 +335,102 @@ function swapLengthUnits() {
         convertLength();
     }
 }
+// Weight / Mass Converter
+
+const weightUnits = {
+    ug: 0.000001,
+    mg: 0.001,
+    g: 1,
+    kg: 1000,
+    tonne: 1000000,
+
+    oz: 28.349523125,
+    lb: 453.59237,
+    st: 6350.29318,
+    uston: 907184.74,
+
+    quintal: 100000
+};
+
+
+function convertWeight() {
+
+    const valueInput =
+        document.getElementById("weightValue");
+
+    const fromUnit =
+        document.getElementById("weightFrom").value;
+
+    const toUnit =
+        document.getElementById("weightTo").value;
+
+    const result =
+        document.getElementById("weightResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter a value.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value)) {
+        result.innerText =
+            "Please enter a valid number.";
+        return;
+    }
+
+    const valueInGrams =
+        value * weightUnits[fromUnit];
+
+    const convertedValue =
+        valueInGrams / weightUnits[toUnit];
+
+    result.innerText =
+        "Result: " + formatWeightResult(convertedValue);
+}
+
+
+function formatWeightResult(value) {
+
+    if (value === 0) {
+        return "0";
+    }
+
+    if (
+        Math.abs(value) >= 0.000001 &&
+        Math.abs(value) < 1000000000
+    ) {
+        return value.toLocaleString(
+            undefined,
+            {
+                maximumFractionDigits: 10
+            }
+        );
+    }
+
+    return value.toExponential(6);
+}
+
+
+function swapWeightUnits() {
+
+    const fromSelect =
+        document.getElementById("weightFrom");
+
+    const toSelect =
+        document.getElementById("weightTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("weightValue");
+
+    if (valueInput.value !== "") {
+        convertWeight();
+    }
+}
