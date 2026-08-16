@@ -793,3 +793,88 @@ function swapVolumeUnits() {
         convertVolume();
     }
 }
+// Speed Converter
+
+const speedUnits = {
+    mps: 1,
+    kmh: 1 / 3.6,
+    mph: 0.44704,
+    fps: 0.3048,
+    knot: 0.5144444444444445
+};
+
+
+function convertSpeed() {
+
+    const valueInput =
+        document.getElementById("speedValue");
+
+    const fromUnit =
+        document.getElementById("speedFrom").value;
+
+    const toUnit =
+        document.getElementById("speedTo").value;
+
+    const result =
+        document.getElementById("speedResult");
+
+    if (valueInput.value === "") {
+        result.innerText =
+            "Please enter a speed value.";
+        return;
+    }
+
+    const value = Number(valueInput.value);
+
+    if (!Number.isFinite(value) || value < 0) {
+        result.innerText =
+            "Please enter a valid speed value.";
+        return;
+    }
+
+    const valueInMetersPerSecond =
+        value * speedUnits[fromUnit];
+
+    const convertedValue =
+        valueInMetersPerSecond / speedUnits[toUnit];
+
+    result.innerText =
+        "Result: " + formatSpeedResult(convertedValue);
+}
+
+
+function formatSpeedResult(value) {
+
+    if (value === 0) {
+        return "0";
+    }
+
+    return value.toLocaleString(
+        undefined,
+        {
+            maximumFractionDigits: 10
+        }
+    );
+}
+
+
+function swapSpeedUnits() {
+
+    const fromSelect =
+        document.getElementById("speedFrom");
+
+    const toSelect =
+        document.getElementById("speedTo");
+
+    const oldFrom = fromSelect.value;
+
+    fromSelect.value = toSelect.value;
+    toSelect.value = oldFrom;
+
+    const valueInput =
+        document.getElementById("speedValue");
+
+    if (valueInput.value !== "") {
+        convertSpeed();
+    }
+}
