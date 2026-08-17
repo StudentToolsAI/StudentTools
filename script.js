@@ -966,3 +966,19 @@ function swapPressureUnits() {
         convertPressure();
     }
 }
+function searchTools() {
+    const searchInput = document.getElementById("toolSearch");
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    const tools = document.querySelectorAll(".tool-card");
+
+    tools.forEach(function(tool) {
+        const toolText = tool.innerText.toLowerCase();
+
+        if (toolText.includes(searchTerm)) {
+            tool.style.display = "";
+        } else {
+            tool.style.display = "none";
+        }
+    });
+}
