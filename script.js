@@ -1028,3 +1028,23 @@ function calculateGPA() {
     result.innerText =
         "Your GPA is " + gpa.toFixed(2);
 }
+function searchHeroTools() {
+
+    const input = document.getElementById("heroToolSearch");
+    const search = input.value.toLowerCase().trim();
+
+    const cards = document.querySelectorAll(".tool-card");
+
+    cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        if (text.includes(search)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
