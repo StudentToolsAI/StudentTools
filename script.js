@@ -982,3 +982,49 @@ function searchTools() {
         }
     });
 }
+// GPA Calculator
+function calculateGPA() {
+
+    const inputs = [
+        document.getElementById("gpa1"),
+        document.getElementById("gpa2"),
+        document.getElementById("gpa3"),
+        document.getElementById("gpa4"),
+        document.getElementById("gpa5")
+    ];
+
+    const result =
+        document.getElementById("gpaResult");
+
+    for (const input of inputs) {
+
+        if (input.value === "") {
+            result.innerText =
+                "Please enter grade points for all 5 subjects.";
+            return;
+        }
+
+        const gradePoint = Number(input.value);
+
+        if (
+            !Number.isFinite(gradePoint) ||
+            gradePoint < 0 ||
+            gradePoint > 10
+        ) {
+            result.innerText =
+                "Please enter grade points between 0 and 10.";
+            return;
+        }
+    }
+
+    const total =
+        inputs.reduce(
+            (sum, input) => sum + Number(input.value),
+            0
+        );
+
+    const gpa = total / inputs.length;
+
+    result.innerText =
+        "Your GPA is " + gpa.toFixed(2);
+}
