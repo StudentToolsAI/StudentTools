@@ -101,8 +101,6 @@
 
 </header>
 
-    </header>
-
 
     <!-- Tools Section -->
     <main class="container" id="tools">
@@ -952,6 +950,30 @@
     </button>
 
     <p id="pressureResult"></p>
+
+</div>
+            <!-- Average Calculator -->
+<div class="tool-card" id="average">
+
+    <div class="tool-icon">📊</div>
+
+    <h2>Average Calculator</h2>
+
+    <p>
+        Calculate the average of multiple numbers quickly and easily.
+    </p>
+
+    <textarea
+        id="averageNumbers"
+        placeholder="Enter numbers separated by commas&#10;Example: 10, 20, 30, 40, 50"
+        rows="4"
+    ></textarea>
+
+    <button onclick="calculateAverage()">
+        Calculate Average
+    </button>
+
+    <p id="averageResult" class="result"></p>
 
 </div>
     </main>
