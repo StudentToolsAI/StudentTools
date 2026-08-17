@@ -1048,3 +1048,48 @@ function searchHeroTools() {
     });
 
 }
+// Average Calculator
+
+function calculateAverage() {
+
+    const input =
+        document.getElementById("averageNumbers");
+
+    const result =
+        document.getElementById("averageResult");
+
+    if (input.value.trim() === "") {
+        result.innerText =
+            "Please enter some numbers.";
+        return;
+    }
+
+    const numbers = input.value
+        .split(",")
+        .map(function(value) {
+            return Number(value.trim());
+        });
+
+    if (
+        numbers.length === 0 ||
+        numbers.some(function(number) {
+            return !Number.isFinite(number);
+        })
+    ) {
+        result.innerText =
+            "Please enter valid numbers separated by commas.";
+        return;
+    }
+
+    const total = numbers.reduce(
+        function(sum, number) {
+            return sum + number;
+        },
+        0
+    );
+
+    const average = total / numbers.length;
+
+    result.innerText =
+        "Average: " + average.toFixed(2);
+}
