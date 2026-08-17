@@ -543,3 +543,31 @@ button[onclick="swapLengthUnits()"] {
     font-size: 12px !important;
     line-height: 20px !important;
 }
+.tool-search {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.tool-search input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    background: #ffffff;
+    transition: 0.25s ease;
+}
+
+.tool-search input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+.tool-search input::placeholder {
+    color: #94a3b8;
+}
