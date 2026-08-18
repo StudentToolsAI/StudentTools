@@ -1,8 +1,10 @@
+# Advanced Student Tools — Home Page
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -11,7 +13,7 @@
     <title>Advanced Student Tools - Free Student Calculators & Converters</title>
 
     <meta name="description"
-    content="Advanced Student Tools offers free student calculators and converters including percentage, age, CGPA, GPA, attendance, grade, length, weight, temperature, time, area, volume, speed and pressure tools.">
+        content="Free student calculators and converters including percentage, age, CGPA, GPA, attendance, grade and unit conversion tools.">
 
     <meta name="robots"
         content="index, follow">
@@ -22,12 +24,11 @@
     <link rel="stylesheet"
         href="style.css">
 
-    <!-- Open Graph -->
     <meta property="og:title"
-        content="Advanced Student Tools - Free Online Calculators for Students">
+        content="Advanced Student Tools - Free Calculators & Converters">
 
     <meta property="og:description"
-        content="Free and easy-to-use student calculators for percentage, CGPA, attendance, grades and more.">
+        content="Free, fast and easy-to-use calculators and converters for students.">
 
     <meta property="og:type"
         content="website">
@@ -35,22 +36,23 @@
     <meta property="og:url"
         content="https://studenttoolsai.github.io/StudentTools/">
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Advanced Student Tools",
         "url": "https://studenttoolsai.github.io/StudentTools/",
-        "description": "Free, fast and easy-to-use online calculators for students."
+        "description": "Free calculators and converters for students."
     }
     </script>
 
 </head>
+
 <body>
 
     <!-- Navigation -->
     <nav class="navbar">
+
         <div class="nav-logo">
             Advanced Student Tools 🚀
         </div>
@@ -60,964 +62,648 @@
             <a href="#about">About</a>
             <a href="#faq">FAQ</a>
         </div>
+
     </nav>
 
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <header class="hero">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <span class="hero-badge">
-            🟢 100% Free • No Login • Student Friendly
-        </span>
+            <span class="hero-badge">
+                🟢 100% Free • No Login • Student Friendly
+            </span>
 
-       <h1>
-    Advanced Student Tools 🚀
-    <span>Free Calculators & Converters for Students</span>
-</h1>
+            <h1>
+                Advanced Student Tools 🚀
+                <span>
+                    Free Calculators & Converters for Students
+                </span>
+            </h1>
 
-        <p>
-    Advanced Student Tools provides free, fast and easy-to-use
-    calculators and converters for students.
-    <br>
-    Calculate, Convert, Solve and Achieve more!
-</p>
+            <p>
+                Calculate, convert and solve everyday student problems
+                with our collection of fast and easy-to-use online tools.
+            </p>
 
-        <div class="hero-search">
-            <span>🔍</span>
-            <input
-                type="text"
-                id="heroToolSearch"
-                placeholder="Search any tool... (e.g. percentage calculator)"
-                onkeyup="searchHeroTools()"
-            >
+            <div class="hero-search">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    id="heroToolSearch"
+                    placeholder="Search a calculator or converter..."
+                    onkeyup="searchHeroTools()"
+                >
+
+            </div>
+
+            <a href="#tools" class="hero-button">
+                Explore Tools ↓
+            </a>
+
         </div>
 
-        <a href="#tools" class="hero-button">
-            Explore Tools ↓
-        </a>
-
-    </div>
-
-</header>
+    </header>
 
 
-    <!-- Tools Section -->
+    <!-- Tools -->
     <main class="container" id="tools">
 
         <div class="section-heading">
+
             <span>🛠️</span>
-            <h2>Useful Student Tools</h2>
-            <p>Quick calculators for your everyday student needs.</p>
+
+            <h2>
+                Student Calculators & Converters
+            </h2>
+
+            <p>
+                Choose a tool to open its dedicated calculator page.
+            </p>
+
         </div>
 
 
+        <!-- Popular Tools -->
         <section class="popular-tools">
-    <div class="popular-header">
-        <div>
-            <span class="popular-badge">⭐ Most Useful</span>
-            <h2>Popular Student Tools</h2>
-            <p>Quick access to the tools students use most.</p>
-        </div>
 
-        <a href="#tools" class="view-all-tools">View All Tools →</a>
-    </div>
+            <div class="popular-header">
 
-    <div class="popular-grid">
+                <div>
 
-        <a href="#percentage" class="popular-card">
-            <div class="popular-icon">📊</div>
-            <h3>Percentage Calculator</h3>
-            <p>Calculate percentages quickly and easily.</p>
-            <span>Use Tool →</span>
-        </a>
+                    <span class="popular-badge">
+                        ⭐ Most Useful
+                    </span>
 
-        <a href="#age" class="popular-card">
-            <div class="popular-icon">🎂</div>
-            <h3>Age Calculator</h3>
-            <p>Calculate your exact age from your birth date.</p>
-            <span>Use Tool →</span>
-        </a>
+                    <h2>
+                        Popular Student Tools
+                    </h2>
 
-        <a href="#cgpa" class="popular-card">
-            <div class="popular-icon">📚</div>
-            <h3>CGPA Calculator</h3>
-            <p>Calculate your CGPA from your subject marks.</p>
-            <span>Use Tool →</span>
-        </a>
+                    <p>
+                        Quick access to the tools students use most.
+                    </p>
 
-        <a href="#attendance" class="popular-card">
-            <div class="popular-icon">🎯</div>
-            <h3>Attendance Calculator</h3>
-            <p>Calculate your attendance percentage.</p>
-            <span>Use Tool →</span>
-        </a>
-
-        <a href="#grade" class="popular-card">
-            <div class="popular-icon">⭐</div>
-            <h3>Grade Calculator</h3>
-            <p>Find your grade quickly from your marks.</p>
-            <span>Use Tool →</span>
-        </a>
-
-    </div>
-</section>
-        <div class="tools">
-
-           <!-- Percentage Calculator -->
-<div class="tool-card" id="percentage">
-
-                <div class="tool-icon">📊</div>
-
-                <h3>Percentage Calculator</h3>
-
-                <p class="tool-description">
-                    Calculate your percentage quickly using your marks.
-                </p>
-
-                <input
-                    type="number"
-                    id="marks"
-                    placeholder="Your marks"
-                >
-
-                <input
-                    type="number"
-                    id="total"
-                    placeholder="Total marks"
-                >
-
-                <button onclick="calculatePercentage()">
-                    Calculate Percentage
-                </button>
-
-                <p id="result" class="result"></p>
+                </div>
 
             </div>
 
 
-           <!-- Age Calculator -->
-<div class="tool-card" id="age">
+            <div class="popular-grid">
 
-                <div class="tool-icon">🎂</div>
+                <a href="percentage.html"
+                    class="popular-card">
 
-                <h3>Age Calculator</h3>
+                    <div class="popular-icon">
+                        📊
+                    </div>
 
-                <p class="tool-description">
-                    Find your current age from your date of birth.
+                    <h3>
+                        Percentage Calculator
+                    </h3>
+
+                    <p>
+                        Calculate percentages quickly and easily.
+                    </p>
+
+                    <span>
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <a href="age.html"
+                    class="popular-card">
+
+                    <div class="popular-icon">
+                        🎂
+                    </div>
+
+                    <h3>
+                        Age Calculator
+                    </h3>
+
+                    <p>
+                        Calculate your exact age from your birth date.
+                    </p>
+
+                    <span>
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <a href="cgpa.html"
+                    class="popular-card">
+
+                    <div class="popular-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        CGPA Calculator
+                    </h3>
+
+                    <p>
+                        Calculate your approximate CGPA from your marks.
+                    </p>
+
+                    <span>
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <a href="attendance.html"
+                    class="popular-card">
+
+                    <div class="popular-icon">
+                        🎯
+                    </div>
+
+                    <h3>
+                        Attendance Calculator
+                    </h3>
+
+                    <p>
+                        Calculate attendance and required classes.
+                    </p>
+
+                    <span>
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <a href="grade.html"
+                    class="popular-card">
+
+                    <div class="popular-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        Grade Calculator
+                    </h3>
+
+                    <p>
+                        Find your percentage and grade from your marks.
+                    </p>
+
+                    <span>
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- All Tools -->
+        <section class="all-tools">
+
+            <div class="section-heading">
+
+                <span>📚</span>
+
+                <h2>
+                    All Student Tools
+                </h2>
+
+                <p>
+                    Calculators and converters for everyday use.
                 </p>
-
-                <label for="birthDate">Date of Birth</label>
-
-                <input
-                    type="date"
-                    id="birthDate"
-                >
-
-                <button onclick="calculateAge()">
-                    Calculate Age
-                </button>
-
-                <p id="ageResult" class="result"></p>
 
             </div>
 
 
-            <!-- CGPA Calculator -->
-<div class="tool-card" id="cgpa">
+            <div class="tools">
 
-                <div class="tool-icon">📚</div>
 
-                <h3>CGPA Calculator</h3>
+                <!-- Percentage -->
+                <a href="percentage.html"
+                    class="tool-card">
 
-                <p class="tool-description">
-                    Calculate your approximate CGPA from five subjects.
-                </p>
+                    <div class="tool-icon">
+                        📊
+                    </div>
 
-                <input
-                    type="number"
-                    id="subject1"
-                    placeholder="Subject 1 marks"
-                >
+                    <h3>
+                        Percentage Calculator
+                    </h3>
 
-                <input
-                    type="number"
-                    id="subject2"
-                    placeholder="Subject 2 marks"
-                >
+                    <p class="tool-description">
+                        Calculate percentages from your marks quickly.
+                    </p>
 
-                <input
-                    type="number"
-                    id="subject3"
-                    placeholder="Subject 3 marks"
-                >
+                    <span class="tool-link">
+                        Open Calculator →
+                    </span>
 
-                <input
-                    type="number"
-                    id="subject4"
-                    placeholder="Subject 4 marks"
-                >
+                </a>
 
-                <input
-                    type="number"
-                    id="subject5"
-                    placeholder="Subject 5 marks"
-                >
 
-                <button onclick="calculateCGPA()">
-                    Calculate CGPA
-                </button>
+                <!-- Age -->
+                <a href="age.html"
+                    class="tool-card">
 
-                <p id="cgpaResult" class="result"></p>
+                    <div class="tool-icon">
+                        🎂
+                    </div>
+
+                    <h3>
+                        Age Calculator
+                    </h3>
+
+                    <p class="tool-description">
+                        Find your exact age from your date of birth.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <!-- CGPA -->
+                <a href="cgpa.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        CGPA Calculator
+                    </h3>
+
+                    <p class="tool-description">
+                        Calculate your approximate CGPA from subject marks.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <!-- GPA -->
+                <a href="gpa.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        GPA Calculator
+                    </h3>
+
+                    <p class="tool-description">
+                        Calculate GPA using subject grade points.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <!-- Attendance -->
+                <a href="attendance.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        🏫
+                    </div>
+
+                    <h3>
+                        Attendance Calculator
+                    </h3>
+
+                    <p class="tool-description">
+                        Calculate attendance percentage and required classes.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <!-- Grade -->
+                <a href="grade.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        ⭐
+                    </div>
+
+                    <h3>
+                        Grade Calculator
+                    </h3>
+
+                    <p class="tool-description">
+                        Calculate percentage and find your grade.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <!-- Average -->
+                <a href="average.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Average Calculator
+                    </h3>
+
+                    <p class="tool-description">
+                        Calculate the average of multiple numbers.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Calculator →
+                    </span>
+
+                </a>
+
+
+                <!-- Length -->
+                <a href="length.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        📏
+                    </div>
+
+                    <h3>
+                        Length Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert length between metric, imperial and other units.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
+
+                <!-- Weight -->
+                <a href="weight.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        ⚖️
+                    </div>
+
+                    <h3>
+                        Weight / Mass Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert weight and mass between different units.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
+
+                <!-- Temperature -->
+                <a href="temperature.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        🌡️
+                    </div>
+
+                    <h3>
+                        Temperature Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert Celsius, Fahrenheit, Kelvin and Rankine.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
+
+                <!-- Time -->
+                <a href="time.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        ⏱️
+                    </div>
+
+                    <h3>
+                        Time Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert seconds, minutes, hours, days and weeks.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
+
+                <!-- Area -->
+                <a href="area.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        📐
+                    </div>
+
+                    <h3>
+                        Area Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert area between metric, imperial and land units.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
+
+                <!-- Volume -->
+                <a href="volume.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        🧊
+                    </div>
+
+                    <h3>
+                        Volume Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert volume between common measurement units.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
+
+                <!-- Speed -->
+                <a href="speed.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        🚗
+                    </div>
+
+                    <h3>
+                        Speed Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert speed between metric, imperial and nautical units.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
+
+                <!-- Pressure -->
+                <a href="pressure.html"
+                    class="tool-card">
+
+                    <div class="tool-icon">
+                        🧭
+                    </div>
+
+                    <h3>
+                        Pressure Converter
+                    </h3>
+
+                    <p class="tool-description">
+                        Convert pressure between common pressure units.
+                    </p>
+
+                    <span class="tool-link">
+                        Open Converter →
+                    </span>
+
+                </a>
+
 
             </div>
-            <!-- GPA Calculator -->
-<div class="tool-card" id="gpa">
 
-    <div class="tool-icon">🎓</div>
+        </section>
 
-    <h3>GPA Calculator</h3>
-
-    <p class="tool-description">
-        Calculate your GPA using grade points for each subject.
-    </p>
-
-    <input
-        type="number"
-        id="gpa1"
-        placeholder="Subject 1 grade point"
-        min="0"
-        max="10"
-        step="0.01"
-    >
-
-    <input
-        type="number"
-        id="gpa2"
-        placeholder="Subject 2 grade point"
-        min="0"
-        max="10"
-        step="0.01"
-    >
-
-    <input
-        type="number"
-        id="gpa3"
-        placeholder="Subject 3 grade point"
-        min="0"
-        max="10"
-        step="0.01"
-    >
-
-    <input
-        type="number"
-        id="gpa4"
-        placeholder="Subject 4 grade point"
-        min="0"
-        max="10"
-        step="0.01"
-    >
-
-    <input
-        type="number"
-        id="gpa5"
-        placeholder="Subject 5 grade point"
-        min="0"
-        max="10"
-        step="0.01"
-    >
-
-    <button onclick="calculateGPA()">
-        Calculate GPA
-    </button>
-
-    <p id="gpaResult" class="result"></p>
-
-</div>
-            <!-- Attendance Calculator -->
-<div class="tool-card" id="attendance">
-
-                <div class="tool-icon">🏫</div>
-
-                <h3>Attendance Calculator</h3>
-
-                <p class="tool-description">
-                    Calculate your attendance and check how many classes you need to attend.
-                </p>
-
-                <input
-                    type="number"
-                    id="totalClasses"
-                    placeholder="Total classes"
-                    min="1"
-                >
-
-                <input
-                    type="number"
-                    id="attendedClasses"
-                    placeholder="Classes attended"
-                    min="0"
-                >
-
-                <button onclick="calculateAttendance()">
-                    Calculate Attendance
-                </button>
-
-                <p id="attendanceResult" class="result"></p>
-
-            </div>
-       <!-- Grade Calculator -->
-<div class="tool-card" id="grade">
-    <div class="tool-icon">🎓</div>
-
-    <h3>Grade Calculator</h3>
-
-    <p class="tool-description">
-        Calculate your percentage and find your grade from your marks.
-    </p>
-
-    <input
-        type="number"
-        id="gradeMarks"
-        placeholder="Your marks"
-        min="0"
-    >
-
-    <input
-        type="number"
-        id="gradeTotal"
-        placeholder="Total marks"
-        min="1"
-    >
-
-    <button onclick="calculateGrade()">
-        Calculate Grade
-    </button>
-
-    <p id="gradeResult" class="result"></p>
-
-</div>
-            <!-- Length Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">📏</div>
-
-    <h3>Length Converter</h3>
-
-    <p class="tool-description">
-        Convert length and distance between metric, imperial and other units.
-    </p>
-
-    <input
-        type="number"
-        id="lengthValue"
-        placeholder="Enter value"
-        step="any"
-    >
-
-    <label for="lengthFrom">From</label>
-
-    <select id="lengthFrom">
-        <optgroup label="Metric">
-            <option value="nm">Nanometer (nm)</option>
-            <option value="um">Micrometer (µm)</option>
-            <option value="mm">Millimeter (mm)</option>
-            <option value="cm">Centimeter (cm)</option>
-            <option value="dm">Decimeter (dm)</option>
-            <option value="m" selected>Meter (m)</option>
-            <option value="dam">Dekameter (dam)</option>
-            <option value="hm">Hectometer (hm)</option>
-            <option value="km">Kilometer (km)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="mil">Thou / Mil</option>
-            <option value="in">Inch (in)</option>
-            <option value="ft">Foot (ft)</option>
-            <option value="yd">Yard (yd)</option>
-            <option value="rod">Rod</option>
-            <option value="chain">Chain</option>
-            <option value="furlong">Furlong</option>
-            <option value="mi">Mile (mi)</option>
-        </optgroup>
-
-        <optgroup label="Nautical">
-            <option value="fathom">Fathom</option>
-            <option value="nmi">Nautical Mile (nmi)</option>
-        </optgroup>
-
-        <optgroup label="Astronomical">
-            <option value="au">Astronomical Unit (AU)</option>
-            <option value="ly">Light-year (ly)</option>
-            <option value="pc">Parsec (pc)</option>
-        </optgroup>
-    </select>
-
-    <button
-        type="button"
-        onclick="swapLengthUnits()">
-        ↔️ Swap Units
-    </button>
-
-    <label for="lengthTo">To</label>
-
-    <select id="lengthTo">
-        <optgroup label="Metric">
-            <option value="nm">Nanometer (nm)</option>
-            <option value="um">Micrometer (µm)</option>
-            <option value="mm">Millimeter (mm)</option>
-            <option value="cm">Centimeter (cm)</option>
-            <option value="dm">Decimeter (dm)</option>
-            <option value="m">Meter (m)</option>
-            <option value="dam">Dekameter (dam)</option>
-            <option value="hm">Hectometer (hm)</option>
-            <option value="km" selected>Kilometer (km)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="mil">Thou / Mil</option>
-            <option value="in">Inch (in)</option>
-            <option value="ft">Foot (ft)</option>
-            <option value="yd">Yard (yd)</option>
-            <option value="rod">Rod</option>
-            <option value="chain">Chain</option>
-            <option value="furlong">Furlong</option>
-            <option value="mi">Mile (mi)</option>
-        </optgroup>
-
-        <optgroup label="Nautical">
-            <option value="fathom">Fathom</option>
-            <option value="nmi">Nautical Mile (nmi)</option>
-        </optgroup>
-
-        <optgroup label="Astronomical">
-            <option value="au">Astronomical Unit (AU)</option>
-            <option value="ly">Light-year (ly)</option>
-            <option value="pc">Parsec (pc)</option>
-        </optgroup>
-    </select>
-
-    <button
-        type="button"
-        onclick="convertLength()">
-        Convert Length
-    </button>
-
-    <p id="lengthResult" class="result"></p>
-
-</div>
-            <!-- Weight / Mass Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">⚖️</div>
-
-    <h3>Weight / Mass Converter</h3>
-
-    <p class="tool-description">
-        Convert weight and mass between metric, imperial and other common units.
-    </p>
-
-    <input
-        type="number"
-        id="weightValue"
-        placeholder="Enter value"
-        step="any"
-    >
-
-    <label for="weightFrom">From</label>
-
-    <select id="weightFrom">
-
-        <optgroup label="Metric">
-            <option value="ug">Microgram (µg)</option>
-            <option value="mg">Milligram (mg)</option>
-            <option value="g" selected>Gram (g)</option>
-            <option value="kg">Kilogram (kg)</option>
-            <option value="tonne">Metric Ton (t)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="oz">Ounce (oz)</option>
-            <option value="lb">Pound (lb)</option>
-            <option value="st">Stone (st)</option>
-            <option value="uston">US Ton</option>
-        </optgroup>
-
-        <optgroup label="Other">
-            <option value="quintal">Quintal</option>
-        </optgroup>
-
-    </select>
-
-<button
-    type="button"
-    onclick="swapWeightUnits()"
-    style="width: 150px !important; min-width: 150px !important; max-width: 150px !important; white-space: nowrap !important; display: block; margin: 10px auto;">
-    ↔️ Swap Units
-</button>
-
-    <label for="weightTo">To</label>
-
-    <select id="weightTo">
-
-        <optgroup label="Metric">
-            <option value="ug">Microgram (µg)</option>
-            <option value="mg">Milligram (mg)</option>
-            <option value="g">Gram (g)</option>
-            <option value="kg" selected>Kilogram (kg)</option>
-            <option value="tonne">Metric Ton (t)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="oz">Ounce (oz)</option>
-            <option value="lb">Pound (lb)</option>
-            <option value="st">Stone (st)</option>
-            <option value="uston">US Ton</option>
-        </optgroup>
-
-        <optgroup label="Other">
-            <option value="quintal">Quintal</option>
-        </optgroup>
-
-    </select>
-
-    <button
-        type="button"
-        onclick="convertWeight()">
-        Convert Weight
-    </button>
-
-    <p id="weightResult" class="result"></p>
-
-</div>
-            <!-- Temperature Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">🌡️</div>
-
-    <h2>Temperature Converter</h2>
-
-    <p>
-        Convert temperature between Celsius, Fahrenheit,
-        Kelvin and Rankine.
-    </p>
-
-    <input
-        type="number"
-        id="temperatureValue"
-        placeholder="Enter temperature"
-    >
-
-    <label>From</label>
-
-    <select id="temperatureFrom">
-        <option value="celsius">Celsius (°C)</option>
-        <option value="fahrenheit">Fahrenheit (°F)</option>
-        <option value="kelvin">Kelvin (K)</option>
-        <option value="rankine">Rankine (°R)</option>
-    </select>
-
-    <button onclick="swapTemperatureUnits()">
-        🔄 Swap Units
-    </button>
-
-    <label>To</label>
-
-    <select id="temperatureTo">
-        <option value="celsius">Celsius (°C)</option>
-        <option value="fahrenheit">Fahrenheit (°F)</option>
-        <option value="kelvin">Kelvin (K)</option>
-        <option value="rankine">Rankine (°R)</option>
-    </select>
-
-    <button onclick="convertTemperature()">
-        Convert Temperature
-    </button>
-
-    <p id="temperatureResult"></p>
-
-</div>
-            <!-- Time Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">⏱️</div>
-
-    <h2>Time Converter</h2>
-
-    <p>
-        Convert time between seconds, minutes, hours,
-        days and weeks.
-    </p>
-
-    <input
-        type="number"
-        id="timeValue"
-        placeholder="Enter time"
-    >
-
-    <label>From</label>
-
-    <select id="timeFrom">
-        <option value="second">Second (s)</option>
-        <option value="minute">Minute (min)</option>
-        <option value="hour">Hour (h)</option>
-        <option value="day">Day (d)</option>
-        <option value="week">Week (wk)</option>
-    </select>
-
-    <button onclick="swapTimeUnits()">
-        🔄 Swap Units
-    </button>
-
-    <label>To</label>
-
-    <select id="timeTo">
-        <option value="second">Second (s)</option>
-        <option value="minute">Minute (min)</option>
-        <option value="hour">Hour (h)</option>
-        <option value="day">Day (d)</option>
-        <option value="week">Week (wk)</option>
-    </select>
-
-    <button onclick="convertTime()">
-        Convert Time
-    </button>
-
-    <p id="timeResult"></p>
-
-</div>
-            <!-- Area Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">📐</div>
-
-    <h2>Area Converter</h2>
-
-    <p>
-        Convert area between metric, imperial and common land measurement units.
-    </p>
-
-    <input
-        type="number"
-        id="areaValue"
-        placeholder="Enter area"
-        step="any"
-    >
-
-    <label>From</label>
-
-    <select id="areaFrom">
-
-        <optgroup label="Metric">
-            <option value="mm2">Square Millimeter (mm²)</option>
-            <option value="cm2">Square Centimeter (cm²)</option>
-            <option value="m2" selected>Square Meter (m²)</option>
-            <option value="km2">Square Kilometer (km²)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="in2">Square Inch (in²)</option>
-            <option value="ft2">Square Foot (ft²)</option>
-            <option value="yd2">Square Yard (yd²)</option>
-            <option value="mi2">Square Mile (mi²)</option>
-        </optgroup>
-
-        <optgroup label="Land">
-            <option value="acre">Acre</option>
-            <option value="hectare">Hectare</option>
-        </optgroup>
-
-    </select>
-
-    <button onclick="swapAreaUnits()">
-        🔄 Swap Units
-    </button>
-
-    <label>To</label>
-
-    <select id="areaTo">
-
-        <optgroup label="Metric">
-            <option value="mm2">Square Millimeter (mm²)</option>
-            <option value="cm2">Square Centimeter (cm²)</option>
-            <option value="m2">Square Meter (m²)</option>
-            <option value="km2" selected>Square Kilometer (km²)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="in2">Square Inch (in²)</option>
-            <option value="ft2">Square Foot (ft²)</option>
-            <option value="yd2">Square Yard (yd²)</option>
-            <option value="mi2">Square Mile (mi²)</option>
-        </optgroup>
-
-        <optgroup label="Land">
-            <option value="acre">Acre</option>
-            <option value="hectare">Hectare</option>
-        </optgroup>
-
-    </select>
-
-    <button onclick="convertArea()">
-        Convert Area
-    </button>
-
-    <p id="areaResult"></p>
-
-</div>
-            <!-- Volume Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">🧊</div>
-
-    <h2>Volume Converter</h2>
-
-    <p>
-        Convert volume between metric, imperial and common units.
-    </p>
-
-    <input
-        type="number"
-        id="volumeValue"
-        placeholder="Enter volume"
-        step="any"
-    >
-
-    <label>From</label>
-
-    <select id="volumeFrom">
-
-        <optgroup label="Metric">
-            <option value="ml">Milliliter (mL)</option>
-            <option value="l" selected>Liter (L)</option>
-            <option value="cm3">Cubic Centimeter (cm³)</option>
-            <option value="m3">Cubic Meter (m³)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="in3">Cubic Inch (in³)</option>
-            <option value="ft3">Cubic Foot (ft³)</option>
-            <option value="yd3">Cubic Yard (yd³)</option>
-            <option value="gallon">Gallon (US)</option>
-            <option value="quart">Quart (US)</option>
-            <option value="pint">Pint (US)</option>
-            <option value="cup">Cup (US)</option>
-        </optgroup>
-
-    </select>
-
-    <button onclick="swapVolumeUnits()">
-        🔄 Swap Units
-    </button>
-
-    <label>To</label>
-
-    <select id="volumeTo">
-
-        <optgroup label="Metric">
-            <option value="ml">Milliliter (mL)</option>
-            <option value="l">Liter (L)</option>
-            <option value="cm3">Cubic Centimeter (cm³)</option>
-            <option value="m3" selected>Cubic Meter (m³)</option>
-        </optgroup>
-
-        <optgroup label="Imperial / US">
-            <option value="in3">Cubic Inch (in³)</option>
-            <option value="ft3">Cubic Foot (ft³)</option>
-            <option value="yd3">Cubic Yard (yd³)</option>
-            <option value="gallon">Gallon (US)</option>
-            <option value="quart">Quart (US)</option>
-            <option value="pint">Pint (US)</option>
-            <option value="cup">Cup (US)</option>
-        </optgroup>
-
-    </select>
-
-    <button onclick="convertVolume()">
-        Convert Volume
-    </button>
-
-    <p id="volumeResult"></p>
-
-</div>
-            <!-- Speed Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">🚗</div>
-
-    <h2>Speed Converter</h2>
-
-    <p>
-        Convert speed between metric, imperial and nautical units.
-    </p>
-
-    <input
-        type="number"
-        id="speedValue"
-        placeholder="Enter speed"
-        step="any"
-    >
-
-    <label>From</label>
-
-    <select id="speedFrom">
-
-        <option value="mps">Meter per Second (m/s)</option>
-        <option value="kmh" selected>Kilometer per Hour (km/h)</option>
-        <option value="mph">Mile per Hour (mph)</option>
-        <option value="fps">Foot per Second (ft/s)</option>
-        <option value="knot">Knot (kn)</option>
-
-    </select>
-
-    <button onclick="swapSpeedUnits()">
-        🔄 Swap Units
-    </button>
-
-    <label>To</label>
-
-    <select id="speedTo">
-
-        <option value="mps">Meter per Second (m/s)</option>
-        <option value="kmh">Kilometer per Hour (km/h)</option>
-        <option value="mph" selected>Mile per Hour (mph)</option>
-        <option value="fps">Foot per Second (ft/s)</option>
-        <option value="knot">Knot (kn)</option>
-
-    </select>
-
-    <button onclick="convertSpeed()">
-        Convert Speed
-    </button>
-
-    <p id="speedResult"></p>
-
-</div>
-            <!-- Pressure Converter -->
-<div class="tool-card">
-
-    <div class="tool-icon">🧭</div>
-
-    <h2>Pressure Converter</h2>
-
-    <p>
-        Convert pressure between metric, imperial and standard pressure units.
-    </p>
-
-    <input
-        type="number"
-        id="pressureValue"
-        placeholder="Enter pressure"
-        step="any"
-    >
-
-    <label>From</label>
-
-    <select id="pressureFrom">
-
-        <option value="pa">Pascal (Pa)</option>
-        <option value="kpa" selected>Kilopascal (kPa)</option>
-        <option value="mpa">Megapascal (MPa)</option>
-        <option value="bar">Bar</option>
-        <option value="psi">Pound per Square Inch (psi)</option>
-        <option value="atm">Atmosphere (atm)</option>
-        <option value="torr">Torr</option>
-        <option value="mmhg">Millimeter of Mercury (mmHg)</option>
-
-    </select>
-
-    <button onclick="swapPressureUnits()">
-        🔄 Swap Units
-    </button>
-
-    <label>To</label>
-
-    <select id="pressureTo">
-
-        <option value="pa">Pascal (Pa)</option>
-        <option value="kpa">Kilopascal (kPa)</option>
-        <option value="mpa">Megapascal (MPa)</option>
-        <option value="bar" selected>Bar</option>
-        <option value="psi">Pound per Square Inch (psi)</option>
-        <option value="atm">Atmosphere (atm)</option>
-        <option value="torr">Torr</option>
-        <option value="mmhg">Millimeter of Mercury (mmHg)</option>
-
-    </select>
-
-    <button onclick="convertPressure()">
-        Convert Pressure
-    </button>
-
-    <p id="pressureResult"></p>
-
-</div>
-            <!-- Average Calculator -->
-<div class="tool-card" id="average">
-
-    <div class="tool-icon">📊</div>
-
-    <h2>Average Calculator</h2>
-
-    <p>
-        Calculate the average of multiple numbers quickly and easily.
-    </p>
-
-    <textarea
-        id="averageNumbers"
-        placeholder="Enter numbers separated by commas&#10;Example: 10, 20, 30, 40, 50"
-        rows="4"
-    ></textarea>
-
-    <button onclick="calculateAverage()">
-        Calculate Average
-    </button>
-
-    <p id="averageResult" class="result"></p>
-
-</div>
     </main>
 
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- About -->
+    <section class="about"
+        id="about">
 
         <div class="section-heading">
+
             <span>✨</span>
-            <h2>Why Student Tools?</h2>
+
+            <h2>
+                Why Advanced Student Tools?
+            </h2>
+
             <p>
-                Everything is designed to be simple, fast and useful for students.
+                Simple, fast and useful tools designed for students.
             </p>
+
         </div>
 
 
         <div class="features">
 
             <div class="feature-card">
+
                 <div>⚡</div>
-                <h3>Fast</h3>
+
+                <h3>
+                    Fast
+                </h3>
+
                 <p>
-                    Get your results instantly without complicated steps.
+                    Get results instantly without complicated steps.
                 </p>
+
             </div>
 
 
             <div class="feature-card">
+
                 <div>📱</div>
-                <h3>Mobile Friendly</h3>
+
+                <h3>
+                    Responsive
+                </h3>
+
                 <p>
-                    Works smoothly on phones, tablets and computers.
+                    Designed to work properly across phones,
+                    tablets and computers.
                 </p>
+
             </div>
 
 
             <div class="feature-card">
+
                 <div>🆓</div>
-                <h3>Free to Use</h3>
+
+                <h3>
+                    Free
+                </h3>
+
                 <p>
-                    Our basic student tools are completely free to use.
+                    Our student tools are free and easy to use.
                 </p>
+
             </div>
 
         </div>
@@ -1025,43 +711,64 @@
     </section>
 
 
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
+    <!-- FAQ -->
+    <section class="faq"
+        id="faq">
 
         <div class="section-heading">
+
             <span>❓</span>
-            <h2>Frequently Asked Questions</h2>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
         </div>
 
 
         <div class="faq-list">
 
             <details>
-                <summary>Is Student Tools free?</summary>
+
+                <summary>
+                    Is Advanced Student Tools free?
+                </summary>
+
                 <p>
-                    Yes. The student calculators available on this website are
-                    free to use.
+                    Yes. The calculators and converters available
+                    on this website are free to use.
                 </p>
+
             </details>
 
 
             <details>
-                <summary>Can I use Student Tools on my phone?</summary>
+
+                <summary>
+                    Can I use these tools on my phone?
+                </summary>
+
                 <p>
-                    Yes. The website is designed to work on phones, tablets and
-                    desktop computers.
+                    Yes. The website is designed to work across
+                    phones, tablets and desktop computers.
                 </p>
+
             </details>
 
 
             <details>
-                <summary>What calculators are available?</summary>
-                          <p>
-    Advanced Student Tools currently offers free Percentage, Age, CGPA,
-    GPA, Attendance, Grade, Average and unit conversion tools including
-    Length, Weight, Temperature, Time, Area, Volume, Speed and Pressure
-    converters. More useful student tools will be added over time.
-</p>    
+
+                <summary>
+                    What tools are available?
+                </summary>
+
+                <p>
+                    Advanced Student Tools currently offers
+                    Percentage, Age, CGPA, GPA, Attendance,
+                    Grade, Average and several unit converters.
+                    More useful tools will be added in the future.
+                </p>
+
             </details>
 
         </div>
@@ -1074,16 +781,28 @@
 
         <div class="footer-content">
 
-            <h3>Student Tools 🚀</h3>
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
 
             <p>
                 Simple and useful online tools for students.
             </p>
 
             <div class="footer-links">
-                <a href="#tools">Tools</a>
-                <a href="#about">About</a>
-                <a href="#faq">FAQ</a>
+
+                <a href="#tools">
+                    Tools
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#faq">
+                    FAQ
+                </a>
+
             </div>
 
             <p class="copyright">
@@ -1095,8 +814,9 @@
     </footer>
 
 
-    <script src="script.js?v=10"></script>
+    <script src="script.js?v=11"></script>
 
 </body>
 
 </html>
+```
