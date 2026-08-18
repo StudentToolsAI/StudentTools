@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>CGPA Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Free CGPA Calculator for students. Calculate your percentage and approximate CGPA from subject marks.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/cgpa.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Tools</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Calculator Page -->
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <div class="calculator-icon">
+                📚
+            </div>
+
+            <h1>
+                CGPA Calculator
+            </h1>
+
+            <p class="calculator-intro">
+                Calculate your percentage and approximate CGPA
+                from your subject marks.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="subject1">
+                    Subject 1 Marks
+                </label>
+
+                <input
+                    type="number"
+                    id="subject1"
+                    placeholder="Enter marks out of 100"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+
+
+                <label for="subject2">
+                    Subject 2 Marks
+                </label>
+
+                <input
+                    type="number"
+                    id="subject2"
+                    placeholder="Enter marks out of 100"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+
+
+                <label for="subject3">
+                    Subject 3 Marks
+                </label>
+
+                <input
+                    type="number"
+                    id="subject3"
+                    placeholder="Enter marks out of 100"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+
+
+                <label for="subject4">
+                    Subject 4 Marks
+                </label>
+
+                <input
+                    type="number"
+                    id="subject4"
+                    placeholder="Enter marks out of 100"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+
+
+                <label for="subject5">
+                    Subject 5 Marks
+                </label>
+
+                <input
+                    type="number"
+                    id="subject5"
+                    placeholder="Enter marks out of 100"
+                    min="0"
+                    max="100"
+                    step="any"
+                >
+
+
+                <button onclick="calculateCGPA()">
+                    Calculate CGPA
+                </button>
+
+
+                <div
+                    id="result"
+                    class="calculator-result">
+                </div>
+
+            </div>
+
+
+            <a href="index.html"
+                class="back-to-tools">
+                ← Back to All Tools
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- Information -->
+    <section class="calculator-info">
+
+        <div class="info-container">
+
+            <h2>
+                How to Calculate CGPA?
+            </h2>
+
+            <p>
+                Enter your marks for each subject. The calculator
+                first calculates your average percentage and then
+                converts it into an approximate CGPA.
+            </p>
+
+
+            <div class="formula">
+                Percentage = Total Marks ÷ Total Maximum Marks × 100
+            </div>
+
+            <div class="formula">
+                Approximate CGPA = Percentage ÷ 9.5
+            </div>
+
+
+            <h2>
+                Example
+            </h2>
+
+            <p>
+                If your five subject marks are 90, 85, 80, 95 and 90,
+                your average percentage is 88%.
+            </p>
+
+            <div class="formula">
+                88 ÷ 9.5 ≈ 9.26 CGPA
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        function calculateCGPA() {
+
+            const subjects = [
+                document.getElementById("subject1"),
+                document.getElementById("subject2"),
+                document.getElementById("subject3"),
+                document.getElementById("subject4"),
+                document.getElementById("subject5")
+            ];
+
+            const result =
+                document.getElementById("result");
+
+
+            for (const subject of subjects) {
+
+                if (subject.value === "") {
+
+                    result.innerText =
+                        "Please enter marks for all 5 subjects.";
+
+                    return;
+                }
+
+            }
+
+
+            const marks = subjects.map(
+                subject => Number(subject.value)
+            );
+
+
+            for (const mark of marks) {
+
+                if (
+                    !Number.isFinite(mark) ||
+                    mark < 0 ||
+                    mark > 100
+                ) {
+
+                    result.innerText =
+                        "Please enter valid marks between 0 and 100.";
+
+                    return;
+                }
+
+            }
+
+
+            const totalMarks =
+                marks.reduce(
+                    (total, mark) => total + mark,
+                    0
+                );
+
+
+            const percentage =
+                totalMarks / 5;
+
+
+            const cgpa =
+                percentage / 9.5;
+
+
+            result.innerHTML =
+                "Percentage: " +
+                percentage.toFixed(2) +
+                "%<br>" +
+                "Approximate CGPA: " +
+                cgpa.toFixed(2);
+        }
+
+    </script>
+
+</body>
+
+</html>
