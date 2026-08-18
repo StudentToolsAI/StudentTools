@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Age Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Free Age Calculator for students. Calculate your exact age in years, months and days from your date of birth.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/age.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tools">Tools</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#faq">FAQ</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Calculator Page -->
+    <main class="calculator-page">
+
+        <div class="calculator-container">
+
+            <div class="calculator-icon">
+                🎂
+            </div>
+
+            <h1>
+                Age Calculator
+            </h1>
+
+            <p class="calculator-intro">
+                Calculate your exact age in years, months and days
+                using your date of birth.
+            </p>
+
+
+            <div class="calculator-box">
+
+                <label for="dob">
+                    Date of Birth
+                </label>
+
+                <input
+                    type="date"
+                    id="dob"
+                >
+
+
+                <button onclick="calculateAge()">
+                    Calculate Age
+                </button>
+
+
+                <div
+                    id="result"
+                    class="calculator-result">
+                </div>
+
+            </div>
+
+
+            <a href="index.html"
+                class="back-to-tools">
+                ← Back to All Tools
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- Information -->
+    <section class="calculator-info">
+
+        <div class="info-container">
+
+            <h2>
+                How to Calculate Age?
+            </h2>
+
+            <p>
+                Enter your date of birth and the calculator
+                will calculate your exact age based on today's date.
+            </p>
+
+
+            <div class="formula">
+                Age = Current Date − Date of Birth
+            </div>
+
+
+            <h2>
+                Example
+            </h2>
+
+            <p>
+                If your date of birth is 15 January 2010,
+                the calculator will show your current age
+                in years, months and days.
+            </p>
+
+            <div class="formula">
+                Years + Months + Days
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        function calculateAge() {
+
+            const dobInput =
+                document.getElementById("dob");
+
+            const result =
+                document.getElementById("result");
+
+
+            if (dobInput.value === "") {
+
+                result.innerText =
+                    "Please enter your date of birth.";
+
+                return;
+            }
+
+
+            const birthDate =
+                new Date(dobInput.value + "T00:00:00");
+
+            const today =
+                new Date();
+
+
+            if (birthDate > today) {
+
+                result.innerText =
+                    "Please enter a valid date of birth.";
+
+                return;
+            }
+
+
+            let years =
+                today.getFullYear() -
+                birthDate.getFullYear();
+
+            let months =
+                today.getMonth() -
+                birthDate.getMonth();
+
+            let days =
+                today.getDate() -
+                birthDate.getDate();
+
+
+            if (days < 0) {
+
+                months--;
+
+                const previousMonth =
+                    new Date(
+                        today.getFullYear(),
+                        today.getMonth(),
+                        0
+                    );
+
+                days +=
+                    previousMonth.getDate();
+            }
+
+
+            if (months < 0) {
+
+                years--;
+                months += 12;
+            }
+
+
+            result.innerText =
+                "Your Age is " +
+                years +
+                " Years, " +
+                months +
+                " Months, and " +
+                days +
+                " Days";
+        }
+
+    </script>
+
+</body>
+
+</html>
