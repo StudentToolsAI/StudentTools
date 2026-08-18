@@ -1624,3 +1624,752 @@ footer {
         font-size: 14px;
     }
 }
+/* =========================================================
+   FINAL RESPONSIVE SYSTEM
+   SMALL PHONE → LARGE PHONE → TABLET → LAPTOP → DESKTOP
+========================================================= */
+
+/* -------------------------
+   LARGE DESKTOP
+------------------------- */
+
+@media (min-width: 1201px) {
+
+    .hero h1 {
+        font-size: clamp(58px, 6vw, 76px);
+    }
+
+    .hero {
+        padding: 85px 24px;
+    }
+
+    .container,
+    .about {
+        max-width: 1200px;
+    }
+}
+
+
+/* -------------------------
+   LAPTOP / LARGE TABLET
+------------------------- */
+
+@media (max-width: 1200px) {
+
+    .navbar {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .about {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .tools {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .popular-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .hero h1 {
+        font-size: clamp(52px, 6.5vw, 70px);
+    }
+}
+
+
+/* -------------------------
+   TABLET
+------------------------- */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 14px 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .hero {
+        min-height: 480px;
+        padding: 70px 24px;
+    }
+
+    .hero-content {
+        max-width: 760px;
+    }
+
+    .hero h1 {
+        font-size: clamp(44px, 7vw, 60px);
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .hero-search {
+        max-width: 600px;
+    }
+
+    .container {
+        padding: 55px 20px;
+    }
+
+    .tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .popular-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* -------------------------
+   MOBILE — ALL NORMAL PHONES
+------------------------- */
+
+@media (max-width: 700px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+        position: relative;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 9px;
+
+        padding: 12px 10px;
+
+        border-radius: 0 0 14px 14px;
+    }
+
+    .nav-logo {
+        font-size: clamp(17px, 4.8vw, 20px);
+        line-height: 1.2;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: clamp(10px, 3vw, 17px);
+    }
+
+    .nav-links a {
+        font-size: clamp(12px, 3.4vw, 14px);
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+
+        width: 100%;
+
+        padding:
+            clamp(42px, 9vw, 65px)
+            clamp(14px, 4vw, 24px)
+            clamp(45px, 9vw, 65px);
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 680px;
+    }
+
+    .hero-badge {
+        max-width: 100%;
+
+        padding:
+            clamp(6px, 1.8vw, 9px)
+            clamp(10px, 3vw, 16px);
+
+        margin-bottom:
+            clamp(15px, 4vw, 22px);
+
+        font-size:
+            clamp(10px, 2.8vw, 13px);
+    }
+
+    .hero h1 {
+        width: 100%;
+
+        font-size:
+            clamp(30px, 9.5vw, 48px);
+
+        line-height: 1.08;
+
+        letter-spacing:
+            clamp(-1px, -0.25vw, -0.6px);
+    }
+
+    .hero p {
+        width: 100%;
+        max-width: 600px;
+
+        margin-top:
+            clamp(14px, 4vw, 20px);
+
+        font-size:
+            clamp(13px, 4vw, 16px);
+
+        line-height: 1.6;
+    }
+
+
+    /* HERO SEARCH */
+
+    .hero-search {
+        width: 100%;
+        max-width: 620px;
+
+        margin:
+            clamp(18px, 5vw, 26px)
+            auto
+            0;
+
+        padding:
+            3px
+            clamp(9px, 3vw, 15px);
+
+        gap:
+            clamp(6px, 2vw, 10px);
+
+        border-radius: 12px;
+    }
+
+    .hero-search span {
+        font-size:
+            clamp(15px, 4.5vw, 19px);
+    }
+
+    .hero-search input {
+        width: 100%;
+
+        height:
+            clamp(40px, 11vw, 48px);
+
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+    }
+
+
+    /* HERO BUTTON */
+
+    .hero-button {
+        margin-top:
+            clamp(17px, 5vw, 24px);
+
+        padding:
+            clamp(10px, 3vw, 13px)
+            clamp(17px, 5vw, 24px);
+
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+
+        border-radius: 10px;
+    }
+
+
+    /* MAIN CONTAINER */
+
+    .container {
+        width: 100%;
+
+        padding:
+            clamp(38px, 8vw, 55px)
+            clamp(12px, 4vw, 20px)
+            clamp(42px, 8vw, 55px);
+    }
+
+
+    /* SECTION HEADING */
+
+    .section-heading {
+        margin-bottom:
+            clamp(20px, 5vw, 30px);
+    }
+
+    .section-heading > span {
+        font-size:
+            clamp(20px, 6vw, 25px);
+    }
+
+    .section-heading h2 {
+        font-size:
+            clamp(23px, 7vw, 30px);
+
+        line-height: 1.2;
+    }
+
+    .section-heading p {
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+    }
+
+
+    /* SEARCH */
+
+    .tool-search {
+        width: 100%;
+
+        margin-bottom:
+            clamp(25px, 6vw, 35px);
+    }
+
+    .tool-search input {
+        width: 100%;
+
+        padding:
+            clamp(11px, 3vw, 14px)
+            clamp(12px, 3.5vw, 17px);
+
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+
+        border-radius: 11px;
+    }
+
+
+    /* POPULAR TOOLS */
+
+    .popular-tools {
+        width: 100%;
+
+        padding:
+            clamp(15px, 4vw, 22px)
+            clamp(11px, 3.5vw, 16px);
+
+        margin-bottom:
+            clamp(30px, 7vw, 42px);
+
+        border-radius: 15px;
+    }
+
+    .popular-header {
+        gap: 8px;
+        margin-bottom: 18px;
+    }
+
+    .popular-header h2 {
+        font-size:
+            clamp(19px, 5.5vw, 23px);
+    }
+
+    .popular-header p {
+        font-size:
+            clamp(11px, 3.2vw, 13px);
+    }
+
+    .popular-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap:
+            clamp(8px, 2.5vw, 12px);
+    }
+
+    .popular-card {
+        min-height: 125px;
+
+        padding:
+            clamp(12px, 3.5vw, 16px);
+    }
+
+    .popular-icon {
+        width:
+            clamp(34px, 10vw, 42px);
+
+        height:
+            clamp(34px, 10vw, 42px);
+
+        font-size:
+            clamp(16px, 5vw, 20px);
+
+        margin-bottom: 9px;
+    }
+
+    .popular-card h3 {
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+    }
+
+    .popular-card p {
+        font-size:
+            clamp(10px, 3vw, 12px);
+    }
+
+    .popular-card span {
+        font-size:
+            clamp(10px, 3vw, 12px);
+    }
+
+
+    /* TOOLS */
+
+    .tools {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap:
+            clamp(12px, 3.5vw, 17px);
+    }
+
+
+    /* TOOL CARD */
+
+    .tool-card {
+        width: 100%;
+
+        padding:
+            clamp(18px, 5vw, 24px)
+            clamp(12px, 4vw, 18px);
+
+        border-radius: 15px;
+    }
+
+    .tool-icon {
+        width:
+            clamp(40px, 12vw, 48px);
+
+        height:
+            clamp(40px, 12vw, 48px);
+
+        font-size:
+            clamp(18px, 5.5vw, 22px);
+
+        margin-bottom: 11px;
+    }
+
+    .tool-card h2,
+    .tool-card h3 {
+        font-size:
+            clamp(17px, 5vw, 20px);
+
+        margin-bottom: 9px;
+    }
+
+    .tool-description,
+    .tool-card > p:not(.result) {
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+
+        line-height: 1.55;
+    }
+
+
+    /* INPUTS */
+
+    .tool-card input,
+    .tool-card select {
+        width: 100%;
+
+        padding:
+            clamp(10px, 3vw, 12px)
+            clamp(10px, 3.5vw, 14px);
+
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+
+        border-radius: 9px;
+    }
+
+    .tool-card label {
+        font-size:
+            clamp(11px, 3.2vw, 13px);
+
+        margin-top: 8px;
+    }
+
+
+    /* NORMAL BUTTONS */
+
+    .tool-card button {
+        width: 100%;
+
+        padding:
+            clamp(10px, 3vw, 12px)
+            clamp(12px, 4vw, 16px);
+
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+
+        border-radius: 9px;
+    }
+
+
+    /* RESULT */
+
+    .result,
+    #temperatureResult,
+    #timeResult,
+    #areaResult,
+    #volumeResult,
+    #speedResult,
+    #pressureResult {
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+
+        margin-top: 12px;
+    }
+
+
+    /* FEATURES */
+
+    .about {
+        width: 100%;
+
+        padding:
+            clamp(40px, 8vw, 55px)
+            clamp(12px, 4vw, 20px);
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+
+        gap:
+            clamp(12px, 3.5vw, 16px);
+    }
+
+    .feature-card {
+        padding:
+            clamp(19px, 5vw, 25px)
+            clamp(14px, 4vw, 20px);
+    }
+
+    .feature-card h3 {
+        font-size:
+            clamp(16px, 4.8vw, 19px);
+    }
+
+    .feature-card p {
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+    }
+
+
+    /* FAQ */
+
+    .faq {
+        width: 100%;
+
+        padding:
+            clamp(30px, 7vw, 45px)
+            clamp(12px, 4vw, 20px)
+            clamp(45px, 9vw, 65px);
+    }
+
+    .faq details {
+        padding:
+            clamp(12px, 3.5vw, 16px)
+            clamp(13px, 4vw, 18px);
+
+        margin-bottom: 10px;
+    }
+
+    .faq summary {
+        font-size:
+            clamp(12px, 3.5vw, 14px);
+    }
+
+    .faq details p {
+        font-size:
+            clamp(11px, 3.2vw, 13px);
+
+        line-height: 1.6;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding:
+            clamp(30px, 7vw, 42px)
+            clamp(12px, 4vw, 18px)
+            20px;
+    }
+
+    .footer-content h3 {
+        font-size:
+            clamp(17px, 5vw, 20px);
+    }
+
+    .footer-content p {
+        font-size:
+            clamp(11px, 3.2vw, 13px);
+    }
+
+    .footer-links {
+        gap:
+            clamp(10px, 3vw, 17px);
+    }
+
+    .footer-links a {
+        font-size:
+            clamp(11px, 3.2vw, 13px);
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   320px – 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .popular-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .popular-card {
+        min-height: 115px;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+    }
+
+    .hero-search {
+        border-radius: 10px;
+    }
+
+    .tool-card {
+        box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.16);
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   320px – 360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .navbar {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .nav-links {
+        gap: 9px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 9vw, 34px);
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .hero-search input {
+        font-size: 12px;
+    }
+
+    .popular-tools {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .tool-card {
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+}
+
+
+/* =========================================================
+   CONVERTER SWAP BUTTONS
+   CONSISTENT ON EVERY SCREEN
+========================================================= */
+
+.tool-card button[onclick="swapLengthUnits()"],
+.tool-card button[onclick="swapWeightUnits()"],
+.tool-card button[onclick="swapTemperatureUnits()"],
+.tool-card button[onclick="swapTimeUnits()"],
+.tool-card button[onclick="swapAreaUnits()"],
+.tool-card button[onclick="swapVolumeUnits()"],
+.tool-card button[onclick="swapSpeedUnits()"],
+.tool-card button[onclick="swapPressureUnits()"] {
+
+    width: 105px !important;
+    min-width: 105px !important;
+    max-width: 105px !important;
+
+    height: 30px !important;
+
+    padding: 4px 7px !important;
+
+    margin: 8px auto !important;
+
+    display: block !important;
+
+    font-size: 11px !important;
+
+    line-height: 20px !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   PREVENT HORIZONTAL OVERFLOW
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   END — FINAL RESPONSIVE SYSTEM
+========================================================= */
