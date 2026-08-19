@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GPA Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Calculate your GPA easily using subject grade points with the Advanced Student Tools GPA Calculator.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/gpa.html">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* ================================
+           GPA PREMIUM CALCULATOR
+        ================================= */
+
+        .calculator-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 20px 70px;
+        }
+
+        .calculator-card {
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15, 27, 55, 0.94),
+                    rgba(8, 15, 35, 0.96)
+                );
+
+            border: 1px solid rgba(90, 110, 255, 0.35);
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45),
+                0 0 35px rgba(74, 80, 255, 0.12);
+
+            backdrop-filter: blur(18px);
+        }
+
+
+        .subject-row {
+            margin-bottom: 20px;
+        }
+
+
+        .subject-row label {
+            display: block;
+            margin-bottom: 8px;
+
+            color: #d9e1ff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .grade-point {
+            width: 100%;
+            box-sizing: border-box;
+
+            padding: 14px 16px;
+
+            border-radius: 11px;
+            border: 1px solid rgba(110, 130, 210, 0.35);
+
+            background: rgba(2, 8, 24, 0.85);
+
+            color: #ffffff;
+            font-size: 15px;
+
+            outline: none;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .grade-point::placeholder {
+            color: #687594;
+        }
+
+
+        .grade-point:focus {
+            border-color: #596cff;
+
+            box-shadow:
+                0 0 0 3px rgba(89, 108, 255, 0.12),
+                0 0 20px rgba(89, 108, 255, 0.12);
+        }
+
+
+        .subject-controls {
+            display: flex;
+            gap: 12px;
+
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+
+        .secondary-button {
+            flex: 1;
+
+            border: 1px solid rgba(110, 130, 255, 0.35);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(29, 48, 95, 0.95),
+                    rgba(30, 24, 75, 0.95)
+                );
+
+            color: #dce3ff;
+
+            padding: 13px 16px;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .secondary-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+
+            border-color: #6877ff;
+
+            box-shadow:
+                0 8px 25px rgba(72, 83, 255, 0.18);
+
+            color: #ffffff;
+        }
+
+
+        .secondary-button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+
+        .calculate-button {
+            width: 100%;
+
+            border: none;
+
+            padding: 15px 18px;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2864ee,
+                    #8337ed
+                );
+
+            color: #ffffff;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 28px rgba(78, 70, 255, 0.28);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .calculate-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 35px rgba(78, 70, 255, 0.38);
+        }
+
+
+        .result-box {
+            margin-top: 18px;
+
+            padding: 17px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(62, 196, 255, 0.20);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8, 35, 61, 0.92),
+                    rgba(12, 27, 52, 0.92)
+                );
+
+            color: #8eeeff;
+
+            text-align: center;
+
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+
+        .result-box strong {
+            color: #61e8ff;
+            font-size: 18px;
+        }
+
+
+        .tool-info {
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 65px 25px 75px;
+        }
+
+
+        .tool-info h2 {
+            color: #ffffff;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .tool-info p {
+            color: #9eacd0;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .formula-box {
+            padding: 20px;
+
+            margin: 22px 0 45px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(95, 92, 255, 0.25);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(18, 20, 55, 0.85),
+                    rgba(13, 17, 42, 0.85)
+                );
+
+            color: #c6bfff;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .calculator-section {
+                padding: 10px 14px 55px;
+            }
+
+            .calculator-card {
+                padding: 20px;
+                border-radius: 18px;
+            }
+
+            .subject-controls {
+                flex-direction: column;
+            }
+
+            .secondary-button {
+                width: 100%;
+            }
+
+            .tool-info {
+                padding: 45px 18px 55px;
+            }
+
+            .tool-info h2 {
+                font-size: 22px;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .calculator-card {
+                padding: 16px;
+            }
+
+            .grade-point {
+                padding: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                🎓
+            </div>
+
+            <h1>
+                GPA Calculator
+            </h1>
+
+            <p>
+                Calculate your GPA easily using your subject grade points.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Calculator -->
+
+    <main class="container">
+
+
+        <section class="calculator-section">
+
+
+            <div class="calculator-card">
+
+
+                <div id="subjectsContainer">
+
+
+                    <!-- Subject 1 -->
+
+                    <div class="subject-row">
+
+                        <label>
+                            Subject 1 Grade Point
+                        </label>
+
+                        <input
+                            type="number"
+                            class="grade-point"
+                            min="0"
+                            max="10"
+                            step="0.01"
+                            placeholder="Enter grade point (0-10)"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Subject 2 -->
+
+                    <div class="subject-row">
+
+                        <label>
+                            Subject 2 Grade Point
+                        </label>
+
+                        <input
+                            type="number"
+                            class="grade-point"
+                            min="0"
+                            max="10"
+                            step="0.01"
+                            placeholder="Enter grade point (0-10)"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Subject 3 -->
+
+                    <div class="subject-row">
+
+                        <label>
+                            Subject 3 Grade Point
+                        </label>
+
+                        <input
+                            type="number"
+                            class="grade-point"
+                            min="0"
+                            max="10"
+                            step="0.01"
+                            placeholder="Enter grade point (0-10)"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Controls -->
+
+                <div class="subject-controls">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="addSubjectBtn"
+                        onclick="addSubject()">
+
+                        ➕ Add Subject
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="removeSubjectBtn"
+                        onclick="removeSubject()">
+
+                        ➖ Remove Subject
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- Calculate -->
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    onclick="calculateGPA()">
+
+                    Calculate GPA
+
+                </button>
+
+
+
+                <!-- Result -->
+
+                <div
+                    id="gpaResult"
+                    class="result-box">
+
+                    Enter your grade points
+                    and click Calculate GPA.
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+
+            <h2>
+                How to Calculate GPA?
+            </h2>
+
+
+            <p>
+                Enter the grade point for each subject.
+                You can add or remove subjects according to your needs.
+                The calculator supports up to 10 subjects.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    GPA = Total Grade Points ÷ Number of Subjects
+                </strong>
+
+            </div>
+
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                If your grade points are 8, 7, 9 and 8,
+                your GPA will be:
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    (8 + 7 + 9 + 8) ÷ 4 = 8.00 GPA
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- GPA JavaScript -->
+
+    <script>
+
+        let subjectCount = 3;
+
+        const MAX_SUBJECTS = 10;
+
+        const MIN_SUBJECTS = 1;
+
+
+
+        function addSubject() {
+
+            if (subjectCount >= MAX_SUBJECTS) {
+                return;
+            }
+
+
+            subjectCount++;
+
+
+            const container =
+                document.getElementById("subjectsContainer");
+
+
+            const subjectRow =
+                document.createElement("div");
+
+
+            subjectRow.className = "subject-row";
+
+
+            subjectRow.innerHTML = `
+
+                <label>
+                    Subject ${subjectCount} Grade Point
+                </label>
+
+                <input
+                    type="number"
+                    class="grade-point"
+                    min="0"
+                    max="10"
+                    step="0.01"
+                    placeholder="Enter grade point (0-10)"
+                >
+
+            `;
+
+
+            container.appendChild(subjectRow);
+
+
+            updateButtons();
+
+        }
+
+
+
+        function removeSubject() {
+
+            if (subjectCount <= MIN_SUBJECTS) {
+                return;
+            }
+
+
+            const container =
+                document.getElementById("subjectsContainer");
+
+
+            container.lastElementChild.remove();
+
+
+            subjectCount--;
+
+
+            updateSubjectLabels();
+
+
+            updateButtons();
+
+        }
+
+
+
+        function updateSubjectLabels() {
+
+            const rows =
+                document.querySelectorAll(".subject-row");
+
+
+            rows.forEach((row, index) => {
+
+                const label =
+                    row.querySelector("label");
+
+                label.textContent =
+                    `Subject ${index + 1} Grade Point`;
+
+            });
+
+        }
+
+
+
+        function updateButtons() {
+
+            const addButton =
+                document.getElementById("addSubjectBtn");
+
+
+            const removeButton =
+                document.getElementById("removeSubjectBtn");
+
+
+            if (subjectCount >= MAX_SUBJECTS) {
+
+                addButton.disabled = true;
+
+                addButton.textContent =
+                    "➕ Maximum 10 Subjects";
+
+            } else {
+
+                addButton.disabled = false;
+
+                addButton.textContent =
+                    "➕ Add Subject";
+
+            }
+
+
+            if (subjectCount <= MIN_SUBJECTS) {
+
+                removeButton.disabled = true;
+
+                removeButton.textContent =
+                    "➖ Minimum 1 Subject";
+
+            } else {
+
+                removeButton.disabled = false;
+
+                removeButton.textContent =
+                    "➖ Remove Subject";
+
+            }
+
+        }
+
+
+
+        function calculateGPA() {
+
+            const inputs =
+                document.querySelectorAll(".grade-point");
+
+
+            let totalPoints = 0;
+
+
+            for (let i = 0; i < inputs.length; i++) {
+
+                const value =
+                    inputs[i].value.trim();
+
+
+                if (value === "") {
+
+                    document.getElementById("gpaResult").innerHTML =
+                        "⚠️ Please enter grade points for all subjects.";
+
+                    return;
+
+                }
+
+
+                const point =
+                    Number(value);
+
+
+                if (
+                    isNaN(point) ||
+                    point < 0 ||
+                    point > 10
+                ) {
+
+                    document.getElementById("gpaResult").innerHTML =
+                        "⚠️ Grade point must be between 0 and 10.";
+
+                    return;
+
+                }
+
+
+                totalPoints += point;
+
+            }
+
+
+            const gpa =
+                totalPoints / inputs.length;
+
+
+            document.getElementById("gpaResult").innerHTML = `
+
+                <div>
+                    Total Grade Points:
+                    <strong>${totalPoints.toFixed(2)}</strong>
+                </div>
+
+                <div>
+                    GPA:
+                    <strong>${gpa.toFixed(2)}</strong>
+                </div>
+
+            `;
+
+        }
+
+
+
+        updateButtons();
+
+    </script>
+
+
+</body>
+
+</html>
