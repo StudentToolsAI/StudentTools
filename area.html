@@ -1,0 +1,883 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Area Converter - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Convert area between square millimeters, square centimeters, square meters, square kilometers, square inches, square feet, square yards, square miles, acres and hectares.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/area.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           PREMIUM AREA CONVERTER
+           ========================================= */
+
+        .converter-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0 70px;
+        }
+
+
+        .converter-card {
+            width: 100%;
+            max-width: 620px;
+            padding: 32px;
+            border: 1px solid rgba(100, 120, 255, 0.35);
+            border-radius: 22px;
+            background: rgba(12, 24, 52, 0.72);
+            box-shadow:
+                0 0 35px rgba(55, 80, 255, 0.12),
+                inset 0 0 30px rgba(80, 60, 255, 0.04);
+            backdrop-filter: blur(16px);
+        }
+
+
+        .converter-input-group {
+            margin-bottom: 22px;
+        }
+
+
+        .converter-input-group label,
+        .unit-group label {
+            display: block;
+            margin-bottom: 9px;
+            color: #d7ddf5;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .converter-input-group input,
+        .unit-group select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 15px;
+            border: 1px solid rgba(120, 140, 255, 0.28);
+            border-radius: 11px;
+            outline: none;
+            background: rgba(3, 10, 28, 0.88);
+            color: #ffffff;
+            font-size: 15px;
+            transition: 0.25s ease;
+        }
+
+
+        .unit-group select {
+            padding: 13px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+
+        .converter-input-group input:focus,
+        .unit-group select:focus {
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px rgba(99, 102, 241, 0.12),
+                0 0 18px rgba(99, 102, 241, 0.18);
+        }
+
+
+        .converter-input-group input::placeholder {
+            color: #7180a8;
+        }
+
+
+        /* Unit Row */
+
+        .unit-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 12px;
+            align-items: end;
+            margin-bottom: 24px;
+        }
+
+
+        /* Swap */
+
+        .swap-button {
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            border-radius: 10px;
+            background: rgba(24, 39, 78, 0.85);
+            color: #cbd5ff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+
+        .swap-button:hover {
+            transform: rotate(180deg);
+            border-color: #818cf8;
+
+            box-shadow:
+                0 0 18px rgba(99, 102, 241, 0.25);
+        }
+
+
+        /* Convert */
+
+        .convert-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(67, 56, 202, 0.28);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .convert-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(99, 70, 255, 0.38);
+        }
+
+
+        .convert-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* Result */
+
+        .conversion-result {
+            margin-top: 18px;
+            padding: 17px;
+
+            border: 1px solid rgba(64, 190, 255, 0.2);
+            border-radius: 11px;
+
+            background:
+                rgba(8, 35, 60, 0.65);
+
+            color: #dce7ff;
+            text-align: center;
+
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+
+        .conversion-result strong {
+            color: #67e8f9;
+            font-size: 18px;
+        }
+
+
+        /* Info */
+
+        .tool-info {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 0 80px;
+        }
+
+
+        .tool-info h2 {
+            margin-top: 45px;
+            margin-bottom: 14px;
+            color: #ffffff;
+        }
+
+
+        .tool-info p {
+            color: #aab8d8;
+            line-height: 1.8;
+        }
+
+
+        .formula-box {
+            margin: 20px 0;
+            padding: 18px 22px;
+
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+
+            background:
+                rgba(12, 22, 52, 0.65);
+
+            color: #c7bfff;
+            text-align: center;
+
+            box-shadow:
+                inset 0 0 20px rgba(90, 70, 255, 0.04);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .converter-card {
+                padding: 22px 16px;
+                border-radius: 18px;
+            }
+
+
+            .unit-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+
+            .swap-button {
+                width: 100%;
+                height: 42px;
+                margin-top: 2px;
+            }
+
+
+            .swap-button:hover {
+                transform: none;
+            }
+
+
+            .tool-info {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                📐
+            </div>
+
+
+            <h1>
+                Area Converter
+            </h1>
+
+
+            <p>
+                Convert area quickly between metric,
+                imperial and common land measurement units.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Converter -->
+
+    <main class="container">
+
+
+        <section class="converter-section">
+
+
+            <div class="converter-card">
+
+
+                <!-- Value -->
+
+                <div class="converter-input-group">
+
+                    <label for="value">
+                        Enter Value
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="value"
+                        placeholder="Enter an area value"
+                        step="any"
+                    >
+
+                </div>
+
+
+
+                <!-- Units -->
+
+                <div class="unit-row">
+
+
+                    <div class="unit-group">
+
+                        <label for="fromUnit">
+                            From
+                        </label>
+
+
+                        <select id="fromUnit">
+
+                            <option value="mm2">
+                                Square Millimeter (mm²)
+                            </option>
+
+                            <option value="cm2">
+                                Square Centimeter (cm²)
+                            </option>
+
+                            <option value="m2"
+                                selected>
+                                Square Meter (m²)
+                            </option>
+
+                            <option value="km2">
+                                Square Kilometer (km²)
+                            </option>
+
+                            <option value="in2">
+                                Square Inch (in²)
+                            </option>
+
+                            <option value="ft2">
+                                Square Foot (ft²)
+                            </option>
+
+                            <option value="yd2">
+                                Square Yard (yd²)
+                            </option>
+
+                            <option value="mi2">
+                                Square Mile (mi²)
+                            </option>
+
+                            <option value="acre">
+                                Acre
+                            </option>
+
+                            <option value="hectare">
+                                Hectare
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <button
+                        type="button"
+                        class="swap-button"
+                        onclick="swapUnits()"
+                        aria-label="Swap units">
+
+                        ⇄
+
+                    </button>
+
+
+
+                    <div class="unit-group">
+
+                        <label for="toUnit">
+                            To
+                        </label>
+
+
+                        <select id="toUnit">
+
+                            <option value="mm2">
+                                Square Millimeter (mm²)
+                            </option>
+
+                            <option value="cm2">
+                                Square Centimeter (cm²)
+                            </option>
+
+                            <option value="m2">
+                                Square Meter (m²)
+                            </option>
+
+                            <option value="km2"
+                                selected>
+                                Square Kilometer (km²)
+                            </option>
+
+                            <option value="in2">
+                                Square Inch (in²)
+                            </option>
+
+                            <option value="ft2">
+                                Square Foot (ft²)
+                            </option>
+
+                            <option value="yd2">
+                                Square Yard (yd²)
+                            </option>
+
+                            <option value="mi2">
+                                Square Mile (mi²)
+                            </option>
+
+                            <option value="acre">
+                                Acre
+                            </option>
+
+                            <option value="hectare">
+                                Hectare
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Convert Button -->
+
+                <button
+                    type="button"
+                    class="convert-button"
+                    onclick="convertArea()">
+
+                    Convert Area
+
+                </button>
+
+
+
+                <!-- Result -->
+
+                <div
+                    id="conversionResult"
+                    class="conversion-result">
+
+                    Enter a value and click
+                    <strong>Convert Area</strong>.
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+
+            <h2>
+                How to Convert Area?
+            </h2>
+
+
+            <p>
+                Enter an area value, select the unit you are
+                converting from, choose the unit you want to
+                convert to, and click Convert Area.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Converted Value = Value × From Factor ÷ To Factor
+                </strong>
+
+            </div>
+
+
+
+            <h2>
+                Supported Area Units
+            </h2>
+
+
+            <p>
+                This converter supports square millimeters,
+                square centimeters, square meters, square kilometers,
+                square inches, square feet, square yards, square miles,
+                acres and hectares.
+            </p>
+
+
+
+            <h2>
+                Common Area Conversions
+            </h2>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    1 m² = 10,000 cm²
+                    <br><br>
+                    1 km² = 1,000,000 m²
+                    <br><br>
+                    1 acre ≈ 4,046.856 m²
+                    <br><br>
+                    1 hectare = 10,000 m²
+                </strong>
+
+            </div>
+
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                If you convert 1 hectare to square meters:
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    1 hectare = 10,000 m²
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Area Converter JavaScript -->
+
+    <script>
+
+        /*
+         * All area values are converted through square meters.
+         */
+
+        const areaConversionFactors = {
+
+            mm2: 0.000001,
+
+            cm2: 0.0001,
+
+            m2: 1,
+
+            km2: 1000000,
+
+            in2: 0.00064516,
+
+            ft2: 0.09290304,
+
+            yd2: 0.83612736,
+
+            mi2: 2589988.110336,
+
+            acre: 4046.8564224,
+
+            hectare: 10000
+
+        };
+
+
+        const areaUnitNames = {
+
+            mm2: "Square Millimeters",
+
+            cm2: "Square Centimeters",
+
+            m2: "Square Meters",
+
+            km2: "Square Kilometers",
+
+            in2: "Square Inches",
+
+            ft2: "Square Feet",
+
+            yd2: "Square Yards",
+
+            mi2: "Square Miles",
+
+            acre: "Acres",
+
+            hectare: "Hectares"
+
+        };
+
+
+
+        function convertArea() {
+
+            const valueInput =
+                document.getElementById("value");
+
+            const fromUnit =
+                document.getElementById("fromUnit").value;
+
+            const toUnit =
+                document.getElementById("toUnit").value;
+
+            const result =
+                document.getElementById("conversionResult");
+
+
+            const value =
+                valueInput.value.trim();
+
+
+            if (value === "") {
+
+                result.innerHTML =
+                    "⚠️ Please enter a value to convert.";
+
+                return;
+
+            }
+
+
+            const number =
+                Number(value);
+
+
+            if (!Number.isFinite(number)) {
+
+                result.innerHTML =
+                    "⚠️ Please enter a valid number.";
+
+                return;
+
+            }
+
+
+            const valueInSquareMeters =
+                number *
+                areaConversionFactors[fromUnit];
+
+
+            const convertedValue =
+                valueInSquareMeters /
+                areaConversionFactors[toUnit];
+
+
+            result.innerHTML = `
+
+                <div>
+
+                    ${formatAreaNumber(number)}
+                    ${areaUnitNames[fromUnit]}
+
+                    =
+
+                    <strong>
+                        ${formatAreaNumber(convertedValue)}
+                    </strong>
+
+                    ${areaUnitNames[toUnit]}
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        function swapUnits() {
+
+            const from =
+                document.getElementById("fromUnit");
+
+            const to =
+                document.getElementById("toUnit");
+
+
+            const temporary =
+                from.value;
+
+
+            from.value =
+                to.value;
+
+
+            to.value =
+                temporary;
+
+
+            const value =
+                document.getElementById("value").value;
+
+
+            if (value.trim() !== "") {
+
+                convertArea();
+
+            }
+
+        }
+
+
+
+        function formatAreaNumber(number) {
+
+            if (number === 0) {
+
+                return "0";
+
+            }
+
+
+            if (
+                Math.abs(number) >= 0.000001 &&
+                Math.abs(number) < 1000000000
+            ) {
+
+                return Number(
+                    number.toFixed(10)
+                ).toString();
+
+            }
+
+
+            return number
+                .toExponential(6)
+                .replace(/\.?0+e/, "e");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```
