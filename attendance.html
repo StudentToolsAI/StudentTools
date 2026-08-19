@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Calculate your attendance percentage and find how many classes you need to attend to reach 75% attendance.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/attendance.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =================================
+           ATTENDANCE PREMIUM CALCULATOR
+        ================================= */
+
+        .calculator-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 20px 70px;
+        }
+
+
+        .calculator-card {
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15, 27, 55, 0.94),
+                    rgba(8, 15, 35, 0.96)
+                );
+
+            border: 1px solid rgba(90, 110, 255, 0.35);
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45),
+                0 0 35px rgba(74, 80, 255, 0.12);
+
+            backdrop-filter: blur(18px);
+        }
+
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+
+        .input-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #d9e1ff;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .attendance-input {
+            width: 100%;
+            box-sizing: border-box;
+
+            padding: 14px 16px;
+
+            border-radius: 11px;
+
+            border: 1px solid rgba(110, 130, 210, 0.35);
+
+            background: rgba(2, 8, 24, 0.85);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .attendance-input::placeholder {
+            color: #687594;
+        }
+
+
+        .attendance-input:focus {
+            border-color: #596cff;
+
+            box-shadow:
+                0 0 0 3px rgba(89, 108, 255, 0.12),
+                0 0 20px rgba(89, 108, 255, 0.12);
+        }
+
+
+        .calculate-button {
+            width: 100%;
+
+            border: none;
+
+            padding: 15px 18px;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2864ee,
+                    #8337ed
+                );
+
+            color: #ffffff;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 28px rgba(78, 70, 255, 0.28);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .calculate-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 35px rgba(78, 70, 255, 0.38);
+        }
+
+
+        .result-box {
+            margin-top: 18px;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(62, 196, 255, 0.20);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8, 35, 61, 0.92),
+                    rgba(12, 27, 52, 0.92)
+                );
+
+            color: #8eeeff;
+
+            text-align: center;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+        }
+
+
+        .result-box strong {
+            color: #61e8ff;
+
+            font-size: 20px;
+        }
+
+
+        .result-line {
+            margin: 6px 0;
+        }
+
+
+        .status-good {
+            color: #62f5b0;
+            font-weight: 700;
+        }
+
+
+        .status-warning {
+            color: #ffd166;
+            font-weight: 700;
+        }
+
+
+        .status-danger {
+            color: #ff7b8a;
+            font-weight: 700;
+        }
+
+
+        .tool-info {
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 65px 25px 75px;
+        }
+
+
+        .tool-info h2 {
+            color: #ffffff;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .tool-info p {
+            color: #9eacd0;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .formula-box {
+            padding: 20px;
+
+            margin: 22px 0 45px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(95, 92, 255, 0.25);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(18, 20, 55, 0.85),
+                    rgba(13, 17, 42, 0.85)
+                );
+
+            color: #c6bfff;
+
+            line-height: 1.8;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .calculator-section {
+                padding: 10px 14px 55px;
+            }
+
+
+            .calculator-card {
+                padding: 20px;
+
+                border-radius: 18px;
+            }
+
+
+            .tool-info {
+                padding: 45px 18px 55px;
+            }
+
+
+            .tool-info h2 {
+                font-size: 22px;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .calculator-card {
+                padding: 16px;
+            }
+
+
+            .attendance-input {
+                padding: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                🎯
+            </div>
+
+
+            <h1>
+                Attendance Calculator
+            </h1>
+
+
+            <p>
+                Calculate your attendance percentage and find
+                how many classes you need to attend to reach 75%.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Calculator -->
+
+    <main class="container">
+
+
+        <section class="calculator-section">
+
+
+            <div class="calculator-card">
+
+
+                <!-- Attended Classes -->
+
+                <div class="input-group">
+
+                    <label for="attended">
+
+                        Classes Attended
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="attended"
+                        class="attendance-input"
+                        min="0"
+                        step="1"
+                        placeholder="Enter classes attended">
+
+                </div>
+
+
+
+                <!-- Total Classes -->
+
+                <div class="input-group">
+
+                    <label for="total">
+
+                        Total Classes
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="total"
+                        class="attendance-input"
+                        min="1"
+                        step="1"
+                        placeholder="Enter total classes">
+
+                </div>
+
+
+
+                <!-- Calculate -->
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    onclick="calculateAttendance()">
+
+                    Calculate Attendance
+
+                </button>
+
+
+
+                <!-- Result -->
+
+                <div
+                    id="attendanceResult"
+                    class="result-box">
+
+                    Enter your class details
+                    and click Calculate Attendance.
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+
+            <h2>
+                How to Calculate Attendance?
+            </h2>
+
+
+            <p>
+                Attendance percentage is calculated by dividing
+                the number of classes attended by the total number
+                of classes and multiplying the result by 100.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Attendance % =
+                    (Classes Attended ÷ Total Classes) × 100
+                </strong>
+
+            </div>
+
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                If you attended 36 classes out of 45 classes:
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    (36 ÷ 45) × 100 = 80%
+                </strong>
+
+                <br>
+
+                You have 80% attendance.
+
+            </div>
+
+
+
+            <h2>
+                How Many Classes Are Needed for 75%?
+            </h2>
+
+
+            <p>
+                If your attendance is below 75%, the calculator
+                also estimates how many consecutive classes you
+                need to attend to reach 75% attendance.
+            </p>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+
+        <div class="footer-content">
+
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools.
+                All rights reserved.
+            </p>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- Attendance JavaScript -->
+
+    <script>
+
+        function calculateAttendance() {
+
+            const attendedInput =
+                document.getElementById("attended");
+
+            const totalInput =
+                document.getElementById("total");
+
+            const result =
+                document.getElementById("attendanceResult");
+
+
+            const attendedValue =
+                attendedInput.value.trim();
+
+            const totalValue =
+                totalInput.value.trim();
+
+
+            /* Empty input */
+
+            if (
+                attendedValue === "" ||
+                totalValue === ""
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter both attended and total classes.";
+
+                return;
+
+            }
+
+
+            const attended =
+                Number(attendedValue);
+
+            const total =
+                Number(totalValue);
+
+
+            /* Validation */
+
+            if (
+                !Number.isFinite(attended) ||
+                !Number.isFinite(total) ||
+                attended < 0 ||
+                total <= 0 ||
+                !Number.isInteger(attended) ||
+                !Number.isInteger(total)
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter valid whole numbers.";
+
+                return;
+
+            }
+
+
+            if (attended > total) {
+
+                result.innerHTML =
+                    "⚠️ Attended classes cannot be greater than total classes.";
+
+                return;
+
+            }
+
+
+            /* Calculate percentage */
+
+            const percentage =
+                (attended / total) * 100;
+
+
+            /* Required classes for 75% */
+
+            let requiredClasses = 0;
+
+
+            if (percentage < 75) {
+
+                /*
+                    (attended + x) / (total + x) >= 0.75
+
+                    attended + x >= 0.75(total + x)
+
+                    x >= 3(total - 4*attended)
+                */
+
+                requiredClasses =
+                    Math.ceil(
+                        (0.75 * total - attended) /
+                        (1 - 0.75)
+                    );
+
+            }
+
+
+            /* Result */
+
+            let statusHTML = "";
+
+
+            if (percentage >= 75) {
+
+                statusHTML = `
+
+                    <div class="result-line status-good">
+                        ✅ Your attendance is above 75%.
+                    </div>
+
+                `;
+
+            } else {
+
+                statusHTML = `
+
+                    <div class="result-line status-warning">
+                        ⚠️ Your attendance is below 75%.
+                    </div>
+
+                    <div class="result-line">
+
+                        Classes needed for 75%:
+                        <strong>${requiredClasses}</strong>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            result.innerHTML = `
+
+                <div class="result-line">
+
+                    Attendance:
+                    <strong>${percentage.toFixed(2)}%</strong>
+
+                </div>
+
+                <div class="result-line">
+
+                    Classes Attended:
+                    <strong>${attended}</strong>
+
+                </div>
+
+                <div class="result-line">
+
+                    Total Classes:
+                    <strong>${total}</strong>
+
+                </div>
+
+                ${statusHTML}
+
+            `;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
