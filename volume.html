@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Volume Converter - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Convert volume between milliliters, liters, cubic units, gallons, quarts, pints, cups and fluid ounces with Advanced Student Tools.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/volume.html">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           PREMIUM VOLUME CONVERTER
+           ========================================= */
+
+        .converter-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0 70px;
+        }
+
+
+        .converter-card {
+            width: 100%;
+            max-width: 620px;
+            padding: 32px;
+
+            border: 1px solid rgba(100, 120, 255, 0.35);
+            border-radius: 22px;
+
+            background: rgba(12, 24, 52, 0.72);
+
+            box-shadow:
+                0 0 35px rgba(55, 80, 255, 0.12),
+                inset 0 0 30px rgba(80, 60, 255, 0.04);
+
+            backdrop-filter: blur(16px);
+        }
+
+
+        .converter-input-group {
+            margin-bottom: 22px;
+        }
+
+
+        .converter-input-group label,
+        .unit-group label {
+            display: block;
+            margin-bottom: 9px;
+
+            color: #d7ddf5;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .converter-input-group input,
+        .unit-group select {
+
+            width: 100%;
+            box-sizing: border-box;
+
+            padding: 14px 15px;
+
+            border: 1px solid rgba(120, 140, 255, 0.28);
+            border-radius: 11px;
+
+            outline: none;
+
+            background: rgba(3, 10, 28, 0.85);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            transition: 0.25s ease;
+        }
+
+
+        .converter-input-group input:focus,
+        .unit-group select:focus {
+
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px rgba(99, 102, 241, 0.12),
+                0 0 18px rgba(99, 102, 241, 0.18);
+        }
+
+
+        .converter-input-group input::placeholder {
+            color: #7180a8;
+        }
+
+
+        /* Unit Row */
+
+        .unit-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr auto 1fr;
+
+            gap: 12px;
+
+            align-items: end;
+
+            margin-bottom: 24px;
+        }
+
+
+        .unit-group select {
+            padding: 13px 12px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+
+        /* Swap Button */
+
+        .swap-button {
+
+            width: 44px;
+            height: 44px;
+
+            border: 1px solid rgba(99, 102, 241, 0.4);
+
+            border-radius: 10px;
+
+            background: rgba(24, 39, 78, 0.85);
+
+            color: #cbd5ff;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .swap-button:hover {
+
+            transform: rotate(180deg);
+
+            border-color: #818cf8;
+
+            box-shadow:
+                0 0 18px rgba(99, 102, 241, 0.25);
+        }
+
+
+        /* Convert Button */
+
+        .convert-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(67, 56, 202, 0.28);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .convert-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(99, 70, 255, 0.38);
+        }
+
+
+        .convert-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* Result */
+
+        .conversion-result {
+
+            margin-top: 18px;
+
+            padding: 17px;
+
+            border: 1px solid rgba(64, 190, 255, 0.2);
+
+            border-radius: 11px;
+
+            background:
+                rgba(8, 35, 60, 0.65);
+
+            color: #dce7ff;
+
+            text-align: center;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+
+        .conversion-result strong {
+
+            color: #67e8f9;
+
+            font-size: 18px;
+        }
+
+
+        /* Info */
+
+        .tool-info {
+
+            max-width: 680px;
+
+            margin: 0 auto;
+
+            padding: 20px 0 80px;
+        }
+
+
+        .tool-info h2 {
+
+            margin-top: 45px;
+
+            margin-bottom: 14px;
+
+            color: #ffffff;
+        }
+
+
+        .tool-info p {
+
+            color: #aab8d8;
+
+            line-height: 1.8;
+        }
+
+
+        .formula-box {
+
+            margin: 20px 0;
+
+            padding: 18px 22px;
+
+            border: 1px solid rgba(99, 102, 241, 0.3);
+
+            border-radius: 12px;
+
+            background:
+                rgba(12, 22, 52, 0.65);
+
+            color: #c7bfff;
+
+            text-align: center;
+
+            box-shadow:
+                inset 0 0 20px rgba(90, 70, 255, 0.04);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .converter-card {
+
+                padding: 22px 16px;
+
+                border-radius: 18px;
+            }
+
+
+            .unit-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+            }
+
+
+            .swap-button {
+
+                width: 100%;
+
+                height: 42px;
+
+                margin-top: 2px;
+            }
+
+
+            .swap-button:hover {
+
+                transform: none;
+            }
+
+
+            .tool-info {
+
+                padding-left: 5px;
+
+                padding-right: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                🧊
+            </div>
+
+
+            <h1>
+                Volume Converter
+            </h1>
+
+
+            <p>
+                Convert volume quickly between metric,
+                imperial and US customary units.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- Converter -->
+
+    <main class="container">
+
+
+        <section class="converter-section">
+
+
+            <div class="converter-card">
+
+
+                <!-- Value -->
+
+                <div class="converter-input-group">
+
+                    <label for="value">
+                        Enter Value
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="value"
+                        placeholder="Enter a value"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <!-- Units -->
+
+                <div class="unit-row">
+
+
+                    <div class="unit-group">
+
+                        <label for="fromUnit">
+                            From
+                        </label>
+
+
+                        <select id="fromUnit">
+
+                            <option value="ml">
+                                Milliliter (mL)
+                            </option>
+
+                            <option value="l" selected>
+                                Liter (L)
+                            </option>
+
+                            <option value="cl">
+                                Centiliter (cL)
+                            </option>
+
+                            <option value="dl">
+                                Deciliter (dL)
+                            </option>
+
+                            <option value="m3">
+                                Cubic Meter (m³)
+                            </option>
+
+                            <option value="cm3">
+                                Cubic Centimeter (cm³)
+                            </option>
+
+                            <option value="mm3">
+                                Cubic Millimeter (mm³)
+                            </option>
+
+                            <option value="in3">
+                                Cubic Inch (in³)
+                            </option>
+
+                            <option value="ft3">
+                                Cubic Foot (ft³)
+                            </option>
+
+                            <option value="yd3">
+                                Cubic Yard (yd³)
+                            </option>
+
+                            <option value="usgal">
+                                US Gallon (gal)
+                            </option>
+
+                            <option value="usqt">
+                                US Quart (qt)
+                            </option>
+
+                            <option value="uspt">
+                                US Pint (pt)
+                            </option>
+
+                            <option value="uscup">
+                                US Cup
+                            </option>
+
+                            <option value="usfloz">
+                                US Fluid Ounce (fl oz)
+                            </option>
+
+                            <option value="ukgal">
+                                Imperial Gallon (UK gal)
+                            </option>
+
+                            <option value="ukqt">
+                                Imperial Quart (UK qt)
+                            </option>
+
+                            <option value="ukpt">
+                                Imperial Pint (UK pt)
+                            </option>
+
+                            <option value="ukfloz">
+                                Imperial Fluid Ounce (UK fl oz)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="swap-button"
+                        onclick="swapUnits()"
+                        aria-label="Swap units">
+
+                        ⇄
+
+                    </button>
+
+
+                    <div class="unit-group">
+
+                        <label for="toUnit">
+                            To
+                        </label>
+
+
+                        <select id="toUnit">
+
+                            <option value="ml">
+                                Milliliter (mL)
+                            </option>
+
+                            <option value="l" selected>
+                                Liter (L)
+                            </option>
+
+                            <option value="cl">
+                                Centiliter (cL)
+                            </option>
+
+                            <option value="dl">
+                                Deciliter (dL)
+                            </option>
+
+                            <option value="m3">
+                                Cubic Meter (m³)
+                            </option>
+
+                            <option value="cm3">
+                                Cubic Centimeter (cm³)
+                            </option>
+
+                            <option value="mm3">
+                                Cubic Millimeter (mm³)
+                            </option>
+
+                            <option value="in3">
+                                Cubic Inch (in³)
+                            </option>
+
+                            <option value="ft3">
+                                Cubic Foot (ft³)
+                            </option>
+
+                            <option value="yd3">
+                                Cubic Yard (yd³)
+                            </option>
+
+                            <option value="usgal">
+                                US Gallon (gal)
+                            </option>
+
+                            <option value="usqt">
+                                US Quart (qt)
+                            </option>
+
+                            <option value="uspt">
+                                US Pint (pt)
+                            </option>
+
+                            <option value="uscup">
+                                US Cup
+                            </option>
+
+                            <option value="usfloz">
+                                US Fluid Ounce (fl oz)
+                            </option>
+
+                            <option value="ukgal">
+                                Imperial Gallon (UK gal)
+                            </option>
+
+                            <option value="ukqt">
+                                Imperial Quart (UK qt)
+                            </option>
+
+                            <option value="ukpt">
+                                Imperial Pint (UK pt)
+                            </option>
+
+                            <option value="ukfloz">
+                                Imperial Fluid Ounce (UK fl oz)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Convert -->
+
+                <button
+                    type="button"
+                    class="convert-button"
+                    onclick="convertVolume()">
+
+                    Convert Volume
+
+                </button>
+
+
+                <!-- Result -->
+
+                <div
+                    id="conversionResult"
+                    class="conversion-result">
+
+                    Enter a value and click
+                    <strong>Convert Volume</strong>.
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+
+            <h2>
+                How to Convert Volume?
+            </h2>
+
+
+            <p>
+                Enter a value, select the unit you are converting
+                from, choose the unit you want to convert to,
+                and click the Convert Volume button.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Converted Value = Value × Conversion Factor
+                </strong>
+
+            </div>
+
+
+            <h2>
+                Supported Volume Units
+            </h2>
+
+
+            <p>
+                This calculator supports milliliters, centiliters,
+                deciliters, liters, cubic meters, cubic centimeters,
+                cubic millimeters, cubic inches, cubic feet,
+                cubic yards, US gallons, US quarts, US pints,
+                US cups, US fluid ounces, Imperial gallons,
+                Imperial quarts, Imperial pints and Imperial
+                fluid ounces.
+            </p>
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                If you convert 1 liter to milliliters:
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    1 L = 1000 mL
+                </strong>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Volume Converter JavaScript -->
+
+    <script>
+
+        /*
+         * All conversion factors are based on
+         * cubic meters (m³).
+         */
+
+        const conversionFactors = {
+
+            ml: 0.000001,
+
+            cl: 0.00001,
+
+            dl: 0.0001,
+
+            l: 0.001,
+
+            m3: 1,
+
+            cm3: 0.000001,
+
+            mm3: 0.000000001,
+
+            in3: 0.000016387064,
+
+            ft3: 0.028316846592,
+
+            yd3: 0.764554857984,
+
+            usgal: 0.003785411784,
+
+            usqt: 0.000946352946,
+
+            uspt: 0.000473176473,
+
+            uscup: 0.0002365882365,
+
+            usfloz: 0.0000295735295625,
+
+            ukgal: 0.00454609,
+
+            ukqt: 0.0011365225,
+
+            ukpt: 0.00056826125,
+
+            ukfloz: 0.0000284130625
+
+        };
+
+
+        const unitNames = {
+
+            ml: "Milliliter",
+
+            cl: "Centiliter",
+
+            dl: "Deciliter",
+
+            l: "Liter",
+
+            m3: "Cubic Meter",
+
+            cm3: "Cubic Centimeter",
+
+            mm3: "Cubic Millimeter",
+
+            in3: "Cubic Inch",
+
+            ft3: "Cubic Foot",
+
+            yd3: "Cubic Yard",
+
+            usgal: "US Gallon",
+
+            usqt: "US Quart",
+
+            uspt: "US Pint",
+
+            uscup: "US Cup",
+
+            usfloz: "US Fluid Ounce",
+
+            ukgal: "Imperial Gallon",
+
+            ukqt: "Imperial Quart",
+
+            ukpt: "Imperial Pint",
+
+            ukfloz: "Imperial Fluid Ounce"
+
+        };
+
+
+        function convertVolume() {
+
+            const valueInput =
+                document.getElementById("value");
+
+            const fromUnit =
+                document.getElementById("fromUnit").value;
+
+            const toUnit =
+                document.getElementById("toUnit").value;
+
+            const result =
+                document.getElementById("conversionResult");
+
+
+            const value =
+                valueInput.value.trim();
+
+
+            if (value === "") {
+
+                result.innerHTML =
+                    "⚠️ Please enter a value to convert.";
+
+                return;
+            }
+
+
+            const number =
+                Number(value);
+
+
+            if (!Number.isFinite(number)) {
+
+                result.innerHTML =
+                    "⚠️ Please enter a valid number.";
+
+                return;
+            }
+
+
+            const valueInCubicMeters =
+                number * conversionFactors[fromUnit];
+
+
+            const convertedValue =
+                valueInCubicMeters /
+                conversionFactors[toUnit];
+
+
+            result.innerHTML = `
+
+                <div>
+
+                    ${formatNumber(number)}
+                    ${unitNames[fromUnit]}
+
+                    =
+
+                    <strong>
+                        ${formatNumber(convertedValue)}
+                    </strong>
+
+                    ${unitNames[toUnit]}
+
+                </div>
+
+            `;
+
+        }
+
+
+        function swapUnits() {
+
+            const from =
+                document.getElementById("fromUnit");
+
+            const to =
+                document.getElementById("toUnit");
+
+
+            const temporary =
+                from.value;
+
+
+            from.value =
+                to.value;
+
+
+            to.value =
+                temporary;
+
+
+            const value =
+                document.getElementById("value").value;
+
+
+            if (value.trim() !== "") {
+
+                convertVolume();
+
+            }
+
+        }
+
+
+        function formatNumber(number) {
+
+            if (number === 0) {
+
+                return "0";
+
+            }
+
+
+            if (
+                Math.abs(number) >= 0.000001 &&
+                Math.abs(number) < 1000000000
+            ) {
+
+                return Number(
+                    number.toFixed(10)
+                ).toString();
+
+            }
+
+
+            return number
+                .toExponential(6)
+                .replace(/\.?0+e/, "e");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
