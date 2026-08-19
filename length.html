@@ -11,7 +11,7 @@
     <title>Length Converter - Advanced Student Tools</title>
 
     <meta name="description"
-        content="Convert length between millimeters, centimeters, meters, kilometers, inches, feet, yards and miles with the Advanced Student Tools Length Converter.">
+        content="Convert length between nanometers, micrometers, millimeters, centimeters, meters, kilometers, inches, feet, yards, miles, nautical miles, astronomical units and light-years.">
 
     <meta name="robots"
         content="index, follow">
@@ -55,7 +55,8 @@
         }
 
 
-        .converter-input-group label {
+        .converter-input-group label,
+        .unit-group label {
             display: block;
             margin-bottom: 9px;
             color: #d7ddf5;
@@ -103,15 +104,6 @@
         }
 
 
-        .unit-group label {
-            display: block;
-            margin-bottom: 9px;
-            color: #d7ddf5;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-
         .unit-group select {
             width: 100%;
             box-sizing: border-box;
@@ -134,12 +126,17 @@
         }
 
 
+        .unit-group select option {
+            background: #071127;
+            color: #ffffff;
+        }
+
+
         /* Swap */
 
         .swap-button {
             width: 44px;
             height: 44px;
-            margin-bottom: 0;
             border: 1px solid rgba(99, 102, 241, 0.4);
             border-radius: 10px;
             background: rgba(24, 39, 78, 0.85);
@@ -283,9 +280,9 @@
 
 
             .swap-button {
-                width: 100%;
+                width: 44px;
                 height: 42px;
-                margin-top: 2px;
+                justify-self: center;
             }
 
 
@@ -414,12 +411,24 @@
 
                         <select id="fromUnit">
 
+                            <option value="nm">
+                                Nanometer (nm)
+                            </option>
+
+                            <option value="um">
+                                Micrometer (µm)
+                            </option>
+
                             <option value="mm">
                                 Millimeter (mm)
                             </option>
 
                             <option value="cm">
                                 Centimeter (cm)
+                            </option>
+
+                            <option value="dm">
+                                Decimeter (dm)
                             </option>
 
                             <option value="m"
@@ -445,6 +454,18 @@
 
                             <option value="mi">
                                 Mile (mi)
+                            </option>
+
+                            <option value="nmi">
+                                Nautical Mile (nmi)
+                            </option>
+
+                            <option value="au">
+                                Astronomical Unit (AU)
+                            </option>
+
+                            <option value="ly">
+                                Light-Year (ly)
                             </option>
 
                         </select>
@@ -474,12 +495,24 @@
 
                         <select id="toUnit">
 
+                            <option value="nm">
+                                Nanometer (nm)
+                            </option>
+
+                            <option value="um">
+                                Micrometer (µm)
+                            </option>
+
                             <option value="mm">
                                 Millimeter (mm)
                             </option>
 
                             <option value="cm">
                                 Centimeter (cm)
+                            </option>
+
+                            <option value="dm">
+                                Decimeter (dm)
                             </option>
 
                             <option value="m">
@@ -505,6 +538,18 @@
 
                             <option value="mi">
                                 Mile (mi)
+                            </option>
+
+                            <option value="nmi">
+                                Nautical Mile (nmi)
+                            </option>
+
+                            <option value="au">
+                                Astronomical Unit (AU)
+                            </option>
+
+                            <option value="ly">
+                                Light-Year (ly)
                             </option>
 
                         </select>
@@ -581,8 +626,9 @@
 
 
             <p>
-                This calculator supports millimeters, centimeters,
-                meters, kilometers, inches, feet, yards and miles.
+                Nanometer, micrometer, millimeter, centimeter,
+                decimeter, meter, kilometer, inch, foot, yard,
+                mile, nautical mile, astronomical unit and light-year.
             </p>
 
 
@@ -664,15 +710,26 @@
 
     <script>
 
+        /*
+         * Every value represents how many meters
+         * are contained in one unit.
+         */
+
         const conversionFactors = {
 
-            mm: 0.001,
+            nm: 1e-9,
 
-            cm: 0.01,
+            um: 1e-6,
+
+            mm: 1e-3,
+
+            cm: 1e-2,
+
+            dm: 1e-1,
 
             m: 1,
 
-            km: 1000,
+            km: 1e3,
 
             in: 0.0254,
 
@@ -680,7 +737,13 @@
 
             yd: 0.9144,
 
-            mi: 1609.344
+            mi: 1609.344,
+
+            nmi: 1852,
+
+            au: 149597870700,
+
+            ly: 9460730472580800
 
         };
 
@@ -688,9 +751,15 @@
 
         const unitNames = {
 
+            nm: "Nanometer",
+
+            um: "Micrometer",
+
             mm: "Millimeter",
 
             cm: "Centimeter",
+
+            dm: "Decimeter",
 
             m: "Meter",
 
@@ -702,7 +771,13 @@
 
             yd: "Yard",
 
-            mi: "Mile"
+            mi: "Mile",
+
+            nmi: "Nautical Mile",
+
+            au: "Astronomical Unit",
+
+            ly: "Light-Year"
 
         };
 
@@ -827,9 +902,13 @@
             }
 
 
+            const absolute =
+                Math.abs(number);
+
+
             if (
-                Math.abs(number) >= 0.000001 &&
-                Math.abs(number) < 1000000000
+                absolute >= 0.000001 &&
+                absolute < 1000000000
             ) {
 
                 return Number(
