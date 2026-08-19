@@ -10,17 +10,9 @@
     <title>CGPA Calculator - Advanced Student Tools</title>
 
     <meta name="description"
-        content="Free CGPA Calculator for students. Calculate your percentage and approximate CGPA from subject marks.">
+        content="Free CGPA Calculator for students. Calculate your percentage and approximate CGPA easily using subject marks.">
 
-    <meta name="robots"
-        content="index, follow">
-
-    <link rel="canonical"
-        href="https://studenttoolsai.github.io/StudentTools/cgpa.html">
-
-    <link rel="stylesheet"
-        href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -42,7 +34,7 @@
     </nav>
 
 
-    <!-- Calculator Page -->
+    <!-- Calculator -->
     <main class="calculator-page">
 
         <div class="calculator-container">
@@ -57,7 +49,7 @@
 
             <p class="calculator-intro">
                 Calculate your percentage and approximate CGPA
-                from your subject marks.
+                using your subject marks.
             </p>
 
 
@@ -70,10 +62,9 @@
                 <input
                     type="number"
                     id="subject1"
-                    placeholder="Enter marks out of 100"
+                    placeholder="Enter marks"
                     min="0"
                     max="100"
-                    step="any"
                 >
 
 
@@ -84,10 +75,9 @@
                 <input
                     type="number"
                     id="subject2"
-                    placeholder="Enter marks out of 100"
+                    placeholder="Enter marks"
                     min="0"
                     max="100"
-                    step="any"
                 >
 
 
@@ -98,10 +88,9 @@
                 <input
                     type="number"
                     id="subject3"
-                    placeholder="Enter marks out of 100"
+                    placeholder="Enter marks"
                     min="0"
                     max="100"
-                    step="any"
                 >
 
 
@@ -112,10 +101,9 @@
                 <input
                     type="number"
                     id="subject4"
-                    placeholder="Enter marks out of 100"
+                    placeholder="Enter marks"
                     min="0"
                     max="100"
-                    step="any"
                 >
 
 
@@ -126,10 +114,9 @@
                 <input
                     type="number"
                     id="subject5"
-                    placeholder="Enter marks out of 100"
+                    placeholder="Enter marks"
                     min="0"
                     max="100"
-                    step="any"
                 >
 
 
@@ -166,11 +153,10 @@
             </h2>
 
             <p>
-                Enter your marks for each subject. The calculator
-                first calculates your average percentage and then
-                converts it into an approximate CGPA.
+                Enter the marks obtained in each subject.
+                The calculator calculates your average percentage
+                and then estimates the CGPA.
             </p>
-
 
             <div class="formula">
                 Percentage = Total Marks ÷ Total Maximum Marks × 100
@@ -186,12 +172,11 @@
             </h2>
 
             <p>
-                If your five subject marks are 90, 85, 80, 95 and 90,
-                your average percentage is 88%.
+                If your average percentage is 85%:
             </p>
 
             <div class="formula">
-                88 ÷ 9.5 ≈ 9.26 CGPA
+                85 ÷ 9.5 ≈ 8.95 CGPA
             </div>
 
         </div>
@@ -263,7 +248,7 @@
                 if (subject.value === "") {
 
                     result.innerText =
-                        "Please enter marks for all 5 subjects.";
+                        "Please enter marks for all subjects.";
 
                     return;
                 }
@@ -271,37 +256,36 @@
             }
 
 
-            const marks = subjects.map(
-                subject => Number(subject.value)
-            );
+            const marks =
+                subjects.map(subject => Number(subject.value));
 
 
-            for (const mark of marks) {
+            const valid =
+                marks.every(mark =>
+                    Number.isFinite(mark) &&
+                    mark >= 0 &&
+                    mark <= 100
+                );
 
-                if (
-                    !Number.isFinite(mark) ||
-                    mark < 0 ||
-                    mark > 100
-                ) {
 
-                    result.innerText =
-                        "Please enter valid marks between 0 and 100.";
+            if (!valid) {
 
-                    return;
-                }
+                result.innerText =
+                    "Please enter valid marks between 0 and 100.";
 
+                return;
             }
 
 
-            const totalMarks =
+            const total =
                 marks.reduce(
-                    (total, mark) => total + mark,
+                    (sum, mark) => sum + mark,
                     0
                 );
 
 
             const percentage =
-                totalMarks / 5;
+                total / 5;
 
 
             const cgpa =
