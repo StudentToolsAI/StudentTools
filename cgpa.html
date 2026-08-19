@@ -289,8 +289,7 @@
 
 
             const cgpa =
-                percentage / 9.5;
-
+    Math.min(percentage / 9.5, 10);
 
             result.innerHTML =
                 "Percentage: " +
