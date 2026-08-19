@@ -1,10 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
         <loc>https://studenttoolsai.github.io/StudentTools/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/percentage.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/age.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/attendance.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/average.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/cgpa.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/gpa.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/grade.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/length.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/weight.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/temperature.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/time.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/area.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/volume.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/speed.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://studenttoolsai.github.io/StudentTools/pressure.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
 
 </urlset>
