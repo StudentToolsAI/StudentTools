@@ -5,27 +5,454 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>CGPA Calculator - Advanced Student Tools</title>
 
     <meta name="description"
         content="Calculate your percentage and approximate CGPA easily with the Advanced Student Tools CGPA Calculator.">
 
-    <meta name="robots"
-        content="index, follow">
+    <meta name="robots" content="index, follow">
 
     <link rel="canonical"
         href="https://studenttoolsai.github.io/StudentTools/cgpa.html">
 
-    <link rel="stylesheet"
-        href="style.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- CGPA Premium Page Design -->
+
+    <style>
+
+        /* ================================
+           CGPA PAGE PREMIUM DESIGN
+        ================================= */
+
+        .cgpa-page {
+            min-height: 100vh;
+        }
+
+
+        /* Calculator Area */
+
+        .calculator-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 20px 70px;
+        }
+
+
+        .calculator-card {
+            width: 100%;
+            max-width: 650px;
+
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15, 27, 55, 0.94),
+                    rgba(8, 15, 35, 0.96)
+                );
+
+            border: 1px solid rgba(90, 110, 255, 0.35);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45),
+                0 0 35px rgba(74, 80, 255, 0.12);
+
+            backdrop-filter: blur(18px);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .calculator-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            top: -120px;
+            right: -80px;
+
+            background: rgba(91, 65, 255, 0.18);
+
+            filter: blur(70px);
+
+            pointer-events: none;
+        }
+
+
+        /* Subject Rows */
+
+        .subject-row {
+
+            position: relative;
+            z-index: 1;
+
+            margin-bottom: 20px;
+        }
+
+
+        .subject-row label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #d9e1ff;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            letter-spacing: 0.2px;
+        }
+
+
+        .subject-marks {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 14px 16px;
+
+            border-radius: 11px;
+
+            border: 1px solid rgba(110, 130, 210, 0.35);
+
+            background: rgba(2, 8, 24, 0.85);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .subject-marks::placeholder {
+            color: #687594;
+        }
+
+
+        .subject-marks:focus {
+
+            border-color: #596cff;
+
+            box-shadow:
+                0 0 0 3px rgba(89, 108, 255, 0.12),
+                0 0 20px rgba(89, 108, 255, 0.12);
+
+            background: rgba(4, 11, 30, 0.98);
+        }
+
+
+        /* Subject Controls */
+
+        .subject-controls {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .secondary-button {
+
+            flex: 1;
+
+            border: 1px solid rgba(110, 130, 255, 0.35);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(29, 48, 95, 0.95),
+                    rgba(30, 24, 75, 0.95)
+                );
+
+            color: #dce3ff;
+
+            padding: 13px 16px;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .secondary-button:hover:not(:disabled) {
+
+            transform: translateY(-2px);
+
+            border-color: #6877ff;
+
+            box-shadow:
+                0 8px 25px rgba(72, 83, 255, 0.18);
+
+            color: #ffffff;
+        }
+
+
+        .secondary-button:disabled {
+
+            opacity: 0.45;
+
+            cursor: not-allowed;
+
+            transform: none;
+        }
+
+
+        /* Calculate Button */
+
+        .calculate-button {
+
+            width: 100%;
+
+            border: none;
+
+            padding: 15px 18px;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2864ee,
+                    #8337ed
+                );
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 28px rgba(78, 70, 255, 0.28);
+
+            transition: all 0.25s ease;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .calculate-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 35px rgba(78, 70, 255, 0.38);
+        }
+
+
+        .calculate-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* Result */
+
+        .result-box {
+
+            margin-top: 18px;
+
+            padding: 17px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(62, 196, 255, 0.20);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8, 35, 61, 0.92),
+                    rgba(12, 27, 52, 0.92)
+                );
+
+            color: #8eeeff;
+
+            text-align: center;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        .result-box strong {
+
+            color: #61e8ff;
+
+            font-size: 17px;
+        }
+
+
+        /* Information Section */
+
+        .tool-info {
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 65px 25px 75px;
+        }
+
+
+        .tool-info h2 {
+
+            color: #ffffff;
+
+            font-size: 25px;
+
+            margin-top: 0;
+
+            margin-bottom: 15px;
+        }
+
+
+        .tool-info p {
+
+            color: #9eacd0;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .formula-box {
+
+            padding: 20px;
+
+            margin: 22px 0 45px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(95, 92, 255, 0.25);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(18, 20, 55, 0.85),
+                    rgba(13, 17, 42, 0.85)
+                );
+
+            color: #c6bfff;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .calculator-section {
+                padding: 10px 14px 55px;
+            }
+
+
+            .calculator-card {
+
+                padding: 20px;
+
+                border-radius: 18px;
+            }
+
+
+            .subject-controls {
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+
+            .secondary-button {
+                width: 100%;
+            }
+
+
+            .tool-info {
+
+                padding: 45px 18px 55px;
+            }
+
+
+            .tool-info h2 {
+                font-size: 22px;
+            }
+
+
+            .result-box {
+                font-size: 14px;
+            }
+
+        }
+
+
+        /* Very Small Phones */
+
+        @media (max-width: 400px) {
+
+            .calculator-card {
+                padding: 16px;
+            }
+
+
+            .subject-marks {
+                padding: 13px;
+            }
+
+
+            .calculate-button {
+                padding: 14px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
-<body>
+<body class="cgpa-page">
 
 
     <!-- Navigation -->
@@ -345,8 +772,6 @@
 
             if (subjectCount >= MAX_SUBJECTS) {
 
-                alert("Maximum 10 subjects are allowed.");
-
                 return;
 
             }
@@ -395,8 +820,6 @@
         function removeSubject() {
 
             if (subjectCount <= MIN_SUBJECTS) {
-
-                alert("At least 1 subject is required.");
 
                 return;
 
