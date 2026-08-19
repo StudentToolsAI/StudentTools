@@ -1,0 +1,894 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Weight / Mass Converter - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Convert weight and mass between micrograms, milligrams, grams, kilograms, tonnes, ounces, pounds, stones, US tons and quintals with Advanced Student Tools.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/weight.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           PREMIUM WEIGHT / MASS CONVERTER
+           ========================================= */
+
+        .converter-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0 70px;
+        }
+
+
+        .converter-card {
+            width: 100%;
+            max-width: 620px;
+            padding: 32px;
+            border: 1px solid rgba(100, 120, 255, 0.35);
+            border-radius: 22px;
+            background: rgba(12, 24, 52, 0.72);
+            box-shadow:
+                0 0 35px rgba(55, 80, 255, 0.12),
+                inset 0 0 30px rgba(80, 60, 255, 0.04);
+            backdrop-filter: blur(16px);
+        }
+
+
+        .converter-input-group {
+            margin-bottom: 22px;
+        }
+
+
+        .converter-input-group label {
+            display: block;
+            margin-bottom: 9px;
+            color: #d7ddf5;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .converter-input-group input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 15px;
+            border: 1px solid rgba(120, 140, 255, 0.28);
+            border-radius: 11px;
+            outline: none;
+            background: rgba(3, 10, 28, 0.82);
+            color: #ffffff;
+            font-size: 15px;
+            transition: 0.25s ease;
+        }
+
+
+        .converter-input-group input:focus {
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px rgba(99, 102, 241, 0.12),
+                0 0 18px rgba(99, 102, 241, 0.18);
+        }
+
+
+        .converter-input-group input::placeholder {
+            color: #7180a8;
+        }
+
+
+        /* Unit controls */
+
+        .unit-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 12px;
+            align-items: end;
+            margin-bottom: 24px;
+        }
+
+
+        .unit-group label {
+            display: block;
+            margin-bottom: 9px;
+            color: #d7ddf5;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .unit-group select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 12px;
+            border: 1px solid rgba(120, 140, 255, 0.28);
+            border-radius: 11px;
+            outline: none;
+            background: rgba(3, 10, 28, 0.9);
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+
+        .unit-group select:focus {
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px rgba(99, 102, 241, 0.12);
+        }
+
+
+        /* Swap */
+
+        .swap-button {
+            width: 44px;
+            height: 44px;
+            margin-bottom: 0;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            border-radius: 10px;
+            background: rgba(24, 39, 78, 0.85);
+            color: #cbd5ff;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+
+        .swap-button:hover {
+            transform: rotate(180deg);
+
+            border-color: #818cf8;
+
+            box-shadow:
+                0 0 18px rgba(99, 102, 241, 0.25);
+        }
+
+
+        /* Convert */
+
+        .convert-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(67, 56, 202, 0.28);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .convert-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(99, 70, 255, 0.38);
+        }
+
+
+        .convert-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* Result */
+
+        .conversion-result {
+            margin-top: 18px;
+            padding: 17px;
+
+            border: 1px solid rgba(64, 190, 255, 0.2);
+            border-radius: 11px;
+
+            background:
+                rgba(8, 35, 60, 0.65);
+
+            color: #dce7ff;
+            text-align: center;
+
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+
+        .conversion-result strong {
+            color: #67e8f9;
+            font-size: 18px;
+        }
+
+
+        /* Info */
+
+        .tool-info {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 0 80px;
+        }
+
+
+        .tool-info h2 {
+            margin-top: 45px;
+            margin-bottom: 14px;
+            color: #ffffff;
+        }
+
+
+        .tool-info p {
+            color: #aab8d8;
+            line-height: 1.8;
+        }
+
+
+        .formula-box {
+            margin: 20px 0;
+            padding: 18px 22px;
+
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+
+            background:
+                rgba(12, 22, 52, 0.65);
+
+            color: #c7bfff;
+            text-align: center;
+
+            box-shadow:
+                inset 0 0 20px rgba(90, 70, 255, 0.04);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .converter-card {
+                padding: 22px 16px;
+                border-radius: 18px;
+            }
+
+
+            .unit-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+
+            .swap-button {
+                width: 100%;
+                height: 42px;
+                margin-top: 2px;
+            }
+
+
+            .swap-button:hover {
+                transform: none;
+            }
+
+
+            .tool-info {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                ⚖️
+            </div>
+
+
+            <h1>
+                Weight / Mass Converter
+            </h1>
+
+
+            <p>
+                Convert weight and mass quickly between
+                metric, imperial and other common units.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Converter -->
+
+    <main class="container">
+
+
+        <section class="converter-section">
+
+
+            <div class="converter-card">
+
+
+                <!-- Value -->
+
+                <div class="converter-input-group">
+
+                    <label for="value">
+                        Enter Value
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="value"
+                        placeholder="Enter a value"
+                        step="any"
+                    >
+
+                </div>
+
+
+
+                <!-- Units -->
+
+                <div class="unit-row">
+
+
+                    <div class="unit-group">
+
+                        <label for="fromUnit">
+                            From
+                        </label>
+
+
+                        <select id="fromUnit">
+
+                            <option value="ug">
+                                Microgram (µg)
+                            </option>
+
+                            <option value="mg">
+                                Milligram (mg)
+                            </option>
+
+                            <option value="g"
+                                selected>
+                                Gram (g)
+                            </option>
+
+                            <option value="kg">
+                                Kilogram (kg)
+                            </option>
+
+                            <option value="tonne">
+                                Tonne (t)
+                            </option>
+
+                            <option value="oz">
+                                Ounce (oz)
+                            </option>
+
+                            <option value="lb">
+                                Pound (lb)
+                            </option>
+
+                            <option value="st">
+                                Stone (st)
+                            </option>
+
+                            <option value="uston">
+                                US Ton (uston)
+                            </option>
+
+                            <option value="quintal">
+                                Quintal (q)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- Swap -->
+
+                    <button
+                        type="button"
+                        class="swap-button"
+                        onclick="swapUnits()"
+                        aria-label="Swap units">
+
+                        ⇄
+
+                    </button>
+
+
+
+                    <div class="unit-group">
+
+                        <label for="toUnit">
+                            To
+                        </label>
+
+
+                        <select id="toUnit">
+
+                            <option value="ug">
+                                Microgram (µg)
+                            </option>
+
+                            <option value="mg">
+                                Milligram (mg)
+                            </option>
+
+                            <option value="g">
+                                Gram (g)
+                            </option>
+
+                            <option value="kg"
+                                selected>
+                                Kilogram (kg)
+                            </option>
+
+                            <option value="tonne">
+                                Tonne (t)
+                            </option>
+
+                            <option value="oz">
+                                Ounce (oz)
+                            </option>
+
+                            <option value="lb">
+                                Pound (lb)
+                            </option>
+
+                            <option value="st">
+                                Stone (st)
+                            </option>
+
+                            <option value="uston">
+                                US Ton (uston)
+                            </option>
+
+                            <option value="quintal">
+                                Quintal (q)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Convert Button -->
+
+                <button
+                    type="button"
+                    class="convert-button"
+                    onclick="convertWeight()">
+
+                    Convert Weight / Mass
+
+                </button>
+
+
+
+                <!-- Result -->
+
+                <div
+                    id="conversionResult"
+                    class="conversion-result">
+
+                    Enter a value and click
+                    <strong>Convert Weight / Mass</strong>.
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+
+            <h2>
+                How to Convert Weight / Mass?
+            </h2>
+
+
+            <p>
+                Enter a value, select the unit you are converting
+                from, choose the unit you want to convert to,
+                and click the Convert Weight / Mass button.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Converted Value = Value × Conversion Factor
+                </strong>
+
+            </div>
+
+
+
+            <h2>
+                Supported Weight / Mass Units
+            </h2>
+
+
+            <p>
+                This converter supports all 10 units:
+                micrograms, milligrams, grams, kilograms, tonnes,
+                ounces, pounds, stones, US tons and quintals.
+            </p>
+
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                If you convert 1 kilogram to grams:
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    1 kg = 1000 g
+                </strong>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Weight / Mass Converter JavaScript -->
+
+    <script>
+
+        /*
+         * All conversion factors are based on grams.
+         */
+
+        const conversionFactors = {
+
+            ug: 0.000001,
+
+            mg: 0.001,
+
+            g: 1,
+
+            kg: 1000,
+
+            tonne: 1000000,
+
+            oz: 28.349523125,
+
+            lb: 453.59237,
+
+            st: 6350.29318,
+
+            uston: 907184.74,
+
+            quintal: 100000
+
+        };
+
+
+
+        const unitNames = {
+
+            ug: "Microgram (µg)",
+
+            mg: "Milligram (mg)",
+
+            g: "Gram (g)",
+
+            kg: "Kilogram (kg)",
+
+            tonne: "Tonne (t)",
+
+            oz: "Ounce (oz)",
+
+            lb: "Pound (lb)",
+
+            st: "Stone (st)",
+
+            uston: "US Ton (uston)",
+
+            quintal: "Quintal (q)"
+
+        };
+
+
+
+        function convertWeight() {
+
+            const valueInput =
+                document.getElementById("value");
+
+            const fromUnit =
+                document.getElementById("fromUnit").value;
+
+            const toUnit =
+                document.getElementById("toUnit").value;
+
+            const result =
+                document.getElementById("conversionResult");
+
+
+            const value =
+                valueInput.value.trim();
+
+
+            if (value === "") {
+
+                result.innerHTML =
+                    "⚠️ Please enter a value to convert.";
+
+                return;
+
+            }
+
+
+            const number =
+                Number(value);
+
+
+            if (!Number.isFinite(number)) {
+
+                result.innerHTML =
+                    "⚠️ Please enter a valid number.";
+
+                return;
+
+            }
+
+
+            /*
+             * Convert input to grams first.
+             */
+
+            const valueInGrams =
+                number * conversionFactors[fromUnit];
+
+
+            /*
+             * Convert grams to target unit.
+             */
+
+            const convertedValue =
+                valueInGrams /
+                conversionFactors[toUnit];
+
+
+            result.innerHTML = `
+
+                <div>
+
+                    ${formatNumber(number)}
+                    ${unitNames[fromUnit]}
+
+                    =
+
+                    <strong>
+                        ${formatNumber(convertedValue)}
+                    </strong>
+
+                    ${unitNames[toUnit]}
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        function swapUnits() {
+
+            const from =
+                document.getElementById("fromUnit");
+
+            const to =
+                document.getElementById("toUnit");
+
+
+            const temporary =
+                from.value;
+
+
+            from.value =
+                to.value;
+
+
+            to.value =
+                temporary;
+
+
+            const value =
+                document.getElementById("value").value;
+
+
+            if (value.trim() !== "") {
+
+                convertWeight();
+
+            }
+
+        }
+
+
+
+        function formatNumber(number) {
+
+            if (number === 0) {
+
+                return "0";
+
+            }
+
+
+            if (
+                Math.abs(number) >= 0.000001 &&
+                Math.abs(number) < 1000000000
+            ) {
+
+                return Number(
+                    number.toFixed(10)
+                ).toString();
+
+            }
+
+
+            return number
+                .toExponential(6)
+                .replace(/\.?0+e/, "e");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```
