@@ -1,0 +1,526 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Average Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Calculate the average of multiple numbers quickly and easily with the Advanced Student Tools Average Calculator.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/average.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                📊
+            </div>
+
+            <h1>
+                Average Calculator
+            </h1>
+
+            <p>
+                Calculate the average of multiple numbers quickly
+                and easily.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- Calculator -->
+
+    <main class="container">
+
+        <section class="calculator-section">
+
+            <div class="calculator-card">
+
+                <div id="numbersContainer">
+
+
+                    <!-- Number 1 -->
+
+                    <div class="subject-row">
+
+                        <label>
+                            Number 1
+                        </label>
+
+                        <input
+                            type="number"
+                            class="number-input"
+                            step="any"
+                            placeholder="Enter a number"
+                        >
+
+                    </div>
+
+
+                    <!-- Number 2 -->
+
+                    <div class="subject-row">
+
+                        <label>
+                            Number 2
+                        </label>
+
+                        <input
+                            type="number"
+                            class="number-input"
+                            step="any"
+                            placeholder="Enter a number"
+                        >
+
+                    </div>
+
+
+                    <!-- Number 3 -->
+
+                    <div class="subject-row">
+
+                        <label>
+                            Number 3
+                        </label>
+
+                        <input
+                            type="number"
+                            class="number-input"
+                            step="any"
+                            placeholder="Enter a number"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Controls -->
+
+                <div class="subject-controls">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="addNumberBtn"
+                        onclick="addNumber()">
+
+                        ➕ Add Number
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="removeNumberBtn"
+                        onclick="removeNumber()">
+
+                        ➖ Remove Number
+
+                    </button>
+
+                </div>
+
+
+                <!-- Calculate -->
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    onclick="calculateAverage()">
+
+                    Calculate Average
+
+                </button>
+
+
+                <!-- Result -->
+
+                <div
+                    id="averageResult"
+                    class="result-box">
+
+                    Enter your numbers
+                    and click Calculate Average.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+            <h2>
+                How to Calculate Average?
+            </h2>
+
+            <p>
+                To calculate the average, add all the numbers together
+                and divide the total by the number of values.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Average = Sum of all numbers ÷ Number of values
+                </strong>
+
+            </div>
+
+
+            <h2>
+                Example
+            </h2>
+
+            <p>
+                Suppose the numbers are 10, 20, 30 and 40.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Average = (10 + 20 + 30 + 40) ÷ 4
+                </strong>
+
+                <br><br>
+
+                <strong>
+                    Average = 25
+                </strong>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script>
+
+        let numberCount = 3;
+
+        const MAX_NUMBERS = 10;
+
+        const MIN_NUMBERS = 1;
+
+
+        function addNumber() {
+
+            if (numberCount >= MAX_NUMBERS) {
+
+                return;
+
+            }
+
+
+            numberCount++;
+
+
+            const container =
+                document.getElementById("numbersContainer");
+
+
+            const row =
+                document.createElement("div");
+
+
+            row.className = "subject-row";
+
+
+            row.innerHTML = `
+
+                <label>
+                    Number ${numberCount}
+                </label>
+
+                <input
+                    type="number"
+                    class="number-input"
+                    step="any"
+                    placeholder="Enter a number"
+                >
+
+            `;
+
+
+            container.appendChild(row);
+
+
+            updateButtons();
+
+        }
+
+
+        function removeNumber() {
+
+            if (numberCount <= MIN_NUMBERS) {
+
+                return;
+
+            }
+
+
+            const container =
+                document.getElementById("numbersContainer");
+
+
+            container.lastElementChild.remove();
+
+
+            numberCount--;
+
+
+            updateLabels();
+
+            updateButtons();
+
+        }
+
+
+        function updateLabels() {
+
+            const rows =
+                document.querySelectorAll(".subject-row");
+
+
+            rows.forEach((row, index) => {
+
+                row.querySelector("label").textContent =
+                    `Number ${index + 1}`;
+
+            });
+
+        }
+
+
+        function updateButtons() {
+
+            const addButton =
+                document.getElementById("addNumberBtn");
+
+
+            const removeButton =
+                document.getElementById("removeNumberBtn");
+
+
+            if (numberCount >= MAX_NUMBERS) {
+
+                addButton.disabled = true;
+
+                addButton.textContent =
+                    "➕ Maximum 10 Numbers";
+
+            } else {
+
+                addButton.disabled = false;
+
+                addButton.textContent =
+                    "➕ Add Number";
+
+            }
+
+
+            if (numberCount <= MIN_NUMBERS) {
+
+                removeButton.disabled = true;
+
+                removeButton.textContent =
+                    "➖ Minimum 1 Number";
+
+            } else {
+
+                removeButton.disabled = false;
+
+                removeButton.textContent =
+                    "➖ Remove Number";
+
+            }
+
+        }
+
+
+        function calculateAverage() {
+
+            const inputs =
+                document.querySelectorAll(".number-input");
+
+
+            let sum = 0;
+
+
+            for (let i = 0; i < inputs.length; i++) {
+
+                const value =
+                    inputs[i].value.trim();
+
+
+                if (value === "") {
+
+                    document.getElementById("averageResult").innerHTML =
+                        "⚠️ Please enter a value for all numbers.";
+
+                    return;
+
+                }
+
+
+                const number =
+                    Number(value);
+
+
+                if (!Number.isFinite(number)) {
+
+                    document.getElementById("averageResult").innerHTML =
+                        "⚠️ Please enter valid numbers.";
+
+                    return;
+
+                }
+
+
+                sum += number;
+
+            }
+
+
+            const average =
+                sum / inputs.length;
+
+
+            document.getElementById("averageResult").innerHTML = `
+
+                <div>
+                    Sum:
+                    <strong>${sum.toFixed(2)}</strong>
+                </div>
+
+                <div>
+                    Average:
+                    <strong>${average.toFixed(2)}</strong>
+                </div>
+
+            `;
+
+        }
+
+
+        updateButtons();
+
+    </script>
+
+
+</body>
+
+</html>
+```
