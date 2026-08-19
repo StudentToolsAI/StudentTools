@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Grade Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Calculate your percentage and grade easily with the Advanced Student Tools Grade Calculator.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/grade.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =================================
+           GRADE PREMIUM CALCULATOR
+        ================================= */
+
+        .calculator-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 20px 70px;
+        }
+
+
+        .calculator-card {
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15, 27, 55, 0.94),
+                    rgba(8, 15, 35, 0.96)
+                );
+
+            border: 1px solid rgba(90, 110, 255, 0.35);
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45),
+                0 0 35px rgba(74, 80, 255, 0.12);
+
+            backdrop-filter: blur(18px);
+        }
+
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+
+        .input-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #d9e1ff;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .grade-input {
+            width: 100%;
+            box-sizing: border-box;
+
+            padding: 14px 16px;
+
+            border-radius: 11px;
+
+            border: 1px solid rgba(110, 130, 210, 0.35);
+
+            background: rgba(2, 8, 24, 0.85);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .grade-input::placeholder {
+            color: #687594;
+        }
+
+
+        .grade-input:focus {
+            border-color: #596cff;
+
+            box-shadow:
+                0 0 0 3px rgba(89, 108, 255, 0.12),
+                0 0 20px rgba(89, 108, 255, 0.12);
+        }
+
+
+        .calculate-button {
+            width: 100%;
+
+            border: none;
+
+            padding: 15px 18px;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2864ee,
+                    #8337ed
+                );
+
+            color: #ffffff;
+
+            font-size: 15px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 28px rgba(78, 70, 255, 0.28);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .calculate-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 35px rgba(78, 70, 255, 0.38);
+        }
+
+
+        .result-box {
+            margin-top: 18px;
+
+            padding: 20px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(62, 196, 255, 0.20);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(8, 35, 61, 0.92),
+                    rgba(12, 27, 52, 0.92)
+                );
+
+            color: #8eeeff;
+
+            text-align: center;
+
+            font-size: 15px;
+
+            line-height: 1.9;
+        }
+
+
+        .result-box strong {
+            color: #61e8ff;
+
+            font-size: 20px;
+        }
+
+
+        .grade-display {
+            margin-top: 8px;
+
+            font-size: 28px;
+
+            font-weight: 900;
+
+            color: #ffffff;
+        }
+
+
+        .status-excellent {
+            color: #62f5b0;
+            font-weight: 700;
+        }
+
+
+        .status-good {
+            color: #8eeeff;
+            font-weight: 700;
+        }
+
+
+        .status-average {
+            color: #ffd166;
+            font-weight: 700;
+        }
+
+
+        .status-low {
+            color: #ff9f7f;
+            font-weight: 700;
+        }
+
+
+        .status-fail {
+            color: #ff7b8a;
+            font-weight: 700;
+        }
+
+
+        .tool-info {
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            padding: 65px 25px 75px;
+        }
+
+
+        .tool-info h2 {
+            color: #ffffff;
+
+            font-size: 25px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .tool-info p {
+            color: #9eacd0;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .formula-box {
+            padding: 20px;
+
+            margin: 22px 0 45px;
+
+            text-align: center;
+
+            border-radius: 14px;
+
+            border: 1px solid rgba(95, 92, 255, 0.25);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(18, 20, 55, 0.85),
+                    rgba(13, 17, 42, 0.85)
+                );
+
+            color: #c6bfff;
+
+            line-height: 1.8;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .calculator-section {
+                padding: 10px 14px 55px;
+            }
+
+
+            .calculator-card {
+                padding: 20px;
+
+                border-radius: 18px;
+            }
+
+
+            .tool-info {
+                padding: 45px 18px 55px;
+            }
+
+
+            .tool-info h2 {
+                font-size: 22px;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .calculator-card {
+                padding: 16px;
+            }
+
+
+            .grade-input {
+                padding: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                ⭐
+            </div>
+
+
+            <h1>
+                Grade Calculator
+            </h1>
+
+
+            <p>
+                Calculate your percentage and find your
+                corresponding grade instantly.
+            </p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Calculator -->
+
+    <main class="container">
+
+
+        <section class="calculator-section">
+
+
+            <div class="calculator-card">
+
+
+                <!-- Obtained Marks -->
+
+                <div class="input-group">
+
+                    <label for="marks">
+
+                        Obtained Marks
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="marks"
+                        class="grade-input"
+                        min="0"
+                        step="any"
+                        placeholder="Enter obtained marks">
+
+                </div>
+
+
+
+                <!-- Total Marks -->
+
+                <div class="input-group">
+
+                    <label for="total">
+
+                        Total Marks
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="total"
+                        class="grade-input"
+                        min="1"
+                        step="any"
+                        placeholder="Enter total marks">
+
+                </div>
+
+
+
+                <!-- Calculate -->
+
+                <button
+                    type="button"
+                    class="calculate-button"
+                    onclick="calculateGrade()">
+
+                    Calculate Grade
+
+                </button>
+
+
+
+                <!-- Result -->
+
+                <div
+                    id="gradeResult"
+                    class="result-box">
+
+                    Enter your marks
+                    and click Calculate Grade.
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+
+            <h2>
+                How to Calculate Grade?
+            </h2>
+
+
+            <p>
+                First calculate your percentage by dividing
+                the obtained marks by the total marks and
+                multiplying by 100. The percentage is then
+                matched with the corresponding grade range.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Percentage =
+                    (Obtained Marks ÷ Total Marks) × 100
+                </strong>
+
+            </div>
+
+
+
+            <h2>
+                Grade Scale
+            </h2>
+
+
+            <div class="formula-box">
+
+                <strong>A+ :</strong> 90% – 100%
+
+                <br>
+
+                <strong>A :</strong> 80% – 89.99%
+
+                <br>
+
+                <strong>B :</strong> 70% – 79.99%
+
+                <br>
+
+                <strong>C :</strong> 60% – 69.99%
+
+                <br>
+
+                <strong>D :</strong> 50% – 59.99%
+
+                <br>
+
+                <strong>F :</strong> Below 50%
+
+            </div>
+
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                If you score 450 marks out of 500:
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    (450 ÷ 500) × 100 = 90%
+                </strong>
+
+                <br>
+
+                Grade = <strong>A+</strong>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+
+
+        <div class="footer-content">
+
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools.
+                All rights reserved.
+            </p>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- Grade JavaScript -->
+
+    <script>
+
+        function calculateGrade() {
+
+            const marksInput =
+                document.getElementById("marks");
+
+            const totalInput =
+                document.getElementById("total");
+
+            const result =
+                document.getElementById("gradeResult");
+
+
+            const marksValue =
+                marksInput.value.trim();
+
+            const totalValue =
+                totalInput.value.trim();
+
+
+            /* Empty input */
+
+            if (
+                marksValue === "" ||
+                totalValue === ""
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter both obtained and total marks.";
+
+                return;
+
+            }
+
+
+            const marks =
+                Number(marksValue);
+
+            const total =
+                Number(totalValue);
+
+
+            /* Validation */
+
+            if (
+                !Number.isFinite(marks) ||
+                !Number.isFinite(total) ||
+                marks < 0 ||
+                total <= 0
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter valid marks.";
+
+                return;
+
+            }
+
+
+            if (marks > total) {
+
+                result.innerHTML =
+                    "⚠️ Obtained marks cannot be greater than total marks.";
+
+                return;
+
+            }
+
+
+            /* Percentage */
+
+            const percentage =
+                (marks / total) * 100;
+
+
+            /* Grade */
+
+            let grade = "";
+            let statusClass = "";
+            let message = "";
+
+
+            if (percentage >= 90) {
+
+                grade = "A+";
+                statusClass = "status-excellent";
+                message = "Excellent performance! 🎉";
+
+            }
+
+            else if (percentage >= 80) {
+
+                grade = "A";
+                statusClass = "status-excellent";
+                message = "Great work! 👏";
+
+            }
+
+            else if (percentage >= 70) {
+
+                grade = "B";
+                statusClass = "status-good";
+                message = "Good performance! 👍";
+
+            }
+
+            else if (percentage >= 60) {
+
+                grade = "C";
+                statusClass = "status-average";
+                message = "Keep improving! 💪";
+
+            }
+
+            else if (percentage >= 50) {
+
+                grade = "D";
+                statusClass = "status-low";
+                message = "You can do better! 📚";
+
+            }
+
+            else {
+
+                grade = "F";
+                statusClass = "status-fail";
+                message = "Keep working and try again! 📖";
+
+            }
+
+
+            /* Result */
+
+            result.innerHTML = `
+
+                <div class="result-line">
+
+                    Percentage:
+                    <strong>
+                        ${percentage.toFixed(2)}%
+                    </strong>
+
+                </div>
+
+
+                <div class="grade-display ${statusClass}">
+
+                    Grade: ${grade}
+
+                </div>
+
+
+                <div class="${statusClass}">
+
+                    ${message}
+
+                </div>
+
+            `;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
