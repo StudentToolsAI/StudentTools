@@ -3529,3 +3529,85 @@ iframe {
     }
 
 }
+/* =========================================================
+   FINAL TOOL GRID — 2 TOOLS PER ROW
+   ========================================================= */
+
+/* All Student Tools */
+.tools {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* Make tool cards more compact */
+.tool-card {
+    padding: 20px 18px;
+    min-height: 190px;
+}
+
+/* Popular Student Tools */
+.popular-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+/* Compact popular cards */
+.popular-card {
+    min-height: 130px;
+    padding: 16px;
+}
+
+
+/* =========================================================
+   MOBILE — STILL 2 TOOLS PER ROW
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .tool-card {
+        padding: 16px 10px;
+        min-height: 175px;
+    }
+
+    .popular-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .popular-card {
+        min-height: 120px;
+        padding: 12px 9px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .tools {
+        gap: 8px;
+    }
+
+    .tool-card {
+        padding: 14px 7px;
+        min-height: 165px;
+    }
+
+    .popular-grid {
+        gap: 8px;
+    }
+
+    .popular-card {
+        padding: 10px 7px;
+    }
+}
