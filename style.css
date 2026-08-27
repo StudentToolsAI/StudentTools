@@ -3719,3 +3719,268 @@ iframe {
     }
 
 }
+/* =========================================================
+   RELATED STUDENT TOOLS
+   COMPACT + RESPONSIVE
+   DOES NOT CHANGE CALCULATOR DESIGN
+========================================================= */
+
+.related-tools-section {
+    width: 100%;
+    padding: 28px 20px 30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #020617,
+            #03091b
+        );
+
+    border-bottom: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+.related-tools-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.related-tools-header span {
+    display: block;
+    margin-bottom: 3px;
+
+    color: #facc15;
+    font-size: 18px;
+}
+
+.related-tools-header h2 {
+    margin: 0;
+
+    color: #f8fafc;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.related-tools-header p {
+    margin: 4px 0 0;
+
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* One compact row */
+.related-tools-grid {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+/* Small tool card */
+.related-tool-card {
+    flex: 1 1 0;
+
+    min-width: 0;
+    max-width: 190px;
+
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 8px 12px;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 23, 42, 0.95),
+            rgba(10, 20, 45, 0.82)
+        );
+
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    border-radius: 10px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.related-tool-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.20);
+}
+
+.related-tool-icon {
+    flex-shrink: 0;
+
+    font-size: 20px;
+    line-height: 1;
+}
+
+.related-tool-name {
+    min-width: 0;
+
+    color: #e2e8f0;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.related-tool-arrow {
+    flex-shrink: 0;
+
+    color: #a78bfa;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .related-tools-section {
+        padding: 24px 14px 26px;
+    }
+
+    .related-tools-grid {
+        gap: 7px;
+    }
+
+    .related-tool-card {
+        height: 52px;
+        padding: 7px 8px;
+        gap: 5px;
+    }
+
+    .related-tool-icon {
+        font-size: 17px;
+    }
+
+    .related-tool-name {
+        font-size: 10px;
+    }
+
+    .related-tool-arrow {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   PHONE
+   ONE LINE + HORIZONTAL SCROLL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .related-tools-section {
+        padding: 22px 10px 24px;
+    }
+
+    .related-tools-header {
+        margin-bottom: 14px;
+    }
+
+    .related-tools-header span {
+        font-size: 16px;
+    }
+
+    .related-tools-header h2 {
+        font-size: 18px;
+    }
+
+    .related-tools-header p {
+        font-size: 11px;
+    }
+
+    .related-tools-grid {
+
+        justify-content: flex-start;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        gap: 7px;
+
+        padding: 2px 2px 6px;
+
+        scrollbar-width: thin;
+    }
+
+    .related-tool-card {
+
+        flex: 0 0 112px;
+
+        width: 112px;
+        max-width: 112px;
+
+        height: 52px;
+
+        padding: 6px 7px;
+
+        border-radius: 9px;
+
+        gap: 5px;
+    }
+
+    .related-tool-icon {
+        font-size: 18px;
+    }
+
+    .related-tool-name {
+        font-size: 10px;
+    }
+
+    .related-tool-arrow {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .related-tool-card {
+        flex-basis: 102px;
+        width: 102px;
+        max-width: 102px;
+
+        height: 48px;
+
+        padding: 5px 6px;
+    }
+
+    .related-tool-icon {
+        font-size: 16px;
+    }
+
+    .related-tool-name {
+        font-size: 9px;
+    }
+}
