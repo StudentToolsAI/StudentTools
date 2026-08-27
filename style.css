@@ -4381,3 +4381,142 @@ iframe {
     }
 
 }
+/* ================================
+   RELATED STUDENT TOOLS
+================================ */
+
+.related-tools {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 35px 20px 25px;
+    border-top: 1px solid rgba(90, 110, 255, 0.18);
+    background: rgba(3, 8, 22, 0.55);
+}
+
+.related-title {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.related-title span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.related-title h2 {
+    display: inline;
+    color: #ffffff;
+    font-size: 17px;
+    margin: 0;
+}
+
+.related-title p {
+    margin: 5px 0 0;
+    color: #8190b5;
+    font-size: 10px;
+}
+
+.related-tools-row {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 8px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.related-tools-row::-webkit-scrollbar {
+    display: none;
+}
+
+.related-tool {
+    flex: 1 1 0;
+    min-width: 120px;
+    max-width: 180px;
+
+    height: 38px;
+    padding: 0 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    text-decoration: none;
+
+    color: #dce3ff;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    border: 1px solid rgba(90, 110, 255, 0.35);
+    border-radius: 7px;
+
+    background: rgba(10, 18, 42, 0.85);
+
+    transition: all 0.25s ease;
+}
+
+.related-tool:hover {
+    transform: translateY(-2px);
+    border-color: #6877ff;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(72, 83, 255, 0.18);
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .related-tools {
+        padding: 28px 10px 20px;
+    }
+
+    .related-title {
+        margin-bottom: 12px;
+    }
+
+    .related-title h2 {
+        font-size: 15px;
+    }
+
+    .related-title p {
+        font-size: 9px;
+    }
+
+    .related-tools-row {
+        gap: 5px;
+        overflow-x: hidden;
+    }
+
+    .related-tool {
+        min-width: 0;
+        height: 34px;
+        padding: 0 5px;
+        gap: 3px;
+        font-size: 9px;
+    }
+
+}
+
+
+/* Very Small Phones */
+
+@media (max-width: 400px) {
+
+    .related-tool {
+        height: 32px;
+        font-size: 8px;
+        padding: 0 3px;
+    }
+
+}
