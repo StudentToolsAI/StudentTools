@@ -4917,3 +4917,166 @@ iframe {
     }
 
 }
+/* =================================
+   RELATED TOOLS
+================================= */
+
+.related-tools-section {
+    width: 100%;
+    padding: 10px 20px 70px;
+    box-sizing: border-box;
+}
+
+.related-tools-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.related-tools-container h2 {
+    color: #ffffff;
+    font-size: 25px;
+    margin: 0 0 8px;
+}
+
+.related-tools-subtitle {
+    color: #9eacd0;
+    font-size: 14px;
+    margin: 0 0 25px;
+}
+
+.related-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.related-tool-card {
+    min-width: 0;
+    padding: 13px 8px;
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 27, 55, 0.94),
+            rgba(8, 15, 35, 0.96)
+        );
+
+    border: 1px solid rgba(90, 110, 255, 0.30);
+    border-radius: 14px;
+
+    color: #dce3ff;
+    box-sizing: border-box;
+
+    transition: all 0.25s ease;
+}
+
+.related-tool-card:hover {
+    transform: translateY(-3px);
+    border-color: #6877ff;
+
+    box-shadow:
+        0 8px 25px rgba(72, 83, 255, 0.18);
+
+    color: #ffffff;
+}
+
+.related-tool-icon {
+    width: 34px;
+    height: 34px;
+
+    margin: 0 auto 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40, 100, 238, 0.25),
+            rgba(131, 55, 237, 0.25)
+        );
+
+    border: 1px solid rgba(110, 130, 255, 0.25);
+
+    font-size: 17px;
+}
+
+.related-tool-card span {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+    .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .related-tools-section {
+        padding: 5px 14px 55px;
+    }
+
+    .related-tools-container h2 {
+        font-size: 22px;
+    }
+
+    .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .related-tool-card {
+        padding: 10px 5px;
+        border-radius: 11px;
+    }
+
+    .related-tool-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+
+    .related-tool-card span {
+        font-size: 10px;
+    }
+
+}
+
+
+/* Very Small Phones */
+
+@media (max-width: 400px) {
+
+    .related-tools-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .related-tool-card {
+        padding: 9px 3px;
+    }
+
+    .related-tool-card span {
+        font-size: 9px;
+    }
+
+}
