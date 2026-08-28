@@ -5815,3 +5815,171 @@ iframe {
     }
 
 }
+<!-- =========================================
+     RELATED TOOLS
+     ========================================= -->
+
+<section class="related-tools">
+
+    <div class="related-tools-header">
+
+        <h2>
+            Related Tools
+        </h2>
+
+        <p>
+            Explore more useful conversion and calculation tools.
+        </p>
+
+    </div>
+
+
+    <div class="related-tools-grid">
+
+
+        <!-- 1. Temperature Converter -->
+
+        <a href="temperature.html" class="related-tool-card">
+
+            <div class="related-tool-icon">
+                🌡️
+            </div>
+
+            <div class="related-tool-content">
+
+                <h3>
+                    Temperature Converter
+                </h3>
+
+                <p>
+                    Convert Celsius, Fahrenheit and Kelvin easily.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 2. Area Converter -->
+
+        <a href="area.html" class="related-tool-card">
+
+            <div class="related-tool-icon">
+                📐
+            </div>
+
+            <div class="related-tool-content">
+
+                <h3>
+                    Area Converter
+                </h3>
+
+                <p>
+                    Convert between different area measurement units.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 3. Volume Converter -->
+
+        <a href="volume.html" class="related-tool-card">
+
+            <div class="related-tool-icon">
+                🧊
+            </div>
+
+            <div class="related-tool-content">
+
+                <h3>
+                    Volume Converter
+                </h3>
+
+                <p>
+                    Convert liters, gallons and cubic volume units.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 4. Speed Converter -->
+
+        <a href="speed.html" class="related-tool-card">
+
+            <div class="related-tool-icon">
+                🚗
+            </div>
+
+            <div class="related-tool-content">
+
+                <h3>
+                    Speed Converter
+                </h3>
+
+                <p>
+                    Convert km/h, mph, m/s, knots and more.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 5. Length Converter -->
+
+        <a href="length.html" class="related-tool-card">
+
+            <div class="related-tool-icon">
+                📏
+            </div>
+
+            <div class="related-tool-content">
+
+                <h3>
+                    Length Converter
+                </h3>
+
+                <p>
+                    Convert meters, kilometers, feet, inches and more.
+                </p>
+
+            </div>
+
+        </a>
+
+
+
+        <!-- 6. Weight Converter -->
+
+        <a href="weight.html" class="related-tool-card">
+
+            <div class="related-tool-icon">
+                ⚖️
+            </div>
+
+            <div class="related-tool-content">
+
+                <h3>
+                    Weight Converter
+                </h3>
+
+                <p>
+                    Convert kilograms, grams, pounds and other units.
+                </p>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</section>
