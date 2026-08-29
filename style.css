@@ -5983,3 +5983,324 @@ iframe {
     </div>
 
 </section>
+/* =========================================================
+   FINAL RELATED TOOLS DESIGN
+   PHOTO 2 STYLE — DESKTOP + MOBILE
+   ========================================================= */
+
+/* Related Tools main grid */
+.popular-grid {
+    display: grid !important;
+
+    /* Laptop/Desktop: 5 cards in one row */
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+
+    gap: 10px !important;
+
+    width: 100%;
+    max-width: 560px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   RELATED TOOL CARD
+   ========================================================= */
+
+.popular-card {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 7px !important;
+
+    width: 100% !important;
+
+    min-height: 48px !important;
+    height: 48px !important;
+
+    box-sizing: border-box !important;
+
+    padding: 8px 9px !important;
+
+    border: 1px solid rgba(99, 102, 241, 0.42) !important;
+
+    border-radius: 7px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(12, 25, 55, 0.92),
+            rgba(19, 28, 67, 0.88)
+        ) !important;
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.18),
+        inset 0 0 12px rgba(99, 102, 241, 0.035) !important;
+
+    color: #ffffff !important;
+
+    text-decoration: none !important;
+
+    overflow: hidden !important;
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease !important;
+}
+
+
+/* Hover */
+.popular-card:hover {
+
+    transform: translateY(-2px) !important;
+
+    border-color: rgba(129, 140, 248, 0.85) !important;
+
+    box-shadow:
+        0 8px 22px rgba(67, 56, 202, 0.20),
+        0 0 14px rgba(99, 102, 241, 0.10) !important;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.popular-card .popular-icon {
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex: 0 0 27px !important;
+
+    width: 27px !important;
+    height: 27px !important;
+
+    border-radius: 7px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        ) !important;
+
+    font-size: 14px !important;
+
+    line-height: 1 !important;
+
+    box-shadow:
+        0 3px 10px rgba(79, 70, 229, 0.25) !important;
+}
+
+
+/* =========================================================
+   TITLE / TEXT
+   ========================================================= */
+
+.popular-card h3,
+.popular-card .popular-title,
+.popular-card span {
+
+    margin: 0 !important;
+
+    color: #dbe4ff !important;
+
+    font-size: 10px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1.15 !important;
+
+    text-align: center !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
+
+.popular-card .popular-arrow {
+
+    flex: 0 0 auto !important;
+
+    margin-left: 1px !important;
+
+    color: #818cf8 !important;
+
+    font-size: 11px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   IF CARD USES <i> FOR ICON
+   ========================================================= */
+
+.popular-card i {
+
+    flex: 0 0 auto;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .popular-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 9px !important;
+
+        width: 100%;
+
+        max-width: 100%;
+
+        padding: 0 2px;
+
+        box-sizing: border-box;
+    }
+
+
+    .popular-card {
+
+        min-height: 50px !important;
+        height: 50px !important;
+
+        padding: 8px 7px !important;
+
+        gap: 6px !important;
+
+        border-radius: 8px !important;
+    }
+
+
+    .popular-card .popular-icon {
+
+        flex-basis: 27px !important;
+
+        width: 27px !important;
+        height: 27px !important;
+
+        font-size: 13px !important;
+    }
+
+
+    .popular-card h3,
+    .popular-card .popular-title,
+    .popular-card span {
+
+        font-size: 9px !important;
+
+        line-height: 1.15 !important;
+    }
+
+
+    .popular-card .popular-arrow {
+
+        font-size: 10px !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .popular-grid {
+
+        gap: 7px !important;
+    }
+
+
+    .popular-card {
+
+        min-height: 47px !important;
+        height: 47px !important;
+
+        padding: 7px 5px !important;
+
+        gap: 5px !important;
+    }
+
+
+    .popular-card .popular-icon {
+
+        width: 25px !important;
+        height: 25px !important;
+
+        flex-basis: 25px !important;
+
+        font-size: 12px !important;
+    }
+
+
+    .popular-card h3,
+    .popular-card .popular-title,
+    .popular-card span {
+
+        font-size: 8px !important;
+    }
+
+}
+
+
+/* =========================================================
+   PREVENT OLD CARD STYLES FROM MAKING THEM VERTICAL
+   ========================================================= */
+
+.popular-card img {
+
+    width: 27px !important;
+    height: 27px !important;
+
+    object-fit: contain !important;
+
+    flex: 0 0 27px !important;
+}
+
+
+.popular-card a {
+
+    text-decoration: none !important;
+
+    color: inherit !important;
+}
+
+
+/* =========================================================
+   RELATED TOOLS SECTION
+   ========================================================= */
+
+.popular-tools,
+.related-tools,
+.tools-section {
+
+    overflow: hidden;
+}
+
+
+/* Keep the whole section centered */
+.popular-grid {
+
+    justify-items: stretch !important;
+    align-items: center !important;
+}
