@@ -5983,41 +5983,74 @@ iframe {
     </div>
 
 </section>
-/* =========================================
-   FINAL RELATED TOOLS
-   COMPACT HORIZONTAL DESIGN
-   ========================================= */
+/* =========================================================
+   FINAL RELATED TOOLS — ONE SAME DESIGN FOR ALL TOOL PAGES
+   DOES NOT AFFECT POPULAR TOOLS
+   ========================================================= */
 
 .related-tools {
     width: 100% !important;
-    max-width: 760px !important;
-
-    margin: 55px auto 50px !important;
-    padding: 0 10px !important;
+    max-width: 1000px !important;
+    margin: 50px auto 60px !important;
+    padding: 26px 18px 30px !important;
 
     box-sizing: border-box !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(3, 10, 30, 0.30),
+            rgba(3, 10, 30, 0.15)
+        ) !important;
+
+    border-top: 1px solid rgba(99, 102, 241, 0.14) !important;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.14) !important;
 
     text-align: center !important;
 }
 
 
-/* TITLE */
+/* =========================================================
+   TITLE
+   ========================================================= */
 
-.related-tools-title {
-    margin: 0 0 16px !important;
+.related-tools .related-tools-header {
+    margin: 0 0 20px !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
 
-    color: #ffffff !important;
+.related-tools .related-tools-header h2 {
+    margin: 0 0 5px !important;
 
-    font-size: 18px !important;
-    font-weight: 700 !important;
+    color: #f8fafc !important;
 
+    font-size: 19px !important;
     line-height: 1.3 !important;
+    font-weight: 800 !important;
+}
+
+.related-tools .related-tools-header p {
+    margin: 0 !important;
+
+    color: #94a3b8 !important;
+
+    font-size: 11px !important;
+    line-height: 1.5 !important;
 }
 
 
-/* GRID */
+/* =========================================================
+   GRID
+   ========================================================= */
 
-.related-tools-grid {
+.related-tools .related-tools-grid {
+    width: 100% !important;
+    max-width: 1000px !important;
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
     display: grid !important;
 
     grid-template-columns:
@@ -6025,154 +6058,190 @@ iframe {
 
     gap: 8px !important;
 
-    width: 100% !important;
-
-    align-items: center !important;
+    align-items: stretch !important;
 }
 
 
-/* =========================================
-   COMPACT TOOL BUTTON
-   ========================================= */
+/* =========================================================
+   RELATED TOOL CARD
+   ========================================================= */
 
-.related-tool {
+.related-tools .related-tool-card {
     width: 100% !important;
-    height: 42px !important;
-    min-height: 42px !important;
+    min-width: 0 !important;
+    max-width: none !important;
 
-    padding: 6px 8px !important;
+    min-height: 78px !important;
+    height: 78px !important;
+
+    padding: 10px 8px !important;
 
     box-sizing: border-box !important;
 
     display: flex !important;
 
-    flex-direction: row !important;
+    flex-direction: column !important;
 
     align-items: center !important;
     justify-content: center !important;
 
     gap: 5px !important;
 
-    border:
-        1px solid rgba(99, 102, 241, 0.45) !important;
-
-    border-radius: 7px !important;
-
-    background:
-        rgba(12, 22, 52, 0.75) !important;
-
-    color: #dce7ff !important;
-
     text-decoration: none !important;
 
-    font-size: 10px !important;
-    font-weight: 600 !important;
+    background:
+        rgba(8, 18, 43, 0.78) !important;
 
-    line-height: 1 !important;
+    border:
+        1px solid rgba(99, 102, 241, 0.35) !important;
 
-    white-space: nowrap !important;
+    border-radius: 8px !important;
+
+    color: #ffffff !important;
 
     overflow: hidden !important;
 
+    transform: none !important;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.12) !important;
+
     transition:
-        0.2s ease !important;
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease !important;
 }
 
 
-/* ICON */
+/* =========================================================
+   ICON
+   ========================================================= */
 
-.related-tool-icon {
-    display: inline-flex !important;
+.related-tools .related-tool-icon {
+    width: 30px !important;
+    height: 30px !important;
+
+    min-width: 30px !important;
+    min-height: 30px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
 
     align-items: center !important;
     justify-content: center !important;
 
-    flex-shrink: 0 !important;
+    border-radius: 8px !important;
 
-    width: 16px !important;
-    height: 16px !important;
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        ) !important;
 
-    font-size: 13px !important;
+    font-size: 16px !important;
 
     line-height: 1 !important;
+
+    box-shadow:
+        0 4px 12px rgba(79, 70, 229, 0.20) !important;
 }
 
 
-/* NAME */
+/* =========================================================
+   CONTENT
+   ========================================================= */
 
-.related-tool-name {
-    display: inline-block !important;
-
+.related-tools .related-tool-content {
+    width: 100% !important;
     min-width: 0 !important;
 
-    overflow: hidden !important;
-
-    text-overflow: ellipsis !important;
-
-    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
     text-align: center !important;
 }
 
 
-/* ARROW */
+.related-tools .related-tool-card h3 {
+    margin: 0 !important;
 
-.related-tool-arrow {
-    display: inline-flex !important;
+    color: #f8fafc !important;
 
-    flex-shrink: 0 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
 
-    align-items: center !important;
+    line-height: 1.25 !important;
 
-    font-size: 12px !important;
+    white-space: normal !important;
 
-    color: #a5b4fc !important;
+    overflow: hidden !important;
 
-    line-height: 1 !important;
-
-    transition: 0.2s ease !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
 }
 
 
-/* HOVER */
+.related-tools .related-tool-card p {
+    display: none !important;
+}
 
-.related-tool:hover {
-    transform: translateY(-2px) !important;
 
-    border-color: #818cf8 !important;
+.related-tools .related-tool-card span {
+    margin: 0 !important;
+
+    color: #a78bfa !important;
+
+    font-size: 9px !important;
+    font-weight: 700 !important;
+
+    line-height: 1.2 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   HOVER — DESKTOP
+   ========================================================= */
+
+.related-tools .related-tool-card:hover {
+    transform: translateY(-3px) !important;
 
     background:
-        rgba(28, 40, 82, 0.95) !important;
+        rgba(15, 28, 62, 0.92) !important;
+
+    border-color:
+        rgba(129, 140, 248, 0.70) !important;
 
     box-shadow:
-        0 6px 16px rgba(99, 102, 241, 0.18) !important;
-
-    color: #ffffff !important;
+        0 9px 24px rgba(37, 99, 235, 0.13) !important;
 }
 
 
-.related-tool:hover
-.related-tool-arrow {
-    transform: translateX(2px) !important;
-
-    color: #ffffff !important;
+.related-tools .related-tool-card:hover .related-tool-icon {
+    box-shadow:
+        0 6px 16px rgba(99, 70, 255, 0.32) !important;
 }
 
 
-/* =========================================
+/* =========================================================
    TABLET
-   ========================================= */
+   ========================================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
     .related-tools {
-        max-width: 650px !important;
+        max-width: 760px !important;
+        padding: 24px 14px 28px !important;
     }
 
-
-    .related-tools-grid {
+    .related-tools .related-tools-grid {
         grid-template-columns:
-            repeat(3, minmax(0, 1fr)) !important;
+            repeat(4, minmax(0, 1fr)) !important;
 
         gap: 8px !important;
     }
@@ -6180,29 +6249,37 @@ iframe {
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-   ========================================= */
+   ========================================================= */
 
 @media (max-width: 600px) {
 
     .related-tools {
-        width: 100% !important;
+        width: calc(100% - 20px) !important;
 
-        margin: 45px auto 40px !important;
+        margin: 40px auto 50px !important;
 
-        padding: 0 10px !important;
+        padding: 22px 8px 26px !important;
     }
 
 
-    .related-tools-title {
-        font-size: 17px !important;
-
-        margin-bottom: 14px !important;
+    .related-tools .related-tools-header {
+        margin-bottom: 15px !important;
     }
 
 
-    .related-tools-grid {
+    .related-tools .related-tools-header h2 {
+        font-size: 18px !important;
+    }
+
+
+    .related-tools .related-tools-header p {
+        font-size: 10px !important;
+    }
+
+
+    .related-tools .related-tools-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr)) !important;
 
@@ -6210,35 +6287,84 @@ iframe {
     }
 
 
-    .related-tool {
-        height: 40px !important;
-        min-height: 40px !important;
+    .related-tools .related-tool-card {
+        height: 72px !important;
+        min-height: 72px !important;
 
-        padding: 5px 7px !important;
+        padding: 8px 6px !important;
 
-        gap: 4px !important;
+        border-radius: 8px !important;
+    }
 
+
+    .related-tools .related-tool-icon {
+        width: 28px !important;
+        height: 28px !important;
+
+        min-width: 28px !important;
+        min-height: 28px !important;
+
+        font-size: 15px !important;
+    }
+
+
+    .related-tools .related-tool-card h3 {
         font-size: 10px !important;
-
-        border-radius: 7px !important;
     }
 
 
-    .related-tool-icon {
-        width: 15px !important;
-        height: 15px !important;
-
-        font-size: 12px !important;
+    .related-tools .related-tool-card span {
+        font-size: 8px !important;
     }
 
 
-    .related-tool-arrow {
-        font-size: 11px !important;
-    }
-
-
-    .related-tool:hover {
+    .related-tools .related-tool-card:hover {
         transform: none !important;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .related-tools {
+        width: calc(100% - 14px) !important;
+
+        padding-left: 6px !important;
+        padding-right: 6px !important;
+    }
+
+
+    .related-tools .related-tools-grid {
+        gap: 6px !important;
+    }
+
+
+    .related-tools .related-tool-card {
+        height: 68px !important;
+        min-height: 68px !important;
+
+        padding: 7px 4px !important;
+    }
+
+
+    .related-tools .related-tool-icon {
+        width: 26px !important;
+        height: 26px !important;
+
+        min-width: 26px !important;
+        min-height: 26px !important;
+
+        font-size: 14px !important;
+    }
+
+
+    .related-tools .related-tool-card h3 {
+        font-size: 9px !important;
     }
 
 }
