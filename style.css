@@ -5984,151 +5984,178 @@ iframe {
 
 </section>
 /* =========================================
-   RELATED STUDENT TOOLS
-   SAME DESIGN FOR ALL 15 TOOL PAGES
+   FINAL RELATED TOOLS
+   COMPACT HORIZONTAL DESIGN
    ========================================= */
 
 .related-tools {
-    width: 100%;
-    max-width: 760px;
+    width: 100% !important;
+    max-width: 760px !important;
 
-    margin: 70px auto 60px;
-    padding: 0 20px;
+    margin: 55px auto 50px !important;
+    padding: 0 10px !important;
 
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 
-    text-align: center;
+    text-align: center !important;
 }
 
 
-/* Title */
+/* TITLE */
 
 .related-tools-title {
-    margin: 0 0 22px;
+    margin: 0 0 16px !important;
 
-    color: #ffffff;
+    color: #ffffff !important;
 
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px !important;
+    font-weight: 700 !important;
 
-    letter-spacing: 0.2px;
+    line-height: 1.3 !important;
 }
 
 
-/* Tools Row */
+/* GRID */
 
 .related-tools-grid {
-    display: grid;
+    display: grid !important;
 
     grid-template-columns:
-        repeat(5, minmax(0, 1fr));
+        repeat(5, minmax(0, 1fr)) !important;
 
-    gap: 10px;
+    gap: 8px !important;
 
-    width: 100%;
+    width: 100% !important;
+
+    align-items: center !important;
 }
 
 
-/* Individual Tool Button */
+/* =========================================
+   COMPACT TOOL BUTTON
+   ========================================= */
 
 .related-tool {
-    min-height: 52px;
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 6px 8px !important;
 
-    gap: 7px;
+    box-sizing: border-box !important;
 
-    padding: 8px 10px;
+    display: flex !important;
 
-    box-sizing: border-box;
+    flex-direction: row !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 5px !important;
 
     border:
-        1px solid rgba(99, 102, 241, 0.45);
+        1px solid rgba(99, 102, 241, 0.45) !important;
 
-    border-radius: 9px;
+    border-radius: 7px !important;
 
     background:
-        rgba(18, 27, 58, 0.82);
+        rgba(12, 22, 52, 0.75) !important;
 
-    color: #dce7ff;
+    color: #dce7ff !important;
 
-    text-decoration: none;
+    text-decoration: none !important;
 
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 10px !important;
+    font-weight: 600 !important;
 
-    line-height: 1.25;
+    line-height: 1 !important;
+
+    white-space: nowrap !important;
+
+    overflow: hidden !important;
 
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-
-    overflow: hidden;
+        0.2s ease !important;
 }
 
 
-/* Icon */
+/* ICON */
 
 .related-tool-icon {
-    flex-shrink: 0;
+    display: inline-flex !important;
 
-    font-size: 16px;
+    align-items: center !important;
+    justify-content: center !important;
 
-    line-height: 1;
+    flex-shrink: 0 !important;
+
+    width: 16px !important;
+    height: 16px !important;
+
+    font-size: 13px !important;
+
+    line-height: 1 !important;
 }
 
 
-/* Tool Name */
+/* NAME */
 
 .related-tool-name {
-    min-width: 0;
+    display: inline-block !important;
 
-    white-space: normal;
+    min-width: 0 !important;
 
-    text-align: center;
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+
+    white-space: nowrap !important;
+
+    text-align: center !important;
 }
 
 
-/* Arrow */
+/* ARROW */
 
 .related-tool-arrow {
-    flex-shrink: 0;
+    display: inline-flex !important;
 
-    color: #a5b4fc;
+    flex-shrink: 0 !important;
 
-    font-size: 15px;
+    align-items: center !important;
 
-    transition: transform 0.2s ease;
+    font-size: 12px !important;
+
+    color: #a5b4fc !important;
+
+    line-height: 1 !important;
+
+    transition: 0.2s ease !important;
 }
 
 
-/* Hover */
+/* HOVER */
 
 .related-tool:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px) !important;
 
-    border-color: #818cf8;
+    border-color: #818cf8 !important;
 
     background:
-        rgba(30, 42, 85, 0.95);
+        rgba(28, 40, 82, 0.95) !important;
 
     box-shadow:
-        0 8px 22px
-        rgba(99, 102, 241, 0.18);
+        0 6px 16px rgba(99, 102, 241, 0.18) !important;
 
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 
 .related-tool:hover
 .related-tool-arrow {
-    transform: translateX(3px);
+    transform: translateX(2px) !important;
 
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 
@@ -6139,13 +6166,15 @@ iframe {
 @media (max-width: 850px) {
 
     .related-tools {
-        max-width: 680px;
+        max-width: 650px !important;
     }
 
 
     .related-tools-grid {
         grid-template-columns:
-            repeat(3, 1fr);
+            repeat(3, minmax(0, 1fr)) !important;
+
+        gap: 8px !important;
     }
 
 }
@@ -6158,52 +6187,58 @@ iframe {
 @media (max-width: 600px) {
 
     .related-tools {
-        margin: 55px auto 45px;
+        width: 100% !important;
 
-        padding: 0 14px;
+        margin: 45px auto 40px !important;
+
+        padding: 0 10px !important;
     }
 
 
     .related-tools-title {
-        margin-bottom: 18px;
+        font-size: 17px !important;
 
-        font-size: 18px;
+        margin-bottom: 14px !important;
     }
 
 
     .related-tools-grid {
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+            repeat(2, minmax(0, 1fr)) !important;
 
-        gap: 9px;
+        gap: 8px !important;
     }
 
 
     .related-tool {
-        min-height: 48px;
+        height: 40px !important;
+        min-height: 40px !important;
 
-        padding: 7px 8px;
+        padding: 5px 7px !important;
 
-        gap: 6px;
+        gap: 4px !important;
 
-        font-size: 12px;
+        font-size: 10px !important;
 
-        border-radius: 8px;
+        border-radius: 7px !important;
     }
 
 
     .related-tool-icon {
-        font-size: 15px;
+        width: 15px !important;
+        height: 15px !important;
+
+        font-size: 12px !important;
     }
 
 
     .related-tool-arrow {
-        font-size: 14px;
+        font-size: 11px !important;
     }
 
 
     .related-tool:hover {
-        transform: none;
+        transform: none !important;
     }
 
 }
