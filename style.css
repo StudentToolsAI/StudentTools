@@ -5983,3 +5983,227 @@ iframe {
     </div>
 
 </section>
+/* =========================================
+   RELATED STUDENT TOOLS
+   SAME DESIGN FOR ALL 15 TOOL PAGES
+   ========================================= */
+
+.related-tools {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 70px auto 60px;
+    padding: 0 20px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+
+/* Title */
+
+.related-tools-title {
+    margin: 0 0 22px;
+
+    color: #ffffff;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* Tools Row */
+
+.related-tools-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+
+/* Individual Tool Button */
+
+.related-tool {
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 8px 10px;
+
+    box-sizing: border-box;
+
+    border:
+        1px solid rgba(99, 102, 241, 0.45);
+
+    border-radius: 9px;
+
+    background:
+        rgba(18, 27, 58, 0.82);
+
+    color: #dce7ff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+    overflow: hidden;
+}
+
+
+/* Icon */
+
+.related-tool-icon {
+    flex-shrink: 0;
+
+    font-size: 16px;
+
+    line-height: 1;
+}
+
+
+/* Tool Name */
+
+.related-tool-name {
+    min-width: 0;
+
+    white-space: normal;
+
+    text-align: center;
+}
+
+
+/* Arrow */
+
+.related-tool-arrow {
+    flex-shrink: 0;
+
+    color: #a5b4fc;
+
+    font-size: 15px;
+
+    transition: transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.related-tool:hover {
+    transform: translateY(-3px);
+
+    border-color: #818cf8;
+
+    background:
+        rgba(30, 42, 85, 0.95);
+
+    box-shadow:
+        0 8px 22px
+        rgba(99, 102, 241, 0.18);
+
+    color: #ffffff;
+}
+
+
+.related-tool:hover
+.related-tool-arrow {
+    transform: translateX(3px);
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 850px) {
+
+    .related-tools {
+        max-width: 680px;
+    }
+
+
+    .related-tools-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .related-tools {
+        margin: 55px auto 45px;
+
+        padding: 0 14px;
+    }
+
+
+    .related-tools-title {
+        margin-bottom: 18px;
+
+        font-size: 18px;
+    }
+
+
+    .related-tools-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+    }
+
+
+    .related-tool {
+        min-height: 48px;
+
+        padding: 7px 8px;
+
+        gap: 6px;
+
+        font-size: 12px;
+
+        border-radius: 8px;
+    }
+
+
+    .related-tool-icon {
+        font-size: 15px;
+    }
+
+
+    .related-tool-arrow {
+        font-size: 14px;
+    }
+
+
+    .related-tool:hover {
+        transform: none;
+    }
+
+}
