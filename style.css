@@ -6952,3 +6952,541 @@ iframe {
     }
 
 }
+/* =========================================================
+   FINAL UNIVERSAL FIX
+   ALL TOOL CARDS + RELATED TOOLS
+   SAME SIZE / SAME LAYOUT / MOBILE FRIENDLY
+   ========================================================= */
+
+/* ---------- MAIN STUDENT TOOLS ---------- */
+
+.tools {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    width: 100% !important;
+}
+
+.tool-card {
+    width: 100% !important;
+    min-height: 190px !important;
+    height: auto !important;
+
+    padding: 20px 18px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+
+    overflow: hidden !important;
+}
+
+.tool-card .tool-icon {
+    flex-shrink: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 auto 12px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    font-size: 22px !important;
+}
+
+.tool-card h2,
+.tool-card h3 {
+    width: 100% !important;
+    margin: 0 0 8px !important;
+
+    font-size: 18px !important;
+    line-height: 1.3 !important;
+
+    text-align: center !important;
+}
+
+.tool-card .tool-description,
+.tool-card > p:not(.result) {
+    width: 100% !important;
+
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+
+    margin: 0 0 8px !important;
+
+    text-align: center !important;
+}
+
+/* OPEN CALCULATOR / CONVERTER */
+.tool-card .tool-link {
+    display: block !important;
+
+    width: 100% !important;
+    margin-top: auto !important;
+
+    padding-top: 6px !important;
+
+    color: #a78bfa !important;
+
+    font-size: 11px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.2 !important;
+
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+
+    text-align: center !important;
+}
+
+
+/* =========================================================
+   RELATED TOOLS
+   SAME ON EVERY PAGE
+   ========================================================= */
+
+.related-tools,
+.related-tools-section {
+    width: 100% !important;
+    max-width: 775px !important;
+
+    margin: 0 auto 45px !important;
+
+    padding: 28px 20px 32px !important;
+
+    box-sizing: border-box !important;
+
+    text-align: center !important;
+
+    background: rgba(5, 13, 34, 0.58) !important;
+
+    border-top: 1px solid rgba(70, 95, 180, 0.14) !important;
+    border-bottom: 1px solid rgba(70, 95, 180, 0.14) !important;
+}
+
+
+/* RELATED HEADING */
+
+.related-tools-header,
+.related-tools-title,
+.related-tools-heading,
+.related-title {
+    text-align: center !important;
+}
+
+.related-tools h2,
+.related-tools-title h2,
+.related-tools-heading h2,
+.related-tools-container h2 {
+    margin: 0 0 7px !important;
+
+    color: #ffffff !important;
+
+    font-size: 20px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.2 !important;
+}
+
+.related-tools > p,
+.related-tools-header p,
+.related-tools-title p,
+.related-tools-heading p,
+.related-tools-subtitle,
+.related-title p {
+    margin: 0 0 20px !important;
+
+    color: #8fa0c8 !important;
+
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   RELATED GRID
+   ========================================================= */
+
+.related-tools-grid,
+.related-tools-row {
+    width: 100% !important;
+
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+
+    overflow: visible !important;
+
+    padding: 0 !important;
+
+    margin: 0 auto !important;
+}
+
+
+/* =========================================================
+   RELATED CARD
+   ========================================================= */
+
+.related-tool-card,
+.related-tool {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    height: 90px !important;
+    min-height: 90px !important;
+
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 7px !important;
+
+    padding: 10px !important;
+
+    text-decoration: none !important;
+
+    border: 1px solid rgba(75, 95, 210, 0.55) !important;
+
+    border-radius: 14px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 27, 67, 0.90),
+            rgba(7, 16, 42, 0.90)
+        ) !important;
+
+    color: #e9edff !important;
+
+    overflow: hidden !important;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+
+/* RELATED ICON */
+
+.related-tool-icon,
+.related-icon {
+    flex-shrink: 0 !important;
+
+    width: 34px !important;
+    height: 34px !important;
+
+    min-width: 34px !important;
+    min-height: 34px !important;
+
+    margin: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 10px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        ) !important;
+
+    border: 1px solid rgba(255,255,255,0.12) !important;
+
+    font-size: 18px !important;
+
+    line-height: 1 !important;
+}
+
+
+/* RELATED TITLE */
+
+.related-tool-name,
+.related-tool-card h3,
+.related-tool-card strong,
+.related-tool > span:nth-child(2) {
+    width: 100% !important;
+
+    min-width: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    color: #e9edff !important;
+
+    font-size: 12px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.2 !important;
+
+    text-align: center !important;
+
+    white-space: nowrap !important;
+
+    overflow: hidden !important;
+
+    text-overflow: ellipsis !important;
+}
+
+
+/* RELATED DESCRIPTION NEVER BREAKS LAYOUT */
+
+.related-tool-card p,
+.related-tool-content p {
+    display: none !important;
+}
+
+
+/* RELATED ARROW */
+
+.related-tool-arrow,
+.related-arrow {
+    display: none !important;
+}
+
+
+/* HOVER */
+
+.related-tool-card:hover,
+.related-tool:hover {
+    transform: translateY(-3px) !important;
+
+    border-color: #6877ff !important;
+
+    box-shadow:
+        0 8px 22px rgba(72, 83, 255, 0.20) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* MAIN TOOLS */
+
+    .tools {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 12px !important;
+    }
+
+    .tool-card {
+        min-height: 175px !important;
+        height: auto !important;
+
+        padding: 16px 10px !important;
+
+        border-radius: 15px !important;
+    }
+
+    .tool-card .tool-icon {
+        width: 48px !important;
+        height: 48px !important;
+
+        font-size: 21px !important;
+
+        margin-bottom: 10px !important;
+    }
+
+    .tool-card h2,
+    .tool-card h3 {
+        font-size: 16px !important;
+        line-height: 1.25 !important;
+    }
+
+    .tool-card .tool-description,
+    .tool-card > p:not(.result) {
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+    }
+
+    .tool-card .tool-link {
+        font-size: 10px !important;
+        padding-top: 5px !important;
+    }
+
+
+    /* RELATED SECTION */
+
+    .related-tools,
+    .related-tools-section {
+        width: calc(100% - 28px) !important;
+
+        max-width: 640px !important;
+
+        margin: 28px auto 35px !important;
+
+        padding:
+            28px 14px 32px !important;
+
+        border-radius: 2px !important;
+    }
+
+
+    /* RELATED HEADING */
+
+    .related-tools h2,
+    .related-tools-title h2,
+    .related-tools-heading h2,
+    .related-tools-container h2 {
+        font-size: 24px !important;
+
+        margin-bottom: 9px !important;
+    }
+
+    .related-tools > p,
+    .related-tools-header p,
+    .related-tools-title p,
+    .related-tools-heading p,
+    .related-tools-subtitle {
+        font-size: 13px !important;
+
+        line-height: 1.5 !important;
+
+        margin-bottom: 22px !important;
+    }
+
+
+    /* EXACTLY 2 RELATED CARDS */
+
+    .related-tools-grid,
+    .related-tools-row {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 10px !important;
+    }
+
+
+    /* RELATED CARD — COMPACT */
+
+    .related-tool-card,
+    .related-tool {
+        width: 100% !important;
+
+        height: 90px !important;
+        min-height: 90px !important;
+
+        padding: 9px !important;
+
+        border-radius: 14px !important;
+
+        gap: 7px !important;
+    }
+
+
+    /* RELATED ICON */
+
+    .related-tool-icon,
+    .related-icon {
+        width: 34px !important;
+        height: 34px !important;
+
+        min-width: 34px !important;
+        min-height: 34px !important;
+
+        font-size: 18px !important;
+
+        border-radius: 10px !important;
+    }
+
+
+    /* RELATED NAME */
+
+    .related-tool-name,
+    .related-tool-card h3,
+    .related-tool-card strong,
+    .related-tool > span:nth-child(2) {
+        font-size: 12px !important;
+
+        line-height: 1.2 !important;
+
+        white-space: nowrap !important;
+    }
+
+
+    /* NO RANDOM TEXT / CLIPPING */
+
+    .related-tool-card *,
+    .related-tool * {
+        box-sizing: border-box !important;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .tools {
+        gap: 9px !important;
+    }
+
+    .tool-card {
+        min-height: 165px !important;
+        padding: 14px 8px !important;
+    }
+
+    .tool-card h2,
+    .tool-card h3 {
+        font-size: 15px !important;
+    }
+
+    .related-tools,
+    .related-tools-section {
+        width: calc(100% - 20px) !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .related-tools-grid,
+    .related-tools-row {
+        gap: 8px !important;
+    }
+
+    .related-tool-card,
+    .related-tool {
+        height: 86px !important;
+        min-height: 86px !important;
+    }
+
+    .related-tool-icon,
+    .related-icon {
+        width: 32px !important;
+        height: 32px !important;
+
+        min-width: 32px !important;
+        min-height: 32px !important;
+
+        font-size: 17px !important;
+    }
+
+    .related-tool-name,
+    .related-tool-card h3,
+    .related-tool-card strong {
+        font-size: 11px !important;
+    }
+}
