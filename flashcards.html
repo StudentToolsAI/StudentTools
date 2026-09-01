@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon"
+        type="image/png"
+        href="favicon.png">
+
+    <title>Flashcard Maker - Create Study Flashcards</title>
+
+    <meta name="description"
+        content="Create custom study flashcards for learning, revision and exam preparation with Advanced Student Tools.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/flashcards.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           FLASHCARD PAGE
+        ========================================= */
+
+        .flashcard-page {
+
+            min-height: 100vh;
+
+            padding: 120px 20px 80px;
+
+        }
+
+
+        .flashcard-container {
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: auto;
+
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .flashcard-hero {
+
+            text-align: center;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .flashcard-badge {
+
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background: rgba(85, 75, 255, 0.15);
+
+            border: 1px solid rgba(100, 100, 255, 0.4);
+
+            color: #b9b5ff;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .flashcard-hero h1 {
+
+            font-size: clamp(34px, 6vw, 58px);
+
+            margin: 0 0 15px;
+
+            color: #ffffff;
+
+        }
+
+
+        .flashcard-hero p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #9da8c7;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           CREATOR CARD
+        ========================================= */
+
+        .creator-card {
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            background: rgba(7, 20, 52, 0.85);
+
+            border: 1px solid rgba(76, 91, 220, 0.55);
+
+            box-shadow:
+
+                0 10px 35px rgba(0, 0, 0, 0.25),
+
+                inset 0 0 25px rgba(80, 70, 255, 0.04);
+
+        }
+
+
+        .creator-card h2 {
+
+            margin: 0 0 18px;
+
+            color: #ffffff;
+
+            font-size: 24px;
+
+        }
+
+
+        .input-group {
+
+            margin-bottom: 16px;
+
+        }
+
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #d7ddf5;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        .flash-input {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 14px 15px;
+
+            border-radius: 11px;
+
+            border: 1px solid rgba(100, 110, 210, 0.5);
+
+            background: rgba(3, 10, 28, 0.9);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .flash-input:focus {
+
+            border-color: #685cff;
+
+            box-shadow:
+
+                0 0 0 3px rgba(90, 80, 255, 0.12),
+
+                0 0 18px rgba(99, 102, 241, 0.15);
+
+        }
+
+
+        .flash-textarea {
+
+            min-height: 95px;
+
+            resize: vertical;
+
+            font-family: inherit;
+
+        }
+
+
+        .add-card-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    #246bff,
+
+                    #713cff
+
+                );
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .add-card-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+
+                0 10px 28px rgba(80, 70, 255, 0.3);
+
+        }
+
+
+        /* =========================================
+           FLASHCARD AREA
+        ========================================= */
+
+        .study-section {
+
+            margin-top: 35px;
+
+            text-align: center;
+
+        }
+
+
+        .study-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 16px;
+
+            gap: 15px;
+
+        }
+
+
+        .card-count {
+
+            color: #9da8c7;
+
+            font-size: 14px;
+
+        }
+
+
+        .shuffle-button {
+
+            padding: 9px 15px;
+
+            border-radius: 9px;
+
+            border: 1px solid rgba(100, 110, 210, 0.4);
+
+            background: rgba(7, 20, 52, 0.8);
+
+            color: #dce4ff;
+
+            cursor: pointer;
+
+            font-weight: 600;
+
+        }
+
+
+        .shuffle-button:hover {
+
+            border-color: #685cff;
+
+        }
+
+
+        /* =========================================
+           FLASHCARD
+        ========================================= */
+
+        .flashcard {
+
+            width: 100%;
+
+            min-height: 330px;
+
+            perspective: 1200px;
+
+            cursor: pointer;
+
+        }
+
+
+        .flashcard-inner {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 330px;
+
+            transition: transform 0.65s;
+
+            transform-style: preserve-3d;
+
+        }
+
+
+        .flashcard.flipped .flashcard-inner {
+
+            transform: rotateY(180deg);
+
+        }
+
+
+        .flashcard-face {
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            padding: 35px;
+
+            box-sizing: border-box;
+
+            border-radius: 22px;
+
+            backface-visibility: hidden;
+
+            background:
+
+                radial-gradient(
+
+                    circle at top right,
+
+                    rgba(105, 70, 255, 0.18),
+
+                    transparent 45%
+
+                ),
+
+                rgba(7, 20, 52, 0.95);
+
+            border: 1px solid rgba(88, 101, 230, 0.55);
+
+            box-shadow:
+
+                0 15px 40px rgba(0, 0, 0, 0.28),
+
+                inset 0 0 30px rgba(100, 80, 255, 0.04);
+
+        }
+
+
+        .flashcard-back {
+
+            transform: rotateY(180deg);
+
+            background:
+
+                radial-gradient(
+
+                    circle at bottom left,
+
+                    rgba(30, 170, 255, 0.14),
+
+                    transparent 45%
+
+                ),
+
+                rgba(7, 20, 52, 0.95);
+
+        }
+
+
+        .face-label {
+
+            color: #7887ad;
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .face-content {
+
+            color: #ffffff;
+
+            font-size: clamp(20px, 3vw, 30px);
+
+            line-height: 1.6;
+
+            font-weight: 600;
+
+            max-width: 750px;
+
+            word-break: break-word;
+
+        }
+
+
+        .flip-hint {
+
+            position: absolute;
+
+            bottom: 20px;
+
+            color: #68779f;
+
+            font-size: 12px;
+
+        }
+
+
+        /* =========================================
+           CONTROLS
+        ========================================= */
+
+        .study-controls {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            margin-top: 18px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .control-button {
+
+            padding: 12px 20px;
+
+            border-radius: 10px;
+
+            border: 1px solid rgba(90, 105, 220, 0.4);
+
+            background: rgba(7, 20, 52, 0.85);
+
+            color: #ffffff;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .control-button:hover {
+
+            transform: translateY(-2px);
+
+            border-color: #685cff;
+
+        }
+
+
+        .control-button.primary {
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    #246bff,
+
+                    #713cff
+
+                );
+
+            border: none;
+
+        }
+
+
+        .delete-button {
+
+            margin-top: 18px;
+
+            padding: 9px 16px;
+
+            border-radius: 9px;
+
+            border: 1px solid rgba(255, 90, 110, 0.35);
+
+            background: rgba(80, 20, 35, 0.35);
+
+            color: #ff9aa9;
+
+            cursor: pointer;
+
+        }
+
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .empty-state {
+
+            padding: 55px 25px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            background: rgba(7, 20, 52, 0.75);
+
+            border: 1px dashed rgba(90, 105, 220, 0.45);
+
+        }
+
+
+        .empty-icon {
+
+            font-size: 48px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .empty-state h2 {
+
+            color: #ffffff;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .empty-state p {
+
+            color: #8f9cbd;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           INFO
+        ========================================= */
+
+        .flash-info {
+
+            margin-top: 35px;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            background: rgba(7, 20, 52, 0.75);
+
+            border: 1px solid rgba(76, 91, 220, 0.4);
+
+        }
+
+
+        .flash-info h2 {
+
+            color: #ffffff;
+
+            margin: 0 0 14px;
+
+            font-size: 25px;
+
+        }
+
+
+        .flash-info h3 {
+
+            color: #ffffff;
+
+            margin-top: 25px;
+
+            margin-bottom: 10px;
+
+            font-size: 19px;
+
+        }
+
+
+        .flash-info p {
+
+            color: #9da8c7;
+
+            line-height: 1.8;
+
+            margin: 10px 0;
+
+        }
+
+
+        .flash-info ul {
+
+            padding-left: 22px;
+
+            color: #9da8c7;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .flashcard-page {
+
+                padding: 100px 15px 60px;
+
+            }
+
+
+            .creator-card {
+
+                padding: 20px 17px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .flashcard {
+
+                min-height: 290px;
+
+            }
+
+
+            .flashcard-inner {
+
+                height: 290px;
+
+            }
+
+
+            .flashcard-face {
+
+                padding: 25px 18px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .face-content {
+
+                font-size: 21px;
+
+            }
+
+
+            .study-top {
+
+                align-items: flex-start;
+
+            }
+
+
+            .flash-info {
+
+                padding: 22px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================= -->
+
+    <main class="flashcard-page">
+
+        <div class="flashcard-container">
+
+
+            <!-- HERO -->
+
+            <section class="flashcard-hero">
+
+                <span class="flashcard-badge">
+                    🧠 Smart Study Tool
+                </span>
+
+
+                <h1>
+                    Flashcard Maker
+                </h1>
+
+
+                <p>
+                    Create your own study flashcards and
+                    revise important topics quickly.
+                </p>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 CREATE CARD
+            ====================================== -->
+
+            <section class="creator-card">
+
+                <h2>
+                    ✨ Create a Flashcard
+                </h2>
+
+
+                <div class="input-group">
+
+                    <label for="question">
+                        Question / Front
+                    </label>
+
+
+                    <textarea
+                        id="question"
+                        class="flash-input flash-textarea"
+                        placeholder="Example: What is photosynthesis?"
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label for="answer">
+                        Answer / Back
+                    </label>
+
+
+                    <textarea
+                        id="answer"
+                        class="flash-input flash-textarea"
+                        placeholder="Example: The process by which green plants make food using light energy."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    class="add-card-button"
+                    onclick="addFlashcard()"
+                >
+                    ➕ Add Flashcard
+                </button>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 STUDY AREA
+            ====================================== -->
+
+            <section
+                class="study-section"
+                id="studySection"
+                style="display:none;"
+            >
+
+                <div class="study-top">
+
+                    <div
+                        class="card-count"
+                        id="cardCount"
+                    >
+                        Card 1 of 1
+                    </div>
+
+
+                    <button
+                        class="shuffle-button"
+                        onclick="shuffleCards()"
+                    >
+                        🔀 Shuffle
+                    </button>
+
+                </div>
+
+
+
+                <!-- FLASHCARD -->
+
+                <div
+                    class="flashcard"
+                    id="flashcard"
+                    onclick="flipCard()"
+                >
+
+                    <div class="flashcard-inner">
+
+
+                        <!-- FRONT -->
+
+                        <div class="flashcard-face">
+
+                            <div class="face-label">
+                                Question
+                            </div>
+
+
+                            <div
+                                class="face-content"
+                                id="questionDisplay"
+                            ></div>
+
+
+                            <div class="flip-hint">
+                                Click card to reveal answer
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- BACK -->
+
+                        <div
+                            class="flashcard-face flashcard-back"
+                        >
+
+                            <div class="face-label">
+                                Answer
+                            </div>
+
+
+                            <div
+                                class="face-content"
+                                id="answerDisplay"
+                            ></div>
+
+
+                            <div class="flip-hint">
+                                Click card to see question
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONTROLS -->
+
+                <div class="study-controls">
+
+                    <button
+                        class="control-button"
+                        onclick="previousCard()"
+                    >
+                        ← Previous
+                    </button>
+
+
+                    <button
+                        class="control-button primary"
+                        onclick="flipCard()"
+                    >
+                        🔄 Flip Card
+                    </button>
+
+
+                    <button
+                        class="control-button"
+                        onclick="nextCard()"
+                    >
+                        Next →
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="delete-button"
+                    onclick="deleteCurrentCard()"
+                >
+                    🗑️ Delete Current Card
+                </button>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 EMPTY STATE
+            ====================================== -->
+
+            <section
+                class="empty-state"
+                id="emptyState"
+                style="margin-top:35px;"
+            >
+
+                <div class="empty-icon">
+                    🧠
+                </div>
+
+
+                <h2>
+                    Your Flashcards Will Appear Here
+                </h2>
+
+
+                <p>
+                    Create your first question and answer
+                    above to start studying.
+                </p>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 HOW TO USE
+            ====================================== -->
+
+            <section class="flash-info">
+
+                <h2>
+                    How to Use Flashcard Maker
+                </h2>
+
+
+                <p>
+                    Enter a question in the
+                    <strong>Question / Front</strong>
+                    box and enter its answer in the
+                    <strong>Answer / Back</strong>
+                    box.
+                </p>
+
+
+                <p>
+                    Click <strong>Add Flashcard</strong>
+                    to create your study card.
+                </p>
+
+
+                <p>
+                    Click the flashcard to flip it and reveal
+                    the answer. Use the navigation buttons to
+                    move between your cards.
+                </p>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 STUDY TIPS
+            ====================================== -->
+
+            <section class="flash-info">
+
+                <h2>
+                    Flashcard Study Tips
+                </h2>
+
+
+                <ul>
+
+                    <li>
+                        Keep questions short and clear.
+                    </li>
+
+                    <li>
+                        Put one important concept on each card.
+                    </li>
+
+                    <li>
+                        Try answering before flipping the card.
+                    </li>
+
+                    <li>
+                        Use flashcards for definitions,
+                        formulas and important facts.
+                    </li>
+
+                    <li>
+                        Shuffle your cards to avoid memorizing
+                        their order.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 EXAMPLE
+            ====================================== -->
+
+            <section class="flash-info">
+
+                <h2>
+                    Example Flashcard
+                </h2>
+
+
+                <h3>
+                    Question
+                </h3>
+
+
+                <p>
+                    What is the chemical formula of water?
+                </p>
+
+
+                <h3>
+                    Answer
+                </h3>
+
+
+                <p>
+                    H₂O.
+                </p>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        let flashcards =
+            JSON.parse(
+                localStorage.getItem(
+                    "advancedStudentToolsFlashcards"
+                )
+            ) || [];
+
+
+        let currentCard = 0;
+
+
+        /* =========================================
+           ADD FLASHCARD
+        ========================================= */
+
+        function addFlashcard() {
+
+            const question =
+                document
+                    .getElementById("question")
+                    .value
+                    .trim();
+
+
+            const answer =
+                document
+                    .getElementById("answer")
+                    .value
+                    .trim();
+
+
+            if (!question || !answer) {
+
+                alert(
+                    "Please enter both a question and an answer."
+                );
+
+                return;
+
+            }
+
+
+            flashcards.push({
+
+                question: question,
+
+                answer: answer
+
+            });
+
+
+            saveCards();
+
+
+            document
+                .getElementById("question")
+                .value = "";
+
+
+            document
+                .getElementById("answer")
+                .value = "";
+
+
+            currentCard =
+                flashcards.length - 1;
+
+
+            updateStudyArea();
+
+        }
+
+
+
+        /* =========================================
+           SAVE
+        ========================================= */
+
+        function saveCards() {
+
+            localStorage.setItem(
+
+                "advancedStudentToolsFlashcards",
+
+                JSON.stringify(flashcards)
+
+            );
+
+        }
+
+
+
+        /* =========================================
+           UPDATE
+        ========================================= */
+
+        function updateStudyArea() {
+
+            const studySection =
+                document.getElementById(
+                    "studySection"
+                );
+
+
+            const emptyState =
+                document.getElementById(
+                    "emptyState"
+                );
+
+
+            if (flashcards.length === 0) {
+
+                studySection.style.display =
+                    "none";
+
+                emptyState.style.display =
+                    "block";
+
+                return;
+
+            }
+
+
+            studySection.style.display =
+                "block";
+
+
+            emptyState.style.display =
+                "none";
+
+
+            if (
+                currentCard < 0 ||
+                currentCard >= flashcards.length
+            ) {
+
+                currentCard = 0;
+
+            }
+
+
+            displayCurrentCard();
+
+        }
+
+
+
+        /* =========================================
+           DISPLAY CARD
+        ========================================= */
+
+        function displayCurrentCard() {
+
+            const card =
+                flashcards[currentCard];
+
+
+            document
+                .getElementById("questionDisplay")
+                .textContent =
+                card.question;
+
+
+            document
+                .getElementById("answerDisplay")
+                .textContent =
+                card.answer;
+
+
+            document
+                .getElementById("cardCount")
+                .textContent =
+                `Card ${currentCard + 1} of ${flashcards.length}`;
+
+
+            document
+                .getElementById("flashcard")
+                .classList
+                .remove("flipped");
+
+        }
+
+
+
+        /* =========================================
+           FLIP
+        ========================================= */
+
+        function flipCard() {
+
+            if (flashcards.length === 0) {
+                return;
+            }
+
+
+            document
+                .getElementById("flashcard")
+                .classList
+                .toggle("flipped");
+
+        }
+
+
+
+        /* =========================================
+           NEXT
+        ========================================= */
+
+        function nextCard() {
+
+            if (flashcards.length === 0) {
+                return;
+            }
+
+
+            currentCard++;
+
+
+            if (
+                currentCard >= flashcards.length
+            ) {
+
+                currentCard = 0;
+
+            }
+
+
+            displayCurrentCard();
+
+        }
+
+
+
+        /* =========================================
+           PREVIOUS
+        ========================================= */
+
+        function previousCard() {
+
+            if (flashcards.length === 0) {
+                return;
+            }
+
+
+            currentCard--;
+
+
+            if (currentCard < 0) {
+
+                currentCard =
+                    flashcards.length - 1;
+
+            }
+
+
+            displayCurrentCard();
+
+        }
+
+
+
+        /* =========================================
+           DELETE
+        ========================================= */
+
+        function deleteCurrentCard() {
+
+            if (flashcards.length === 0) {
+                return;
+            }
+
+
+            const confirmDelete =
+                confirm(
+                    "Delete this flashcard?"
+                );
+
+
+            if (!confirmDelete) {
+                return;
+            }
+
+
+            flashcards.splice(
+                currentCard,
+                1
+            );
+
+
+            saveCards();
+
+
+            if (
+                currentCard >= flashcards.length
+            ) {
+
+                currentCard =
+                    flashcards.length - 1;
+
+            }
+
+
+            updateStudyArea();
+
+        }
+
+
+
+        /* =========================================
+           SHUFFLE
+        ========================================= */
+
+        function shuffleCards() {
+
+            if (flashcards.length < 2) {
+                return;
+            }
+
+
+            for (
+                let i = flashcards.length - 1;
+                i > 0;
+                i--
+            ) {
+
+                const randomIndex =
+                    Math.floor(
+                        Math.random() * (i + 1)
+                    );
+
+
+                [
+                    flashcards[i],
+                    flashcards[randomIndex]
+                ] = [
+                    flashcards[randomIndex],
+                    flashcards[i]
+                ];
+
+            }
+
+
+            currentCard = 0;
+
+
+            saveCards();
+
+
+            displayCurrentCard();
+
+        }
+
+
+
+        /* =========================================
+           KEYBOARD SHORTCUTS
+        ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+
+                    nextCard();
+
+                }
+
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+
+                    previousCard();
+
+                }
+
+
+                if (
+                    event.key === " "
+                ) {
+
+                    const active =
+                        document.activeElement;
+
+
+                    if (
+                        active.tagName !== "TEXTAREA" &&
+                        active.tagName !== "INPUT"
+                    ) {
+
+                        event.preventDefault();
+
+                        flipCard();
+
+                    }
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================
+           LOAD SAVED CARDS
+        ========================================= */
+
+        updateStudyArea();
+
+    </script>
+
+
+</body>
+
+</html>
