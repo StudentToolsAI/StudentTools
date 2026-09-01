@@ -15,7 +15,7 @@
     <title>Ratio Calculator - Simplify Ratios & Find Missing Values</title>
 
     <meta name="description"
-        content="Free Ratio Calculator to simplify ratios, find equivalent ratios and calculate missing values quickly and easily.">
+        content="Free Ratio Calculator to simplify ratios, find equivalent ratios and calculate missing values quickly and accurately.">
 
     <meta name="robots"
         content="index, follow">
@@ -23,226 +23,525 @@
     <link rel="stylesheet"
         href="style.css">
 
+
     <style>
 
-        /* ================================
-           RATIO CALCULATOR
-        ================================= */
+        /* =========================================
+           RATIO CALCULATOR PAGE
+        ========================================= */
 
         .ratio-page {
+
             min-height: 100vh;
+
             padding: 120px 20px 80px;
+
         }
+
 
         .ratio-container {
+
             width: 100%;
+
             max-width: 1100px;
+
             margin: auto;
+
         }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
 
         .ratio-hero {
+
             text-align: center;
+
             margin-bottom: 45px;
+
         }
+
 
         .ratio-hero .badge {
+
             display: inline-block;
+
             padding: 9px 18px;
+
             border-radius: 30px;
+
             background: rgba(85, 75, 255, 0.15);
+
             border: 1px solid rgba(100, 100, 255, 0.4);
+
             color: #b9b5ff;
+
             font-size: 14px;
+
             margin-bottom: 18px;
+
         }
+
 
         .ratio-hero h1 {
+
             font-size: clamp(34px, 6vw, 58px);
+
             margin: 0 0 15px;
+
             color: #ffffff;
+
         }
+
 
         .ratio-hero p {
+
             max-width: 700px;
+
             margin: auto;
+
             color: #9da8c7;
+
             font-size: 18px;
+
             line-height: 1.7;
+
         }
+
+
+        /* =========================================
+           CALCULATOR GRID
+        ========================================= */
 
         .ratio-grid {
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 24px;
+
         }
+
 
         .ratio-card {
+
             background: rgba(7, 20, 52, 0.85);
+
             border: 1px solid rgba(76, 91, 220, 0.55);
+
             border-radius: 22px;
+
             padding: 28px;
+
             box-shadow:
+
                 0 10px 35px rgba(0, 0, 0, 0.25),
+
                 inset 0 0 25px rgba(80, 70, 255, 0.04);
+
             transition: 0.3s ease;
+
         }
+
 
         .ratio-card:hover {
+
             transform: translateY(-5px);
+
             border-color: #655cff;
+
             box-shadow:
+
                 0 15px 45px rgba(60, 70, 255, 0.18);
+
         }
+
 
         .ratio-card-icon {
+
             width: 58px;
+
             height: 58px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             margin-bottom: 18px;
+
             border-radius: 16px;
+
             background: linear-gradient(
+
                 135deg,
+
                 #1877ff,
+
                 #713cff
+
             );
+
             font-size: 28px;
+
             box-shadow:
+
                 0 8px 25px rgba(70, 65, 255, 0.35);
+
         }
+
 
         .ratio-card h2 {
+
             color: #ffffff;
+
             font-size: 23px;
+
             margin-bottom: 8px;
+
         }
+
 
         .ratio-card-description {
+
             color: #8995b8;
+
             font-size: 14px;
+
             line-height: 1.6;
+
             margin-bottom: 24px;
+
         }
+
+
+        /* =========================================
+           INPUTS
+        ========================================= */
 
         .ratio-input-row {
+
             display: grid;
+
             grid-template-columns: 1fr auto 1fr;
+
             gap: 10px;
+
             align-items: center;
+
         }
+
 
         .ratio-input-row.single {
+
             grid-template-columns: 1fr;
+
         }
+
 
         .ratio-input {
+
             width: 100%;
+
             box-sizing: border-box;
+
             padding: 14px 15px;
+
             border-radius: 12px;
+
             border: 1px solid rgba(100, 110, 210, 0.5);
+
             background: #071735;
+
             color: #ffffff;
+
             font-size: 16px;
+
             outline: none;
+
         }
+
+
+        .ratio-input::placeholder {
+
+            color: #7180a6;
+
+        }
+
 
         .ratio-input:focus {
+
             border-color: #685cff;
-            box-shadow: 0 0 0 3px rgba(90, 80, 255, 0.12);
+
+            box-shadow:
+
+                0 0 0 3px rgba(90, 80, 255, 0.12);
+
         }
+
 
         .ratio-symbol {
+
             color: #a99cff;
+
             font-size: 22px;
+
             font-weight: bold;
+
             text-align: center;
+
         }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
 
         .ratio-button {
+
             width: 100%;
+
             margin-top: 18px;
+
             padding: 14px 18px;
+
             border: none;
+
             border-radius: 12px;
+
             background: linear-gradient(
+
                 135deg,
+
                 #246bff,
+
                 #713cff
+
             );
+
             color: #ffffff;
+
             font-size: 16px;
+
             font-weight: 700;
+
             cursor: pointer;
+
             transition: 0.25s ease;
+
         }
+
 
         .ratio-button:hover {
+
             transform: translateY(-2px);
+
             box-shadow:
+
                 0 8px 25px rgba(80, 70, 255, 0.3);
+
         }
+
+
+        /* =========================================
+           RESULT
+        ========================================= */
 
         .ratio-result {
+
             margin-top: 18px;
+
             padding: 15px;
+
             min-height: 24px;
+
             border-radius: 12px;
+
             background: rgba(10, 25, 58, 0.8);
+
             border: 1px solid rgba(80, 95, 210, 0.35);
+
             color: #dce2ff;
+
             text-align: center;
+
             font-weight: 600;
+
             line-height: 1.6;
+
         }
+
+
+        /* =========================================
+           INFORMATION SECTIONS
+        ========================================= */
 
         .ratio-info {
+
             margin-top: 45px;
+
             padding: 30px;
+
             border-radius: 22px;
+
             background: rgba(7, 20, 52, 0.75);
+
             border: 1px solid rgba(76, 91, 220, 0.4);
+
         }
+
 
         .ratio-info h2 {
+
             color: #ffffff;
+
             margin-bottom: 15px;
+
+            font-size: 25px;
+
         }
+
+
+        .ratio-info h3 {
+
+            color: #ffffff;
+
+            margin-top: 28px;
+
+            margin-bottom: 10px;
+
+            font-size: 20px;
+
+        }
+
 
         .ratio-info p {
+
             color: #9da8c7;
+
             line-height: 1.8;
+
+            margin: 10px 0;
+
         }
 
+
         .ratio-info strong {
+
             color: #c2b9ff;
+
         }
+
+
+        .ratio-example {
+
+            margin: 14px 0 22px;
+
+            padding: 16px 18px;
+
+            border-radius: 12px;
+
+            background: rgba(5, 15, 40, 0.85);
+
+            border: 1px solid rgba(90, 105, 220, 0.4);
+
+            color: #dce2ff;
+
+            line-height: 1.7;
+
+        }
+
+
+        .ratio-formula {
+
+            margin: 14px 0;
+
+            padding: 16px;
+
+            border-radius: 12px;
+
+            background: rgba(15, 30, 70, 0.8);
+
+            border: 1px solid rgba(90, 105, 220, 0.35);
+
+            color: #e1e5ff;
+
+            text-align: center;
+
+            font-weight: 700;
+
+        }
+
+
+        .ratio-list {
+
+            margin: 10px 0 0;
+
+            padding-left: 22px;
+
+            color: #9da8c7;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
 
         @media (max-width: 850px) {
 
             .ratio-grid {
+
                 grid-template-columns: 1fr;
+
             }
 
+
             .ratio-card {
+
                 padding: 24px;
+
             }
 
         }
 
+
         @media (max-width: 480px) {
 
             .ratio-page {
+
                 padding: 100px 15px 60px;
+
             }
+
 
             .ratio-hero p {
+
                 font-size: 16px;
+
             }
 
+
             .ratio-card {
+
                 border-radius: 18px;
+
+                padding: 20px;
+
+            }
+
+
+            .ratio-info {
+
+                padding: 22px;
+
+                border-radius: 18px;
+
             }
 
         }
@@ -255,7 +554,9 @@
 <body>
 
 
-    <!-- Navigation -->
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
 
     <nav class="navbar">
 
@@ -279,14 +580,16 @@
 
 
 
-    <!-- Ratio Calculator -->
+    <!-- =========================================
+         RATIO PAGE
+    ========================================= -->
 
     <main class="ratio-page">
 
         <div class="ratio-container">
 
 
-            <!-- Hero -->
+            <!-- HERO -->
 
             <section class="ratio-hero">
 
@@ -307,12 +610,16 @@
 
 
 
-            <!-- Calculator Cards -->
+            <!-- =====================================
+                 CALCULATOR CARDS
+            ====================================== -->
 
             <section class="ratio-grid">
 
 
-                <!-- Simplify Ratio -->
+                <!-- =================================
+                     SIMPLIFY RATIO
+                ================================== -->
 
                 <div class="ratio-card">
 
@@ -372,7 +679,9 @@
 
 
 
-                <!-- Equivalent Ratio -->
+                <!-- =================================
+                     EQUIVALENT RATIO
+                ================================== -->
 
                 <div class="ratio-card">
 
@@ -441,7 +750,9 @@
 
 
 
-                <!-- Missing Value -->
+                <!-- =================================
+                     MISSING VALUE
+                ================================== -->
 
                 <div class="ratio-card">
 
@@ -531,32 +842,306 @@
 
 
 
-            <!-- Information -->
+            <!-- =====================================
+                 HOW TO USE
+            ====================================== -->
 
             <section class="ratio-info">
 
                 <h2>
-                    How to Use the Ratio Calculator
+                    How to Use the Ratio Calculator?
                 </h2>
 
                 <p>
                     <strong>Simplify Ratio:</strong>
-                    Enter two numbers and the calculator
-                    reduces the ratio to its simplest form.
+                    Enter two positive numbers and click
+                    "Simplify Ratio". The calculator reduces
+                    the ratio to its simplest form.
                 </p>
 
                 <p>
                     <strong>Equivalent Ratio:</strong>
-                    Enter a ratio and a multiplier to find
-                    an equivalent ratio.
+                    Enter the original ratio and a multiplier.
+                    The calculator multiplies both sides by
+                    the same number.
                 </p>
 
                 <p>
                     <strong>Missing Value:</strong>
-                    Enter a proportion such as
-                    <strong>A : B = C : ?</strong>
-                    and the calculator will find the missing value.
+                    Enter the known values in a proportion such as
+                    <strong>A : B = C : ?</strong>.
+                    The calculator finds the missing value.
                 </p>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 SIMPLIFY RATIO
+            ====================================== -->
+
+            <section class="ratio-info">
+
+                <h2>
+                    Simplifying a Ratio
+                </h2>
+
+                <p>
+                    A ratio can be simplified by dividing both
+                    numbers by their greatest common divisor (GCD).
+                </p>
+
+                <div class="ratio-formula">
+                    Simplified Ratio = A ÷ GCD : B ÷ GCD
+                </div>
+
+
+                <h3>
+                    Example
+                </h3>
+
+                <div class="ratio-example">
+
+                    Suppose the ratio is:
+
+                    <strong>24 : 36</strong>
+
+                    <br><br>
+
+                    The GCD of 24 and 36 is 12.
+
+                    <br><br>
+
+                    24 ÷ 12 = 2
+
+                    <br>
+
+                    36 ÷ 12 = 3
+
+                    <br><br>
+
+                    Therefore:
+
+                    <strong>24 : 36 = 2 : 3</strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 EQUIVALENT RATIO
+            ====================================== -->
+
+            <section class="ratio-info">
+
+                <h2>
+                    Equivalent Ratios
+                </h2>
+
+                <p>
+                    Equivalent ratios have the same relationship
+                    between their values. To create an equivalent
+                    ratio, multiply both sides by the same number.
+                </p>
+
+                <div class="ratio-formula">
+                    A : B = (A × M) : (B × M)
+                </div>
+
+
+                <h3>
+                    Example
+                </h3>
+
+                <div class="ratio-example">
+
+                    Original ratio:
+
+                    <strong>3 : 5</strong>
+
+                    <br><br>
+
+                    Multiplier:
+
+                    <strong>4</strong>
+
+                    <br><br>
+
+                    3 × 4 = 12
+
+                    <br>
+
+                    5 × 4 = 20
+
+                    <br><br>
+
+                    Therefore:
+
+                    <strong>3 : 5 = 12 : 20</strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 MISSING VALUE
+            ====================================== -->
+
+            <section class="ratio-info">
+
+                <h2>
+                    Finding a Missing Value
+                </h2>
+
+                <p>
+                    When one value in a proportion is unknown,
+                    cross multiplication can be used to find it.
+                </p>
+
+                <div class="ratio-formula">
+                    A : B = C : X
+                    <br><br>
+                    X = (B × C) ÷ A
+                </div>
+
+
+                <h3>
+                    Example
+                </h3>
+
+                <div class="ratio-example">
+
+                    Consider:
+
+                    <strong>2 : 5 = 8 : X</strong>
+
+                    <br><br>
+
+                    Using the formula:
+
+                    <br>
+
+                    X = (5 × 8) ÷ 2
+
+                    <br>
+
+                    X = 40 ÷ 2
+
+                    <br>
+
+                    X = 20
+
+                    <br><br>
+
+                    Therefore:
+
+                    <strong>2 : 5 = 8 : 20</strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 WHAT CAN IT FIND?
+            ====================================== -->
+
+            <section class="ratio-info">
+
+                <h2>
+                    What Can This Ratio Calculator Find?
+                </h2>
+
+                <p>
+                    This calculator can help you solve common
+                    ratio and proportion problems quickly.
+                </p>
+
+                <ul class="ratio-list">
+
+                    <li>
+                        Simplify ratios to their lowest form.
+                    </li>
+
+                    <li>
+                        Find equivalent ratios.
+                    </li>
+
+                    <li>
+                        Calculate a missing value in a proportion.
+                    </li>
+
+                    <li>
+                        Solve basic ratio problems for school,
+                        homework and everyday calculations.
+                    </li>
+
+                    <li>
+                        Understand ratio relationships using
+                        simple mathematical formulas.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 BASIC RATIO CONCEPT
+            ====================================== -->
+
+            <section class="ratio-info">
+
+                <h2>
+                    What Is a Ratio?
+                </h2>
+
+                <p>
+                    A ratio is a way of comparing two quantities.
+                    Ratios are commonly written using a colon,
+                    such as <strong>2 : 3</strong>.
+                </p>
+
+                <p>
+                    For example, if a class has 10 boys and
+                    15 girls, the ratio of boys to girls is
+                    <strong>10 : 15</strong>.
+                </p>
+
+                <div class="ratio-example">
+
+                    <strong>Example:</strong>
+
+                    <br><br>
+
+                    10 : 15
+
+                    <br><br>
+
+                    Divide both numbers by 5:
+
+                    <br>
+
+                    10 ÷ 5 = 2
+
+                    <br>
+
+                    15 ÷ 5 = 3
+
+                    <br><br>
+
+                    Simplified ratio:
+
+                    <strong>2 : 3</strong>
+
+                </div>
 
             </section>
 
@@ -567,16 +1152,64 @@
 
 
 
-    <!-- JavaScript -->
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
 
     <script>
 
-        // Greatest Common Divisor
+        /* =========================================
+           GREATEST COMMON DIVISOR
+        ========================================= */
 
         function gcd(a, b) {
 
             a = Math.abs(a);
+
             b = Math.abs(b);
+
 
             while (b !== 0) {
 
@@ -588,13 +1221,16 @@
 
             }
 
+
             return a;
 
         }
 
 
 
-        // Simplify Ratio
+        /* =========================================
+           SIMPLIFY RATIO
+        ========================================= */
 
         function simplifyRatio() {
 
@@ -603,10 +1239,12 @@
                     document.getElementById("simplifyA").value
                 );
 
+
             let b =
                 Number(
                     document.getElementById("simplifyB").value
                 );
+
 
             let result =
                 document.getElementById("simplifyResult");
@@ -634,6 +1272,7 @@
             let simpleA =
                 a / divisor;
 
+
             let simpleB =
                 b / divisor;
 
@@ -645,7 +1284,9 @@
 
 
 
-        // Equivalent Ratio
+        /* =========================================
+           EQUIVALENT RATIO
+        ========================================= */
 
         function findEquivalentRatio() {
 
@@ -654,15 +1295,18 @@
                     document.getElementById("equivalentA").value
                 );
 
+
             let b =
                 Number(
                     document.getElementById("equivalentB").value
                 );
 
+
             let multiplier =
                 Number(
                     document.getElementById("multiplier").value
                 );
+
 
             let result =
                 document.getElementById("equivalentResult");
@@ -672,11 +1316,13 @@
                 !Number.isFinite(a) ||
                 !Number.isFinite(b) ||
                 !Number.isFinite(multiplier) ||
+                a <= 0 ||
+                b <= 0 ||
                 multiplier <= 0
             ) {
 
                 result.innerText =
-                    "Please enter valid values.";
+                    "Please enter valid positive values.";
 
                 return;
 
@@ -685,6 +1331,7 @@
 
             let newA =
                 a * multiplier;
+
 
             let newB =
                 b * multiplier;
@@ -697,7 +1344,9 @@
 
 
 
-        // Missing Value
+        /* =========================================
+           MISSING VALUE
+        ========================================= */
 
         function calculateMissingValue() {
 
@@ -706,15 +1355,18 @@
                     document.getElementById("missingA").value
                 );
 
+
             let b =
                 Number(
                     document.getElementById("missingB").value
                 );
 
+
             let c =
                 Number(
                     document.getElementById("missingC").value
                 );
+
 
             let result =
                 document.getElementById("missingResult");
@@ -752,92 +1404,7 @@
 
     </script>
 
-            <!-- FAQ -->
 
-            <section class="ratio-info">
-
-                <h2>
-                    Frequently Asked Questions
-                </h2>
-
-                <p>
-                    <strong>What is a ratio?</strong><br>
-                    A ratio compares two or more quantities and shows
-                    their relationship using numbers such as 2 : 3.
-                </p>
-
-                <p>
-                    <strong>How do I simplify a ratio?</strong><br>
-                    Enter both numbers in the Simplify Ratio calculator.
-                    The calculator divides them by their greatest common
-                    divisor and gives the simplest ratio.
-                </p>
-
-                <p>
-                    <strong>What is an equivalent ratio?</strong><br>
-                    Equivalent ratios have the same relationship.
-                    Multiplying both parts of a ratio by the same
-                    positive number creates an equivalent ratio.
-                </p>
-
-                <p>
-                    <strong>How do I find a missing value?</strong><br>
-                    Enter the known values in the proportion
-                    A : B = C : ?. The calculator uses the proportion
-                    to calculate the missing value.
-                </p>
-
-                <p>
-                    <strong>Is this Ratio Calculator free?</strong><br>
-                    Yes. The Ratio Calculator is completely free
-                    and can be used without creating an account.
-                </p>
-
-            </section>
-
-
-            <!-- Footer -->
-
-            <footer>
-
-                <div class="footer-content">
-
-                    <h3>
-                        Advanced Student Tools 🚀
-                    </h3>
-
-                    <p>
-                        Simple, fast and useful online calculators
-                        and converters for students.
-                    </p>
-
-                    <div class="footer-links">
-
-                        <a href="index.html">
-                            Home
-                        </a>
-
-                        <a href="index.html#tools">
-                            Tools
-                        </a>
-
-                        <a href="index.html#about">
-                            About
-                        </a>
-
-                        <a href="index.html#faq">
-                            FAQ
-                        </a>
-
-                    </div>
-
-                    <p class="copyright">
-                        © 2026 Advanced Student Tools. All rights reserved.
-                    </p>
-
-                </div>
-
-            </footer>
 </body>
 
 </html>
