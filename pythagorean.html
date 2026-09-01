@@ -5,211 +5,48 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Pythagorean Theorem Calculator - Advanced Student Tools</title>
-
-    <meta name="description"
-        content="Free Pythagorean Theorem Calculator to find the missing side of a right triangle. Calculate hypotenuse or missing leg quickly and easily.">
-
-    <meta name="robots"
-        content="index, follow">
-
-    <link rel="icon"
+    <link
+        rel="icon"
         type="image/png"
-        href="favicon.png">
+        href="favicon.png"
+    >
 
-    <link rel="canonical"
-        href="https://studenttoolsai.github.io/StudentTools/pythagorean.html">
+    <title>
+        Pythagorean Theorem Calculator - Advanced Student Tools
+    </title>
 
-    <link rel="stylesheet"
-        href="style.css">
+    <meta
+        name="description"
+        content="Free Pythagorean Theorem Calculator to find the missing side of a right triangle quickly and easily."
+    >
 
-    <style>
+    <meta
+        name="robots"
+        content="index, follow"
+    >
 
-        .calculator-page {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
+    <link
+        rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/pythagorean.html"
+    >
 
-        .calculator-box {
-            background: rgba(15, 23, 42, 0.88);
-            border: 1px solid rgba(139, 92, 246, 0.35);
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-            backdrop-filter: blur(12px);
-        }
-
-        .calculator-title {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        .calculator-subtitle {
-            text-align: center;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
-
-        .triangle-diagram {
-            text-align: center;
-            font-size: 80px;
-            margin: 10px 0 25px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .input-group input,
-        .input-group select {
-            width: 100%;
-            padding: 14px 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(139, 92, 246, 0.4);
-            background: rgba(2, 6, 23, 0.8);
-            color: white;
-            font-size: 16px;
-            outline: none;
-            box-sizing: border-box;
-        }
-
-        .input-group input:focus,
-        .input-group select:focus {
-            border-color: #8b5cf6;
-            box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
-        }
-
-        .calculate-button {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.25s ease;
-        }
-
-        .calculate-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        .result-box {
-            margin-top: 25px;
-            padding: 22px;
-            border-radius: 16px;
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            text-align: center;
-            display: none;
-        }
-
-        .result-box h3 {
-            margin-top: 0;
-        }
-
-        .result-value {
-            font-size: 32px;
-            font-weight: 800;
-            margin: 10px 0;
-        }
-
-        .formula-box,
-        .info-section,
-        .example-section,
-        .tips-section {
-            margin-top: 35px;
-            padding: 25px;
-            border-radius: 18px;
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid rgba(139, 92, 246, 0.22);
-        }
-
-        .formula {
-            text-align: center;
-            font-size: 26px;
-            font-weight: 700;
-            margin: 18px 0;
-        }
-
-        .info-section h2,
-        .example-section h2,
-        .tips-section h2,
-        .formula-box h2 {
-            margin-top: 0;
-        }
-
-        .info-section p,
-        .example-section p,
-        .tips-section li {
-            line-height: 1.7;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-bottom: 20px;
-            text-decoration: none;
-            padding: 10px 16px;
-            border-radius: 10px;
-            background: rgba(99, 102, 241, 0.15);
-            color: inherit;
-            border: 1px solid rgba(139, 92, 246, 0.3);
-        }
-
-        .back-button:hover {
-            background: rgba(99, 102, 241, 0.25);
-        }
-
-        @media (max-width: 600px) {
-
-            .calculator-page {
-                margin: 25px auto;
-                padding: 0 14px;
-            }
-
-            .calculator-box {
-                padding: 22px;
-                border-radius: 18px;
-            }
-
-            .triangle-diagram {
-                font-size: 60px;
-            }
-
-            .result-value {
-                font-size: 27px;
-            }
-
-            .formula {
-                font-size: 21px;
-            }
-
-            .formula-box,
-            .info-section,
-            .example-section,
-            .tips-section {
-                padding: 20px;
-            }
-        }
-
-    </style>
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
+
 <body>
+
+
+    <!-- NAVBAR -->
 
     <nav class="navbar">
 
@@ -218,245 +55,441 @@
         </div>
 
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#tools">Tools</a>
-            <a href="index.html#about">About</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
         </div>
 
     </nav>
 
 
-    <main class="calculator-page">
 
-        <a href="index.html"
-            class="back-button">
-            ← Back to All Tools
-        </a>
+    <!-- HERO -->
 
+    <header class="hero">
 
-        <div class="calculator-box">
+        <div class="hero-content">
 
-            <div class="triangle-diagram">
-                📐
-            </div>
+            <span class="hero-badge">
+                📐 Maths Tool • 100% Free • No Login
+            </span>
 
-            <h1 class="calculator-title">
+            <h1>
+
                 Pythagorean Theorem Calculator
+
+                <span>
+                    Find the Missing Side of a Right Triangle
+                </span>
+
             </h1>
 
-            <p class="calculator-subtitle">
-                Find the missing side of a right triangle quickly and easily.
+            <p>
+                Calculate the hypotenuse or a missing side of a
+                right triangle using the Pythagorean theorem.
             </p>
 
+        </div>
 
-            <div class="input-group">
-
-                <label for="findSide">
-                    What do you want to calculate?
-                </label>
-
-                <select id="findSide"
-                    onchange="updateInputs()">
-
-                    <option value="hypotenuse">
-                        Hypotenuse (c)
-                    </option>
-
-                    <option value="sideA">
-                        Missing Side A
-                    </option>
-
-                    <option value="sideB">
-                        Missing Side B
-                    </option>
-
-                </select>
-
-            </div>
+    </header>
 
 
-            <div class="input-group">
 
-                <label for="sideA">
-                    Side A
-                </label>
+    <!-- MAIN -->
 
-                <input
-                    type="number"
-                    id="sideA"
-                    placeholder="Enter side A"
-                    min="0"
-                    step="any">
-
-            </div>
+    <main class="container">
 
 
-            <div class="input-group">
+        <!-- CALCULATOR -->
 
-                <label for="sideB">
-                    Side B
-                </label>
-
-                <input
-                    type="number"
-                    id="sideB"
-                    placeholder="Enter side B"
-                    min="0"
-                    step="any">
-
-            </div>
+        <section class="calculator-section">
 
 
-            <div class="input-group">
+            <div class="section-heading">
 
-                <label for="hypotenuse">
-                    Hypotenuse (c)
-                </label>
+                <span>📐</span>
 
-                <input
-                    type="number"
-                    id="hypotenuse"
-                    placeholder="Enter hypotenuse"
-                    min="0"
-                    step="any"
-                    disabled>
+                <h2>
+                    Pythagorean Theorem Calculator
+                </h2>
 
-            </div>
-
-
-            <button
-                class="calculate-button"
-                onclick="calculatePythagorean()">
-
-                Calculate →
-
-            </button>
-
-
-            <div id="resultBox"
-                class="result-box">
-
-                <h3>
-                    Result
-                </h3>
-
-                <div id="result"
-                    class="result-value">
-                </div>
-
-                <p id="calculation">
+                <p>
+                    Enter any two known sides to calculate the missing side.
                 </p>
 
             </div>
 
-        </div>
 
 
-        <section class="formula-box">
+            <div class="calculator-card">
 
-            <h2>
-                📐 Pythagorean Theorem Formula
-            </h2>
 
-            <div class="formula">
-                a² + b² = c²
+                <!-- CALCULATION TYPE -->
+
+                <div class="input-group">
+
+                    <label for="calculateType">
+                        What do you want to calculate?
+                    </label>
+
+                    <select
+                        id="calculateType"
+                        onchange="changeFields()"
+                    >
+
+                        <option value="c">
+                            Hypotenuse (c)
+                        </option>
+
+                        <option value="a">
+                            Missing Side (a)
+                        </option>
+
+                        <option value="b">
+                            Missing Side (b)
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- SIDE A -->
+
+                <div
+                    class="input-group"
+                    id="sideAGroup"
+                >
+
+                    <label for="sideA">
+                        Side a
+                    </label>
+
+                    <input
+                        type="number"
+                        id="sideA"
+                        placeholder="Enter side a"
+                        min="0"
+                        step="any"
+                    >
+
+                </div>
+
+
+
+                <!-- SIDE B -->
+
+                <div
+                    class="input-group"
+                    id="sideBGroup"
+                >
+
+                    <label for="sideB">
+                        Side b
+                    </label>
+
+                    <input
+                        type="number"
+                        id="sideB"
+                        placeholder="Enter side b"
+                        min="0"
+                        step="any"
+                    >
+
+                </div>
+
+
+
+                <!-- HYPOTENUSE -->
+
+                <div
+                    class="input-group"
+                    id="sideCGroup"
+                >
+
+                    <label for="sideC">
+                        Hypotenuse c
+                    </label>
+
+                    <input
+                        type="number"
+                        id="sideC"
+                        placeholder="Enter hypotenuse c"
+                        min="0"
+                        step="any"
+                        disabled
+                    >
+
+                </div>
+
+
+
+                <!-- BUTTON -->
+
+                <button
+                    class="calculate-btn"
+                    onclick="calculatePythagorean()"
+                >
+                    Calculate
+                </button>
+
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="resultBox"
+                    class="result-box"
+                >
+
+                    <h3>
+                        Result
+                    </h3>
+
+                    <div
+                        id="result"
+                        class="result"
+                    >
+                    </div>
+
+                    <p
+                        id="working"
+                        class="result-description"
+                    >
+                    </p>
+
+                </div>
+
+
             </div>
-
-            <p>
-                In a right triangle, <strong>a</strong> and
-                <strong>b</strong> are the two shorter sides,
-                while <strong>c</strong> is the hypotenuse,
-                which is the longest side.
-            </p>
 
         </section>
 
+
+
+        <!-- FORMULA -->
 
         <section class="info-section">
 
-            <h2>
-                What is the Pythagorean Theorem?
-            </h2>
+            <div class="section-heading">
 
-            <p>
-                The Pythagorean Theorem is a mathematical rule
-                used to find the length of a missing side in a
-                right-angled triangle.
-            </p>
+                <span>🧮</span>
 
-            <p>
-                The theorem states that the square of the
-                hypotenuse is equal to the sum of the squares
-                of the other two sides.
-            </p>
+                <h2>
+                    Pythagorean Theorem Formula
+                </h2>
 
-        </section>
-
-
-        <section class="example-section">
-
-            <h2>
-                Example
-            </h2>
-
-            <p>
-                Suppose a right triangle has side A = 3 and
-                side B = 4.
-            </p>
-
-            <p>
-                Using the formula:
-            </p>
-
-            <div class="formula">
-                c = √(3² + 4²)
             </div>
 
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    a² + b² = c²
+                </div>
+
+                <p>
+                    Here <strong>a</strong> and <strong>b</strong>
+                    are the two legs of a right triangle, while
+                    <strong>c</strong> is the hypotenuse.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- WHAT IS IT -->
+
+        <section class="info-section">
+
+            <div class="section-heading">
+
+                <span>📚</span>
+
+                <h2>
+                    What is the Pythagorean Theorem?
+                </h2>
+
+            </div>
+
+
             <p>
-                c = √(9 + 16)
+                The Pythagorean theorem is a mathematical rule
+                used to calculate the length of a missing side
+                in a right-angled triangle.
             </p>
 
             <p>
-                c = √25 = <strong>5</strong>
-            </p>
-
-            <p>
-                Therefore, the hypotenuse is <strong>5 units</strong>.
+                The hypotenuse is always the longest side of
+                the right triangle and is opposite the right angle.
             </p>
 
         </section>
 
 
-        <section class="tips-section">
 
-            <h2>
-                💡 Quick Tips
-            </h2>
+        <!-- EXAMPLE -->
+
+        <section class="info-section">
+
+            <div class="section-heading">
+
+                <span>💡</span>
+
+                <h2>
+                    Example
+                </h2>
+
+            </div>
+
+
+            <p>
+                Suppose a right triangle has:
+            </p>
 
             <ul>
+
+                <li>
+                    Side a = 3
+                </li>
+
+                <li>
+                    Side b = 4
+                </li>
+
+            </ul>
+
+
+            <p>
+                To find the hypotenuse:
+            </p>
+
+
+            <div class="formula-box">
+
+                <div class="formula">
+                    c = √(a² + b²)
+                </div>
+
+                <div class="formula">
+                    c = √(3² + 4²)
+                </div>
+
+                <div class="formula">
+                    c = √25
+                </div>
+
+                <div class="formula">
+                    c = 5
+                </div>
+
+            </div>
+
+
+            <p>
+                Therefore, the hypotenuse is
+                <strong>5 units</strong>.
+            </p>
+
+        </section>
+
+
+
+        <!-- HOW TO USE -->
+
+        <section class="info-section">
+
+            <div class="section-heading">
+
+                <span>🚀</span>
+
+                <h2>
+                    How to Use
+                </h2>
+
+            </div>
+
+
+            <ol>
+
+                <li>
+                    Select the side you want to calculate.
+                </li>
+
+                <li>
+                    Enter the two known side lengths.
+                </li>
+
+                <li>
+                    Click the Calculate button.
+                </li>
+
+                <li>
+                    Your missing side will be displayed instantly.
+                </li>
+
+            </ol>
+
+        </section>
+
+
+
+        <!-- TIPS -->
+
+        <section class="info-section">
+
+            <div class="section-heading">
+
+                <span>🎯</span>
+
+                <h2>
+                    Quick Tips
+                </h2>
+
+            </div>
+
+
+            <ul>
+
+                <li>
+                    This theorem works only for right triangles.
+                </li>
 
                 <li>
                     The hypotenuse is always the longest side.
                 </li>
 
                 <li>
-                    The Pythagorean Theorem works only for right triangles.
+                    Enter positive numbers only.
                 </li>
 
                 <li>
-                    Make sure all side values are positive numbers.
-                </li>
-
-                <li>
-                    The result uses the same unit as the values you enter.
+                    The answer uses the same unit as your input.
                 </li>
 
             </ul>
 
         </section>
 
+
     </main>
 
+
+
+    <!-- FOOTER -->
 
     <footer>
 
@@ -467,12 +500,17 @@
     </footer>
 
 
+
+    <!-- JAVASCRIPT -->
+
     <script>
 
-        function updateInputs() {
 
-            const findSide =
-                document.getElementById("findSide").value;
+        function changeFields() {
+
+            const type =
+                document.getElementById("calculateType").value;
+
 
             const sideA =
                 document.getElementById("sideA");
@@ -480,32 +518,37 @@
             const sideB =
                 document.getElementById("sideB");
 
-            const hypotenuse =
-                document.getElementById("hypotenuse");
+            const sideC =
+                document.getElementById("sideC");
 
 
             sideA.disabled = false;
             sideB.disabled = false;
-            hypotenuse.disabled = false;
+            sideC.disabled = false;
 
 
-            if (findSide === "hypotenuse") {
+            if (type === "c") {
 
-                hypotenuse.disabled = true;
-                hypotenuse.value = "";
+                sideC.disabled = true;
+
+                sideC.value = "";
 
             }
 
-            if (findSide === "sideA") {
+
+            if (type === "a") {
 
                 sideA.disabled = true;
+
                 sideA.value = "";
 
             }
 
-            if (findSide === "sideB") {
+
+            if (type === "b") {
 
                 sideB.disabled = true;
+
                 sideB.value = "";
 
             }
@@ -513,35 +556,50 @@
         }
 
 
+
         function calculatePythagorean() {
 
-            const findSide =
-                document.getElementById("findSide").value;
+            const type =
+                document.getElementById("calculateType").value;
+
 
             const sideA =
-                parseFloat(document.getElementById("sideA").value);
+                parseFloat(
+                    document.getElementById("sideA").value
+                );
+
 
             const sideB =
-                parseFloat(document.getElementById("sideB").value);
+                parseFloat(
+                    document.getElementById("sideB").value
+                );
 
-            const hypotenuse =
-                parseFloat(document.getElementById("hypotenuse").value);
+
+            const sideC =
+                parseFloat(
+                    document.getElementById("sideC").value
+                );
 
 
             const resultBox =
                 document.getElementById("resultBox");
 
+
             const result =
                 document.getElementById("result");
 
-            const calculation =
-                document.getElementById("calculation");
+
+            const working =
+                document.getElementById("working");
 
 
             resultBox.style.display = "none";
 
 
-            if (findSide === "hypotenuse") {
+
+            /* FIND C */
+
+            if (type === "c") {
 
                 if (
                     isNaN(sideA) ||
@@ -550,7 +608,10 @@
                     sideB <= 0
                 ) {
 
-                    alert("Please enter positive values for Side A and Side B.");
+                    alert(
+                        "Please enter positive values for Side a and Side b."
+                    );
+
                     return;
 
                 }
@@ -564,32 +625,42 @@
 
 
                 result.innerText =
-                    c.toFixed(4).replace(/\.?0+$/, "");
+                    formatNumber(c);
 
-                calculation.innerText =
-                    `c = √(${sideA}² + ${sideB}²) = ${c.toFixed(4)}`;
+
+                working.innerText =
+                    `c = √(${sideA}² + ${sideB}²) = ${formatNumber(c)}`;
 
             }
 
 
-            if (findSide === "sideA") {
+
+            /* FIND A */
+
+            if (type === "a") {
 
                 if (
                     isNaN(sideB) ||
-                    isNaN(hypotenuse) ||
+                    isNaN(sideC) ||
                     sideB <= 0 ||
-                    hypotenuse <= 0
+                    sideC <= 0
                 ) {
 
-                    alert("Please enter positive values for Side B and the Hypotenuse.");
+                    alert(
+                        "Please enter positive values for Side b and the Hypotenuse."
+                    );
+
                     return;
 
                 }
 
 
-                if (hypotenuse <= sideB) {
+                if (sideC <= sideB) {
 
-                    alert("The hypotenuse must be greater than Side B.");
+                    alert(
+                        "The hypotenuse must be greater than Side b."
+                    );
+
                     return;
 
                 }
@@ -597,38 +668,48 @@
 
                 const a =
                     Math.sqrt(
-                        (hypotenuse * hypotenuse) -
+                        (sideC * sideC) -
                         (sideB * sideB)
                     );
 
 
                 result.innerText =
-                    a.toFixed(4).replace(/\.?0+$/, "");
+                    formatNumber(a);
 
-                calculation.innerText =
-                    `a = √(${hypotenuse}² - ${sideB}²) = ${a.toFixed(4)}`;
+
+                working.innerText =
+                    `a = √(${sideC}² - ${sideB}²) = ${formatNumber(a)}`;
 
             }
 
 
-            if (findSide === "sideB") {
+
+            /* FIND B */
+
+            if (type === "b") {
 
                 if (
                     isNaN(sideA) ||
-                    isNaN(hypotenuse) ||
+                    isNaN(sideC) ||
                     sideA <= 0 ||
-                    hypotenuse <= 0
+                    sideC <= 0
                 ) {
 
-                    alert("Please enter positive values for Side A and the Hypotenuse.");
+                    alert(
+                        "Please enter positive values for Side a and the Hypotenuse."
+                    );
+
                     return;
 
                 }
 
 
-                if (hypotenuse <= sideA) {
+                if (sideC <= sideA) {
 
-                    alert("The hypotenuse must be greater than Side A.");
+                    alert(
+                        "The hypotenuse must be greater than Side a."
+                    );
+
                     return;
 
                 }
@@ -636,16 +717,17 @@
 
                 const b =
                     Math.sqrt(
-                        (hypotenuse * hypotenuse) -
+                        (sideC * sideC) -
                         (sideA * sideA)
                     );
 
 
                 result.innerText =
-                    b.toFixed(4).replace(/\.?0+$/, "");
+                    formatNumber(b);
 
-                calculation.innerText =
-                    `b = √(${hypotenuse}² - ${sideA}²) = ${b.toFixed(4)}`;
+
+                working.innerText =
+                    `b = √(${sideC}² - ${sideA}²) = ${formatNumber(b)}`;
 
             }
 
@@ -655,9 +737,21 @@
         }
 
 
-        updateInputs();
+
+        function formatNumber(number) {
+
+            return Number(
+                number.toFixed(6)
+            ).toString();
+
+        }
+
+
+        changeFields();
+
 
     </script>
+
 
 </body>
 
