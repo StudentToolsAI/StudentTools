@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon"
+        type="image/png"
+        href="favicon.png">
+
+    <title>Discount Calculator - Calculate Discount & Final Price</title>
+
+    <meta name="description"
+        content="Free Discount Calculator to calculate discount amount, final price, savings and optional GST quickly and accurately.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/discount.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           DISCOUNT CALCULATOR
+        ========================================= */
+
+        .discount-page {
+
+            min-height: 100vh;
+
+            padding: 120px 20px 80px;
+
+        }
+
+
+        .discount-container {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            margin: auto;
+
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .discount-hero {
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+        }
+
+
+        .discount-badge {
+
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            background: rgba(85, 75, 255, 0.15);
+
+            border: 1px solid rgba(100, 100, 255, 0.4);
+
+            color: #b9b5ff;
+
+            font-size: 14px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .discount-hero h1 {
+
+            font-size: clamp(34px, 6vw, 58px);
+
+            margin: 0 0 15px;
+
+            color: #ffffff;
+
+        }
+
+
+        .discount-hero p {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #9da8c7;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =========================================
+           CALCULATOR CARD
+        ========================================= */
+
+        .discount-card {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background: rgba(7, 20, 52, 0.85);
+
+            border: 1px solid rgba(76, 91, 220, 0.55);
+
+            box-shadow:
+
+                0 10px 35px rgba(0, 0, 0, 0.25),
+
+                inset 0 0 25px rgba(80, 70, 255, 0.04);
+
+        }
+
+
+        .discount-input-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+
+        }
+
+
+        .discount-input-group {
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .discount-input-group label {
+
+            display: block;
+
+            margin-bottom: 9px;
+
+            color: #d7ddf5;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        .discount-input {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 14px 15px;
+
+            border-radius: 11px;
+
+            border: 1px solid rgba(100, 110, 210, 0.5);
+
+            background: rgba(3, 10, 28, 0.9);
+
+            color: #ffffff;
+
+            font-size: 16px;
+
+            outline: none;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .discount-input::placeholder {
+
+            color: #7180a6;
+
+        }
+
+
+        .discount-input:focus {
+
+            border-color: #685cff;
+
+            box-shadow:
+
+                0 0 0 3px rgba(90, 80, 255, 0.12),
+
+                0 0 18px rgba(99, 102, 241, 0.15);
+
+        }
+
+
+        /* =========================================
+           OPTIONS
+        ========================================= */
+
+        .discount-options {
+
+            margin-top: 22px;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background: rgba(5, 15, 40, 0.7);
+
+            border: 1px solid rgba(80, 95, 210, 0.3);
+
+        }
+
+
+        .discount-option-title {
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        .tax-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+
+            align-items: end;
+
+        }
+
+
+        .discount-select {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            padding: 14px 15px;
+
+            border-radius: 11px;
+
+            border: 1px solid rgba(100, 110, 210, 0.5);
+
+            background: rgba(3, 10, 28, 0.9);
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            outline: none;
+
+            cursor: pointer;
+
+        }
+
+
+        .discount-select:focus {
+
+            border-color: #685cff;
+
+            box-shadow:
+
+                0 0 0 3px rgba(90, 80, 255, 0.12);
+
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .discount-button {
+
+            width: 100%;
+
+            margin-top: 24px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    #246bff,
+
+                    #713cff
+
+                );
+
+            color: #ffffff;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+            box-shadow:
+
+                0 8px 25px rgba(70, 65, 255, 0.22);
+
+        }
+
+
+        .discount-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+
+                0 12px 30px rgba(80, 70, 255, 0.32);
+
+        }
+
+
+        .discount-button:active {
+
+            transform: translateY(0);
+
+        }
+
+
+        /* =========================================
+           RESULT
+        ========================================= */
+
+        .discount-result {
+
+            margin-top: 22px;
+
+            padding: 22px;
+
+            border-radius: 14px;
+
+            background: rgba(8, 25, 58, 0.85);
+
+            border: 1px solid rgba(64, 190, 255, 0.22);
+
+            color: #dce7ff;
+
+            text-align: center;
+
+            line-height: 1.8;
+
+        }
+
+
+        .discount-result-title {
+
+            color: #9da8c7;
+
+            font-size: 13px;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .discount-final-price {
+
+            color: #67e8f9;
+
+            font-size: 28px;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .discount-result-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 10px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .discount-result-box {
+
+            padding: 12px 8px;
+
+            border-radius: 10px;
+
+            background: rgba(5, 15, 40, 0.7);
+
+            border: 1px solid rgba(90, 105, 220, 0.25);
+
+        }
+
+
+        .discount-result-box span {
+
+            display: block;
+
+            color: #7f8db1;
+
+            font-size: 12px;
+
+            margin-bottom: 4px;
+
+        }
+
+
+        .discount-result-box strong {
+
+            color: #ffffff;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================================
+           INFORMATION
+        ========================================= */
+
+        .discount-info {
+
+            margin-top: 35px;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            background: rgba(7, 20, 52, 0.75);
+
+            border: 1px solid rgba(76, 91, 220, 0.4);
+
+        }
+
+
+        .discount-info h2 {
+
+            color: #ffffff;
+
+            margin: 0 0 14px;
+
+            font-size: 25px;
+
+        }
+
+
+        .discount-info h3 {
+
+            color: #ffffff;
+
+            margin-top: 28px;
+
+            margin-bottom: 10px;
+
+            font-size: 20px;
+
+        }
+
+
+        .discount-info p {
+
+            color: #9da8c7;
+
+            line-height: 1.8;
+
+            margin: 10px 0;
+
+        }
+
+
+        .discount-info strong {
+
+            color: #c2b9ff;
+
+        }
+
+
+        .discount-formula {
+
+            margin: 18px 0;
+
+            padding: 17px;
+
+            border-radius: 12px;
+
+            background: rgba(12, 22, 52, 0.8);
+
+            border: 1px solid rgba(99, 102, 241, 0.3);
+
+            color: #dfe4ff;
+
+            text-align: center;
+
+            line-height: 1.8;
+
+            font-weight: 700;
+
+        }
+
+
+        .discount-example {
+
+            margin: 15px 0 20px;
+
+            padding: 17px 18px;
+
+            border-radius: 12px;
+
+            background: rgba(5, 15, 40, 0.85);
+
+            border: 1px solid rgba(90, 105, 220, 0.35);
+
+            color: #aebbd8;
+
+            line-height: 1.8;
+
+        }
+
+
+        .discount-list {
+
+            margin: 10px 0;
+
+            padding-left: 22px;
+
+            color: #9da8c7;
+
+            line-height: 1.9;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .discount-page {
+
+                padding: 100px 15px 60px;
+
+            }
+
+
+            .discount-card {
+
+                padding: 22px 17px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .discount-input-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+
+            }
+
+
+            .tax-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 14px;
+
+            }
+
+
+            .discount-result-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .discount-info {
+
+                padding: 22px;
+
+                border-radius: 18px;
+
+            }
+
+
+            .discount-hero p {
+
+                font-size: 16px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================= -->
+
+    <main class="discount-page">
+
+        <div class="discount-container">
+
+
+            <!-- HERO -->
+
+            <section class="discount-hero">
+
+                <span class="discount-badge">
+                    🏷️ Free Online Calculator
+                </span>
+
+
+                <h1>
+                    Discount Calculator
+                </h1>
+
+
+                <p>
+                    Calculate discounts, savings, final prices
+                    and optional GST quickly and accurately.
+                </p>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 CALCULATOR
+            ====================================== -->
+
+            <section class="discount-card">
+
+
+                <div class="discount-input-grid">
+
+
+                    <!-- Original Price -->
+
+                    <div class="discount-input-group">
+
+                        <label for="originalPrice">
+                            Original Price
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="originalPrice"
+                            class="discount-input"
+                            placeholder="Enter original price"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Discount -->
+
+                    <div class="discount-input-group">
+
+                        <label for="discountPercent">
+                            Discount (%)
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="discountPercent"
+                            class="discount-input"
+                            placeholder="Enter discount %"
+                            min="0"
+                            max="100"
+                            step="any"
+                        >
+
+                    </div>
+
+
+
+                    <!-- Quantity -->
+
+                    <div class="discount-input-group">
+
+                        <label for="quantity">
+                            Quantity
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            class="discount-input"
+                            placeholder="Enter quantity"
+                            value="1"
+                            min="1"
+                            step="1"
+                        >
+
+                    </div>
+
+
+
+                    <!-- GST -->
+
+                    <div class="discount-input-group">
+
+                        <label for="gstPercent">
+                            GST (%)
+                        </label>
+
+
+                        <input
+                            type="number"
+                            id="gstPercent"
+                            class="discount-input"
+                            placeholder="Optional GST"
+                            value="0"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Options -->
+
+                <div class="discount-options">
+
+                    <div class="discount-option-title">
+                        🧾 Price Calculation
+                    </div>
+
+
+                    <div class="tax-row">
+
+                        <div>
+
+                            <label
+                                for="gstMode"
+                                style="
+                                    display:block;
+                                    margin-bottom:9px;
+                                    color:#d7ddf5;
+                                    font-size:13px;
+                                    font-weight:600;
+                                "
+                            >
+                                GST Calculation
+                            </label>
+
+
+                            <select
+                                id="gstMode"
+                                class="discount-select"
+                            >
+
+                                <option value="after">
+                                    Add GST after discount
+                                </option>
+
+                                <option value="before">
+                                    GST included before discount
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div
+                            style="
+                                color:#8995b8;
+                                font-size:13px;
+                                line-height:1.6;
+                            "
+                        >
+
+                            GST is optional.
+                            Enter <strong style="color:#c2b9ff;">0</strong>
+                            if you do not want to include tax.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Button -->
+
+                <button
+                    type="button"
+                    class="discount-button"
+                    onclick="calculateDiscount()"
+                >
+                    Calculate Discount
+                </button>
+
+
+
+                <!-- Result -->
+
+                <div
+                    class="discount-result"
+                    id="discountResult"
+                >
+
+                    Enter your price and discount
+                    to see the result.
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =====================================
+                 HOW TO USE
+            ====================================== -->
+
+            <section class="discount-info">
+
+                <h2>
+                    How to Use the Discount Calculator?
+                </h2>
+
+
+                <p>
+                    Enter the <strong>original price</strong>,
+                    enter the <strong>discount percentage</strong>,
+                    choose the quantity, and optionally enter a
+                    GST percentage.
+                </p>
+
+
+                <p>
+                    Click <strong>Calculate Discount</strong>
+                    to instantly see the discount amount,
+                    final price, total savings and tax.
+                </p>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 FORMULAS
+            ====================================== -->
+
+            <section class="discount-info">
+
+                <h2>
+                    Discount Calculator Formula
+                </h2>
+
+
+                <p>
+                    The discount amount is calculated by multiplying
+                    the original price by the discount percentage.
+                </p>
+
+
+                <div class="discount-formula">
+
+                    Discount Amount =
+                    Original Price × Discount % ÷ 100
+
+                    <br><br>
+
+                    Final Price =
+                    Original Price − Discount Amount
+
+                </div>
+
+
+                <h3>
+                    Example
+                </h3>
+
+
+                <div class="discount-example">
+
+                    Original Price:
+                    <strong>₹1,000</strong>
+
+                    <br>
+
+                    Discount:
+                    <strong>20%</strong>
+
+                    <br><br>
+
+                    Discount Amount:
+
+                    <br>
+
+                    ₹1,000 × 20 ÷ 100 = <strong>₹200</strong>
+
+                    <br><br>
+
+                    Final Price:
+
+                    <br>
+
+                    ₹1,000 − ₹200 = <strong>₹800</strong>
+
+                    <br><br>
+
+                    You save:
+
+                    <strong>₹200</strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 GST
+            ====================================== -->
+
+            <section class="discount-info">
+
+                <h2>
+                    Discount with GST
+                </h2>
+
+
+                <p>
+                    You can also use this calculator to calculate
+                    the final price after adding GST.
+                </p>
+
+
+                <div class="discount-formula">
+
+                    GST Amount =
+                    Price × GST % ÷ 100
+
+                    <br><br>
+
+                    Price with GST =
+                    Price + GST Amount
+
+                </div>
+
+
+                <h3>
+                    Example
+                </h3>
+
+
+                <div class="discount-example">
+
+                    Original Price:
+                    <strong>₹2,000</strong>
+
+                    <br>
+
+                    Discount:
+                    <strong>10%</strong>
+
+                    <br>
+
+                    GST:
+                    <strong>18%</strong>
+
+                    <br><br>
+
+                    Discount Amount:
+
+                    <strong>₹200</strong>
+
+                    <br>
+
+                    Price after discount:
+
+                    <strong>₹1,800</strong>
+
+                    <br>
+
+                    GST on ₹1,800:
+
+                    <strong>₹324</strong>
+
+                    <br><br>
+
+                    Final Price:
+
+                    <strong>₹2,124</strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 QUANTITY
+            ====================================== -->
+
+            <section class="discount-info">
+
+                <h2>
+                    Discount for Multiple Items
+                </h2>
+
+
+                <p>
+                    Enter the number of items in the
+                    <strong>Quantity</strong> field to calculate
+                    the total price and total savings.
+                </p>
+
+
+                <h3>
+                    Example
+                </h3>
+
+
+                <div class="discount-example">
+
+                    Original Price per item:
+                    <strong>₹500</strong>
+
+                    <br>
+
+                    Discount:
+                    <strong>20%</strong>
+
+                    <br>
+
+                    Quantity:
+                    <strong>3</strong>
+
+                    <br><br>
+
+                    Discount per item:
+
+                    <strong>₹100</strong>
+
+                    <br>
+
+                    Final price per item:
+
+                    <strong>₹400</strong>
+
+                    <br><br>
+
+                    Total savings:
+
+                    <strong>₹300</strong>
+
+                    <br>
+
+                    Total final price:
+
+                    <strong>₹1,200</strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 WHAT CAN IT FIND
+            ====================================== -->
+
+            <section class="discount-info">
+
+                <h2>
+                    What Can This Calculator Find?
+                </h2>
+
+
+                <p>
+                    This calculator can help with many common
+                    discount and shopping calculations.
+                </p>
+
+
+                <ul class="discount-list">
+
+                    <li>
+                        Discount amount
+                    </li>
+
+                    <li>
+                        Final price after discount
+                    </li>
+
+                    <li>
+                        Total savings
+                    </li>
+
+                    <li>
+                        Price for multiple items
+                    </li>
+
+                    <li>
+                        Optional GST amount
+                    </li>
+
+                    <li>
+                        Final price including GST
+                    </li>
+
+                    <li>
+                        Discounted prices for everyday purchases
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 UNDERSTANDING DISCOUNT
+            ====================================== -->
+
+            <section class="discount-info">
+
+                <h2>
+                    What Is a Discount?
+                </h2>
+
+
+                <p>
+                    A discount is a reduction from the original
+                    price of a product or service. It is usually
+                    expressed as a percentage.
+                </p>
+
+
+                <p>
+                    For example, a 25% discount means that
+                    25 out of every 100 parts of the original
+                    price are reduced.
+                </p>
+
+
+                <div class="discount-example">
+
+                    <strong>Example:</strong>
+
+                    <br><br>
+
+                    Original Price = ₹800
+
+                    <br>
+
+                    Discount = 25%
+
+                    <br><br>
+
+                    Discount = ₹800 × 25 ÷ 100
+
+                    <br>
+
+                    Discount = <strong>₹200</strong>
+
+                    <br><br>
+
+                    Final Price = ₹800 − ₹200
+
+                    <br>
+
+                    Final Price = <strong>₹600</strong>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        function calculateDiscount() {
+
+            const originalPrice =
+                Number(
+                    document.getElementById("originalPrice").value
+                );
+
+
+            const discountPercent =
+                Number(
+                    document.getElementById("discountPercent").value
+                );
+
+
+            const quantity =
+                Number(
+                    document.getElementById("quantity").value
+                );
+
+
+            const gstPercent =
+                Number(
+                    document.getElementById("gstPercent").value
+                );
+
+
+            const gstMode =
+                document.getElementById("gstMode").value;
+
+
+            const result =
+                document.getElementById("discountResult");
+
+
+            /* Validation */
+
+            if (
+                !Number.isFinite(originalPrice) ||
+                !Number.isFinite(discountPercent) ||
+                !Number.isFinite(quantity) ||
+                !Number.isFinite(gstPercent)
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter valid numbers.";
+
+                return;
+
+            }
+
+
+            if (originalPrice < 0) {
+
+                result.innerHTML =
+                    "⚠️ Original price cannot be negative.";
+
+                return;
+
+            }
+
+
+            if (
+                discountPercent < 0 ||
+                discountPercent > 100
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Discount must be between 0% and 100%.";
+
+                return;
+
+            }
+
+
+            if (quantity < 1) {
+
+                result.innerHTML =
+                    "⚠️ Quantity must be at least 1.";
+
+                return;
+
+            }
+
+
+            if (gstPercent < 0) {
+
+                result.innerHTML =
+                    "⚠️ GST cannot be negative.";
+
+                return;
+
+            }
+
+
+            /* Discount */
+
+            const discountAmount =
+                originalPrice *
+                discountPercent /
+                100;
+
+
+            const priceAfterDiscount =
+                originalPrice -
+                discountAmount;
+
+
+            /* GST */
+
+            let gstAmount = 0;
+
+            let finalPrice = priceAfterDiscount;
+
+
+            if (gstPercent > 0) {
+
+                if (gstMode === "after") {
+
+                    gstAmount =
+                        priceAfterDiscount *
+                        gstPercent /
+                        100;
+
+                    finalPrice =
+                        priceAfterDiscount +
+                        gstAmount;
+
+                }
+
+                else {
+
+                    const gstIncludedPrice =
+                        originalPrice +
+                        (
+                            originalPrice *
+                            gstPercent /
+                            100
+                        );
+
+
+                    const discountedTotal =
+                        gstIncludedPrice *
+                        (
+                            1 -
+                            discountPercent /
+                            100
+                        );
+
+
+                    finalPrice =
+                        discountedTotal;
+
+
+                    gstAmount =
+                        gstIncludedPrice -
+                        originalPrice;
+
+                }
+
+            }
+
+
+            /* Totals */
+
+            const totalOriginal =
+                originalPrice *
+                quantity;
+
+
+            const totalDiscount =
+                discountAmount *
+                quantity;
+
+
+            const totalFinal =
+                finalPrice *
+                quantity;
+
+
+            /* Result */
+
+            result.innerHTML = `
+
+                <div class="discount-result-title">
+
+                    Final Price
+
+                </div>
+
+
+                <div class="discount-final-price">
+
+                    ${formatCurrency(totalFinal)}
+
+                </div>
+
+
+                <div class="discount-result-grid">
+
+
+                    <div class="discount-result-box">
+
+                        <span>
+                            Discount
+                        </span>
+
+                        <strong>
+                            ${formatCurrency(totalDiscount)}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="discount-result-box">
+
+                        <span>
+                            GST
+                        </span>
+
+                        <strong>
+                            ${formatCurrency(gstAmount * quantity)}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="discount-result-box">
+
+                        <span>
+                            Savings
+                        </span>
+
+                        <strong>
+                            ${formatCurrency(totalDiscount)}
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    style="
+                        margin-top:18px;
+                        color:#9da8c7;
+                        font-size:13px;
+                    "
+                >
+
+                    Original Total:
+                    <strong style="color:#ffffff;">
+                        ${formatCurrency(totalOriginal)}
+                    </strong>
+
+                    <br>
+
+                    Quantity:
+                    <strong style="color:#ffffff;">
+                        ${quantity}
+                    </strong>
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        function formatCurrency(value) {
+
+            return "₹" +
+                Number(value)
+                    .toLocaleString(
+                        "en-IN",
+                        {
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 2
+                        }
+                    );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
