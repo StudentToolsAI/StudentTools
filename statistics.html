@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Statistics Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Calculate mean, median, mode, range, variance, standard deviation, quartiles and more with the free Statistics Calculator from Advanced Student Tools.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/statistics.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           PREMIUM STATISTICS CALCULATOR
+           ========================================= */
+
+        .statistics-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0 70px;
+        }
+
+
+        .statistics-card {
+            width: 100%;
+            max-width: 650px;
+            padding: 32px;
+
+            border: 1px solid rgba(100, 120, 255, 0.35);
+            border-radius: 22px;
+
+            background: rgba(12, 24, 52, 0.72);
+
+            box-shadow:
+                0 0 35px rgba(55, 80, 255, 0.12),
+                inset 0 0 30px rgba(80, 60, 255, 0.04);
+
+            backdrop-filter: blur(16px);
+        }
+
+
+        /* Data Input */
+
+        .statistics-input-group {
+            margin-bottom: 22px;
+        }
+
+
+        .statistics-input-group label {
+            display: block;
+
+            margin-bottom: 9px;
+
+            color: #d7ddf5;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .statistics-input-group textarea {
+            width: 100%;
+            min-height: 125px;
+
+            box-sizing: border-box;
+
+            padding: 14px 15px;
+
+            border: 1px solid rgba(120, 140, 255, 0.28);
+            border-radius: 11px;
+
+            outline: none;
+            resize: vertical;
+
+            background: rgba(3, 10, 28, 0.85);
+
+            color: #ffffff;
+
+            font-family: inherit;
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            transition: 0.25s ease;
+        }
+
+
+        .statistics-input-group textarea:focus {
+            border-color: #6366f1;
+
+            box-shadow:
+                0 0 0 3px rgba(99, 102, 241, 0.12),
+                0 0 18px rgba(99, 102, 241, 0.18);
+        }
+
+
+        .statistics-input-group textarea::placeholder {
+            color: #7180a8;
+        }
+
+
+        .input-help {
+            margin-top: 8px;
+
+            color: #7f8db1;
+
+            font-size: 12px;
+        }
+
+
+        /* Calculate Button */
+
+        .statistics-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: #ffffff;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(67, 56, 202, 0.28);
+
+            transition: all 0.25s ease;
+        }
+
+
+        .statistics-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(99, 70, 255, 0.38);
+        }
+
+
+        .statistics-button:active {
+            transform: translateY(0);
+        }
+
+
+        /* Clear Button */
+
+        .statistics-clear {
+            width: 100%;
+
+            margin-top: 10px;
+
+            padding: 12px;
+
+            border: 1px solid rgba(120, 140, 255, 0.25);
+            border-radius: 11px;
+
+            background: rgba(24, 39, 78, 0.65);
+
+            color: #cbd5ff;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+        }
+
+
+        .statistics-clear:hover {
+            border-color: #818cf8;
+
+            background: rgba(35, 52, 100, 0.75);
+        }
+
+
+        /* Result */
+
+        .statistics-result {
+            margin-top: 18px;
+
+            padding: 18px;
+
+            border: 1px solid rgba(64, 190, 255, 0.2);
+            border-radius: 11px;
+
+            background:
+                rgba(8, 35, 60, 0.65);
+
+            color: #dce7ff;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+
+        .statistics-result h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+
+            color: #ffffff;
+        }
+
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 7px 0;
+
+            border-bottom: 1px solid rgba(120, 140, 255, 0.1);
+        }
+
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .stat-row strong {
+            color: #67e8f9;
+
+            text-align: right;
+        }
+
+
+        .data-preview {
+            margin-top: 15px;
+
+            padding: 12px;
+
+            border-radius: 9px;
+
+            background: rgba(3, 10, 28, 0.45);
+
+            color: #9eadd0;
+
+            font-size: 12px;
+
+            word-break: break-word;
+        }
+
+
+        /* Info */
+
+        .tool-info {
+            max-width: 680px;
+
+            margin: 0 auto;
+
+            padding: 20px 0 80px;
+        }
+
+
+        .tool-info h2 {
+            margin-top: 45px;
+            margin-bottom: 14px;
+
+            color: #ffffff;
+        }
+
+
+        .tool-info p {
+            color: #aab8d8;
+
+            line-height: 1.8;
+        }
+
+
+        .formula-box {
+            margin: 20px 0;
+
+            padding: 18px 22px;
+
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+
+            background:
+                rgba(12, 22, 52, 0.65);
+
+            color: #c7bfff;
+
+            text-align: center;
+
+            box-shadow:
+                inset 0 0 20px rgba(90, 70, 255, 0.04);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .statistics-card {
+                padding: 22px 16px;
+
+                border-radius: 18px;
+            }
+
+
+            .statistics-input-group textarea {
+                min-height: 115px;
+            }
+
+
+            .stat-row {
+                align-items: flex-start;
+            }
+
+
+            .stat-row strong {
+                max-width: 55%;
+
+                word-break: break-word;
+            }
+
+
+            .tool-info {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                📊
+            </div>
+
+
+            <h1>
+                Statistics Calculator
+            </h1>
+
+
+            <p>
+                Calculate mean, median, mode, range,
+                variance, standard deviation and quartiles.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- Calculator -->
+
+    <main class="container">
+
+
+        <section class="statistics-section">
+
+
+            <div class="statistics-card">
+
+
+                <!-- Data -->
+
+                <div class="statistics-input-group">
+
+                    <label for="dataInput">
+                        Enter Data
+                    </label>
+
+
+                    <textarea
+                        id="dataInput"
+                        placeholder="Example: 10, 20, 20, 30, 40, 50"
+                    ></textarea>
+
+
+                    <div class="input-help">
+                        Enter numbers separated by commas, spaces or new lines.
+                    </div>
+
+                </div>
+
+
+                <!-- Calculate -->
+
+                <button
+                    type="button"
+                    class="statistics-button"
+                    onclick="calculateStatistics()">
+
+                    Calculate Statistics
+
+                </button>
+
+
+                <!-- Clear -->
+
+                <button
+                    type="button"
+                    class="statistics-clear"
+                    onclick="clearStatistics()">
+
+                    Clear
+
+                </button>
+
+
+                <!-- Result -->
+
+                <div
+                    id="statisticsResult"
+                    class="statistics-result">
+
+                    Enter your data and click
+                    <strong>Calculate Statistics</strong>.
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- Information -->
+
+        <section class="tool-info">
+
+
+            <h2>
+                How to Use the Statistics Calculator?
+            </h2>
+
+
+            <p>
+                Enter a list of numbers separated by commas,
+                spaces or new lines. Click Calculate Statistics
+                to instantly find important statistical values
+                from your data set.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Mean = Sum of all values ÷ Number of values
+                </strong>
+
+            </div>
+
+
+            <h2>
+                What Does It Calculate?
+            </h2>
+
+
+            <p>
+                This calculator provides the count, sum, minimum,
+                maximum, mean, median, mode, range, variance,
+                standard deviation and quartiles Q1, Q2 and Q3.
+            </p>
+
+
+            <h2>
+                Mean
+            </h2>
+
+
+            <p>
+                The mean is the average of all values in the
+                data set.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Mean = Σx ÷ n
+                </strong>
+
+            </div>
+
+
+            <h2>
+                Median
+            </h2>
+
+
+            <p>
+                The median is the middle value after the data
+                has been arranged from smallest to largest.
+            </p>
+
+
+            <h2>
+                Standard Deviation
+            </h2>
+
+
+            <p>
+                Standard deviation measures how spread out the
+                values are from the mean.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    Population SD = √Variance
+                </strong>
+
+            </div>
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                For the data set 10, 20, 20, 30 and 40,
+                the calculator determines all major statistical
+                measures automatically.
+            </p>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Statistics JavaScript -->
+
+    <script>
+
+        function calculateStatistics() {
+
+            const input =
+                document.getElementById("dataInput").value.trim();
+
+            const result =
+                document.getElementById("statisticsResult");
+
+
+            if (input === "") {
+
+                result.innerHTML =
+                    "⚠️ Please enter some numbers.";
+
+                return;
+
+            }
+
+
+            /*
+             * Accept commas, spaces and new lines.
+             */
+
+            const values =
+                input
+                    .split(/[\s,]+/)
+                    .filter(value => value !== "")
+                    .map(Number);
+
+
+            if (
+                values.length === 0 ||
+                values.some(value => !Number.isFinite(value))
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter only valid numbers.";
+
+                return;
+
+            }
+
+
+            const sorted =
+                [...values].sort((a, b) => a - b);
+
+
+            const count =
+                values.length;
+
+
+            const sum =
+                values.reduce(
+                    (total, value) => total + value,
+                    0
+                );
+
+
+            const mean =
+                sum / count;
+
+
+            const minimum =
+                sorted[0];
+
+
+            const maximum =
+                sorted[sorted.length - 1];
+
+
+            const range =
+                maximum - minimum;
+
+
+            /* Median */
+
+            let median;
+
+
+            if (count % 2 === 0) {
+
+                median =
+                    (
+                        sorted[count / 2 - 1] +
+                        sorted[count / 2]
+                    ) / 2;
+
+            } else {
+
+                median =
+                    sorted[Math.floor(count / 2)];
+
+            }
+
+
+            /* Mode */
+
+            const frequency =
+                {};
+
+
+            let highestFrequency = 0;
+
+
+            sorted.forEach(value => {
+
+                const key =
+                    String(value);
+
+                frequency[key] =
+                    (frequency[key] || 0) + 1;
+
+                highestFrequency =
+                    Math.max(
+                        highestFrequency,
+                        frequency[key]
+                    );
+
+            });
+
+
+            let modes =
+                [];
+
+
+            if (highestFrequency > 1) {
+
+                modes =
+                    Object.keys(frequency)
+                        .filter(
+                            key =>
+                                frequency[key] === highestFrequency
+                        )
+                        .map(Number);
+
+            }
+
+
+            /* Population Variance */
+
+            const populationVariance =
+                values.reduce(
+                    (total, value) =>
+                        total +
+                        Math.pow(value - mean, 2),
+                    0
+                ) / count;
+
+
+            /* Population Standard Deviation */
+
+            const populationSD =
+                Math.sqrt(populationVariance);
+
+
+            /* Sample Variance */
+
+            let sampleVariance = 0;
+
+            let sampleSD = 0;
+
+
+            if (count > 1) {
+
+                sampleVariance =
+                    values.reduce(
+                        (total, value) =>
+                            total +
+                            Math.pow(value - mean, 2),
+                        0
+                    ) / (count - 1);
+
+
+                sampleSD =
+                    Math.sqrt(sampleVariance);
+
+            }
+
+
+            /* Quartiles */
+
+            const q1 =
+                calculateQuartile(sorted, 0.25);
+
+
+            const q2 =
+                calculateQuartile(sorted, 0.50);
+
+
+            const q3 =
+                calculateQuartile(sorted, 0.75);
+
+
+            const iqr =
+                q3 - q1;
+
+
+            /* Result */
+
+            result.innerHTML = `
+
+                <h3>
+                    Statistics Result
+                </h3>
+
+                <div class="stat-row">
+                    <span>Count</span>
+                    <strong>${count}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Sum</span>
+                    <strong>${formatNumber(sum)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Minimum</span>
+                    <strong>${formatNumber(minimum)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Maximum</span>
+                    <strong>${formatNumber(maximum)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Mean</span>
+                    <strong>${formatNumber(mean)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Median</span>
+                    <strong>${formatNumber(median)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Mode</span>
+                    <strong>${formatModes(modes, highestFrequency)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Range</span>
+                    <strong>${formatNumber(range)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Q1</span>
+                    <strong>${formatNumber(q1)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Q2</span>
+                    <strong>${formatNumber(q2)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Q3</span>
+                    <strong>${formatNumber(q3)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Interquartile Range</span>
+                    <strong>${formatNumber(iqr)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Population Variance</span>
+                    <strong>${formatNumber(populationVariance)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Population Standard Deviation</span>
+                    <strong>${formatNumber(populationSD)}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Sample Variance</span>
+                    <strong>${count > 1
+                        ? formatNumber(sampleVariance)
+                        : "N/A"}</strong>
+                </div>
+
+                <div class="stat-row">
+                    <span>Sample Standard Deviation</span>
+                    <strong>${count > 1
+                        ? formatNumber(sampleSD)
+                        : "N/A"}</strong>
+                </div>
+
+                <div class="data-preview">
+                    <strong>Sorted Data:</strong><br>
+                    ${sorted.map(formatNumber).join(", ")}
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================================
+           Quartile Calculation
+           ========================================= */
+
+        function calculateQuartile(sorted, percentile) {
+
+            const position =
+                (sorted.length - 1) * percentile;
+
+
+            const lower =
+                Math.floor(position);
+
+
+            const upper =
+                Math.ceil(position);
+
+
+            if (lower === upper) {
+
+                return sorted[lower];
+
+            }
+
+
+            const weight =
+                position - lower;
+
+
+            return (
+                sorted[lower] +
+                weight *
+                (sorted[upper] - sorted[lower])
+            );
+
+        }
+
+
+        /* =========================================
+           Format Mode
+           ========================================= */
+
+        function formatModes(
+            modes,
+            highestFrequency
+        ) {
+
+            if (highestFrequency <= 1) {
+
+                return "No mode";
+
+            }
+
+
+            return modes
+                .map(formatNumber)
+                .join(", ");
+
+        }
+
+
+        /* =========================================
+           Format Number
+           ========================================= */
+
+        function formatNumber(number) {
+
+            if (number === 0) {
+
+                return "0";
+
+            }
+
+
+            if (
+                Math.abs(number) >= 0.000001 &&
+                Math.abs(number) < 1000000000
+            ) {
+
+                return Number(
+                    number.toFixed(8)
+                ).toString();
+
+            }
+
+
+            return number
+                .toExponential(6)
+                .replace(/\.?0+e/, "e");
+
+        }
+
+
+        /* =========================================
+           Clear
+           ========================================= */
+
+        function clearStatistics() {
+
+            document.getElementById(
+                "dataInput"
+            ).value = "";
+
+
+            document.getElementById(
+                "statisticsResult"
+            ).innerHTML =
+                "Enter your data and click <strong>Calculate Statistics</strong>.";
+
+        }
+
+
+        /* =========================================
+           Keyboard Shortcut
+           ========================================= */
+
+        document
+            .getElementById("dataInput")
+            .addEventListener(
+                "keydown",
+                function(event) {
+
+                    if (
+                        event.ctrlKey &&
+                        event.key === "Enter"
+                    ) {
+
+                        calculateStatistics();
+
+                    }
+
+                }
+            );
+
+    </script>
+
+
+</body>
+
+</html>
