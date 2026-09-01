@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <title>Scientific Calculator - Advanced Student Tools</title>
+
+    <meta name="description"
+        content="Free scientific calculator with trigonometry, logarithms, powers, roots, factorials, constants and advanced mathematical functions.">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <link rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/scientific.html">
+
+    <link rel="stylesheet"
+        href="style.css">
+
+
+    <style>
+
+        /* =========================================
+           SCIENTIFIC CALCULATOR
+           Dedicated page styling only
+           ========================================= */
+
+        .scientific-section {
+            display: flex;
+            justify-content: center;
+            padding: 20px 0 70px;
+        }
+
+
+        .scientific-card {
+            width: 100%;
+            max-width: 620px;
+            padding: 24px;
+
+            border: 1px solid rgba(100, 120, 255, 0.35);
+            border-radius: 22px;
+
+            background: rgba(12, 24, 52, 0.78);
+
+            box-shadow:
+                0 0 35px rgba(55, 80, 255, 0.12),
+                inset 0 0 30px rgba(80, 60, 255, 0.04);
+
+            backdrop-filter: blur(16px);
+        }
+
+
+        /* Display */
+
+        .calculator-display {
+            width: 100%;
+            box-sizing: border-box;
+
+            min-height: 105px;
+
+            margin-bottom: 18px;
+            padding: 18px;
+
+            border: 1px solid rgba(120, 140, 255, 0.28);
+            border-radius: 15px;
+
+            background: rgba(3, 10, 28, 0.9);
+
+            text-align: right;
+
+            overflow: hidden;
+        }
+
+
+        .calculator-expression {
+            min-height: 25px;
+
+            color: #8998bd;
+
+            font-size: 14px;
+
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+
+        .calculator-result {
+            margin-top: 8px;
+
+            color: #ffffff;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
+
+        /* Mode */
+
+        .calculator-mode {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 15px;
+        }
+
+
+        .mode-label {
+            color: #aab8d8;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .mode-buttons {
+            display: flex;
+            gap: 7px;
+        }
+
+
+        .mode-button {
+            min-width: 48px;
+
+            padding: 8px 11px;
+
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+
+            background: rgba(24, 39, 78, 0.8);
+
+            color: #aebcff;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .mode-button.active {
+            background: linear-gradient(
+                90deg,
+                #2563eb,
+                #7c3aed
+            );
+
+            color: #ffffff;
+
+            border-color: transparent;
+        }
+
+
+        /* Buttons */
+
+        .calculator-grid {
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 9px;
+        }
+
+
+        .calc-button {
+
+            min-height: 52px;
+
+            border: 1px solid rgba(120, 140, 255, 0.2);
+            border-radius: 11px;
+
+            background: rgba(24, 39, 78, 0.78);
+
+            color: #e7ecff;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.15s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .calc-button:hover {
+
+            transform: translateY(-2px);
+
+            background: rgba(39, 57, 105, 0.9);
+
+            box-shadow:
+                0 6px 16px rgba(40, 60, 150, 0.2);
+        }
+
+
+        .calc-button:active {
+
+            transform: translateY(0) scale(0.97);
+        }
+
+
+        .calc-button.function {
+
+            color: #bfc9ff;
+
+            background:
+                rgba(30, 43, 82, 0.9);
+        }
+
+
+        .calc-button.operator {
+
+            color: #d9d3ff;
+
+            background:
+                rgba(62, 45, 105, 0.7);
+        }
+
+
+        .calc-button.danger {
+
+            color: #ffb5c0;
+
+            background:
+                rgba(80, 30, 48, 0.65);
+        }
+
+
+        .calc-button.equal {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: #ffffff;
+
+            border: none;
+
+            box-shadow:
+                0 7px 20px rgba(67, 56, 202, 0.28);
+        }
+
+
+        .calc-button.zero {
+
+            grid-column: span 2;
+        }
+
+
+        /* Info */
+
+        .scientific-info {
+
+            max-width: 680px;
+
+            margin: 0 auto;
+
+            padding: 20px 0 80px;
+        }
+
+
+        .scientific-info h2 {
+
+            margin-top: 45px;
+            margin-bottom: 14px;
+
+            color: #ffffff;
+        }
+
+
+        .scientific-info p {
+
+            color: #aab8d8;
+
+            line-height: 1.8;
+        }
+
+
+        .formula-box {
+
+            margin: 20px 0;
+
+            padding: 18px 22px;
+
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+
+            background:
+                rgba(12, 22, 52, 0.65);
+
+            color: #c7bfff;
+
+            text-align: center;
+
+            box-shadow:
+                inset 0 0 20px rgba(90, 70, 255, 0.04);
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .scientific-card {
+
+                padding: 16px;
+
+                border-radius: 18px;
+            }
+
+
+            .calculator-display {
+
+                min-height: 90px;
+
+                padding: 15px;
+            }
+
+
+            .calculator-result {
+
+                font-size: 25px;
+            }
+
+
+            .calculator-grid {
+
+                gap: 7px;
+            }
+
+
+            .calc-button {
+
+                min-height: 48px;
+
+                font-size: 13px;
+
+                border-radius: 9px;
+            }
+
+
+            .mode-button {
+
+                min-width: 44px;
+
+                padding: 7px 9px;
+            }
+
+        }
+
+
+        @media (max-width: 380px) {
+
+            .scientific-card {
+
+                padding: 12px;
+            }
+
+
+            .calculator-grid {
+
+                gap: 5px;
+            }
+
+
+            .calc-button {
+
+                min-height: 44px;
+
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="tool-page-icon">
+                🧮
+            </div>
+
+
+            <h1>
+                Scientific Calculator
+            </h1>
+
+
+            <p>
+                Perform advanced mathematical calculations
+                with trigonometry, logarithms, powers,
+                roots, factorials and more.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- Calculator -->
+
+    <main class="container">
+
+
+        <section class="scientific-section">
+
+
+            <div class="scientific-card">
+
+
+                <!-- Display -->
+
+                <div class="calculator-display">
+
+                    <div
+                        id="expression"
+                        class="calculator-expression">
+                    </div>
+
+
+                    <div
+                        id="result"
+                        class="calculator-result">
+                        0
+                    </div>
+
+                </div>
+
+
+                <!-- Mode -->
+
+                <div class="calculator-mode">
+
+                    <span class="mode-label">
+                        Angle Mode
+                    </span>
+
+
+                    <div class="mode-buttons">
+
+                        <button
+                            class="mode-button active"
+                            id="degButton"
+                            onclick="setAngleMode('DEG')">
+                            DEG
+                        </button>
+
+
+                        <button
+                            class="mode-button"
+                            id="radButton"
+                            onclick="setAngleMode('RAD')">
+                            RAD
+                        </button>
+
+
+                        <button
+                            class="mode-button"
+                            id="gradButton"
+                            onclick="setAngleMode('GRAD')">
+                            GRAD
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Calculator Buttons -->
+
+                <div class="calculator-grid">
+
+
+                    <button
+                        class="calc-button danger"
+                        onclick="clearCalculator()">
+                        AC
+                    </button>
+
+
+                    <button
+                        class="calc-button danger"
+                        onclick="deleteLast()">
+                        DEL
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.sqrt(')">
+                        √
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.cbrt(')">
+                        ∛
+                    </button>
+
+
+                    <button
+                        class="calc-button operator"
+                        onclick="appendOperator('/')">
+                        ÷
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.sin(')">
+                        sin
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.cos(')">
+                        cos
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.tan(')">
+                        tan
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.log10(')">
+                        log
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.log(')">
+                        ln
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.asin(')">
+                        sin⁻¹
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.acos(')">
+                        cos⁻¹
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.atan(')">
+                        tan⁻¹
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendConstant('Math.PI')">
+                        π
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendConstant('Math.E')">
+                        e
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('factorial(')">
+                        x!
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.abs(')">
+                        |x|
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('1/(')">
+                        1/x
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.exp(')">
+                        eˣ
+                    </button>
+
+
+                    <button
+                        class="calc-button operator"
+                        onclick="appendOperator('*')">
+                        ×
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('7')">
+                        7
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('8')">
+                        8
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('9')">
+                        9
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('Math.pow(')">
+                        xʸ
+                    </button>
+
+
+                    <button
+                        class="calc-button operator"
+                        onclick="appendOperator('-')">
+                        −
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('4')">
+                        4
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('5')">
+                        5
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('6')">
+                        6
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('square(')">
+                        x²
+                    </button>
+
+
+                    <button
+                        class="calc-button operator"
+                        onclick="appendOperator('+')">
+                        +
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('1')">
+                        1
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('2')">
+                        2
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('3')">
+                        3
+                    </button>
+
+
+                    <button
+                        class="calc-button function"
+                        onclick="appendFunction('percent(')">
+                        %
+                    </button>
+
+
+                    <button
+                        class="calc-button equal"
+                        onclick="calculate()">
+                        =
+                    </button>
+
+
+                    <button
+                        class="calc-button zero"
+                        onclick="appendNumber('0')">
+                        0
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('.')">
+                        .
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber('(')">
+                        (
+                    </button>
+
+
+                    <button
+                        class="calc-button"
+                        onclick="appendNumber(')')">
+                        )
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Information -->
+
+        <section class="scientific-info">
+
+
+            <h2>
+                Scientific Calculator
+            </h2>
+
+
+            <p>
+                This free scientific calculator is designed
+                for students and everyday mathematical
+                calculations. It supports basic arithmetic
+                as well as advanced mathematical functions.
+            </p>
+
+
+            <h2>
+                Features
+            </h2>
+
+
+            <p>
+                Use addition, subtraction, multiplication,
+                division, percentages, powers, square roots,
+                cube roots, factorials, logarithms,
+                natural logarithms, exponential functions,
+                absolute values and trigonometric functions.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    sin, cos, tan • log • ln • √ • x² • xʸ • x!
+                </strong>
+
+            </div>
+
+
+            <h2>
+                Angle Modes
+            </h2>
+
+
+            <p>
+                Trigonometric calculations can be performed
+                in Degree (DEG), Radian (RAD) or Gradian
+                (GRAD) mode.
+            </p>
+
+
+            <h2>
+                Example
+            </h2>
+
+
+            <p>
+                To calculate the square of 12, press x²
+                after entering 12.
+            </p>
+
+
+            <div class="formula-box">
+
+                <strong>
+                    12² = 144
+                </strong>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Scientific Calculator JavaScript -->
+
+    <script>
+
+        let currentExpression = "";
+
+        let angleMode = "DEG";
+
+
+        const expressionDisplay =
+            document.getElementById("expression");
+
+        const resultDisplay =
+            document.getElementById("result");
+
+
+        function updateDisplay() {
+
+            expressionDisplay.textContent =
+                currentExpression || "";
+
+        }
+
+
+        function appendNumber(value) {
+
+            currentExpression += value;
+
+            updateDisplay();
+
+        }
+
+
+        function appendOperator(operator) {
+
+            if (currentExpression === "") {
+
+                if (operator === "-") {
+
+                    currentExpression = "-";
+
+                }
+
+                updateDisplay();
+
+                return;
+
+            }
+
+
+            const lastCharacter =
+                currentExpression.slice(-1);
+
+
+            if (
+                ["+", "-", "*", "/"].includes(lastCharacter)
+            ) {
+
+                currentExpression =
+                    currentExpression.slice(0, -1) +
+                    operator;
+
+            } else {
+
+                currentExpression += operator;
+
+            }
+
+
+            updateDisplay();
+
+        }
+
+
+        function appendFunction(functionName) {
+
+            currentExpression += functionName;
+
+            updateDisplay();
+
+        }
+
+
+        function appendConstant(constant) {
+
+            currentExpression += constant;
+
+            updateDisplay();
+
+        }
+
+
+        function clearCalculator() {
+
+            currentExpression = "";
+
+            expressionDisplay.textContent = "";
+
+            resultDisplay.textContent = "0";
+
+        }
+
+
+        function deleteLast() {
+
+            currentExpression =
+                currentExpression.slice(0, -1);
+
+            updateDisplay();
+
+        }
+
+
+        function setAngleMode(mode) {
+
+            angleMode = mode;
+
+
+            document
+                .getElementById("degButton")
+                .classList.toggle(
+                    "active",
+                    mode === "DEG"
+                );
+
+
+            document
+                .getElementById("radButton")
+                .classList.toggle(
+                    "active",
+                    mode === "RAD"
+                );
+
+
+            document
+                .getElementById("gradButton")
+                .classList.toggle(
+                    "active",
+                    mode === "GRAD"
+                );
+
+        }
+
+
+        function toRadians(value) {
+
+            if (angleMode === "DEG") {
+
+                return value * Math.PI / 180;
+
+            }
+
+
+            if (angleMode === "GRAD") {
+
+                return value * Math.PI / 200;
+
+            }
+
+
+            return value;
+
+        }
+
+
+        function fromRadians(value) {
+
+            if (angleMode === "DEG") {
+
+                return value * 180 / Math.PI;
+
+            }
+
+
+            if (angleMode === "GRAD") {
+
+                return value * 200 / Math.PI;
+
+            }
+
+
+            return value;
+
+        }
+
+
+        function factorial(number) {
+
+            if (
+                number < 0 ||
+                !Number.isInteger(number)
+            ) {
+
+                throw new Error(
+                    "Factorial requires a non-negative integer."
+                );
+
+            }
+
+
+            if (number > 170) {
+
+                throw new Error(
+                    "Number is too large."
+                );
+
+            }
+
+
+            let answer = 1;
+
+
+            for (
+                let i = 2;
+                i <= number;
+                i++
+            ) {
+
+                answer *= i;
+
+            }
+
+
+            return answer;
+
+        }
+
+
+        function square(number) {
+
+            return number * number;
+
+        }
+
+
+        function percent(number) {
+
+            return number / 100;
+
+        }
+
+
+        function calculate() {
+
+            if (currentExpression.trim() === "") {
+
+                return;
+
+            }
+
+
+            try {
+
+                let expression =
+                    currentExpression;
+
+
+                /*
+                 * Replace trigonometric functions
+                 * so the selected angle mode works.
+                 */
+
+                expression =
+                    expression.replace(
+                        /Math\.sin\(/g,
+                        "sinCalc("
+                    );
+
+
+                expression =
+                    expression.replace(
+                        /Math\.cos\(/g,
+                        "cosCalc("
+                    );
+
+
+                expression =
+                    expression.replace(
+                        /Math\.tan\(/g,
+                        "tanCalc("
+                    );
+
+
+                expression =
+                    expression.replace(
+                        /Math\.asin\(/g,
+                        "asinCalc("
+                    );
+
+
+                expression =
+                    expression.replace(
+                        /Math\.acos\(/g,
+                        "acosCalc("
+                    );
+
+
+                expression =
+                    expression.replace(
+                        /Math\.atan\(/g,
+                        "atanCalc("
+                    );
+
+
+                /*
+                 * Math.pow(a,b) remains supported.
+                 * JavaScript evaluates it normally.
+                 */
+
+
+                const result =
+                    Function(
+                        "sinCalc",
+                        "cosCalc",
+                        "tanCalc",
+                        "asinCalc",
+                        "acosCalc",
+                        "atanCalc",
+                        "factorial",
+                        "square",
+                        "percent",
+                        "return (" +
+                        expression +
+                        ");"
+                    )(
+                        value =>
+                            Math.sin(
+                                toRadians(value)
+                            ),
+
+                        value =>
+                            Math.cos(
+                                toRadians(value)
+                            ),
+
+                        value =>
+                            Math.tan(
+                                toRadians(value)
+                            ),
+
+                        value =>
+                            fromRadians(
+                                Math.asin(value)
+                            ),
+
+                        value =>
+                            fromRadians(
+                                Math.acos(value)
+                            ),
+
+                        value =>
+                            fromRadians(
+                                Math.atan(value)
+                            ),
+
+                        factorial,
+
+                        square,
+
+                        percent
+                    );
+
+
+                if (
+                    typeof result !== "number" ||
+                    !Number.isFinite(result)
+                ) {
+
+                    throw new Error(
+                        "Invalid result."
+                    );
+
+                }
+
+
+                resultDisplay.textContent =
+                    formatResult(result);
+
+            } catch (error) {
+
+                resultDisplay.textContent =
+                    "Error";
+
+            }
+
+        }
+
+
+        function formatResult(number) {
+
+            if (number === 0) {
+
+                return "0";
+
+            }
+
+
+            if (
+                Math.abs(number) >= 0.000000001 &&
+                Math.abs(number) < 1000000000000
+            ) {
+
+                return Number(
+                    number.toFixed(10)
+                ).toString();
+
+            }
+
+
+            return number
+                .toExponential(8)
+                .replace(
+                    /\.?0+e/,
+                    "e"
+                );
+
+        }
+
+
+        /*
+         * Keyboard support
+         */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                const key = event.key;
+
+
+                if (
+                    /[0-9.]/.test(key)
+                ) {
+
+                    appendNumber(key);
+
+                    return;
+
+                }
+
+
+                if (
+                    ["+", "-", "*", "/"].includes(key)
+                ) {
+
+                    appendOperator(key);
+
+                    return;
+
+                }
+
+
+                if (key === "Enter" || key === "=") {
+
+                    calculate();
+
+                    return;
+
+                }
+
+
+                if (key === "Backspace") {
+
+                    deleteLast();
+
+                    return;
+
+                }
+
+
+                if (key === "Escape") {
+
+                    clearCalculator();
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
