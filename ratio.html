@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Ratio Calculator - Advanced Student Tools</title>
+
+    <meta
+        name="description"
+        content="Free Ratio Calculator to simplify ratios, find equivalent ratios and solve missing values in proportions."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/ratio.html"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css?v=11"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            🚀 Advanced Student Tools
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="tool-hero">
+
+    <div class="tool-hero-content">
+
+        <div class="tool-badge">
+            🟢 Free • No Login Required
+        </div>
+
+        <h1>
+            Ratio Calculator
+        </h1>
+
+        <p>
+            Simplify ratios, find equivalent ratios and solve
+            missing values in proportions quickly and easily.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CALCULATOR ================= -->
+
+<main class="calculator-page">
+
+    <div class="calculator-card">
+
+
+        <h2>
+            🔢 Ratio Calculator
+        </h2>
+
+        <p class="calculator-subtitle">
+            Enter values below to calculate your ratio.
+        </p>
+
+
+        <!-- ================= SIMPLIFY RATIO ================= -->
+
+        <div class="calculator-section">
+
+            <h3>
+                Simplify a Ratio
+            </h3>
+
+            <div class="input-row">
+
+                <div class="input-group">
+
+                    <label for="ratioA">
+                        First Value
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ratioA"
+                        placeholder="Example: 12"
+                    >
+
+                </div>
+
+
+                <div class="ratio-symbol">
+                    :
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="ratioB">
+                        Second Value
+                    </label>
+
+                    <input
+                        type="number"
+                        id="ratioB"
+                        placeholder="Example: 18"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="calculate-btn"
+                onclick="simplifyRatio()"
+            >
+                Calculate Ratio
+            </button>
+
+
+            <button
+                class="clear-btn"
+                onclick="clearRatio()"
+            >
+                Clear
+            </button>
+
+
+            <div
+                id="ratioResult"
+                class="result-box"
+            ></div>
+
+        </div>
+
+
+
+        <!-- ================= PROPORTION ================= -->
+
+        <div class="calculator-section">
+
+            <h3>
+                Solve a Proportion
+            </h3>
+
+            <p>
+                Example:
+                <strong>2 : 3 = 4 : ?</strong>
+            </p>
+
+
+            <div class="proportion-grid">
+
+                <div class="input-group">
+
+                    <label for="pA">
+                        A
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pA"
+                        placeholder="2"
+                    >
+
+                </div>
+
+
+                <div class="proportion-colon">
+                    :
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="pB">
+                        B
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pB"
+                        placeholder="3"
+                    >
+
+                </div>
+
+
+                <div class="equals-symbol">
+                    =
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="pC">
+                        C
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pC"
+                        placeholder="4"
+                    >
+
+                </div>
+
+
+                <div class="proportion-colon">
+                    :
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="pD">
+                        D
+                    </label>
+
+                    <input
+                        type="number"
+                        id="pD"
+                        placeholder="?"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="calculate-btn"
+                onclick="solveProportion()"
+            >
+                Find Missing Value
+            </button>
+
+
+            <div
+                id="proportionResult"
+                class="result-box"
+            ></div>
+
+        </div>
+
+
+
+        <!-- ================= EQUIVALENT RATIO ================= -->
+
+        <div class="calculator-section">
+
+            <h3>
+                Find an Equivalent Ratio
+            </h3>
+
+
+            <div class="input-row">
+
+                <div class="input-group">
+
+                    <label for="eqA">
+                        First Value
+                    </label>
+
+                    <input
+                        type="number"
+                        id="eqA"
+                        placeholder="Example: 2"
+                    >
+
+                </div>
+
+
+                <div class="ratio-symbol">
+                    :
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="eqB">
+                        Second Value
+                    </label>
+
+                    <input
+                        type="number"
+                        id="eqB"
+                        placeholder="Example: 3"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="multiplier">
+                    Multiply By
+                </label>
+
+                <input
+                    type="number"
+                    id="multiplier"
+                    placeholder="Example: 4"
+                >
+
+            </div>
+
+
+            <button
+                class="calculate-btn"
+                onclick="equivalentRatio()"
+            >
+                Calculate Equivalent Ratio
+            </button>
+
+
+            <div
+                id="equivalentResult"
+                class="result-box"
+            ></div>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- ================= HOW TO USE ================= -->
+
+<section class="info-section">
+
+    <div class="info-container">
+
+        <h2>
+            How to Use the Ratio Calculator
+        </h2>
+
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    1️⃣
+                </div>
+
+                <h3>
+                    Enter Values
+                </h3>
+
+                <p>
+                    Enter the two numbers that make up your ratio.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    2️⃣
+                </div>
+
+                <h3>
+                    Choose Calculation
+                </h3>
+
+                <p>
+                    Simplify a ratio, solve a proportion,
+                    or create an equivalent ratio.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    3️⃣
+                </div>
+
+                <h3>
+                    Get Your Answer
+                </h3>
+
+                <p>
+                    Your calculated result will appear instantly.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RELATED TOOLS ================= -->
+
+<section class="related-tools">
+
+    <div class="related-tools-container">
+
+        <h2>
+            🔗 Related Tools
+        </h2>
+
+        <div class="related-tools-grid">
+
+
+            <a
+                href="percentage.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    %
+                </div>
+
+                <div class="related-tool-title">
+                    Percentage Calculator
+                </div>
+
+            </a>
+
+
+            <a
+                href="average.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    📊
+                </div>
+
+                <div class="related-tool-title">
+                    Average Calculator
+                </div>
+
+            </a>
+
+
+            <a
+                href="grade.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    🎓
+                </div>
+
+                <div class="related-tool-title">
+                    Grade Calculator
+                </div>
+
+            </a>
+
+
+            <a
+                href="statistics.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    📈
+                </div>
+
+                <div class="related-tool-title">
+                    Statistics Calculator
+                </div>
+
+            </a>
+
+
+            <a
+                href="scientific.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    🧮
+                </div>
+
+                <div class="related-tool-title">
+                    Scientific Calculator
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <h3>
+            🚀 Advanced Student Tools
+        </h3>
+
+        <p>
+            Free calculators and converters made for students.
+        </p>
+
+        <p>
+            © 2026 Advanced Student Tools. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+/* ================= GCD ================= */
+
+function gcd(a, b) {
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (b !== 0) {
+
+        let temp = b;
+
+        b = a % b;
+
+        a = temp;
+
+    }
+
+    return a;
+
+}
+
+
+
+/* ================= SIMPLIFY RATIO ================= */
+
+function simplifyRatio() {
+
+    const a =
+        Number(document.getElementById("ratioA").value);
+
+    const b =
+        Number(document.getElementById("ratioB").value);
+
+
+    const result =
+        document.getElementById("ratioResult");
+
+
+    if (
+        !Number.isFinite(a) ||
+        !Number.isFinite(b) ||
+        a <= 0 ||
+        b <= 0
+    ) {
+
+        result.innerHTML =
+            "⚠️ Please enter two positive numbers.";
+
+        return;
+
+    }
+
+
+    const divisor =
+        gcd(a, b);
+
+
+    const simpleA =
+        a / divisor;
+
+    const simpleB =
+        b / divisor;
+
+
+    result.innerHTML =
+        `
+        <strong>Simplified Ratio</strong>
+
+        <div class="result-value">
+            ${simpleA} : ${simpleB}
+        </div>
+
+        <p>
+            GCD = ${divisor}
+        </p>
+        `;
+
+}
+
+
+
+/* ================= CLEAR ================= */
+
+function clearRatio() {
+
+    document.getElementById("ratioA").value = "";
+
+    document.getElementById("ratioB").value = "";
+
+    document.getElementById("ratioResult").innerHTML = "";
+
+}
+
+
+
+/* ================= PROPORTION ================= */
+
+function solveProportion() {
+
+    const a =
+        Number(document.getElementById("pA").value);
+
+    const b =
+        Number(document.getElementById("pB").value);
+
+    const c =
+        Number(document.getElementById("pC").value);
+
+    const dInput =
+        document.getElementById("pD").value.trim();
+
+
+    const result =
+        document.getElementById("proportionResult");
+
+
+    if (
+        !Number.isFinite(a) ||
+        !Number.isFinite(b) ||
+        !Number.isFinite(c) ||
+        a === 0 ||
+        b === 0
+    ) {
+
+        result.innerHTML =
+            "⚠️ Please enter valid values for A, B and C.";
+
+        return;
+
+    }
+
+
+    if (dInput !== "") {
+
+        const d = Number(dInput);
+
+
+        if (!Number.isFinite(d)) {
+
+            result.innerHTML =
+                "⚠️ Please enter a valid D value.";
+
+            return;
+
+        }
+
+
+        const left =
+            a / b;
+
+        const right =
+            c / d;
+
+
+        const difference =
+            Math.abs(left - right);
+
+
+        if (difference < 0.000001) {
+
+            result.innerHTML =
+                `
+                <strong>Proportion Check</strong>
+
+                <div class="result-value">
+                    ✅ Correct
+                </div>
+
+                <p>
+                    ${a} : ${b} = ${c} : ${d}
+                </p>
+                `;
+
+        } else {
+
+            result.innerHTML =
+                `
+                <strong>Proportion Check</strong>
+
+                <div class="result-value">
+                    ❌ Not Equal
+                </div>
+
+                <p>
+                    ${a} : ${b} ≠ ${c} : ${d}
+                </p>
+                `;
+
+        }
+
+
+        return;
+
+    }
+
+
+    const missing =
+        (b * c) / a;
+
+
+    result.innerHTML =
+        `
+        <strong>Missing Value</strong>
+
+        <div class="result-value">
+            ${formatNumber(missing)}
+        </div>
+
+        <p>
+            ${a} : ${b} = ${c} : ${formatNumber(missing)}
+        </p>
+        `;
+
+}
+
+
+
+/* ================= EQUIVALENT RATIO ================= */
+
+function equivalentRatio() {
+
+    const a =
+        Number(document.getElementById("eqA").value);
+
+    const b =
+        Number(document.getElementById("eqB").value);
+
+    const multiplier =
+        Number(document.getElementById("multiplier").value);
+
+
+    const result =
+        document.getElementById("equivalentResult");
+
+
+    if (
+        !Number.isFinite(a) ||
+        !Number.isFinite(b) ||
+        !Number.isFinite(multiplier)
+    ) {
+
+        result.innerHTML =
+            "⚠️ Please enter all values.";
+
+        return;
+
+    }
+
+
+    if (
+        a <= 0 ||
+        b <= 0 ||
+        multiplier <= 0
+    ) {
+
+        result.innerHTML =
+            "⚠️ Values must be greater than zero.";
+
+        return;
+
+    }
+
+
+    const newA =
+        a * multiplier;
+
+    const newB =
+        b * multiplier;
+
+
+    result.innerHTML =
+        `
+        <strong>Equivalent Ratio</strong>
+
+        <div class="result-value">
+            ${formatNumber(newA)} : ${formatNumber(newB)}
+        </div>
+
+        <p>
+            ${a} : ${b}
+            × ${multiplier}
+        </p>
+        `;
+
+}
+
+
+
+/* ================= FORMAT NUMBER ================= */
+
+function formatNumber(number) {
+
+    if (
+        Number.isInteger(number)
+    ) {
+
+        return number.toString();
+
+    }
+
+
+    return Number(
+        number.toFixed(6)
+    ).toString();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
