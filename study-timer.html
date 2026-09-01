@@ -1,0 +1,2717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Free Study Timer with Pomodoro sessions, custom study durations, breaks, daily goals, focus tracking and study streaks."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <title>Study Timer - Pomodoro Focus Timer | Advanced Student Tools</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            min-height: 100vh;
+
+            color: #f8fafc;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    #172554 0%,
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    #312e81 0%,
+                    transparent 30%
+                ),
+                #020617;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            width: 100%;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            background:
+                rgba(2, 6, 23, 0.82);
+
+            border-bottom:
+                1px solid
+                rgba(148, 163, 184, 0.12);
+
+            backdrop-filter: blur(18px);
+        }
+
+
+        .nav-logo {
+
+            font-size: 20px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #60a5fa,
+                    #a78bfa
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 22px;
+        }
+
+
+        .nav-links a {
+
+            color: #cbd5e1;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #93c5fd;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            text-align: center;
+
+            padding:
+                65px 20px 35px;
+        }
+
+
+        .hero-icon {
+
+            width: 82px;
+
+            height: 82px;
+
+            margin:
+                0 auto 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 24px;
+
+            font-size: 42px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(59, 130, 246, 0.18),
+                    rgba(139, 92, 246, 0.25)
+                );
+
+            border:
+                1px solid
+                rgba(96, 165, 250, 0.3);
+
+            box-shadow:
+                0 20px 60px
+                rgba(59, 130, 246, 0.15);
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(34px, 5vw, 54px);
+
+            margin-bottom: 14px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #60a5fa,
+                    #c084fc
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .hero p {
+
+            max-width: 720px;
+
+            margin: auto;
+
+            color: #94a3b8;
+
+            line-height: 1.7;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+
+            width:
+                min(1000px, 92%);
+
+            margin: auto;
+
+            padding-bottom: 70px;
+        }
+
+
+        /* =========================
+           TIMER CARD
+        ========================= */
+
+        .timer-card {
+
+            padding: 34px;
+
+            border-radius: 28px;
+
+            background:
+                rgba(15, 23, 42, 0.86);
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.15);
+
+            box-shadow:
+                0 30px 90px
+                rgba(0, 0, 0, 0.38);
+
+            backdrop-filter: blur(20px);
+        }
+
+
+        /* =========================
+           TASK
+        ========================= */
+
+        .task-area {
+
+            margin-bottom: 28px;
+        }
+
+
+        .task-area label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+
+            font-weight: 600;
+        }
+
+
+        .task-area input {
+
+            width: 100%;
+
+            padding: 14px 16px;
+
+            border-radius: 13px;
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.2);
+
+            background:
+                rgba(2, 6, 23, 0.7);
+
+            color: white;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: 0.25s;
+        }
+
+
+        .task-area input:focus {
+
+            border-color: #60a5fa;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(96, 165, 250, 0.1);
+        }
+
+
+        /* =========================
+           MODE
+        ========================= */
+
+        .mode-title {
+
+            text-align: center;
+
+            margin-bottom: 18px;
+
+            font-size: 15px;
+
+            color: #94a3b8;
+        }
+
+
+        .mode-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .mode-btn {
+
+            padding: 11px 16px;
+
+            border-radius: 12px;
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.16);
+
+            background:
+                rgba(30, 41, 59, 0.65);
+
+            color: #cbd5e1;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.25s;
+        }
+
+
+        .mode-btn:hover {
+
+            border-color:
+                rgba(96, 165, 250, 0.4);
+        }
+
+
+        .mode-btn.active {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+
+            border-color: transparent;
+
+            box-shadow:
+                0 10px 25px
+                rgba(59, 130, 246, 0.2);
+        }
+
+
+        /* =========================
+           TIMER
+        ========================= */
+
+        .timer-area {
+
+            text-align: center;
+        }
+
+
+        .current-mode {
+
+            display: inline-block;
+
+            padding: 8px 15px;
+
+            border-radius: 999px;
+
+            margin-bottom: 22px;
+
+            background:
+                rgba(59, 130, 246, 0.12);
+
+            border:
+                1px solid
+                rgba(96, 165, 250, 0.2);
+
+            color: #93c5fd;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .timer-circle {
+
+            width:
+                min(310px, 75vw);
+
+            aspect-ratio: 1;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            padding: 12px;
+
+            background:
+                conic-gradient(
+                    #60a5fa var(--progress, 0%),
+                    rgba(51, 65, 85, 0.35) var(--progress, 0%)
+                );
+
+            box-shadow:
+                0 0 60px
+                rgba(59, 130, 246, 0.12);
+
+            transition:
+                background 0.3s linear;
+        }
+
+
+        .timer-inner {
+
+            width: 100%;
+
+            height: 100%;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #111827,
+                    #020617
+                );
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.1);
+        }
+
+
+        .timer-display {
+
+            font-size:
+                clamp(48px, 10vw, 76px);
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            font-variant-numeric:
+                tabular-nums;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #dbeafe,
+                    #c4b5fd
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .timer-task {
+
+            margin-top: 8px;
+
+            max-width: 210px;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+
+            color: #64748b;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CONTROLS
+        ========================= */
+
+        .controls {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 28px;
+        }
+
+
+        .control-btn {
+
+            border: none;
+
+            padding: 13px 20px;
+
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+            color: white;
+
+            transition: 0.25s;
+        }
+
+
+        .start-btn {
+
+            min-width: 125px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+        }
+
+
+        .secondary-btn {
+
+            background:
+                rgba(30, 41, 59, 0.75);
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.16);
+        }
+
+
+        .control-btn:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================
+           CUSTOM SETTINGS
+        ========================= */
+
+        .custom-settings {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-radius: 17px;
+
+            background:
+                rgba(2, 6, 23, 0.45);
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.12);
+        }
+
+
+        .custom-settings.show {
+
+            display: block;
+        }
+
+
+        .custom-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .custom-item label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+
+        .custom-item input {
+
+            width: 100%;
+
+            padding: 11px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.18);
+
+            background:
+                #020617;
+
+            color: white;
+
+            outline: none;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 13px;
+
+            margin-top: 28px;
+        }
+
+
+        .stat-card {
+
+            padding: 18px;
+
+            text-align: center;
+
+            border-radius: 15px;
+
+            background:
+                rgba(30, 41, 59, 0.5);
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.12);
+        }
+
+
+        .stat-icon {
+
+            font-size: 22px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .stat-card span {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 11px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .stat-card strong {
+
+            font-size: 20px;
+
+            color: #e2e8f0;
+        }
+
+
+        /* =========================
+           GOAL
+        ========================= */
+
+        .goal-section {
+
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.09),
+                    rgba(124, 58, 237, 0.09)
+                );
+
+            border:
+                1px solid
+                rgba(96, 165, 250, 0.14);
+        }
+
+
+        .goal-top {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            align-items: center;
+
+            margin-bottom: 13px;
+        }
+
+
+        .goal-top h3 {
+
+            font-size: 16px;
+        }
+
+
+        .goal-top span {
+
+            color: #93c5fd;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+
+        .progress-bar {
+
+            width: 100%;
+
+            height: 10px;
+
+            border-radius: 999px;
+
+            overflow: hidden;
+
+            background:
+                rgba(51, 65, 85, 0.45);
+        }
+
+
+        .progress-fill {
+
+            height: 100%;
+
+            width: 0%;
+
+            border-radius: inherit;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #3b82f6,
+                    #a855f7
+                );
+
+            transition: width 0.35s ease;
+        }
+
+
+        .goal-controls {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 13px;
+        }
+
+
+        .goal-controls input {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding: 10px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.16);
+
+            background:
+                rgba(2, 6, 23, 0.7);
+
+            color: white;
+
+            outline: none;
+        }
+
+
+        .goal-controls button {
+
+            padding:
+                10px 15px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                rgba(59, 130, 246, 0.18);
+
+            color: #bfdbfe;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           INFO
+        ========================= */
+
+        .info-section {
+
+            margin-top: 35px;
+
+            padding: 28px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(15, 23, 42, 0.7);
+
+            border:
+                1px solid
+                rgba(148, 163, 184, 0.12);
+        }
+
+
+        .info-section h2 {
+
+            font-size: 23px;
+
+            margin-bottom: 14px;
+        }
+
+
+        .info-section h3 {
+
+            color: #bfdbfe;
+
+            font-size: 17px;
+
+            margin:
+                21px 0 8px;
+        }
+
+
+        .info-section p {
+
+            color: #94a3b8;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+
+        .formula {
+
+            margin-top: 16px;
+
+            padding: 17px;
+
+            text-align: center;
+
+            border-radius: 13px;
+
+            background:
+                rgba(2, 6, 23, 0.6);
+
+            border:
+                1px solid
+                rgba(96, 165, 250, 0.15);
+
+            color: #bfdbfe;
+
+            font-weight: 700;
+        }
+
+
+        .example-box {
+
+            margin-top: 15px;
+
+            padding: 18px;
+
+            border-radius: 13px;
+
+            background:
+                rgba(30, 41, 59, 0.5);
+
+            color: #cbd5e1;
+
+            line-height: 1.8;
+        }
+
+
+        .example-box strong {
+
+            color: #93c5fd;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            color: #64748b;
+
+            border-top:
+                1px solid
+                rgba(148, 163, 184, 0.1);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                padding:
+                    15px 5%;
+            }
+
+
+            .nav-logo {
+
+                font-size: 16px;
+            }
+
+
+            .nav-links {
+
+                gap: 12px;
+            }
+
+
+            .nav-links a {
+
+                font-size: 12px;
+            }
+
+
+            .hero {
+
+                padding:
+                    50px 18px 30px;
+            }
+
+
+            .timer-card {
+
+                padding:
+                    22px 16px;
+
+                border-radius: 22px;
+            }
+
+
+            .stats-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .custom-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .goal-top {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+                gap: 5px;
+            }
+
+
+            .goal-controls {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .control-btn {
+
+                flex:
+                    1;
+            }
+
+
+            .info-section {
+
+                padding:
+                    22px 18px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="hero-icon">
+            ⏱️
+        </div>
+
+        <h1>
+            Study Timer
+        </h1>
+
+        <p>
+            Stay focused with Pomodoro sessions, smart breaks,
+            study goals, progress tracking and streaks.
+        </p>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+
+        <!-- TIMER -->
+
+        <section class="timer-card">
+
+
+            <!-- TASK -->
+
+            <div class="task-area">
+
+                <label for="taskName">
+                    What are you studying?
+                </label>
+
+                <input
+                    type="text"
+                    id="taskName"
+                    placeholder="Example: Mathematics - Chapter 5"
+                    maxlength="80"
+                >
+
+            </div>
+
+
+            <!-- MODES -->
+
+            <div class="mode-title">
+                Choose a focus mode
+            </div>
+
+
+            <div class="mode-buttons">
+
+                <button
+                    class="mode-btn active"
+                    data-mode="classic"
+                    onclick="selectMode('classic')"
+                >
+                    🍅 Classic 25/5
+                </button>
+
+                <button
+                    class="mode-btn"
+                    data-mode="focus"
+                    onclick="selectMode('focus')"
+                >
+                    ⚡ Focus 50/10
+                </button>
+
+                <button
+                    class="mode-btn"
+                    data-mode="deep"
+                    onclick="selectMode('deep')"
+                >
+                    🧠 Deep Study 90/20
+                </button>
+
+                <button
+                    class="mode-btn"
+                    data-mode="custom"
+                    onclick="selectMode('custom')"
+                >
+                    ⚙️ Custom
+                </button>
+
+            </div>
+
+
+            <!-- CUSTOM -->
+
+            <div
+                class="custom-settings"
+                id="customSettings"
+            >
+
+                <div class="custom-grid">
+
+                    <div class="custom-item">
+
+                        <label>
+                            Focus Minutes
+                        </label>
+
+                        <input
+                            type="number"
+                            id="customFocus"
+                            value="25"
+                            min="1"
+                            max="180"
+                        >
+
+                    </div>
+
+
+                    <div class="custom-item">
+
+                        <label>
+                            Short Break
+                        </label>
+
+                        <input
+                            type="number"
+                            id="customShort"
+                            value="5"
+                            min="1"
+                            max="60"
+                        >
+
+                    </div>
+
+
+                    <div class="custom-item">
+
+                        <label>
+                            Long Break
+                        </label>
+
+                        <input
+                            type="number"
+                            id="customLong"
+                            value="15"
+                            min="1"
+                            max="90"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TIMER AREA -->
+
+            <div class="timer-area">
+
+                <div
+                    class="current-mode"
+                    id="currentMode"
+                >
+                    FOCUS SESSION
+                </div>
+
+
+                <div
+                    class="timer-circle"
+                    id="timerCircle"
+                    style="--progress: 0%;"
+                >
+
+                    <div class="timer-inner">
+
+                        <div
+                            class="timer-display"
+                            id="timerDisplay"
+                        >
+                            25:00
+                        </div>
+
+                        <div
+                            class="timer-task"
+                            id="timerTask"
+                        >
+                            Ready to focus
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTROLS -->
+
+                <div class="controls">
+
+                    <button
+                        class="control-btn start-btn"
+                        id="startBtn"
+                        onclick="toggleTimer()"
+                    >
+                        ▶ Start
+                    </button>
+
+                    <button
+                        class="control-btn secondary-btn"
+                        onclick="resetTimer()"
+                    >
+                        🔄 Reset
+                    </button>
+
+                    <button
+                        class="control-btn secondary-btn"
+                        onclick="skipSession()"
+                    >
+                        ⏭ Skip
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🎯
+                    </div>
+
+                    <span>
+                        Sessions Today
+                    </span>
+
+                    <strong id="sessionCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⏱️
+                    </div>
+
+                    <span>
+                        Focus Time
+                    </span>
+
+                    <strong id="focusTime">
+                        0 min
+                    </strong>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🔥
+                    </div>
+
+                    <span>
+                        Study Streak
+                    </span>
+
+                    <strong id="streakCount">
+                        0 days
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- GOAL -->
+
+            <div class="goal-section">
+
+                <div class="goal-top">
+
+                    <h3>
+                        🎯 Today's Study Goal
+                    </h3>
+
+                    <span id="goalText">
+                        0 / 120 min
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="goalProgress"
+                    ></div>
+
+                </div>
+
+
+                <div class="goal-controls">
+
+                    <input
+                        type="number"
+                        id="goalInput"
+                        placeholder="Set goal in minutes"
+                        min="1"
+                        max="1440"
+                    >
+
+                    <button
+                        onclick="setDailyGoal()"
+                    >
+                        Set Goal
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- HOW TO USE -->
+
+        <section class="info-section">
+
+            <h2>
+                How to Use the Study Timer
+            </h2>
+
+            <p>
+                The Study Timer helps you divide your study time
+                into focused sessions followed by short breaks.
+                This can make long study periods easier to manage.
+            </p>
+
+
+            <h3>
+                Step 1 — Choose a Mode
+            </h3>
+
+            <p>
+                Select Classic, Focus, Deep Study or create
+                your own custom timer.
+            </p>
+
+
+            <h3>
+                Step 2 — Enter Your Subject
+            </h3>
+
+            <p>
+                Enter what you are studying, such as Mathematics,
+                Physics or a particular chapter.
+            </p>
+
+
+            <h3>
+                Step 3 — Start Studying
+            </h3>
+
+            <p>
+                Press Start and focus until the session ends.
+            </p>
+
+
+            <h3>
+                Step 4 — Take Your Break
+            </h3>
+
+            <p>
+                When a focus session finishes, use the break
+                period to rest before starting another session.
+            </p>
+
+        </section>
+
+
+        <!-- MODES -->
+
+        <section class="info-section">
+
+            <h2>
+                Study Timer Modes
+            </h2>
+
+
+            <h3>
+                🍅 Classic Pomodoro
+            </h3>
+
+            <p>
+                25 minutes of focus followed by a 5-minute break.
+            </p>
+
+
+            <h3>
+                ⚡ Focus Mode
+            </h3>
+
+            <p>
+                50 minutes of focused study followed by a
+                10-minute break.
+            </p>
+
+
+            <h3>
+                🧠 Deep Study
+            </h3>
+
+            <p>
+                90 minutes of focused study followed by a
+                20-minute break.
+            </p>
+
+
+            <h3>
+                ⚙️ Custom Mode
+            </h3>
+
+            <p>
+                Choose your own focus, short-break and
+                long-break durations.
+            </p>
+
+        </section>
+
+
+        <!-- LOGIC -->
+
+        <section class="info-section">
+
+            <h2>
+                How the Timer Works
+            </h2>
+
+            <p>
+                The progress indicator represents how much of the
+                current session has been completed.
+            </p>
+
+
+            <div class="formula">
+
+                Progress =
+                Completed Time ÷ Total Session Time × 100
+
+            </div>
+
+        </section>
+
+
+        <!-- EXAMPLE -->
+
+        <section class="info-section">
+
+            <h2>
+                Example Study Session
+            </h2>
+
+
+            <div class="example-box">
+
+                Suppose you choose the
+                <strong>
+                    Classic 25/5
+                </strong>
+                mode.
+
+                <br><br>
+
+                You study Mathematics for
+                <strong>
+                    25 minutes
+                </strong>.
+
+                <br><br>
+
+                After the focus session ends, the timer moves
+                to a
+                <strong>
+                    5-minute break
+                </strong>.
+
+                <br><br>
+
+                After completing the session, your
+                <strong>
+                    sessions and focus time
+                </strong>
+                are updated automatically.
+
+            </div>
+
+        </section>
+
+
+        <!-- TIPS -->
+
+        <section class="info-section">
+
+            <h2>
+                Smart Study Tips
+            </h2>
+
+
+            <h3>
+                📱 Remove Distractions
+            </h3>
+
+            <p>
+                Keep unnecessary notifications and distractions
+                away while your focus session is running.
+            </p>
+
+
+            <h3>
+                📚 Choose One Task
+            </h3>
+
+            <p>
+                Give each session one clear study objective.
+            </p>
+
+
+            <h3>
+                ☕ Respect Breaks
+            </h3>
+
+            <p>
+                Use breaks to rest instead of immediately
+                starting another demanding task.
+            </p>
+
+
+            <h3>
+                🎯 Track Your Progress
+            </h3>
+
+            <p>
+                Set a realistic daily goal and use the progress
+                indicator to see how much study time you have
+                completed.
+
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Advanced Student Tools.
+        Free calculators and useful student tools.
+
+    </footer>
+
+
+    <script>
+
+        /* =========================
+           TIMER SETTINGS
+        ========================= */
+
+        const modes = {
+
+            classic: {
+                focus: 25,
+                short: 5,
+                long: 15
+            },
+
+            focus: {
+                focus: 50,
+                short: 10,
+                long: 20
+            },
+
+            deep: {
+                focus: 90,
+                short: 20,
+                long: 30
+            }
+
+        };
+
+
+        let selectedMode = "classic";
+
+        let currentSession = "focus";
+
+        let totalSeconds = 25 * 60;
+
+        let remainingSeconds = 25 * 60;
+
+        let timerInterval = null;
+
+        let isRunning = false;
+
+        let completedSessions = 0;
+
+        let totalFocusMinutes = 0;
+
+        let dailyGoal = 120;
+
+        let streak = 0;
+
+        let customSettings = {
+
+            focus: 25,
+
+            short: 5,
+
+            long: 15
+
+        };
+
+
+        /* =========================
+           STORAGE
+        ========================= */
+
+        function getTodayKey() {
+
+            const date = new Date();
+
+            return date.toISOString().split("T")[0];
+
+        }
+
+
+        function loadData() {
+
+            const saved =
+                JSON.parse(
+                    localStorage.getItem(
+                        "studyTimerData"
+                    ) || "{}"
+                );
+
+
+            const today =
+                getTodayKey();
+
+
+            if (saved.date !== today) {
+
+                completedSessions = 0;
+
+                totalFocusMinutes = 0;
+
+                saved.date = today;
+
+            } else {
+
+                completedSessions =
+                    saved.sessions || 0;
+
+                totalFocusMinutes =
+                    saved.focusMinutes || 0;
+
+            }
+
+
+            dailyGoal =
+                saved.goal || 120;
+
+
+            streak =
+                saved.streak || 0;
+
+
+            updateStats();
+
+        }
+
+
+        function saveData() {
+
+            localStorage.setItem(
+
+                "studyTimerData",
+
+                JSON.stringify({
+
+                    date:
+                        getTodayKey(),
+
+                    sessions:
+                        completedSessions,
+
+                    focusMinutes:
+                        totalFocusMinutes,
+
+                    goal:
+                        dailyGoal,
+
+                    streak:
+                        streak
+
+                })
+
+            );
+
+        }
+
+
+        /* =========================
+           MODE SELECTION
+        ========================= */
+
+        function selectMode(mode) {
+
+            if (isRunning) {
+
+                return;
+
+            }
+
+
+            selectedMode = mode;
+
+
+            document
+                .querySelectorAll(".mode-btn")
+                .forEach(button => {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+            const selectedButton =
+                document.querySelector(
+                    `[data-mode="${mode}"]`
+                );
+
+
+            if (selectedButton) {
+
+                selectedButton.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            if (mode === "custom") {
+
+                document
+                    .getElementById(
+                        "customSettings"
+                    )
+                    .classList.add(
+                        "show"
+                    );
+
+
+                customSettings.focus =
+                    getNumber(
+                        "customFocus",
+                        25
+                    );
+
+                customSettings.short =
+                    getNumber(
+                        "customShort",
+                        5
+                    );
+
+                customSettings.long =
+                    getNumber(
+                        "customLong",
+                        15
+                    );
+
+            } else {
+
+                document
+                    .getElementById(
+                        "customSettings"
+                    )
+                    .classList.remove(
+                        "show"
+                    );
+
+            }
+
+
+            currentSession = "focus";
+
+            setSessionTime();
+
+        }
+
+
+        /* =========================
+           SET SESSION TIME
+        ========================= */
+
+        function getNumber(id, fallback) {
+
+            const value =
+                parseInt(
+                    document.getElementById(id).value
+                );
+
+
+            return (
+                Number.isFinite(value) &&
+                value > 0
+            )
+                ? value
+                : fallback;
+
+        }
+
+
+        function getSettings() {
+
+            if (selectedMode === "custom") {
+
+                customSettings.focus =
+                    getNumber(
+                        "customFocus",
+                        25
+                    );
+
+                customSettings.short =
+                    getNumber(
+                        "customShort",
+                        5
+                    );
+
+                customSettings.long =
+                    getNumber(
+                        "customLong",
+                        15
+                    );
+
+
+                return customSettings;
+
+            }
+
+
+            return modes[selectedMode];
+
+        }
+
+
+        function setSessionTime() {
+
+            const settings =
+                getSettings();
+
+
+            let minutes;
+
+
+            if (currentSession === "focus") {
+
+                minutes =
+                    settings.focus;
+
+            } else if (
+                currentSession === "short"
+            ) {
+
+                minutes =
+                    settings.short;
+
+            } else {
+
+                minutes =
+                    settings.long;
+
+            }
+
+
+            totalSeconds =
+                minutes * 60;
+
+            remainingSeconds =
+                totalSeconds;
+
+
+            updateDisplay();
+
+        }
+
+
+        /* =========================
+           TIMER CONTROL
+        ========================= */
+
+        function toggleTimer() {
+
+            if (isRunning) {
+
+                pauseTimer();
+
+            } else {
+
+                startTimer();
+
+            }
+
+        }
+
+
+        function startTimer() {
+
+            if (remainingSeconds <= 0) {
+
+                setSessionTime();
+
+            }
+
+
+            isRunning = true;
+
+
+            document.getElementById(
+                "startBtn"
+            ).innerText =
+                "⏸ Pause";
+
+
+            timerInterval =
+                setInterval(
+                    tick,
+                    1000
+                );
+
+        }
+
+
+        function pauseTimer() {
+
+            isRunning = false;
+
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            document.getElementById(
+                "startBtn"
+            ).innerText =
+                "▶ Resume";
+
+        }
+
+
+        function tick() {
+
+            if (remainingSeconds > 0) {
+
+                remainingSeconds--;
+
+                updateDisplay();
+
+            }
+
+
+            if (remainingSeconds <= 0) {
+
+                completeSession();
+
+            }
+
+        }
+
+
+        /* =========================
+           SESSION COMPLETE
+        ========================= */
+
+        function completeSession() {
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            isRunning = false;
+
+
+            if (
+                currentSession === "focus"
+            ) {
+
+                const settings =
+                    getSettings();
+
+
+                completedSessions++;
+
+
+                totalFocusMinutes +=
+                    settings.focus;
+
+
+                updateStreak();
+
+
+                currentSession =
+                    completedSessions % 4 === 0
+                        ? "long"
+                        : "short";
+
+
+                showNotification(
+                    "Focus session complete! 🎉"
+                );
+
+            } else {
+
+                currentSession =
+                    "focus";
+
+
+                showNotification(
+                    "Break finished! Ready to focus? 🚀"
+                );
+
+            }
+
+
+            setSessionTime();
+
+
+            document.getElementById(
+                "startBtn"
+            ).innerText =
+                "▶ Start";
+
+
+            saveData();
+
+            updateStats();
+
+        }
+
+
+        /* =========================
+           SKIP
+        ========================= */
+
+        function skipSession() {
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            isRunning = false;
+
+
+            if (
+                currentSession === "focus"
+            ) {
+
+                currentSession =
+                    "short";
+
+            } else {
+
+                currentSession =
+                    "focus";
+
+            }
+
+
+            setSessionTime();
+
+
+            document.getElementById(
+                "startBtn"
+            ).innerText =
+                "▶ Start";
+
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        function resetTimer() {
+
+            clearInterval(
+                timerInterval
+            );
+
+
+            isRunning = false;
+
+            currentSession = "focus";
+
+
+            setSessionTime();
+
+
+            document.getElementById(
+                "startBtn"
+            ).innerText =
+                "▶ Start";
+
+        }
+
+
+        /* =========================
+           DISPLAY
+        ========================= */
+
+        function updateDisplay() {
+
+            const minutes =
+                Math.floor(
+                    remainingSeconds / 60
+                );
+
+
+            const seconds =
+                remainingSeconds % 60;
+
+
+            document.getElementById(
+                "timerDisplay"
+            ).innerText =
+
+                String(minutes)
+                    .padStart(2, "0")
+                +
+                ":"
+                +
+                String(seconds)
+                    .padStart(2, "0");
+
+
+            const progress =
+                (
+                    (
+                        totalSeconds -
+                        remainingSeconds
+                    )
+                    /
+                    totalSeconds
+                ) * 100;
+
+
+            document
+                .getElementById(
+                    "timerCircle"
+                )
+                .style
+                .setProperty(
+                    "--progress",
+                    progress + "%"
+                );
+
+
+            const modeElement =
+                document.getElementById(
+                    "currentMode"
+                );
+
+
+            if (
+                currentSession === "focus"
+            ) {
+
+                modeElement.innerText =
+                    "FOCUS SESSION";
+
+            } else if (
+                currentSession === "short"
+            ) {
+
+                modeElement.innerText =
+                    "SHORT BREAK";
+
+            } else {
+
+                modeElement.innerText =
+                    "LONG BREAK";
+
+            }
+
+
+            const task =
+                document.getElementById(
+                    "taskName"
+                ).value.trim();
+
+
+            document.getElementById(
+                "timerTask"
+            ).innerText =
+                task ||
+                (
+                    currentSession === "focus"
+                        ? "Ready to focus"
+                        : "Take a refreshing break"
+                );
+
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        function updateStats() {
+
+            document.getElementById(
+                "sessionCount"
+            ).innerText =
+                completedSessions;
+
+
+            document.getElementById(
+                "focusTime"
+            ).innerText =
+                totalFocusMinutes +
+                " min";
+
+
+            document.getElementById(
+                "streakCount"
+            ).innerText =
+                streak +
+                (
+                    streak === 1
+                        ? " day"
+                        : " days"
+                );
+
+
+            document.getElementById(
+                "goalText"
+            ).innerText =
+                totalFocusMinutes +
+                " / " +
+                dailyGoal +
+                " min";
+
+
+            const percentage =
+                Math.min(
+                    (
+                        totalFocusMinutes /
+                        dailyGoal
+                    ) * 100,
+                    100
+                );
+
+
+            document.getElementById(
+                "goalProgress"
+            ).style.width =
+                percentage +
+                "%";
+
+        }
+
+
+        /* =========================
+           GOAL
+        ========================= */
+
+        function setDailyGoal() {
+
+            const input =
+                parseInt(
+                    document.getElementById(
+                        "goalInput"
+                    ).value
+                );
+
+
+            if (
+                !Number.isFinite(input) ||
+                input <= 0
+            ) {
+
+                return;
+
+            }
+
+
+            dailyGoal = input;
+
+
+            document.getElementById(
+                "goalInput"
+            ).value = "";
+
+
+            saveData();
+
+            updateStats();
+
+        }
+
+
+        /* =========================
+           STREAK
+        ========================= */
+
+        function updateStreak() {
+
+            const saved =
+                JSON.parse(
+                    localStorage.getItem(
+                        "studyTimerData"
+                    ) || "{}"
+                );
+
+
+            const previousDate =
+                saved.lastCompletedDate;
+
+
+            const today =
+                getTodayKey();
+
+
+            if (
+                previousDate !== today
+            ) {
+
+                if (previousDate) {
+
+                    const previous =
+                        new Date(
+                            previousDate
+                        );
+
+                    const current =
+                        new Date(
+                            today
+                        );
+
+
+                    const difference =
+                        Math.round(
+                            (
+                                current -
+                                previous
+                            )
+                            /
+                            86400000
+                        );
+
+
+                    if (
+                        difference === 1
+                    ) {
+
+                        streak++;
+
+                    } else {
+
+                        streak = 1;
+
+                    }
+
+                } else {
+
+                    streak = 1;
+
+                }
+
+            }
+
+
+            localStorage.setItem(
+
+                "studyTimerData",
+
+                JSON.stringify({
+
+                    date:
+                        today,
+
+                    sessions:
+                        completedSessions,
+
+                    focusMinutes:
+                        totalFocusMinutes,
+
+                    goal:
+                        dailyGoal,
+
+                    streak:
+                        streak,
+
+                    lastCompletedDate:
+                        today
+
+                })
+
+            );
+
+        }
+
+
+        /* =========================
+           NOTIFICATION
+        ========================= */
+
+        function showNotification(message) {
+
+            if (
+                "Notification" in window
+            ) {
+
+                if (
+                    Notification.permission ===
+                    "granted"
+                ) {
+
+                    new Notification(
+                        "Study Timer",
+                        {
+                            body: message
+                        }
+                    );
+
+                }
+
+            }
+
+
+            try {
+
+                const audioContext =
+                    new (
+                        window.AudioContext ||
+                        window.webkitAudioContext
+                    )();
+
+
+                const oscillator =
+                    audioContext
+                        .createOscillator();
+
+
+                const gain =
+                    audioContext
+                        .createGain();
+
+
+                oscillator.frequency.value =
+                    700;
+
+
+                gain.gain.value =
+                    0.05;
+
+
+                oscillator.connect(gain);
+
+                gain.connect(
+                    audioContext.destination
+                );
+
+
+                oscillator.start();
+
+
+                setTimeout(
+                    () => {
+
+                        oscillator.stop();
+
+                    },
+                    250
+                );
+
+            } catch (error) {
+
+                console.log(
+                    "Notification sound unavailable."
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           TASK INPUT
+        ========================= */
+
+        document
+            .getElementById(
+                "taskName"
+            )
+            .addEventListener(
+                "input",
+                updateDisplay
+            );
+
+
+        /* =========================
+           CUSTOM INPUTS
+        ========================= */
+
+        [
+            "customFocus",
+            "customShort",
+            "customLong"
+        ].forEach(id => {
+
+            document
+                .getElementById(id)
+                .addEventListener(
+                    "input",
+                    () => {
+
+                        if (
+                            selectedMode ===
+                            "custom" &&
+                            !isRunning
+                        ) {
+
+                            setSessionTime();
+
+                        }
+
+                    }
+                );
+
+        });
+
+
+        /* =========================
+           NOTIFICATION PERMISSION
+        ========================= */
+
+        if (
+            "Notification" in window &&
+            Notification.permission ===
+            "default"
+        ) {
+
+            Notification.requestPermission();
+
+        }
+
+
+        /* =========================
+           INITIALIZE
+        ========================= */
+
+        loadData();
+
+        setSessionTime();
+
+        updateDisplay();
+
+    </script>
+
+</body>
+
+</html>
