@@ -1,6 +1,569 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+/* =========================================================
+   RATIO CALCULATOR — PREMIUM PAGE ONLY
+   Does NOT affect homepage or other tools
+========================================================= */
 
+body.ratio-page {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(80, 70, 255, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 20%, rgba(150, 60, 255, 0.16), transparent 30%),
+        linear-gradient(135deg, #050817 0%, #071329 48%, #100827 100%);
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+
+body.ratio-page .navbar {
+    width: 100%;
+    padding: 18px 0;
+    background: rgba(5, 8, 25, 0.78);
+    border-bottom: 1px solid rgba(120, 130, 255, 0.18);
+    backdrop-filter: blur(18px);
+    box-sizing: border-box;
+}
+
+body.ratio-page .nav-container {
+    width: min(1180px, 92%);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body.ratio-page .logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+body.ratio-page .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+body.ratio-page .nav-links a {
+    color: #cbd5ff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+body.ratio-page .nav-links a:hover {
+    color: #9b8cff;
+}
+
+/* ---------- HERO ---------- */
+
+body.ratio-page .tool-hero {
+    padding: 72px 20px 58px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body.ratio-page .tool-hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    left: 50%;
+    top: -220px;
+    transform: translateX(-50%);
+    background: rgba(94, 75, 255, 0.18);
+    filter: blur(90px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+body.ratio-page .tool-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    margin: auto;
+}
+
+body.ratio-page .tool-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(80, 90, 255, 0.10);
+    border: 1px solid rgba(125, 115, 255, 0.28);
+    color: #b9b5ff;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+body.ratio-page .tool-hero h1 {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.08;
+    font-weight: 850;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #a99cff,
+        #6ed7ff
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+body.ratio-page .tool-hero p {
+    max-width: 700px;
+    margin: 18px auto 0;
+    color: #aeb9d8;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ---------- MAIN CALCULATOR ---------- */
+
+body.ratio-page .calculator-page {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+    padding: 0 0 70px;
+}
+
+body.ratio-page .calculator-card {
+    position: relative;
+    padding: 34px;
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19, 29, 61, 0.88),
+            rgba(11, 18, 42, 0.88)
+        );
+    border: 1px solid rgba(110, 120, 255, 0.25);
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+}
+
+body.ratio-page .calculator-card > h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+body.ratio-page .calculator-subtitle {
+    text-align: center;
+    color: #8f9dbf;
+    margin: 8px 0 30px;
+    font-size: 14px;
+}
+
+/* ---------- CALCULATOR SECTIONS ---------- */
+
+body.ratio-page .calculator-section {
+    padding: 26px;
+    margin-top: 20px;
+    border-radius: 18px;
+    background: rgba(7, 14, 34, 0.68);
+    border: 1px solid rgba(110, 120, 255, 0.16);
+}
+
+body.ratio-page .calculator-section h3 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+body.ratio-page .calculator-section > p {
+    color: #8997b9;
+    font-size: 13px;
+    margin: 0 0 20px;
+}
+
+body.ratio-page .input-row {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    align-items: end;
+    gap: 12px;
+    max-width: 600px;
+}
+
+body.ratio-page .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+body.ratio-page .input-group label {
+    color: #aeb9d8;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+body.ratio-page .input-group input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    border-radius: 11px;
+    border: 1px solid rgba(120, 130, 255, 0.22);
+    outline: none;
+    background: rgba(3, 8, 22, 0.75);
+    color: #ffffff;
+    font-size: 15px;
+    transition: 0.25s ease;
+}
+
+body.ratio-page .input-group input::placeholder {
+    color: #56627e;
+}
+
+body.ratio-page .input-group input:focus {
+    border-color: #7d70ff;
+    box-shadow: 0 0 0 3px rgba(125, 112, 255, 0.12);
+}
+
+body.ratio-page .ratio-symbol,
+body.ratio-page .proportion-colon,
+body.ratio-page .equals-symbol {
+    color: #9b8cff;
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    padding-bottom: 27px;
+}
+
+/* ---------- BUTTONS ---------- */
+
+body.ratio-page .calculate-btn,
+body.ratio-page .clear-btn {
+    min-height: 46px;
+    padding: 0 20px;
+    border-radius: 11px;
+    border: none;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+body.ratio-page .calculate-btn {
+    color: #ffffff;
+    background: linear-gradient(
+        135deg,
+        #635bff,
+        #8a5cff
+    );
+    box-shadow: 0 10px 30px rgba(99, 91, 255, 0.22);
+}
+
+body.ratio-page .calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(99, 91, 255, 0.32);
+}
+
+body.ratio-page .clear-btn {
+    margin-left: 8px;
+    color: #c5cce2;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(130, 140, 180, 0.18);
+}
+
+body.ratio-page .clear-btn:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+/* ---------- RESULT ---------- */
+
+body.ratio-page .result-box {
+    min-height: 55px;
+    margin-top: 18px;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 13px;
+    background: rgba(8, 15, 36, 0.85);
+    border: 1px solid rgba(110, 120, 255, 0.16);
+    color: #b9c5e5;
+    line-height: 1.6;
+}
+
+body.ratio-page .result-box:empty {
+    display: none;
+}
+
+body.ratio-page .result-box strong {
+    color: #ffffff;
+}
+
+body.ratio-page .result-value {
+    margin: 6px 0;
+    font-size: 25px;
+    font-weight: 850;
+    color: #a99cff;
+}
+
+/* ---------- PROPORTION ---------- */
+
+body.ratio-page .proportion-grid {
+    display: grid;
+    grid-template-columns: 1fr 28px 1fr 35px 1fr 28px 1fr;
+    align-items: end;
+    gap: 8px;
+}
+
+body.ratio-page .proportion-grid .input-group {
+    min-width: 0;
+}
+
+/* ---------- INFO ---------- */
+
+body.ratio-page .info-section {
+    padding: 70px 20px;
+    background: rgba(4, 8, 22, 0.35);
+}
+
+body.ratio-page .info-container {
+    width: min(1050px, 92%);
+    margin: auto;
+}
+
+body.ratio-page .info-container > h2 {
+    text-align: center;
+    margin: 0 0 30px;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+body.ratio-page .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+body.ratio-page .info-card {
+    padding: 24px;
+    border-radius: 18px;
+    background: rgba(13, 21, 46, 0.68);
+    border: 1px solid rgba(110, 120, 255, 0.15);
+}
+
+body.ratio-page .info-icon {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+body.ratio-page .info-card h3 {
+    margin: 0 0 8px;
+    color: #ffffff;
+    font-size: 17px;
+}
+
+body.ratio-page .info-card p {
+    margin: 0;
+    color: #8997b9;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ---------- RELATED TOOLS ---------- */
+
+body.ratio-page .related-tools {
+    padding: 65px 20px;
+}
+
+body.ratio-page .related-tools-container {
+    width: min(1050px, 92%);
+    margin: auto;
+}
+
+body.ratio-page .related-tools-container > h2 {
+    text-align: center;
+    color: #ffffff;
+    margin: 0 0 25px;
+    font-size: 28px;
+}
+
+body.ratio-page .related-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+body.ratio-page .related-tool-card {
+    min-width: 0;
+    min-height: 92px;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    background: rgba(15, 23, 51, 0.78);
+    border: 1px solid rgba(110, 120, 255, 0.16);
+    transition: 0.25s ease;
+}
+
+body.ratio-page .related-tool-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(130, 120, 255, 0.45);
+    background: rgba(25, 32, 68, 0.9);
+}
+
+body.ratio-page .related-tool-icon {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 7px;
+    border-radius: 11px;
+    background: linear-gradient(
+        135deg,
+        rgba(99, 91, 255, 0.25),
+        rgba(100, 190, 255, 0.12)
+    );
+    color: #b8b0ff;
+    font-size: 18px;
+}
+
+body.ratio-page .related-tool-title {
+    width: 100%;
+    color: #cbd4ee;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+    overflow: hidden;
+}
+
+/* ---------- FOOTER ---------- */
+
+body.ratio-page .footer {
+    padding: 45px 20px;
+    background: rgba(3, 6, 17, 0.9);
+    border-top: 1px solid rgba(110, 120, 255, 0.12);
+    text-align: center;
+}
+
+body.ratio-page .footer-container {
+    width: min(800px, 92%);
+    margin: auto;
+}
+
+body.ratio-page .footer h3 {
+    margin: 0 0 8px;
+    color: #ffffff;
+}
+
+body.ratio-page .footer p {
+    margin: 6px 0;
+    color: #707c9d;
+    font-size: 12px;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 800px) {
+
+    body.ratio-page .nav-container {
+        width: 92%;
+    }
+
+    body.ratio-page .logo {
+        font-size: 16px;
+    }
+
+    body.ratio-page .nav-links {
+        gap: 14px;
+    }
+
+    body.ratio-page .tool-hero {
+        padding: 55px 18px 42px;
+    }
+
+    body.ratio-page .calculator-card {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    body.ratio-page .calculator-section {
+        padding: 18px;
+    }
+
+    body.ratio-page .proportion-grid {
+        grid-template-columns: 1fr 20px 1fr;
+    }
+
+    body.ratio-page .equals-symbol {
+        display: none;
+    }
+
+    body.ratio-page .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.ratio-page .related-tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    body.ratio-page .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    body.ratio-page .tool-hero h1 {
+        font-size: 36px;
+    }
+
+    body.ratio-page .tool-hero p {
+        font-size: 14px;
+    }
+
+    body.ratio-page .input-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    body.ratio-page .ratio-symbol {
+        display: none;
+    }
+
+    body.ratio-page .calculate-btn,
+    body.ratio-page .clear-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    body.ratio-page .proportion-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.ratio-page .proportion-colon {
+        display: none;
+    }
+
+    body.ratio-page .related-tool-card {
+        min-height: 82px;
+    }
+
+}
+</style>
 <head>
 
     <meta charset="UTF-8">
@@ -41,7 +604,7 @@
 </head>
 
 
-<body>
+<body class="ratio-page">
 
 
 <!-- ================= NAVBAR ================= -->
