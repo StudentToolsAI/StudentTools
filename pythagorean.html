@@ -16,7 +16,7 @@
 
     <meta
         name="description"
-        content="Free Pythagorean Theorem Calculator to find the missing side of a right triangle."
+        content="Free Pythagorean Theorem Calculator to find the missing side of a right triangle quickly and accurately."
     >
 
     <meta
@@ -30,17 +30,929 @@
     >
 
     <link
-        rel="stylesheet"
-        href="style.css"
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
     >
+
+    <link
+        rel="stylesheet"
+        href="style.css?v=12"
+    >
+
+
+    <style>
+
+        /* =========================================================
+           PYTHAGOREAN PAGE — COMPACT FUTURISTIC LAYOUT
+           Matches the existing calculator-page design
+        ========================================================= */
+
+        .pythagorean-page {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 18% 18%,
+                    rgba(37,99,235,.12),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 82% 20%,
+                    rgba(168,85,247,.13),
+                    transparent 30%
+                ),
+
+                #020617;
+        }
+
+
+        .pythagorean-page .calculator-page {
+
+            min-height: auto;
+
+            padding:
+                52px 20px 58px;
+
+            background: transparent;
+
+            border: 0;
+        }
+
+
+        .pythagorean-page .calculator-container {
+
+            max-width: 700px;
+        }
+
+
+        /* ICON */
+
+        .pythagorean-page .calculator-icon {
+
+            width: 68px;
+            height: 68px;
+
+            margin-bottom: 15px;
+
+            border-radius: 50%;
+
+            font-size: 31px;
+
+            border:
+                2px solid rgba(124,58,237,.8);
+
+            background:
+                rgba(2,8,23,.85);
+
+            box-shadow:
+                0 0 28px rgba(99,102,241,.35);
+        }
+
+
+        /* TITLE */
+
+        .pythagorean-page .calculator-container h1 {
+
+            font-size:
+                clamp(34px, 5vw, 52px);
+
+            letter-spacing:
+                -1.5px;
+
+            margin-bottom: 8px;
+        }
+
+
+        /* INTRO */
+
+        .pythagorean-page .calculator-intro {
+
+            max-width: 540px;
+
+            margin:
+                0 auto 23px;
+
+            font-size: 15px;
+
+            line-height: 1.55;
+        }
+
+
+        /* CALCULATOR BOX */
+
+        .pythagorean-page .calculator-box {
+
+            max-width: 500px;
+
+            margin: 0 auto;
+
+            padding: 22px;
+
+            border-radius: 18px;
+        }
+
+
+        /* SELECT */
+
+        .pythagorean-page .calculate-row {
+
+            margin-bottom: 15px;
+
+            text-align: left;
+        }
+
+
+        .pythagorean-page .calculate-row label {
+
+            display: block;
+
+            margin-bottom: 5px;
+
+            font-size: 12px;
+        }
+
+
+        .pythagorean-page .calculate-row select {
+
+            width: 100%;
+
+            height: 40px;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid rgba(99,102,241,.45);
+
+            border-radius: 9px;
+
+            outline: none;
+
+            background:
+                rgba(15,23,42,.9);
+
+            color: #f8fafc;
+
+            font-size: 13px;
+        }
+
+
+        .pythagorean-page .calculate-row select:focus {
+
+            border-color:
+                #8b5cf6;
+
+            box-shadow:
+                0 0 14px rgba(124,58,237,.15);
+        }
+
+
+        /* INPUT ROW */
+
+        .pythagorean-page .input-row {
+
+            display: grid;
+
+            grid-template-columns:
+                38px 1fr;
+
+            gap: 10px;
+
+            align-items: end;
+
+            margin-bottom: 13px;
+        }
+
+
+        .pythagorean-page .input-icon {
+
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 2px;
+
+            border:
+                1px solid rgba(99,102,241,.3);
+
+            border-radius: 9px;
+
+            background:
+                rgba(30,41,59,.7);
+
+            font-size: 18px;
+        }
+
+
+        .pythagorean-page .calculator-box label {
+
+            margin:
+                0 0 5px;
+
+            font-size: 12px;
+        }
+
+
+        .pythagorean-page .calculator-box input {
+
+            height: 40px;
+
+            padding:
+                0 12px;
+
+            margin: 0;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+        }
+
+
+        /* BUTTON */
+
+        .pythagorean-page .calculator-box button {
+
+            width: 100%;
+
+            height: 42px;
+
+            margin-top: 4px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            cursor: pointer;
+        }
+
+
+        /* RESULT */
+
+        .pythagorean-page .calculator-result {
+
+            min-height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 12px;
+
+            padding:
+                8px 10px;
+
+            border:
+                1px solid rgba(34,211,238,.22);
+
+            border-radius: 9px;
+
+            background:
+                rgba(34,211,238,.04);
+
+            font-size: 13px;
+
+            text-align: center;
+        }
+
+
+        /* BACK */
+
+        .pythagorean-page .back-to-tools {
+
+            margin-top: 14px;
+
+            padding:
+                7px 13px;
+
+            border:
+                1px solid rgba(99,102,241,.4);
+
+            border-radius: 8px;
+
+            font-size: 12px;
+
+            background:
+                rgba(15,23,42,.35);
+        }
+
+
+        /* =========================================================
+           INFORMATION
+        ========================================================= */
+
+        .pythagorean-info {
+
+            width:
+                min(900px, calc(100% - 40px));
+
+            margin: 0 auto;
+
+            padding:
+                0 0 25px;
+        }
+
+
+        .pythagorean-info-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            border:
+                1px solid rgba(168,85,247,.38);
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            background:
+                rgba(2,8,23,.58);
+
+            box-shadow:
+                0 0 30px rgba(79,70,229,.06);
+        }
+
+
+        .pythagorean-info-card {
+
+            padding:
+                18px 22px;
+        }
+
+
+        .pythagorean-info-card
+        + .pythagorean-info-card {
+
+            border-left:
+                1px solid rgba(148,163,184,.12);
+        }
+
+
+        .pythagorean-info-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-bottom: 8px;
+
+            color: #f8fafc;
+
+            font-size: 16px;
+
+            font-weight: 800;
+        }
+
+
+        .pythagorean-info-icon {
+
+            width: 32px;
+            height: 32px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex:
+                0 0 32px;
+
+            border:
+                1px solid rgba(168,85,247,.6);
+
+            border-radius: 50%;
+
+            background:
+                rgba(124,58,237,.08);
+
+            font-size: 15px;
+        }
+
+
+        .pythagorean-info-card p {
+
+            margin:
+                0 0 10px;
+
+            color:
+                #94a3b8;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        .pythagorean-formula {
+
+            padding:
+                9px 10px;
+
+            margin-bottom: 10px;
+
+            border:
+                1px solid rgba(99,102,241,.35);
+
+            border-radius: 8px;
+
+            background:
+                rgba(79,70,229,.06);
+
+            color:
+                #c4b5fd;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           RELATED TOOLS
+        ========================================================= */
+
+        .related-tools {
+
+            width:
+                min(900px, calc(100% - 40px));
+
+            margin:
+                0 auto 28px;
+
+            padding: 10px;
+
+            border:
+                1px solid rgba(37,99,235,.45);
+
+            border-radius: 12px;
+
+            background:
+                rgba(2,8,23,.68);
+        }
+
+
+        .related-tools-title {
+
+            margin-bottom: 8px;
+
+            color:
+                #f8fafc;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+
+        .related-tools-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, minmax(0, 1fr));
+
+            gap: 7px;
+        }
+
+
+        .related-tool {
+
+            min-width: 0;
+
+            min-height: 43px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                7px 9px;
+
+            color:
+                #f8fafc;
+
+            text-decoration: none;
+
+            border:
+                1px solid rgba(99,102,241,.35);
+
+            border-radius: 8px;
+
+            background:
+                rgba(15,23,42,.65);
+
+            transition:
+                .2s ease;
+        }
+
+
+        .related-tool:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                #8b5cf6;
+
+            box-shadow:
+                0 0 15px rgba(124,58,237,.15);
+        }
+
+
+        .related-tool-icon {
+
+            flex:
+                0 0 auto;
+
+            font-size: 18px;
+
+            line-height: 1;
+        }
+
+
+        .related-tool-name {
+
+            min-width: 0;
+
+            overflow: hidden;
+
+            color:
+                #e2e8f0;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            line-height: 1.1;
+
+            text-overflow: ellipsis;
+
+            white-space: nowrap;
+        }
+
+
+        .related-tool-arrow {
+
+            margin-left: auto;
+
+            color:
+                #c4b5fd;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .pythagorean-footer {
+
+            padding:
+                28px 20px 18px;
+
+            border-top:
+                1px solid rgba(99,102,241,.14);
+
+            background:
+                #020617;
+        }
+
+
+        .pythagorean-footer-grid {
+
+            width:
+                min(1000px, 100%);
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.4fr 1fr 1fr 1.2fr;
+
+            gap: 25px;
+
+            text-align: left;
+        }
+
+
+        .pythagorean-footer h3,
+        .pythagorean-footer h4 {
+
+            margin-bottom: 6px;
+
+            color:
+                #f8fafc;
+        }
+
+
+        .pythagorean-footer h3 {
+
+            font-size: 16px;
+        }
+
+
+        .pythagorean-footer h4 {
+
+            font-size: 13px;
+        }
+
+
+        .pythagorean-footer p,
+        .pythagorean-footer a {
+
+            color:
+                #94a3b8;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        .pythagorean-footer a {
+
+            text-decoration: none;
+        }
+
+
+        .pythagorean-footer a:hover {
+
+            color:
+                #c4b5fd;
+        }
+
+
+        .pythagorean-footer-links {
+
+            display: grid;
+
+            gap: 2px;
+        }
+
+
+        .pythagorean-copyright {
+
+            width:
+                min(1000px, 100%);
+
+            margin:
+                18px auto 0;
+
+            padding-top:
+                12px;
+
+            border-top:
+                1px solid rgba(148,163,184,.08);
+
+            color:
+                #64748b;
+
+            text-align: center;
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .pythagorean-page
+            .calculator-page {
+
+                padding:
+                    35px 12px 38px;
+            }
+
+
+            .pythagorean-page
+            .calculator-icon {
+
+                width: 55px;
+                height: 55px;
+
+                font-size: 25px;
+            }
+
+
+            .pythagorean-page
+            .calculator-container h1 {
+
+                font-size:
+                    clamp(30px, 9vw, 38px);
+            }
+
+
+            .pythagorean-page
+            .calculator-intro {
+
+                font-size: 13px;
+
+                margin-bottom: 18px;
+            }
+
+
+            .pythagorean-page
+            .calculator-box {
+
+                padding:
+                    17px 13px;
+            }
+
+
+            .pythagorean-info,
+            .related-tools {
+
+                width:
+                    calc(100% - 24px);
+            }
+
+
+            .pythagorean-info {
+
+                padding-bottom: 16px;
+            }
+
+
+            .pythagorean-info-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .pythagorean-info-card {
+
+                padding: 14px;
+            }
+
+
+            .pythagorean-info-card
+            + .pythagorean-info-card {
+
+                border-left: 0;
+
+                border-top:
+                    1px solid rgba(148,163,184,.12);
+            }
+
+
+            .pythagorean-info-title {
+
+                font-size: 14px;
+            }
+
+
+            .pythagorean-info-card p {
+
+                font-size: 11px;
+            }
+
+
+            .pythagorean-formula {
+
+                font-size: 10px;
+
+                padding:
+                    8px 6px;
+            }
+
+
+            .related-tools {
+
+                padding: 7px;
+
+                margin-bottom: 18px;
+            }
+
+
+            .related-tools-title {
+
+                font-size: 11px;
+
+                margin-bottom: 6px;
+            }
+
+
+            .related-tools-grid {
+
+                gap: 4px;
+            }
+
+
+            .related-tool {
+
+                min-height: 43px;
+
+                justify-content: center;
+
+                gap: 3px;
+
+                padding:
+                    5px 3px;
+
+                flex-direction: column;
+            }
+
+
+            .related-tool-icon {
+
+                font-size: 16px;
+            }
+
+
+            .related-tool-name {
+
+                font-size: 8px;
+
+                max-width: 100%;
+            }
+
+
+            .related-tool-arrow {
+
+                display: none;
+            }
+
+
+            .pythagorean-footer {
+
+                padding:
+                    22px 12px 14px;
+            }
+
+
+            .pythagorean-footer-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                gap: 16px;
+            }
+
+
+            .pythagorean-footer-grid
+            > :first-child {
+
+                grid-column:
+                    1 / -1;
+            }
+
+        }
+
+
+        @media (max-width: 360px) {
+
+            .pythagorean-page
+            .calculator-container h1 {
+
+                font-size: 29px;
+            }
+
+
+            .related-tool-name {
+
+                font-size: 7px;
+            }
+
+
+            .related-tool-icon {
+
+                font-size: 15px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
-<body>
+<body class="pythagorean-page">
 
 
-    <!-- Navigation -->
+    <!-- NAVBAR -->
 
     <nav class="navbar">
 
@@ -72,229 +984,566 @@
 
 
 
-    <!-- Hero -->
+    <!-- CALCULATOR -->
 
-    <header class="hero">
+    <main class="calculator-page">
 
-        <div class="hero-content">
+        <div class="calculator-container">
 
-            <div class="tool-page-icon">
+
+            <div class="calculator-icon">
                 📐
             </div>
+
 
             <h1>
                 Pythagorean Theorem Calculator
             </h1>
 
-            <p>
+
+            <p class="calculator-intro">
                 Calculate the missing side of a right triangle
-                using the Pythagorean theorem.
+                quickly and accurately.
             </p>
 
-        </div>
 
-    </header>
-
+            <div class="calculator-box">
 
 
-    <!-- Calculator -->
+                <!-- CALCULATION TYPE -->
 
-    <main class="container">
+                <div class="calculate-row">
 
-        <section class="calculator-section">
+                    <label for="calculateType">
+                        What do you want to calculate?
+                    </label>
 
-            <div class="calculator-card">
+                    <select
+                        id="calculateType"
+                        onchange="updateFields()"
+                    >
+
+                        <option value="c">
+                            Hypotenuse (C)
+                        </option>
+
+                        <option value="a">
+                            Side A
+                        </option>
+
+                        <option value="b">
+                            Side B
+                        </option>
+
+                    </select>
+
+                </div>
 
 
-                <h2>
-                    📐 Pythagorean Calculator
-                </h2>
 
+                <!-- SIDE A -->
 
-                <p>
-                    Enter the two known sides to calculate
-                    the missing side.
-                </p>
-
-
-
-                <!-- Side A -->
-
-                <input
-                    type="number"
-                    id="sideA"
-                    placeholder="Enter Side A"
-                    min="0"
-                    step="any"
+                <div
+                    class="input-row"
+                    id="rowA"
                 >
 
+                    <div class="input-icon">
+                        A
+                    </div>
+
+                    <div>
+
+                        <label for="sideA">
+                            Side A
+                        </label>
+
+                        <input
+                            type="number"
+                            id="sideA"
+                            placeholder="Enter side A"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+                </div>
 
 
-                <!-- Side B -->
 
-                <input
-                    type="number"
-                    id="sideB"
-                    placeholder="Enter Side B"
-                    min="0"
-                    step="any"
+                <!-- SIDE B -->
+
+                <div
+                    class="input-row"
+                    id="rowB"
                 >
 
+                    <div class="input-icon">
+                        B
+                    </div>
+
+                    <div>
+
+                        <label for="sideB">
+                            Side B
+                        </label>
+
+                        <input
+                            type="number"
+                            id="sideB"
+                            placeholder="Enter side B"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+                </div>
 
 
-                <!-- Hypotenuse -->
 
-                <input
-                    type="number"
-                    id="sideC"
-                    placeholder="Enter Hypotenuse C (optional)"
-                    min="0"
-                    step="any"
+                <!-- SIDE C -->
+
+                <div
+                    class="input-row"
+                    id="rowC"
                 >
 
+                    <div class="input-icon">
+                        C
+                    </div>
+
+                    <div>
+
+                        <label for="sideC">
+                            Hypotenuse C
+                        </label>
+
+                        <input
+                            type="number"
+                            id="sideC"
+                            placeholder="Enter hypotenuse C"
+                            min="0"
+                            step="any"
+                        >
+
+                    </div>
+
+                </div>
 
 
-                <!-- Buttons -->
 
                 <button
-                    onclick="calculateHypotenuse()"
+                    onclick="calculatePythagorean()"
                 >
-                    Calculate Hypotenuse
+                    📐 &nbsp; Calculate
                 </button>
 
 
-                <button
-                    onclick="calculateSideA()"
-                >
-                    Calculate Side A
-                </button>
 
-
-                <button
-                    onclick="calculateSideB()"
-                >
-                    Calculate Side B
-                </button>
-
-
-
-                <!-- Result -->
-
-                <p
+                <div
                     id="result"
-                    class="result"
-                ></p>
+                    class="calculator-result"
+                >
+                    ◉ &nbsp; Your result will appear here
+                </div>
 
 
             </div>
 
-        </section>
+
+            <a
+                href="index.html"
+                class="back-to-tools"
+            >
+                ← Back to All Tools
+            </a>
 
 
-        <!-- Information -->
-
-        <section class="calculator-section">
-
-            <div class="calculator-card">
-
-                <h2>
-                    📚 Pythagorean Theorem
-                </h2>
-
-                <p>
-                    The Pythagorean theorem is used to find
-                    the missing side of a right-angled triangle.
-                </p>
-
-
-                <div class="formula">
-                    a² + b² = c²
-                </div>
-
-
-                <h3>
-                    What do the letters mean?
-                </h3>
-
-                <p>
-                    <strong>a</strong> and <strong>b</strong>
-                    are the two shorter sides of the triangle.
-                </p>
-
-                <p>
-                    <strong>c</strong> is the hypotenuse,
-                    which is always the longest side.
-                </p>
-
-
-                <h3>
-                    Example
-                </h3>
-
-                <p>
-                    If Side A = 3 and Side B = 4:
-                </p>
-
-                <div class="formula">
-                    c = √(3² + 4²)
-                </div>
-
-                <div class="formula">
-                    c = √25
-                </div>
-
-                <div class="formula">
-                    c = 5
-                </div>
-
-                <p>
-                    Therefore, the hypotenuse is
-                    <strong>5 units</strong>.
-                </p>
-
-
-            </div>
-
-        </section>
+        </div>
 
     </main>
 
 
 
-    <!-- Footer -->
+    <!-- INFORMATION -->
 
-    <footer>
+    <section class="pythagorean-info">
 
-        <div class="footer-content">
+        <div class="pythagorean-info-grid">
 
-            <h3>
-                Advanced Student Tools 🚀
-            </h3>
 
-            <p>
-                Simple and useful online tools for students.
-            </p>
+            <!-- HOW TO -->
 
-            <div class="footer-links">
+            <article class="pythagorean-info-card">
 
-                <a href="index.html#tools">
-                    Tools
-                </a>
+                <h2 class="pythagorean-info-title">
 
-                <a href="index.html#about">
-                    About
-                </a>
+                    <span class="pythagorean-info-icon">
+                        📄
+                    </span>
 
-                <a href="index.html#faq">
-                    FAQ
-                </a>
+                    How to Use?
+
+                </h2>
+
+
+                <p>
+                    Select the side you want to calculate,
+                    then enter the two known side lengths.
+                </p>
+
+
+                <div class="pythagorean-formula">
+                    a² + b² = c²
+                </div>
+
+            </article>
+
+
+
+            <!-- EXAMPLE -->
+
+            <article class="pythagorean-info-card">
+
+                <h2 class="pythagorean-info-title">
+
+                    <span class="pythagorean-info-icon">
+                        💡
+                    </span>
+
+                    Example
+
+                </h2>
+
+
+                <p>
+                    If Side A = 3 and Side B = 4:
+                </p>
+
+
+                <div class="pythagorean-formula">
+                    c = √(3² + 4²) = 5
+                </div>
+
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FORMULA SECTION -->
+
+    <section class="pythagorean-info">
+
+        <div class="pythagorean-info-grid">
+
+
+            <article class="pythagorean-info-card">
+
+                <h2 class="pythagorean-info-title">
+
+                    <span class="pythagorean-info-icon">
+                        📐
+                    </span>
+
+                    Pythagorean Theorem Formula
+
+                </h2>
+
+
+                <p>
+                    The Pythagorean theorem states that the
+                    square of the hypotenuse equals the sum
+                    of the squares of the other two sides.
+                </p>
+
+
+                <div class="pythagorean-formula">
+                    a² + b² = c²
+                </div>
+
+
+                <div class="pythagorean-formula">
+                    c = √(a² + b²)
+                </div>
+
+            </article>
+
+
+
+            <article class="pythagorean-info-card">
+
+                <h2 class="pythagorean-info-title">
+
+                    <span class="pythagorean-info-icon">
+                        🎯
+                    </span>
+
+                    Important Tips
+
+                </h2>
+
+
+                <p>
+                    • The hypotenuse is always the longest side.
+                </p>
+
+                <p>
+                    • This calculator works for right triangles.
+                </p>
+
+                <p>
+                    • Enter positive numbers only.
+                </p>
+
+                <p>
+                    • All sides should use the same unit.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RELATED TOOLS -->
+
+    <section
+        class="related-tools"
+        aria-labelledby="relatedToolsTitle"
+    >
+
+        <h2
+            id="relatedToolsTitle"
+            class="related-tools-title"
+        >
+            ⚡ Related Student Tools
+        </h2>
+
+
+        <div class="related-tools-grid">
+
+
+            <a
+                class="related-tool"
+                href="triangle.html"
+            >
+
+                <span class="related-tool-icon">
+                    🔺
+                </span>
+
+                <span class="related-tool-name">
+                    Triangle
+                </span>
+
+                <span class="related-tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <a
+                class="related-tool"
+                href="scientific.html"
+            >
+
+                <span class="related-tool-icon">
+                    🧮
+                </span>
+
+                <span class="related-tool-name">
+                    Scientific
+                </span>
+
+                <span class="related-tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <a
+                class="related-tool"
+                href="area.html"
+            >
+
+                <span class="related-tool-icon">
+                    📏
+                </span>
+
+                <span class="related-tool-name">
+                    Area
+                </span>
+
+                <span class="related-tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <a
+                class="related-tool"
+                href="volume.html"
+            >
+
+                <span class="related-tool-icon">
+                    📦
+                </span>
+
+                <span class="related-tool-name">
+                    Volume
+                </span>
+
+                <span class="related-tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+
+            <a
+                class="related-tool"
+                href="ratio.html"
+            >
+
+                <span class="related-tool-icon">
+                    ⚖️
+                </span>
+
+                <span class="related-tool-name">
+                    Ratio
+                </span>
+
+                <span class="related-tool-arrow">
+                    →
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="pythagorean-footer">
+
+        <div class="pythagorean-footer-grid">
+
+
+            <div>
+
+                <h3>
+                    Advanced Student Tools 🚀
+                </h3>
+
+                <p>
+                    Simple and useful online tools for students.
+                </p>
 
             </div>
 
-            <p class="copyright">
-                © 2026 Advanced Student Tools.
-                All rights reserved.
-            </p>
+
+
+            <div>
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <div class="pythagorean-footer-links">
+
+                    <a href="index.html">
+                        › Home
+                    </a>
+
+                    <a href="index.html#tools">
+                        › Tools
+                    </a>
+
+                    <a href="index.html#about">
+                        › About
+                    </a>
+
+                    <a href="index.html#faq">
+                        › FAQ
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Categories
+                </h4>
+
+                <div class="pythagorean-footer-links">
+
+                    <a href="index.html#tools">
+                        › Calculators
+                    </a>
+
+                    <a href="index.html#tools">
+                        › Converters
+                    </a>
+
+                    <a href="index.html#tools">
+                        › Educational
+                    </a>
+
+                    <a href="index.html#tools">
+                        › Other Tools
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Disclaimer
+                </h4>
+
+                <p>
+                    This website is for educational purposes only.
+                    We do not store any user data.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="pythagorean-copyright">
+
+            © 2026 Advanced Student Tools.
+            All rights reserved.
 
         </div>
 
@@ -302,11 +1551,59 @@
 
 
 
-    <!-- JavaScript -->
+    <!-- JAVASCRIPT -->
 
     <script>
 
-        function getNumber(id) {
+
+        function updateFields() {
+
+            const type =
+                document.getElementById(
+                    "calculateType"
+                ).value;
+
+
+            const rowA =
+                document.getElementById("rowA");
+
+            const rowB =
+                document.getElementById("rowB");
+
+            const rowC =
+                document.getElementById("rowC");
+
+
+            rowA.style.display = "grid";
+            rowB.style.display = "grid";
+            rowC.style.display = "grid";
+
+
+            if (type === "c") {
+
+                rowC.style.display = "none";
+
+            }
+
+
+            if (type === "a") {
+
+                rowA.style.display = "none";
+
+            }
+
+
+            if (type === "b") {
+
+                rowB.style.display = "none";
+
+            }
+
+        }
+
+
+
+        function getValue(id) {
 
             return parseFloat(
                 document.getElementById(id).value
@@ -315,145 +1612,156 @@
         }
 
 
-        function showResult(message) {
 
-            document.getElementById("result").innerHTML =
-                message;
+        function calculatePythagorean() {
 
-        }
-
-
-
-        function calculateHypotenuse() {
-
-            const a = getNumber("sideA");
-            const b = getNumber("sideB");
-
-            if (
-                isNaN(a) ||
-                isNaN(b) ||
-                a <= 0 ||
-                b <= 0
-            ) {
-
-                showResult(
-                    "Please enter positive values for Side A and Side B."
-                );
-
-                return;
-
-            }
-
-
-            const c =
-                Math.sqrt(
-                    (a * a) + (b * b)
-                );
-
-
-            showResult(
-                "Hypotenuse (C) = <strong>" +
-                c.toFixed(2) +
-                "</strong>"
-            );
-
-        }
-
-
-
-        function calculateSideA() {
-
-            const b = getNumber("sideB");
-            const c = getNumber("sideC");
-
-            if (
-                isNaN(b) ||
-                isNaN(c) ||
-                b <= 0 ||
-                c <= 0
-            ) {
-
-                showResult(
-                    "Please enter positive values for Side B and Hypotenuse C."
-                );
-
-                return;
-
-            }
-
-
-            if (c <= b) {
-
-                showResult(
-                    "Hypotenuse C must be greater than Side B."
-                );
-
-                return;
-
-            }
+            const type =
+                document.getElementById(
+                    "calculateType"
+                ).value;
 
 
             const a =
-                Math.sqrt(
-                    (c * c) - (b * b)
-                );
-
-
-            showResult(
-                "Side A = <strong>" +
-                a.toFixed(2) +
-                "</strong>"
-            );
-
-        }
-
-
-
-        function calculateSideB() {
-
-            const a = getNumber("sideA");
-            const c = getNumber("sideC");
-
-            if (
-                isNaN(a) ||
-                isNaN(c) ||
-                a <= 0 ||
-                c <= 0
-            ) {
-
-                showResult(
-                    "Please enter positive values for Side A and Hypotenuse C."
-                );
-
-                return;
-
-            }
-
-
-            if (c <= a) {
-
-                showResult(
-                    "Hypotenuse C must be greater than Side A."
-                );
-
-                return;
-
-            }
-
+                getValue("sideA");
 
             const b =
-                Math.sqrt(
-                    (c * c) - (a * a)
-                );
+                getValue("sideB");
+
+            const c =
+                getValue("sideC");
 
 
-            showResult(
-                "Side B = <strong>" +
-                b.toFixed(2) +
-                "</strong>"
-            );
+            const result =
+                document.getElementById("result");
+
+
+            /* FIND C */
+
+            if (type === "c") {
+
+                if (
+                    !Number.isFinite(a) ||
+                    !Number.isFinite(b) ||
+                    a <= 0 ||
+                    b <= 0
+                ) {
+
+                    result.innerText =
+                        "Please enter positive values for Side A and Side B.";
+
+                    return;
+
+                }
+
+
+                const answer =
+                    Math.sqrt(
+                        (a * a) +
+                        (b * b)
+                    );
+
+
+                result.innerHTML =
+                    "Hypotenuse C = <strong>" +
+                    answer.toFixed(2) +
+                    "</strong>";
+
+            }
+
+
+
+            /* FIND A */
+
+            if (type === "a") {
+
+                if (
+                    !Number.isFinite(b) ||
+                    !Number.isFinite(c) ||
+                    b <= 0 ||
+                    c <= 0
+                ) {
+
+                    result.innerText =
+                        "Please enter positive values for Side B and Hypotenuse C.";
+
+                    return;
+
+                }
+
+
+                if (c <= b) {
+
+                    result.innerText =
+                        "Hypotenuse C must be greater than Side B.";
+
+                    return;
+
+                }
+
+
+                const answer =
+                    Math.sqrt(
+                        (c * c) -
+                        (b * b)
+                    );
+
+
+                result.innerHTML =
+                    "Side A = <strong>" +
+                    answer.toFixed(2) +
+                    "</strong>";
+
+            }
+
+
+
+            /* FIND B */
+
+            if (type === "b") {
+
+                if (
+                    !Number.isFinite(a) ||
+                    !Number.isFinite(c) ||
+                    a <= 0 ||
+                    c <= 0
+                ) {
+
+                    result.innerText =
+                        "Please enter positive values for Side A and Hypotenuse C.";
+
+                    return;
+
+                }
+
+
+                if (c <= a) {
+
+                    result.innerText =
+                        "Hypotenuse C must be greater than Side A.";
+
+                    return;
+
+                }
+
+
+                const answer =
+                    Math.sqrt(
+                        (c * c) -
+                        (a * a)
+                    );
+
+
+                result.innerHTML =
+                    "Side B = <strong>" +
+                    answer.toFixed(2) +
+                    "</strong>";
+
+            }
 
         }
+
+
+        updateFields();
 
     </script>
 
