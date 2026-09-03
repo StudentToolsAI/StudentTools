@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        LCM & HCF Calculator - Advanced Student Tools
+    </title>
+
+    <meta
+        name="description"
+        content="Free LCM and HCF Calculator to calculate the least common multiple and highest common factor of numbers quickly."
+    >
+
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    <link
+        rel="canonical"
+        href="https://studenttoolsai.github.io/StudentTools/lcm-hcf.html"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="nav-logo">
+            Advanced Student Tools 🚀
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#tools">
+                Tools
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- CALCULATOR -->
+
+    <section class="calculator-page">
+
+        <div class="calculator-container">
+
+
+            <div class="calculator-icon">
+                🔢
+            </div>
+
+
+            <h1>
+                LCM & HCF Calculator
+            </h1>
+
+
+            <p class="calculator-intro">
+                Calculate the LCM and HCF of two or more
+                numbers quickly and accurately.
+            </p>
+
+
+
+            <!-- CALCULATOR BOX -->
+
+            <div class="calculator-box">
+
+
+                <label for="number1">
+                    Number 1
+                </label>
+
+                <input
+                    type="number"
+                    id="number1"
+                    placeholder="Enter first number"
+                    min="1"
+                    step="1"
+                >
+
+
+                <label for="number2">
+                    Number 2
+                </label>
+
+                <input
+                    type="number"
+                    id="number2"
+                    placeholder="Enter second number"
+                    min="1"
+                    step="1"
+                >
+
+
+                <label for="number3">
+                    Number 3
+                    <span style="opacity: .6;">
+                        (Optional)
+                    </span>
+                </label>
+
+                <input
+                    type="number"
+                    id="number3"
+                    placeholder="Enter third number (optional)"
+                    min="1"
+                    step="1"
+                >
+
+
+                <button
+                    type="button"
+                    onclick="calculateLCMHCF()"
+                >
+                    Calculate LCM & HCF
+                </button>
+
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="result"
+                    class="calculator-result"
+                >
+                    Enter your numbers to see the result.
+                </div>
+
+
+            </div>
+
+
+            <a
+                href="index.html#tools"
+                class="back-to-tools"
+            >
+                ← Back to All Tools
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- INFORMATION -->
+
+    <section class="calculator-info">
+
+        <div class="info-container">
+
+
+            <h2>
+                🔢 What are LCM and HCF?
+            </h2>
+
+            <p>
+                <strong>LCM</strong> stands for Least Common
+                Multiple. It is the smallest positive number
+                that is a multiple of all the given numbers.
+            </p>
+
+            <p>
+                <strong>HCF</strong> stands for Highest Common
+                Factor. It is the largest number that divides
+                all the given numbers exactly.
+            </p>
+
+
+
+            <h2>
+                📐 LCM Formula
+            </h2>
+
+            <div class="formula">
+                LCM(a,b) = (a × b) ÷ HCF(a,b)
+            </div>
+
+
+
+            <h2>
+                💡 Example
+            </h2>
+
+            <p>
+                Let's take the numbers 12 and 18.
+            </p>
+
+            <div class="formula">
+                HCF(12,18) = 6
+            </div>
+
+            <div class="formula">
+                LCM(12,18) = 36
+            </div>
+
+            <p>
+                Therefore, the HCF is
+                <strong>6</strong> and the LCM is
+                <strong>36</strong>.
+            </p>
+
+
+
+            <h2>
+                🎯 How to Use
+            </h2>
+
+            <p>
+                1. Enter your first number.
+            </p>
+
+            <p>
+                2. Enter your second number.
+            </p>
+
+            <p>
+                3. You can optionally enter a third number.
+            </p>
+
+            <p>
+                4. Click Calculate LCM & HCF.
+            </p>
+
+            <p>
+                5. Your HCF and LCM will appear instantly.
+            </p>
+
+
+
+            <h2>
+                📚 Where is LCM & HCF Used?
+            </h2>
+
+            <p>
+                LCM and HCF are commonly used in fractions,
+                ratios, number theory and many school-level
+                mathematics problems.
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RELATED TOOLS -->
+
+    <section class="related-tools">
+
+        <div class="related-tools-header">
+
+            <h2>
+                Related Tools
+            </h2>
+
+            <p>
+                Explore more useful calculation and maths tools.
+            </p>
+
+        </div>
+
+
+        <div class="related-tools-grid">
+
+
+            <a
+                href="pythagorean.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    📐
+                </div>
+
+                <div class="related-tool-content">
+
+                    <h3>
+                        Pythagorean Calculator
+                    </h3>
+
+                    <p>
+                        Calculate the missing side of a right triangle.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+
+            <a
+                href="ratio.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    ⚖️
+                </div>
+
+                <div class="related-tool-content">
+
+                    <h3>
+                        Ratio Calculator
+                    </h3>
+
+                    <p>
+                        Simplify and calculate ratios quickly.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+
+            <a
+                href="triangle.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    🔺
+                </div>
+
+                <div class="related-tool-content">
+
+                    <h3>
+                        Triangle Calculator
+                    </h3>
+
+                    <p>
+                        Calculate important triangle measurements.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+
+            <a
+                href="fraction.html"
+                class="related-tool-card"
+            >
+
+                <div class="related-tool-icon">
+                    ➗
+                </div>
+
+                <div class="related-tool-content">
+
+                    <h3>
+                        Fraction Calculator
+                    </h3>
+
+                    <p>
+                        Work with fractions and simplify results.
+                    </p>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    Advanced Student Tools 🚀
+                </h3>
+
+                <p>
+                    Simple and useful online tools for students.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Categories
+                </h4>
+
+                <a href="index.html#tools">
+                    Calculators
+                </a>
+
+                <a href="index.html#tools">
+                    Converters
+                </a>
+
+                <a href="index.html#tools">
+                    Maths Tools
+                </a>
+
+                <a href="index.html#tools">
+                    Student Tools
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Disclaimer
+                </h4>
+
+                <p>
+                    This website is for educational purposes only.
+                    We do not store any user data.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 Advanced Student Tools.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        function getHCF(a, b) {
+
+            a = Math.abs(a);
+            b = Math.abs(b);
+
+            while (b !== 0) {
+
+                const remainder = a % b;
+
+                a = b;
+                b = remainder;
+
+            }
+
+            return a;
+
+        }
+
+
+
+        function getLCM(a, b) {
+
+            return Math.abs(
+                (a * b) / getHCF(a, b)
+            );
+
+        }
+
+
+
+        function calculateLCMHCF() {
+
+            const number1 =
+                Number(
+                    document.getElementById(
+                        "number1"
+                    ).value
+                );
+
+
+            const number2 =
+                Number(
+                    document.getElementById(
+                        "number2"
+                    ).value
+                );
+
+
+            const number3Input =
+                document.getElementById(
+                    "number3"
+                ).value;
+
+
+            const result =
+                document.getElementById(
+                    "result"
+                );
+
+
+
+            /* VALIDATION */
+
+            if (
+                !Number.isInteger(number1) ||
+                !Number.isInteger(number2) ||
+                number1 <= 0 ||
+                number2 <= 0
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter two positive whole numbers.";
+
+                return;
+
+            }
+
+
+
+            let hcf;
+            let lcm;
+
+
+
+            /* TWO NUMBERS */
+
+            if (number3Input === "") {
+
+                hcf =
+                    getHCF(
+                        number1,
+                        number2
+                    );
+
+
+                lcm =
+                    getLCM(
+                        number1,
+                        number2
+                    );
+
+
+                result.innerHTML =
+                    `
+                    <strong>HCF = ${hcf}</strong>
+                    <br>
+                    <span>
+                        LCM = ${lcm}
+                    </span>
+                    `;
+
+                return;
+
+            }
+
+
+
+            /* THREE NUMBERS */
+
+            const number3 =
+                Number(number3Input);
+
+
+            if (
+                !Number.isInteger(number3) ||
+                number3 <= 0
+            ) {
+
+                result.innerHTML =
+                    "⚠️ Please enter a positive whole number for Number 3.";
+
+                return;
+
+            }
+
+
+            hcf =
+                getHCF(
+                    getHCF(
+                        number1,
+                        number2
+                    ),
+                    number3
+                );
+
+
+            lcm =
+                getLCM(
+                    getLCM(
+                        number1,
+                        number2
+                    ),
+                    number3
+                );
+
+
+            result.innerHTML =
+                `
+                <strong>HCF = ${hcf}</strong>
+                <br>
+                <span>
+                    LCM = ${lcm}
+                </span>
+                `;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
