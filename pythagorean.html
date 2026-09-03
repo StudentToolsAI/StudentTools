@@ -10,19 +10,13 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon.png"
-    >
-
     <title>
         Pythagorean Theorem Calculator - Advanced Student Tools
     </title>
 
     <meta
         name="description"
-        content="Free Pythagorean Theorem Calculator to calculate the missing side of a right triangle."
+        content="Free Pythagorean Theorem Calculator to find the missing side of a right triangle."
     >
 
     <meta
@@ -46,7 +40,7 @@
 <body>
 
 
-    <!-- NAVBAR -->
+    <!-- Navigation -->
 
     <nav class="navbar">
 
@@ -68,540 +62,398 @@
                 About
             </a>
 
+            <a href="index.html#faq">
+                FAQ
+            </a>
+
         </div>
 
     </nav>
 
 
 
-    <!-- CALCULATOR PAGE -->
+    <!-- Hero -->
 
-    <section class="calculator-page">
+    <header class="hero">
 
-        <div class="calculator-container">
+        <div class="hero-content">
 
-
-            <!-- ICON -->
-
-            <div class="calculator-icon">
+            <div class="tool-page-icon">
                 📐
             </div>
-
-
-            <!-- TITLE -->
 
             <h1>
                 Pythagorean Theorem Calculator
             </h1>
 
-
-            <p class="calculator-intro">
+            <p>
                 Calculate the missing side of a right triangle
                 using the Pythagorean theorem.
             </p>
 
+        </div>
 
-
-            <!-- CALCULATOR BOX -->
-
-            <div class="calculator-box">
-
-
-                <!-- CALCULATION TYPE -->
-
-                <label for="calculateType">
-                    What do you want to calculate?
-                </label>
-
-                <select id="calculateType"
-                    onchange="updateFields()">
-
-                    <option value="c">
-                        Hypotenuse (c)
-                    </option>
-
-                    <option value="a">
-                        Missing Side (a)
-                    </option>
-
-                    <option value="b">
-                        Missing Side (b)
-                    </option>
-
-                </select>
+    </header>
 
 
 
-                <!-- SIDE A -->
+    <!-- Calculator -->
 
-                <div id="sideAContainer">
+    <main class="container">
 
-                    <label for="sideA">
-                        Side a
-                    </label>
+        <section class="calculator-section">
 
-                    <input
-                        type="number"
-                        id="sideA"
-                        placeholder="Enter side a"
-                        min="0"
-                        step="any"
-                    >
-
-                </div>
+            <div class="calculator-card">
 
 
+                <h2>
+                    📐 Pythagorean Calculator
+                </h2>
 
-                <!-- SIDE B -->
 
-                <div id="sideBContainer">
-
-                    <label for="sideB">
-                        Side b
-                    </label>
-
-                    <input
-                        type="number"
-                        id="sideB"
-                        placeholder="Enter side b"
-                        min="0"
-                        step="any"
-                    >
-
-                </div>
+                <p>
+                    Enter the two known sides to calculate
+                    the missing side.
+                </p>
 
 
 
-                <!-- SIDE C -->
+                <!-- Side A -->
 
-                <div id="sideCContainer">
-
-                    <label for="sideC">
-                        Hypotenuse c
-                    </label>
-
-                    <input
-                        type="number"
-                        id="sideC"
-                        placeholder="Enter hypotenuse c"
-                        min="0"
-                        step="any"
-                        disabled
-                    >
-
-                </div>
+                <input
+                    type="number"
+                    id="sideA"
+                    placeholder="Enter Side A"
+                    min="0"
+                    step="any"
+                >
 
 
 
-                <!-- BUTTON -->
+                <!-- Side B -->
+
+                <input
+                    type="number"
+                    id="sideB"
+                    placeholder="Enter Side B"
+                    min="0"
+                    step="any"
+                >
+
+
+
+                <!-- Hypotenuse -->
+
+                <input
+                    type="number"
+                    id="sideC"
+                    placeholder="Enter Hypotenuse C (optional)"
+                    min="0"
+                    step="any"
+                >
+
+
+
+                <!-- Buttons -->
 
                 <button
-                    type="button"
-                    onclick="calculatePythagorean()"
+                    onclick="calculateHypotenuse()"
                 >
-                    Calculate
+                    Calculate Hypotenuse
+                </button>
+
+
+                <button
+                    onclick="calculateSideA()"
+                >
+                    Calculate Side A
+                </button>
+
+
+                <button
+                    onclick="calculateSideB()"
+                >
+                    Calculate Side B
                 </button>
 
 
 
-                <!-- RESULT -->
+                <!-- Result -->
 
-                <div
-                    id="resultBox"
-                    class="calculator-result"
-                    style="display: none;"
-                >
+                <p
+                    id="result"
+                    class="result"
+                ></p>
 
-                    <strong>
-                        Result
-                    </strong>
 
-                    <div id="result">
-                    </div>
+            </div>
 
-                    <p id="working">
-                    </p>
+        </section>
 
+
+        <!-- Information -->
+
+        <section class="calculator-section">
+
+            <div class="calculator-card">
+
+                <h2>
+                    📚 Pythagorean Theorem
+                </h2>
+
+                <p>
+                    The Pythagorean theorem is used to find
+                    the missing side of a right-angled triangle.
+                </p>
+
+
+                <div class="formula">
+                    a² + b² = c²
                 </div>
 
 
+                <h3>
+                    What do the letters mean?
+                </h3>
+
+                <p>
+                    <strong>a</strong> and <strong>b</strong>
+                    are the two shorter sides of the triangle.
+                </p>
+
+                <p>
+                    <strong>c</strong> is the hypotenuse,
+                    which is always the longest side.
+                </p>
+
+
+                <h3>
+                    Example
+                </h3>
+
+                <p>
+                    If Side A = 3 and Side B = 4:
+                </p>
+
+                <div class="formula">
+                    c = √(3² + 4²)
+                </div>
+
+                <div class="formula">
+                    c = √25
+                </div>
+
+                <div class="formula">
+                    c = 5
+                </div>
+
+                <p>
+                    Therefore, the hypotenuse is
+                    <strong>5 units</strong>.
+                </p>
+
+
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-
-
-    <!-- INFORMATION -->
-
-    <section class="calculator-info">
-
-        <div class="info-container">
-
-
-            <h2>
-                📐 Pythagorean Theorem Formula
-            </h2>
-
-            <div class="formula">
-                a² + b² = c²
-            </div>
-
-            <p>
-                The Pythagorean theorem is used to find the
-                missing side of a right-angled triangle.
-                Here, <strong>a</strong> and <strong>b</strong>
-                are the two shorter sides and <strong>c</strong>
-                is the hypotenuse.
-            </p>
+    </main>
 
 
 
-            <h2>
-                🧮 What is the Pythagorean Theorem?
-            </h2>
-
-            <p>
-                The Pythagorean theorem states that the square
-                of the hypotenuse is equal to the sum of the
-                squares of the other two sides.
-            </p>
-
-            <div class="formula">
-                c = √(a² + b²)
-            </div>
-
-
-
-            <h2>
-                💡 Example
-            </h2>
-
-            <p>
-                Suppose a right triangle has Side a = 3
-                and Side b = 4.
-            </p>
-
-            <div class="formula">
-                c = √(3² + 4²)
-            </div>
-
-            <div class="formula">
-                c = √(9 + 16)
-            </div>
-
-            <div class="formula">
-                c = √25 = 5
-            </div>
-
-            <p>
-                Therefore, the hypotenuse is
-                <strong>5 units</strong>.
-            </p>
-
-
-
-            <h2>
-                🚀 How to Use
-            </h2>
-
-            <p>
-                1. Select the side you want to calculate.
-            </p>
-
-            <p>
-                2. Enter the two known side lengths.
-            </p>
-
-            <p>
-                3. Click the Calculate button.
-            </p>
-
-            <p>
-                4. Your missing side will appear instantly.
-            </p>
-
-
-
-            <h2>
-                🎯 Quick Tips
-            </h2>
-
-            <p>
-                • The hypotenuse is always the longest side.
-            </p>
-
-            <p>
-                • This theorem works only for right triangles.
-            </p>
-
-            <p>
-                • Enter positive numbers only.
-            </p>
-
-            <p>
-                • Your answer will use the same unit as your input.
-            </p>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- FOOTER -->
+    <!-- Footer -->
 
     <footer>
 
-        <p>
-            © 2026 Advanced Student Tools. All rights reserved.
-        </p>
+        <div class="footer-content">
+
+            <h3>
+                Advanced Student Tools 🚀
+            </h3>
+
+            <p>
+                Simple and useful online tools for students.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="index.html#tools">
+                    Tools
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#faq">
+                    FAQ
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Advanced Student Tools.
+                All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
 
 
 
-    <!-- JAVASCRIPT -->
+    <!-- JavaScript -->
 
     <script>
 
+        function getNumber(id) {
 
-        function updateFields() {
+            return parseFloat(
+                document.getElementById(id).value
+            );
 
-            const type =
-                document.getElementById("calculateType").value;
-
-            const sideA =
-                document.getElementById("sideA");
-
-            const sideB =
-                document.getElementById("sideB");
-
-            const sideC =
-                document.getElementById("sideC");
+        }
 
 
-            sideA.disabled = false;
-            sideB.disabled = false;
-            sideC.disabled = false;
+        function showResult(message) {
 
-
-            if (type === "c") {
-
-                sideC.disabled = true;
-                sideC.value = "";
-
-            }
-
-
-            if (type === "a") {
-
-                sideA.disabled = true;
-                sideA.value = "";
-
-            }
-
-
-            if (type === "b") {
-
-                sideB.disabled = true;
-                sideB.value = "";
-
-            }
+            document.getElementById("result").innerHTML =
+                message;
 
         }
 
 
 
-        function calculatePythagorean() {
+        function calculateHypotenuse() {
 
-            const type =
-                document.getElementById("calculateType").value;
+            const a = getNumber("sideA");
+            const b = getNumber("sideB");
 
-            const sideA =
-                parseFloat(
-                    document.getElementById("sideA").value
+            if (
+                isNaN(a) ||
+                isNaN(b) ||
+                a <= 0 ||
+                b <= 0
+            ) {
+
+                showResult(
+                    "Please enter positive values for Side A and Side B."
                 );
 
-            const sideB =
-                parseFloat(
-                    document.getElementById("sideB").value
-                );
-
-            const sideC =
-                parseFloat(
-                    document.getElementById("sideC").value
-                );
-
-
-            const resultBox =
-                document.getElementById("resultBox");
-
-            const result =
-                document.getElementById("result");
-
-            const working =
-                document.getElementById("working");
-
-
-            resultBox.style.display = "none";
-
-
-
-            /* FIND HYPOTENUSE */
-
-            if (type === "c") {
-
-                if (
-                    isNaN(sideA) ||
-                    isNaN(sideB) ||
-                    sideA <= 0 ||
-                    sideB <= 0
-                ) {
-
-                    alert(
-                        "Please enter positive values for Side a and Side b."
-                    );
-
-                    return;
-
-                }
-
-
-                const c =
-                    Math.sqrt(
-                        (sideA * sideA) +
-                        (sideB * sideB)
-                    );
-
-
-                result.innerHTML =
-                    `<strong>${formatNumber(c)}</strong>`;
-
-
-                working.innerText =
-                    `c = √(${sideA}² + ${sideB}²) = ${formatNumber(c)}`;
+                return;
 
             }
 
 
-
-            /* FIND SIDE A */
-
-            if (type === "a") {
-
-                if (
-                    isNaN(sideB) ||
-                    isNaN(sideC) ||
-                    sideB <= 0 ||
-                    sideC <= 0
-                ) {
-
-                    alert(
-                        "Please enter positive values for Side b and the Hypotenuse."
-                    );
-
-                    return;
-
-                }
+            const c =
+                Math.sqrt(
+                    (a * a) + (b * b)
+                );
 
 
-                if (sideC <= sideB) {
-
-                    alert(
-                        "The hypotenuse must be greater than Side b."
-                    );
-
-                    return;
-
-                }
-
-
-                const a =
-                    Math.sqrt(
-                        (sideC * sideC) -
-                        (sideB * sideB)
-                    );
-
-
-                result.innerHTML =
-                    `<strong>${formatNumber(a)}</strong>`;
-
-
-                working.innerText =
-                    `a = √(${sideC}² - ${sideB}²) = ${formatNumber(a)}`;
-
-            }
-
-
-
-            /* FIND SIDE B */
-
-            if (type === "b") {
-
-                if (
-                    isNaN(sideA) ||
-                    isNaN(sideC) ||
-                    sideA <= 0 ||
-                    sideC <= 0
-                ) {
-
-                    alert(
-                        "Please enter positive values for Side a and the Hypotenuse."
-                    );
-
-                    return;
-
-                }
-
-
-                if (sideC <= sideA) {
-
-                    alert(
-                        "The hypotenuse must be greater than Side a."
-                    );
-
-                    return;
-
-                }
-
-
-                const b =
-                    Math.sqrt(
-                        (sideC * sideC) -
-                        (sideA * sideA)
-                    );
-
-
-                result.innerHTML =
-                    `<strong>${formatNumber(b)}</strong>`;
-
-
-                working.innerText =
-                    `b = √(${sideC}² - ${sideA}²) = ${formatNumber(b)}`;
-
-            }
-
-
-            resultBox.style.display = "block";
+            showResult(
+                "Hypotenuse (C) = <strong>" +
+                c.toFixed(2) +
+                "</strong>"
+            );
 
         }
 
 
 
-        function formatNumber(number) {
+        function calculateSideA() {
 
-            return Number(
-                number.toFixed(6)
-            ).toString();
+            const b = getNumber("sideB");
+            const c = getNumber("sideC");
+
+            if (
+                isNaN(b) ||
+                isNaN(c) ||
+                b <= 0 ||
+                c <= 0
+            ) {
+
+                showResult(
+                    "Please enter positive values for Side B and Hypotenuse C."
+                );
+
+                return;
+
+            }
+
+
+            if (c <= b) {
+
+                showResult(
+                    "Hypotenuse C must be greater than Side B."
+                );
+
+                return;
+
+            }
+
+
+            const a =
+                Math.sqrt(
+                    (c * c) - (b * b)
+                );
+
+
+            showResult(
+                "Side A = <strong>" +
+                a.toFixed(2) +
+                "</strong>"
+            );
 
         }
 
 
-        updateFields();
 
+        function calculateSideB() {
+
+            const a = getNumber("sideA");
+            const c = getNumber("sideC");
+
+            if (
+                isNaN(a) ||
+                isNaN(c) ||
+                a <= 0 ||
+                c <= 0
+            ) {
+
+                showResult(
+                    "Please enter positive values for Side A and Hypotenuse C."
+                );
+
+                return;
+
+            }
+
+
+            if (c <= a) {
+
+                showResult(
+                    "Hypotenuse C must be greater than Side A."
+                );
+
+                return;
+
+            }
+
+
+            const b =
+                Math.sqrt(
+                    (c * c) - (a * a)
+                );
+
+
+            showResult(
+                "Side B = <strong>" +
+                b.toFixed(2) +
+                "</strong>"
+            );
+
+        }
 
     </script>
 
