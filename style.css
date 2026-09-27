@@ -7490,3 +7490,77 @@ iframe {
         font-size: 11px !important;
     }
 }
+/* =========================================================
+   POPULAR TOOLS — MAKE ALL CARDS EXACTLY SAME SIZE
+   ========================================================= */
+
+.popular-grid > a,
+.popular-grid .popular-card {
+
+    box-sizing: border-box !important;
+
+    width: 100% !important;
+
+    height: 145px !important;
+    min-height: 145px !important;
+    max-height: 145px !important;
+
+    padding: 16px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    text-decoration: none !important;
+
+    overflow: hidden !important;
+}
+
+
+/* Keep everything inside the cards consistent */
+
+.popular-grid > a h2,
+.popular-grid > a h3,
+.popular-grid .popular-card h2,
+.popular-grid .popular-card h3 {
+
+    margin-top: 0 !important;
+}
+
+
+/* Remove Scientific Calculator's unwanted underline */
+
+.popular-grid > a,
+.popular-grid > a *,
+.popular-grid .popular-card,
+.popular-grid .popular-card * {
+
+    text-decoration: none !important;
+}
+
+
+/* Same icon size */
+
+.popular-grid > a .tool-icon,
+.popular-grid > a .popular-icon,
+.popular-grid .popular-card .tool-icon,
+.popular-grid .popular-card .popular-icon {
+
+    flex-shrink: 0 !important;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .popular-grid > a,
+    .popular-grid .popular-card {
+
+        height: 120px !important;
+        min-height: 120px !important;
+        max-height: 120px !important;
+
+        padding: 12px 9px !important;
+    }
+
+}
